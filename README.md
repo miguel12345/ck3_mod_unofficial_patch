@@ -1,13 +1,23 @@
-It's very rare to see ambitious and greedy AI vassals starting a scheme to claim their liege's title. Not because they don't have the right personality, but simply because they haven't unlocked the meritocracy perk and are stuck on their own lifestyle focus.
+# Crusader Kings 3 Unofficial patch
 
-This mod fixes that: It will ensure that AI vassal characters with the right personality (greedy, ambitious, etc) will focus on a stewardship lifestyle and prioritize picking the meritocracy perk. Once the perk is gained, they will return to their "normal" lifestyle focus.
+This repo contains the code for the mod Crusader Kings 3 Unofficial Patch (https://steamcommunity.com/sharedfiles/filedetails/?id=2871648329). 
 
-This makes the game more realistic, and interesting (you will see more internal disputes over claims)
+![](mod/thumbnail.png)
 
-## Modding info
+The mod contents are inside the `mod` folder.
 
-This mod changes the following scripted_triggers:
-* can_start_new_lifestyle_tree_trigger (to ensure the AI is capable of switching lifestyle focuses properly)
+There is a `master` branch containing the most up-to-date code from the mod and a `vanilla_1_8_1` branch with the vanilla files that are overwritten by the mod as of the 1.8.1 (Robe) release.
 
-This mod changes the following perks:
-* meritocracy_perk (to increase the auto selection weight which is used by the AI)
+Having a separate branch with the vanilla files it makes it easier to do a three-way merge when a new version of the game is released.
+
+> Please ensure you are using UNIX (LF) line endings to avoid having to deal with tons of annoying whitespace changes in git. 
+
+## What to do when the game is updated
+
+When Paradox releases a new version of Crusader Kings 3, the following steps should be taken:
+1. Checkout the latest vanilla branch (`vanilla_1_8_1` as of this writing)
+2. Run `python tools/copy_overwritten_files_from_vanilla_game.py`to overwrite all relevant files
+3. Run `sh tools/crlf2lf.sh` to ensure all files have UNIX (LF) line endings
+4. Create a new branch named `vanilla_<version>` (i.e `vanilla_1_9_0`) and commit/push the changes
+5. Go back to master and merge from the latest vanilla branch
+

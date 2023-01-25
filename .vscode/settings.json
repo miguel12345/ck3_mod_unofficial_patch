@@ -1,3 +1,4 @@
 {
-    "files.encoding": "utf8bom"
+    "files.encoding": "utf8bom",
+	"files.eol": "\n"
 }

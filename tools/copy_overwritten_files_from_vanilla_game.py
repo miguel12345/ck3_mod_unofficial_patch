@@ -1,8 +1,8 @@
-
+#This script copies all vanilla files that are overwritten by the mod to the output folder
 
 mod_path = "C://Program Files (x86)//Steam//steamapps//workshop//content//1158310//2871648329"
 vanilla_game_path = "C://Program Files (x86)//Steam//steamapps//common//Crusader Kings III//game"
-output_path = "C://projects//pessoal//ck3_mod_unofficial_patch//mod"
+output_path = "..//mod"
 
 import os
 import shutil
