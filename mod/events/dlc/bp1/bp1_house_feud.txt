@@ -400,7 +400,15 @@ bp1_house_feud.0003 = {
 		play_music_cue = "mx_cue_negative"
 		random_close_family_member = {
 			only_if_dead = yes
+
+			debug_log = "Fixpack: bp1_house_feud.0003, house_feud_victim_temp undef"
+			debug_log_scopes = yes
+
 			limit = {	
+				#Fixpack: Add the 2 lines below to fix Error: Undefined event target 'house_feud_victim_temp'
+				house = root.house
+				save_temporary_scope_as = house_feud_victim_temp
+				#/Fixpack
 				exists = killer 
 				killer = {
 					trigger_if = {
@@ -2953,6 +2961,12 @@ bp1_house_feud.0300 = {
 		scope:story.var:house_feud_house.house_head = { save_scope_as = house_feud_rival }
 		scope:story.var:house_feud_attacker = { save_scope_as = house_feud_attacker }
 		scope:story.var:house_feud_victim = { save_scope_as = house_feud_victim }
+
+		# Fixpack: Disabled for current release
+		#if = {
+		#	limit = { NOT = { exists = var:house_feud_attacker } }
+		#	add_trait = heresiarch
+		#}
 	}
 
 	option = {
@@ -4307,7 +4321,7 @@ bp1_house_feud.7003 = {
 ############################
 ############################
 
-# bp1_house_feud.0810 - fued inherited by new house head
+# bp1_house_feud.0810 - feud inherited by new house head
 # bp1_house_feud.0830 - wiped out target house
 # bp1_house_feud.0840 - make rivalry with target house head if not existing
 # bp1_house_feud.9000 - save rivals on death and fire inheritance on action
@@ -4360,10 +4374,17 @@ bp1_house_feud.0810 = {
 			}
 		}
 		else = {
+			if = {
+				limit = {
+					NOT = { has_relation_rival = scope:house_feud_rival }
+					#Fixpack: Teen chars age requierment are not in line with what we can find in here...
+					#can_set_relation_rival_even_if_teen_trigger = { CHARACTER = scope:house_feud_rival }
+				}
 			set_relation_rival = {
 				target = scope:house_feud_rival
 				reason = rival_house_feud_old_rivalry
 			}
+		}
 		}
 		house_feud_send_continues_message_effect = yes
 		house_feud_forgiving_stress_effect = yes
@@ -4532,6 +4553,8 @@ bp1_house_feud.0840 = {
 	trigger = {
 		#DLC check
 		has_bp1_dlc_trigger = yes
+		#Fixpack: Protect this event from firing if we are a child
+		NOT = { has_character_flag = house_feud_too_young_inheritor }
 	}
 
 	immediate = {
@@ -4546,9 +4569,15 @@ bp1_house_feud.0840 = {
 		name = bp1_house_feud.0840.a
 		if = {
 			limit = {
-				NOT = { has_relation_rival = scope:house_feud_rival }
-				can_set_relation_rival_trigger = { CHARACTER = scope:house_feud_rival }
+				NOT = { has_relation_nemesis = scope:house_feud_rival }
+				can_set_relation_nemesis_trigger = { CHARACTER = scope:house_feud_rival }
 			}
+			set_relation_nemesis = {
+				target = scope:house_feud_rival
+				reason = rival_house_feud_feud_lives_on
+			}
+		}
+		else = {
 			set_relation_rival = {
 				target = scope:house_feud_rival
 				reason = rival_house_feud_feud_lives_on
@@ -4763,7 +4792,27 @@ bp1_house_feud.9004 = {
 		any_owned_story = { story_type = story_cycle_house_feud }
 	}
 
-	immediate = { trigger_event = bp1_house_feud.0810 }
+	immediate = {
+		random_owned_story = {
+			limit = { story_type = story_cycle_house_feud }
+			# Save Feud for reference
+			save_scope_as = house_feud_story
+			save_scope_as = story # Lame, but mandatory for all loc files :(
+			if = {
+				limit = { NOT = { exists = scope:house_feud_rival } }
+				scope:house_feud_story = {
+					var:house_feud_house.house_head = { save_scope_as = house_feud_rival }
+				}
+			}
+			if = {
+				limit = { NOT = { exists = scope:old_house_head } }
+				root = {
+					var:house_feud_old_house_head = { save_scope_as = old_house_head }
+				}
+			}
+		}
+		trigger_event = bp1_house_feud.0810
+	}
 }
 
 # AI murder scheme joiner
@@ -4803,7 +4852,7 @@ bp1_house_feud.9500 = {
 					}
 					root = {
 						NOT = {
-							is_scheming_against = { target = scope:murder_scheme_temp }
+							is_scheming_against = { target = scope:murder_scheme_temp.scheme_target }
 						}
 						is_valid_as_agent_in_scheme = scope:murder_scheme_temp
 						NOT = {
@@ -4838,10 +4887,15 @@ bp1_house_feud.9500 = {
 				}
 			}
 		}
+		if = {
+			limit = { exists = scope:murder_scheme }
+			root = {
 		force_add_to_scheme = {
 			scheme = scope:murder_scheme
 			years = 5
 		}
+	}
+}
 	}
 }
 
@@ -4968,16 +5022,24 @@ bp1_house_feud.9502 = {
 							}
 						}
 						NOT = {
-							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:seduce_spouse_temp }				
+							# Fixpack: Original line: I think there is an issue here, and this is causing this error:
+							# Undefined event target 'seduce_spouse' when starting the scheme,
+							# This is not checking the valid target, should check with root
+							#has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:seduce_spouse_temp }
+
+							has_any_bad_relationship_with_character_trigger = { CHARACTER = root }
 						}		
 					}
 					save_scope_as = seduce_spouse
 				}
 			}
 		}
+		#if = {
+		#	limit = { exists = scope:seduce_spouse }
 		start_scheme = {
 			type = seduce
 			target = scope:seduce_spouse
 		}
+		#}
 	}
 }

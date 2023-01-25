@@ -3,6 +3,11 @@
 # scope:spouse = Minor partner of the marriage
 on_marriage = { # Will not fire from historical marriages
 	effect = {
+
+		#Fixpack: As scopes can be mixed in the if below, we will re-save the 2 scopes
+		save_scope_as = major_spouse
+		scope:spouse = { save_scope_as = minor_spouse }
+
 		add_achievement_flag_effect = { FLAG = achievement_until_death_do_us_part_flag }
 		marriage_soulmate_exclusivity_confrontation_effect = { SPOUSE_1 = root SPOUSE_2 = scope:spouse }
 		#If the mother isn't the "major" party in the marriage we need to trigger 0001 for her
@@ -31,31 +36,33 @@ on_marriage = { # Will not fire from historical marriages
 					}
 				}
 			}
-			save_scope_as = spouse_scope
+			# Fixpack: marriage_effect.0001 is from the Mother POV
+			# We need to redirect the scopes, if not the trigger will fail.
+			# But, as we will reverse the trigger, we need to keep the original scopes to be used after
 			scope:spouse = {
-				scope:spouse_scope = {
-					save_scope_as = spouse
-				}
+				#Overwrite the current spouse scope to reverse root/spouse
+				prev = { save_scope_as = spouse }
+				#/
 				trigger_event = marriage_effect.0001
 			}
 		}
 
 		# Update opinion effects for the new spouse as well as all other spouses/concubines.
-		scope:spouse = {
+		scope:minor_spouse = {
 			update_active_consort_opinion_effect = { PARTNER = root }
 		}
 		every_consort = {
-			limit = { NOT = { this = scope:spouse } }
+			limit = { NOT = { this = scope:minor_spouse } }
 			update_active_consort_opinion_effect = { PARTNER = root }
 		}
 		
 		create_character_memory = {
 			type = married
 			participants = {
-				spouse = scope:spouse
+				spouse = scope:minor_spouse
 			}
 		}
-		scope:spouse = {
+		scope:minor_spouse = {
 			create_character_memory = {
 				type = married
 				participants = {
@@ -95,6 +102,25 @@ on_divorce = { # Will not fire from historical divorces
 			limit = { NOT = { this = scope:spouse } }
 			update_active_consort_opinion_effect = { PARTNER = root }
 		}
+
+		# Fixpack: Add a new divorce memory
+
+		create_character_memory = {
+			type = divorced
+			participants = {
+				spouse = scope:spouse
+			}
+		}
+		scope:spouse = {
+			create_character_memory = {
+				type = divorced
+				participants = {
+					spouse = root
+				}
+			}
+		}
+
+		#/Fixpack
 	}
 }
 
@@ -160,9 +186,7 @@ on_concubinage = {
 					}
 				}
 			}
-			root = {
-				save_scope_as = consort
-			}
+			root = { save_scope_as = consort }
 			scope:concubine = {
 				trigger_event = marriage_effect.0011
 			}

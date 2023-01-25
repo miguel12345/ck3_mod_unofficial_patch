@@ -354,7 +354,7 @@ feast_default.1003 = {
 	desc = feast_default.1003.desc
 	left_portrait = {
 		character = scope:other_guest
-		animation = scadenfreude
+		animation = schadenfreude
 	}
 	theme = feast_activity
 	
@@ -9653,20 +9653,23 @@ feast_default.6251 = {
 	option = {
 		name = feast_default.6251.c
 		trigger = {
-			OR = {
+			#Fixpack: Rewrite this trigger to be less confusing
 				matching_gender_and_sexuality_trigger = { CHARACTER_1 = root CHARACTER_2 = scope:guest }
-				AND = {
-					scope:guest = {	is_attracted_to_gender_of = root }
-					root = { has_perk = unshackled_lust_perk }
+			NOR = {
+				root = { has_trait = celibate }
+				scope:guest = { has_trait = celibate }
+			}
+			scope:guest = {
+				might_cheat_on_every_partner_trigger = yes
+				accepts_incest_with_trigger = { CHARACTER = root }
 				}
-				scope:guest = { might_cheat_on_every_partner_trigger = yes }
-				root = {
 					OR = {
 						is_ai = no
+				AND = {
+					accepts_incest_with_trigger = { CHARACTER = scope:guest }
 						might_cheat_on_every_partner_trigger = yes
 					}
 				}
-			}
 		}
 		reverse_add_opinion = {
 			modifier = friendliness_opinion

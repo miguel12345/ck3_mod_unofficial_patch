@@ -545,6 +545,10 @@ quarterly_playable_pulse = {
 
 		# EP1 maintenance pulses
 		inspiration_maintenance_quarterly_pulse
+
+		#Fixpack: Add missing sibling pulse
+		sibling_quarterly_pulse
+		#/Fixpack
 	}
 }
 

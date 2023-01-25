@@ -1,0 +1,669 @@
+﻿fixpack_can_be_knight_now_trigger = {
+	can_be_knight_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
+	is_imprisoned = no
+	is_alive = yes
+	is_adult = yes
+	is_ai = yes # Players can't be knight
+}
+
+fixpack_can_be_trained_as_knight_now_trigger = {
+	fixpack_can_be_knight_now_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
+	is_in_an_activity = no
+	is_in_army = no
+	has_contagious_deadly_disease_trigger = no
+	NOT = { has_trait = incapable }
+	custom_description = {
+		text = NOT_ALREADY_PLANNING_ACTIVITY
+		NOT = { has_character_flag = planning_an_activity }
+	}
+}
+
+#ONLY USE THIS IN A ALL/EVERY_KNIGHT !
+fixpack_can_be_knight_now_light_trigger = {
+	is_imprisoned = no
+	is_alive = yes
+	is_adult = yes
+	is_ai = yes # Players can't be knight
+}
+
+#ONLY USE THIS IN A ALL/EVERY_KNIGHT !
+fixpack_can_be_trained_as_knight_now_light_trigger = {
+	fixpack_can_be_knight_now_light_trigger = yes
+	is_in_an_activity = no
+	is_in_army = no
+	has_contagious_deadly_disease_trigger = no
+	NOT = { has_trait = incapable }
+	custom_description = {
+		text = NOT_ALREADY_PLANNING_ACTIVITY
+		NOT = { has_character_flag = planning_an_activity }
+	}
+}
+
+fixpack_teacher_has_trait_that_student_does_not_trigger = {
+	OR = {
+		AND = {
+			$TEACHER$ = { has_trait = logistician }
+			$STUDENT$ = { NOT = { has_trait = logistician } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = military_engineer }
+			$STUDENT$ = { NOT = { has_trait = military_engineer } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = aggressive_attacker }
+			$STUDENT$ = { NOT = { has_trait = aggressive_attacker } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = unyielding_defender }
+			$STUDENT$ = { NOT = { has_trait = unyielding_defender } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = forder }
+			$STUDENT$ = { NOT = { has_trait = forder } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = flexible_leader }
+			$STUDENT$ = { NOT = { has_trait = flexible_leader } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = desert_warrior }
+			$STUDENT$ = { NOT = { has_trait = desert_warrior } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = jungle_stalker }
+			$STUDENT$ = { NOT = { has_trait = jungle_stalker } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = winter_soldier }
+			$STUDENT$ = { NOT = { has_trait = winter_soldier } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = reaver }
+			$STUDENT$ = { NOT = { has_trait = reaver } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = reckless }
+			$STUDENT$ = { NOT = { has_trait = reckless } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = holy_warrior }
+			$STUDENT$ = { NOT = { has_trait = holy_warrior } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = open_terrain_expert }
+			$STUDENT$ = { NOT = { has_trait = open_terrain_expert } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = rough_terrain_expert }
+			$STUDENT$ = { NOT = { has_trait = rough_terrain_expert } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = forest_fighter }
+			$STUDENT$ = { NOT = { has_trait = forest_fighter } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = cautious_leader }
+			$STUDENT$ = { NOT = { has_trait = cautious_leader } }
+		}
+		AND = {
+			$TEACHER$ = { has_trait = organizer }
+			$STUDENT$ = { NOT = { has_trait = organizer } }
+		}
+	}
+}
+
+fixpack_is_ruler_struggle_character = {
+	OR = {
+		highest_held_title_tier >= tier_county
+		is_important_or_vip_struggle_character = yes
+	}
+}
+
+# Is a very light copy of barony_is_valid_for_holy_order_lease_cancellation_trigger
+# Don't know why the original was such complicated for nothing...
+fixpack_barony_is_valid_for_holy_order_lease_cancellation_trigger = {
+	is_under_holy_order_lease = yes
+	has_revokable_lease = yes
+	lessee = {
+		# Fixpack: Taken from revoke_leased_title_interaction, try my best to "respect" the given revoke design
+		is_busy_in_events_localised = yes # Note: counter-intuitive it's a not inside
+		NOR = {
+			has_strong_hook = prev.holder
+			has_strong_hook = prev.holder.liege
+			has_strong_hook = prev.holder.top_liege
+		}
+	}
+}
+
+fixpack_is_inbred_check = {
+	NOT = { $CURRENT$ = $TARGET$ } #Cannot be an event target for yourself
+
+	OR = {
+		$CURRENT$ = {
+			OR = {
+				has_trait = inbred
+
+				#[parents, children, siblings, grandparents, grandchildren, cousins, uncles, aunts, nephews, nieces]
+				is_close_or_extended_family_of = $TARGET$
+
+				is_great_grandchild_of = $TARGET$
+				is_great_grandparent_of = $TARGET$
+
+				#Fixpack: all that should be checked by is_close_or_extended_family_of
+				#is_parent_of = $TARGET$
+				#is_child_of = $TARGET$
+				#is_sibling_of = $TARGET$
+				#is_grandparent_of = $TARGET$
+				#is_grandchild_of = $TARGET$
+				#is_cousin_of = $TARGET$
+				#is_uncle_or_aunt_of = $TARGET$
+				#is_nibling_of = $TARGET$
+			}
+		}
+		$TARGET$ = {
+			OR = {
+				has_trait = inbred
+
+				is_close_or_extended_family_of = $CURRENT$
+				is_great_grandchild_of = $CURRENT$
+				is_great_grandparent_of = $CURRENT$
+			}
+		}
+	}
+}
+
+fixpack_backup = {
+	OR = {
+		has_trait = zealous
+		#has_trait = pilgrim
+		has_trait = devoted
+		#has_trait = sayyid
+		has_trait = saoshyant
+		has_trait = savior
+		#has_trait = divine_blood
+		#has_trait = blood_of_prophet
+		#has_trait = faith_warrior
+		has_trait = saint
+
+		has_trait = humble
+		has_trait = paragon
+		has_trait = order_member
+
+
+		is_clergy = yes
+		# Included ?
+		#has_trait = saoshyant_descendant
+
+		#has_trait = crusader_king
+		#has_trait = holy_warrior
+	}
+				trigger_if = {
+				limit = {
+					is_male = yes
+					$TARGET$ = { is_male = yes }
+					faith = {
+						OR = {
+							has_doctrine_parameter = homosexuality_shunned
+							has_doctrine_parameter = homosexuality_illegal
+						}
+					}
+				}
+				always = no
+			}
+			trigger_if = {
+				limit = {
+					is_female = yes
+					$TARGET$ = { is_female = yes }
+					faith = {
+						OR = {
+							has_doctrine_parameter = homosexuality_shunned
+							has_doctrine_parameter = homosexuality_illegal
+						}
+					}
+				}
+				always = no
+			}
+
+		# Ned-stark wanabee check
+		trigger_if = {
+			limit = {
+				OR = {
+					has_trait = just
+					has_trait = loyal
+				}
+			}
+			might_cheat_on_every_partner_trigger = no
+		}
+
+		might_cheat_on_every_partner_trigger = no
+
+		trigger_if = {
+			limit = { NOT = { has_trait = blind } }
+			$TARGET$ = {
+				NOT = {
+					has_trait = disfigured
+				}
+			}
+		}
+}
+
+fixpack_could_cheat_basics = {
+	NOT = { $SEDUCER$ = $TARGET$ } #Cannot be an event target for yourself
+
+	$SEDUCER$ = {
+
+		save_temporary_scope_as = current_char
+		$TARGET$ = { save_temporary_scope_as = target_char }
+		is_adult = yes
+		custom_tooltip = {
+			text = fixpack_compatible_personality_me
+			trigger_if = {
+				limit = { has_personality_malicious_trigger = yes }
+				$TARGET$ = { has_personality_benevolent_trigger = no }
+			}
+			trigger_if = {
+				limit = { has_personality_benevolent_trigger = yes }
+				$TARGET$ = { has_personality_malicious_trigger = no }
+			}
+			# If the seducer is a submissive char, and the target is a dominant one, they will probably laugh at this
+			trigger_if = {
+				limit = { has_personality_submissive_trigger = yes }
+				$TARGET$ = { has_personality_dominant_trigger = no }
+			}
+		}
+
+		NOT = { has_trait = celibate }
+		is_attracted_to_gender_of = $TARGET$
+
+		# If very religious, check what our faith says about adulterer
+		trigger_if = {
+			limit = { fixpack_has_strong_religious_conviction_trigger = yes }
+			custom_tooltip = {
+				text = fixpack_faith_hostile_or_evil_first_not
+				NOT = {
+					faith = {
+						faith_hostility_level = {
+							target = $TARGET$.faith
+							value >= faith_hostile_level
+						}
+					}
+				}
+			}
+			$TARGET$ = { NOT = { has_trait = excommunicated } }
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_is_sinner_for_my_faith_not
+					has_any_shunned_or_criminal_trait_in_faith_trigger = { CHARACTER = $TARGET$ FAITH = $SEDUCER$.FAITH }
+				}
+			}
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_is_incestuous_for_my_faith_not
+				 	relation_with_character_is_incestuous_in_my_faith_trigger = { CHARACTER = $TARGET$ }
+				}
+			}
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_is_sodomite_for_my_faith_not
+					relation_with_character_is_sodomy_trigger = { CHARACTER = $TARGET$ }
+				}
+			}
+			custom_tooltip = {
+				text = fixpack_is_accepted_for_my_faith
+				would_be_sinful_adulterer_trigger = no
+			}
+
+			# Do we know a secret about this person that is forbiden by religion (that we do not have too)
+
+			# Witch
+			trigger_if = {
+				limit = {
+					NOR = {
+						any_secret = { secret_type = secret_witch }
+						has_trait = witch
+					}
+					$TARGET$ = {
+						any_secret = {
+							secret_type = secret_witch
+							is_known_by = $SEDUCER$
+						}
+					}
+				}
+				custom_tooltip = {
+					text = fixpack_faith_hostile_secret_witch
+					NOT = { trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = witch FAITH = $SEDUCER$.FAITH GENDER_CHARACTER = $TARGET$ } }
+				}
+			}
+
+			# Cannibal
+			trigger_if = {
+				limit = {
+					NOR = {
+						any_secret = { secret_type = secret_cannibal }
+						has_trait = cannibal
+					}
+					$TARGET$ = {
+						any_secret = {
+							secret_type = secret_cannibal
+							is_known_by = $SEDUCER$
+						}
+					}
+				}
+				custom_tooltip = {
+					text = fixpack_faith_hostile_secret_cannibal
+					NOT = { trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = cannibal FAITH = $SEDUCER$.FAITH GENDER_CHARACTER = $TARGET$ } }
+				}
+			}
+
+			# Sodomite
+			trigger_if = {
+				limit = {
+					NOR = {
+						any_secret = { secret_type = secret_homosexual }
+						has_trait = sodomite
+					}
+					$TARGET$ = {
+						any_secret = {
+							secret_type = secret_homosexual
+							is_known_by = $SEDUCER$
+						}
+					}
+				}
+				custom_tooltip = {
+					text = fixpack_faith_hostile_secret_homosexual
+					NOT = { trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = sodomite FAITH = $SEDUCER$.FAITH GENDER_CHARACTER = $TARGET$ } }
+				}
+			}
+
+			# Deviant
+			trigger_if = {
+				limit = {
+					NOR = {
+						any_secret = { secret_type = secret_deviant }
+						has_trait = deviant
+					}
+					$TARGET$ = {
+						any_secret = {
+							secret_type = secret_deviant
+							is_known_by = $SEDUCER$
+						}
+					}
+				}
+				custom_tooltip = {
+					text = fixpack_faith_hostile_secret_deviant
+					NOT = { trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = deviant FAITH = $SEDUCER$.FAITH GENDER_CHARACTER = $TARGET$ } }
+				}
+			}
+
+			# Incestuous
+			trigger_if = {
+				limit = {
+					NOR = {
+						any_secret = { secret_type = secret_incest }
+						has_trait = incestuous
+					}
+					$TARGET$ = {
+						any_secret = {
+							secret_type = secret_incest
+							is_known_by = $SEDUCER$
+						}
+					}
+				}
+				custom_tooltip = {
+					text = fixpack_faith_hostile_secret_incest
+					NOT = { trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = incestuous FAITH = $SEDUCER$.FAITH GENDER_CHARACTER = $TARGET$ } }
+				}
+			}
+
+			# ADULTERER / FORNICATOR
+			trigger_if = {
+				limit = {
+					NOR = {
+						any_secret = { secret_type = secret_lover }
+						has_trait = adulterer
+						has_trait = fornicator
+					}
+					$TARGET$ = {
+						any_secret = {
+							secret_type = secret_lover
+							is_known_by = $SEDUCER$
+						}
+					}
+				}
+				custom_tooltip = {
+					text = fixpack_faith_hostile_secret_lover
+					NOT = { trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = adulterer FAITH = $SEDUCER$.FAITH GENDER_CHARACTER = $TARGET$ } }
+					NOT = { trait_is_shunned_or_criminal_in_faith_trigger = { TRAIT = fornicator FAITH = $SEDUCER$.FAITH GENDER_CHARACTER = $TARGET$ } }
+				}
+			}
+
+			# Non-believer
+			trigger_if = {
+				limit = {
+					#faith = $TARGET$.faith
+					NOT = {
+						any_secret = { secret_type = secret_non_believer }
+						has_character_modifier = known_non_believer
+					}
+					$TARGET$ = {
+						any_secret = {
+							secret_type = secret_non_believer
+							is_known_by = $SEDUCER$
+						}
+					}
+				}
+				custom_tooltip = {
+					text = fixpack_faith_hostile_secret_non_believer
+					always = no
+				}
+			}
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_has_sinful_trait_for_their_faith_not
+					num_sinful_traits = {
+						value > 0
+						faith = $TARGET$.faith
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = fixpack_might_cheat_on_every_partner_first
+			might_cheat_on_every_partner_trigger = yes
+		}
+
+		accepts_incest_with_trigger = { CHARACTER = $TARGET$ }
+	}
+	$TARGET$ = {
+		save_temporary_scope_as = current_char
+		$SEDUCER$ = { save_temporary_scope_as = target_char }
+		is_adult = yes
+		custom_tooltip = {
+			text = fixpack_compatible_personality_he_she
+			trigger_if = {
+				limit = { has_personality_malicious_trigger = yes }
+				$SEDUCER$ = { has_personality_benevolent_trigger = no }
+			}
+			trigger_if = {
+				limit = { has_personality_benevolent_trigger = yes }
+				$SEDUCER$ = { has_personality_malicious_trigger = no }
+			}
+		}
+
+		NOT = { has_trait = celibate }
+		is_attracted_to_gender_of = $SEDUCER$
+
+		# If very religious, check what our faith says about adulterer
+		trigger_if = {
+			limit = { fixpack_has_strong_religious_conviction_trigger = yes }
+			custom_tooltip = {
+				text = fixpack_faith_hostile_or_evil_third_not
+				NOT = {
+					faith = {
+						faith_hostility_level = {
+							target = $SEDUCER$.faith
+							value >= faith_hostile_level
+						}
+					}
+				}
+			}
+			$SEDUCER$ = { NOT = { has_trait = excommunicated } }
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_is_sinner_for_their_faith_not
+					has_any_shunned_or_criminal_trait_in_faith_trigger = { CHARACTER = $SEDUCER$ FAITH = $TARGET$.FAITH }
+				}
+			}
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_is_incestuous_for_their_faith_not
+					relation_with_character_is_incestuous_in_my_faith_trigger = { CHARACTER = $SEDUCER$ }
+				}
+			}
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_is_sodomite_for_their_faith_not
+				 	relation_with_character_is_sodomy_trigger = { CHARACTER = $SEDUCER$ }
+				}
+			}
+			custom_tooltip = {
+				text = fixpack_is_accepted_for_their_faith
+				would_be_sinful_adulterer_trigger = no
+			}
+
+			# Is this char a known non-believer of the same faith
+			trigger_if = {
+				limit = { faith = $SEDUCER$.faith }
+				NOT = { $SEDUCER$ = { has_character_modifier = known_non_believer } }
+			}
+			NOT = {
+				custom_tooltip = {
+					text = fixpack_has_sinful_trait_for_my_faith_not
+					num_sinful_traits = {
+						value > 0
+						faith = $SEDUCER$.faith
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			text = fixpack_might_cheat_on_every_partner_third
+			might_cheat_on_every_partner_trigger = yes
+		}
+
+		accepts_incest_with_trigger = { CHARACTER = $SEDUCER$ }
+	}
+}
+
+# CHECK A NUMBER OF RELIGION-RELATED CONDITIONS TO DETERMINE HOW STRONG OF A BELIEVER THEY SEEM TO BE
+# Add extra trait to check that were not in has_strong_religious_conviction_trigger
+# Original trigger in: common\scripted_triggers\00_religious_triggers.txt
+fixpack_has_strong_religious_conviction_trigger = {
+	NOR = {
+		has_trait = cynical
+		has_trait = excommunicated
+		has_character_modifier = known_non_believer
+	}
+	OR = {
+		has_trait = zealous
+		has_trait = pilgrim
+		has_trait = devoted
+		has_trait = sayyid
+		has_trait = saoshyant
+		has_trait = savior
+		has_trait = divine_blood
+		has_trait = blood_of_prophet
+		has_trait = faith_warrior
+		has_trait = saint
+
+		# Fixpack: extra checks
+
+		has_trait = theologian
+		has_trait = paragon
+		has_trait = order_member
+		has_trait = saoshyant_descendant
+		has_trait = crusader_king
+		has_trait = holy_warrior
+
+		is_clergy = yes
+	}
+}
+
+
+# Here are every de jure kingdom of e_spain, the original triggers doesn't seems to work properly
+# Original trigger fp2_struggle_ending_hold_de_jure_kingdom_trigger
+# Checks a de jure kingdom of Hispania is completely controlled
+fixpack_fp2_struggle_ending_hold_de_jure_kingdom_trigger = {
+	OR = {
+		title:k_andalusia = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_badajoz = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_valencia = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_castille = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_aragon = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_navarra = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_asturias = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_leon = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_spanish_galicia = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+		title:k_portugal = {
+			de_jure_liege = title:e_spain
+			holder = root
+			root = { completely_controls = prev }
+		}
+	}
+}
+
+fixpack_is_lover_or_soulmate_trigger = {
+	OR = {
+		has_relation_lover = $TARGET$
+		has_relation_soulmate = $TARGET$
+	}
+}
+
+is_parent_in_law_of_root_trigger = {
+	NOT = {
+		any_parent = {
+			this = root
+		}
+	}
+	any_spouse = {
+		any_parent = {
+			this = root
+		}
+	}
+}

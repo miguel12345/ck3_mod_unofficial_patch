@@ -241,6 +241,10 @@ artifact.0031 = {
 	hidden = yes
 
 	immediate = {
+
+		debug_log = "Fixpack-Tracking: artifact.0031 Error: if effect Scoped object is not valid. Type: Artifact"
+		debug_log_scopes = yes
+
 		save_scope_as = artifact_inherited
 		if = {
 			limit = {
@@ -777,6 +781,22 @@ artifact.3000 = {
     }
 
     trigger = {
+		trigger_if = {
+			limit = { exists = scope:artifact }
+			scope:artifact = {
+				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+				OR = {
+					artifact_slot_type = primary_armament
+					artifact_slot_type = armor
+					artifact_type = cabinet
+					artifact_type = chest
+					artifact_type = throne
+					artifact_type = sculpture
+					artifact_type = regalia
+				}
+			}
+		}
+		trigger_else = {
     	any_character_artifact = {
     		artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
     		OR = {
@@ -790,8 +810,14 @@ artifact.3000 = {
     		}
     	}
     }
+	}
 
     immediate = {
+
+		if = {
+			limit = {
+				NOT = { exists = scope:artifact }
+			}
 		random_character_artifact = {
 			limit = {
 				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
@@ -806,7 +832,17 @@ artifact.3000 = {
     			}
 			}
 			save_scope_as = this_artifact
+				#Fixpack: Add this scope to make sure we don't have trouble with effect later
+				save_scope_as = artifact
+				#/Fixpack
 		} 
+		}
+		else = {
+			scope:artifact = {
+				save_scope_as = this_artifact
+			}
+		}
+
 		if = {
 			limit = {
 				employs_court_position = antiquarian_court_position
@@ -1062,10 +1098,18 @@ artifact.3010 = {
     }
 
     trigger = {
+		trigger_if = {
+			limit = { exists = scope:artifact }
+			scope:artifact = {
+				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+			}
+		}
+		trigger_else = {
     	any_character_artifact = {
     		artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
     	}
     }
+	}
 
     weight_multiplier = {
     	base = 1
@@ -1076,11 +1120,24 @@ artifact.3010 = {
     }
 
     immediate = {
+		if = {
+			limit = {
+				NOT = { exists = scope:artifact }
+			}
 		random_character_artifact = {
 			limit = {
 				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
 			}
 			save_scope_as = this_artifact
+				#Fixpack: Add this scope to make sure we don't have trouble with effect later
+				save_scope_as = artifact
+				#/Fixpack
+			}
+		}
+		else = {
+			scope:artifact = {
+				save_scope_as = this_artifact
+			}
 		} 
 		if = {
 			limit = {
@@ -1160,6 +1217,19 @@ artifact.3020 = {
     }
 
     trigger = {
+		trigger_if = {
+			limit = { exists = scope:artifact }
+			scope:artifact = {
+				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+				OR = {
+					artifact_slot_type = primary_armament
+					artifact_slot_type = armor
+					artifact_slot_type = helmet
+					artifact_slot_type = regalia
+				}
+			}
+		}
+		trigger_else = {
     	any_character_artifact = {
     		artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
     		OR = {
@@ -1169,6 +1239,7 @@ artifact.3020 = {
 				artifact_slot_type = regalia
     		}
     	}
+		}
     	employs_court_position = antiquarian_court_position
 		any_court_position_holder = {
 			type = antiquarian_court_position
@@ -1185,6 +1256,10 @@ artifact.3020 = {
     }
 
     immediate = {
+		if = {
+			limit = {
+				NOT = { exists = scope:artifact }
+			}
 		random_character_artifact = {
 			limit = {
 				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
@@ -1196,6 +1271,15 @@ artifact.3020 = {
 				}
 			}
 			save_scope_as = this_artifact
+				#Fixpack: Add this scope to make sure we don't have trouble with effect later
+				save_scope_as = artifact
+				#/Fixpack
+			}
+		}
+		else = {
+			scope:artifact = {
+				save_scope_as = this_artifact
+			}
 		} 
 		
 		random_court_position_holder = {
@@ -1314,9 +1398,17 @@ artifact.3030 = {
     }
 
     trigger = {
+		trigger_if = {
+			limit = { exists = scope:artifact }
+			scope:artifact = {
+				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+			}
+		}
+		trigger_else = {
     	any_character_artifact = {
     		artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
     	}
+		}
     	employs_court_position = antiquarian_court_position
 		any_court_position_holder = {
 			type = antiquarian_court_position
@@ -1333,11 +1425,24 @@ artifact.3030 = {
     }
 
     immediate = {
+		if = {
+			limit = {
+				NOT = { exists = scope:artifact }
+			}
 		random_character_artifact = {
 			limit = {
 				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
 			}
 			save_scope_as = this_artifact
+				#Fixpack: Add this scope to make sure we don't have trouble with effect later
+				save_scope_as = artifact
+				#/Fixpack
+			}
+		}
+		else = {
+			scope:artifact = {
+				save_scope_as = this_artifact
+			}
 		} 
 		
 		random_court_position_holder = {
@@ -1484,9 +1589,17 @@ artifact.3040 = {
     }
 
     trigger = {
+		trigger_if = {
+			limit = { exists = scope:artifact }
+			scope:artifact = {
+				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
+			}
+		}
+		trigger_else = {
     	any_character_artifact = {
     		artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
     	}
+		}
     	any_vassal = {
     		gold >= major_gold_value
     		is_available_ai_adult = yes
@@ -1506,11 +1619,24 @@ artifact.3040 = {
     }
 
     immediate = {
+		if = {
+			limit = {
+				NOT = { exists = scope:artifact }
+			}
 		random_character_artifact = {
 			limit = {
 				artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY
 			}
 			save_scope_as = this_artifact
+				#Fixpack: Add this scope to make the effect reforge_artifact_cost work properly
+				save_scope_as = artifact
+				#/Fixpack
+			}
+		}
+		else = {
+			scope:artifact = {
+				save_scope_as = this_artifact
+			}
 		} 
 		random_vassal = {
 			limit = {

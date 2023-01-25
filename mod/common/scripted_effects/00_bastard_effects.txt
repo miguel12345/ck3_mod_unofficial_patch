@@ -957,6 +957,7 @@ legitimize_bastard_interaction_opinions_effect = {
 	}
 
 	$BASTARD$ = {
+		save_scope_as = unop_bastard_child
 		hidden_effect = { remove_trait = bastard }
 		add_trait_force_tooltip = legitimized_bastard
 		add_opinion = {
@@ -1015,6 +1016,8 @@ legitimize_bastard_interaction_opinions_effect = {
 							}
 						}
 						custom =  every_child_adult_non_bastard_dislike
+						#Fixpack: Put this in a show_as_tooltip because it will be executed with bastard_interaction.0005
+						show_as_tooltip = {
 						add_opinion = {
 							target = scope:actor
 							modifier = legitimized_a_bastard_opinion
@@ -1023,6 +1026,7 @@ legitimize_bastard_interaction_opinions_effect = {
 				}
 			}
 		}
+	}
 	}
 
 	hidden_effect = {

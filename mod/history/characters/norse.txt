@@ -4418,7 +4418,7 @@
 	female = yes
 	dynasty = 1040004
 	religion = "norse_pagan"
-	culture = "norwegian"
+	culture = norse
 	father = 166329
 	854.1.1 = {
 		birth = "854.1.1"

@@ -682,7 +682,7 @@ petition_liege_decision = {
 					is_councillor = no
 				}
 				# Pay Debt
-				gold <= -100
+				gold <= fixpack_petitioner_debt_minimum_value
 				# War Aid
 				AND = {
 					petition_liege_war_aid_trigger = yes
@@ -765,7 +765,7 @@ petition_liege_decision = {
 			limit = { scope:petition_liege_pay_debt = yes }
 			custom_tooltip = {
 				text = petition_liege_pay_debt_me_tt
-				gold <= -100
+				gold <= fixpack_petitioner_debt_minimum_value
 			}
 			custom_tooltip = {
 				text = petition_liege_pay_debt_liege_tt
@@ -919,6 +919,7 @@ petition_liege_decision = {
 				custom_tooltip = { # In debt
 					text = petition_liege_pay_debt_me_tt
 					debt_level >= 1
+					gold <= fixpack_petitioner_debt_minimum_value
 				}
 				custom_tooltip = { # Liege can afford your debt
 					text = petition_liege_pay_debt_liege_tt

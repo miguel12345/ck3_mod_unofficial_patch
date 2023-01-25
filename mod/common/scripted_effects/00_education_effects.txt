@@ -910,6 +910,36 @@ remove_variables_and_trait_coming_of_age_effect = {
 		}
 		remove_variable = childhood_trait_type
 	}
+	if = {
+		limit = {
+			exists = var:education_diplomacy_variable
+		}
+		remove_variable = education_diplomacy_variable
+	}
+	if = {
+		limit = {
+			exists = var:education_martial_variable
+		}
+		remove_variable = education_martial_variable
+	}
+	if = {
+		limit = {
+			exists = var:education_stewardship_variable
+		}
+		remove_variable = education_stewardship_variable
+	}
+	if = {
+		limit = {
+			exists = var:education_intrigue_variable
+		}
+		remove_variable = education_intrigue_variable
+	}
+	if = {
+		limit = {
+			exists = var:education_learning_variable
+		}
+		remove_variable = education_learning_variable
+	}
 }
 
 #Save childhood trait as a variable flag
@@ -1619,12 +1649,16 @@ cultural_traditions_education_boost_effect = {
 court_tutor_education_boost_effect = {
 	if = {
 		limit = {
+			exists = court_owner
+			court_owner = {
 			employs_court_position = court_tutor_court_position
 			any_court_position_holder = {
 				type = court_tutor_court_position
 			}
 		}
+		}
 		#Let's save the court tutor with the highest aptitude
+		court_owner = {
 		random_court_position_holder = {
 			type = court_tutor_court_position
 			limit = { aptitude:court_tutor_court_position >= 5 }
@@ -1633,6 +1667,7 @@ court_tutor_education_boost_effect = {
 			alternative_limit = { aptitude:court_tutor_court_position >= 2 }
 			alternative_limit = { always = yes }
 			save_scope_as = court_tutor
+		}
 		}
 		if = {
 			limit = { has_focus = education_diplomacy }

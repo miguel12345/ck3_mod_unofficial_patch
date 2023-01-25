@@ -74,7 +74,7 @@ petition_liege_council_seat_trigger = {
 				limit = { root.faith = root.liege.faith }
 				root.faith = { has_doctrine = doctrine_clerical_succession_temporal_appointment }
 				exists = cp:councillor_court_chaplain
-				cp:councillor_chancellor = {
+				cp:councillor_court_chaplain = {
 					NOT = {
 						is_blocked_from_being_fired_from_council_trigger = { COURT_OWNER = root.liege }
 					}

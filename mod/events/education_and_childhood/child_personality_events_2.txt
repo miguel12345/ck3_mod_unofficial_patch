@@ -1204,6 +1204,9 @@ scripted_trigger sutiably_evil_person = {
 		AND = { # Either another child
 			age >= 13
 			age > root.age
+			#Fixpack: Make sure it's a child
+			is_adult = no
+			#/Fixpack
 		}
 		AND = { # Or an 'untouchable' noble adult
 			is_adult = yes

@@ -21,6 +21,10 @@
 	}
 
 	participants = { picnic_pal }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 destroyed_my_toy = {
@@ -153,6 +157,10 @@ nice_fishing_trip = {
 	}
 
 	participants = { fishing_pal }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 found_my_clone = {
@@ -173,6 +181,7 @@ found_my_clone = {
 			triggered_desc = {
 				trigger = {
 					this.memory_participant:doppelganger = {
+						is_alive = no
 						death_reason = death_disappearance
 					}
 				}
@@ -197,6 +206,7 @@ found_my_clone = {
 			triggered_desc = {
 				trigger = {
 					this.memory_participant:doppelganger = {
+						is_alive = no
 						death_reason = death_disappearance
 					}
 				}
@@ -221,6 +231,7 @@ found_my_clone = {
 			triggered_desc = {
 				trigger = {
 					this.memory_participant:doppelganger = {
+						is_alive = no
 						death_reason = death_disappearance
 					}
 				}
@@ -372,6 +383,10 @@ rival_caught_me_in_bed_with_their_child = {
 	}
 
 	participants = { rival }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 supported_illiterate = {
@@ -508,6 +523,10 @@ cut_down_tree = {
 	}
 
 	participants = { watching_friend }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 had_a_threesome_memory = {
@@ -560,6 +579,10 @@ picked_up_throne = {
 	}
 
 	participants = { impressed_friend }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 lost_my_addiction_memory = {

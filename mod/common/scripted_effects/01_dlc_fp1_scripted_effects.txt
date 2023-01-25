@@ -157,7 +157,9 @@ secure_high_kingdom_north_sea_scripted_effect = {
 
 found_capital_of_rus_scripted_effect = {
 	#Reward fame to compensate for reduced development gain.
+	scope:new_rus_capital.holder = {
 	add_prestige_experience = major_prestige_gain
+	}
 	scope:new_rus_capital = {
 		#Boost local development a few levels; majority of development gain is handled in the modifiers now.
 		if = {
@@ -816,42 +818,53 @@ initial_decentralized_rule_friends_modifier_effect = {
 			exists = dynasty
 			is_ruler = yes
 		}
+
 		if = {
-			limit = {
-				NOT = { has_variable = decentralized_rule_perk_value } 
-			}
+			limit = {  NOT = { exists = var:current_friends } }
 			set_variable = {
-				name = decentralized_rule_perk_value
+				name = current_friends
 				value = 0
 			}
 		}
 		
+		if = {
+			limit = { exists = var:current_friends }
 		every_relation = {
 			type = friend
-			add_to_temporary_list = decentralized_rule_friends
+				limit = { NOT = { has_character_flag = about_to_die_but_not_dead_yet_flag  } }
+				prev = {
+					change_variable = {
+						name = current_friends
+						add = 1
 		}
-		every_relation = {
-			type = best_friend
-			add_to_temporary_list = decentralized_rule_friends
-		}
-
-		if = {
-			limit = {
-				exists = var:decentralized_rule_perk_value
-				save_temporary_scope_as = affected_friend
-				var:decentralized_rule_perk_value < decentralized_rule_max
-				any_in_list = {
-					list = decentralized_rule_friends
-					count > scope:affected_friend.var:decentralized_rule_perk_value 
 				}
 			}
-			add_character_modifier = {
-				modifier = decentralized_rule_perk_modifier
+			clamp_variable = {
+				name = current_friends
+				min = 0
+				max = decentralized_rule_max
 			}
-			change_variable = {
+			set_variable = {
 				name = decentralized_rule_perk_value
-				add = 1
+				value = var:current_friends
 			}
+
+			# Make sure the modifier is not already here (shouldn't be)
+			while = {
+				limit = { has_character_modifier = decentralized_rule_perk_modifier }
+				remove_character_modifier = decentralized_rule_perk_modifier
+			}
+
+			# Now check if we have at least 1 friend for the modifier
+			if = {
+				limit = { var:current_friends > 0 }
+				# As the modifier stack, we want to add it as many times needed
+				while = {
+					count = var:current_friends
+					add_character_modifier = decentralized_rule_perk_modifier
+				}
+			}
+			remove_variable = current_friends
 		}	
 	}
 }
@@ -866,34 +879,12 @@ decentralized_rule_friends_modifier_effect = {
 			is_ruler = yes
 		}
 		if = {
-			limit = {
-				NOT = { has_variable = decentralized_rule_perk_value } 
+			limit = { NOT = { has_variable = decentralized_rule_perk_value } }
+			initial_decentralized_rule_friends_modifier_effect = yes
 			}
-			set_variable = {
-				name = decentralized_rule_perk_value
-				value = 0
-			}
-		}
-		
-		every_relation = {
-			type = friend
-			add_to_temporary_list = decentralized_rule_friends
-		}
-		every_relation = {
-			type = best_friend
-			add_to_temporary_list = decentralized_rule_friends
-		}
-
+		else = {
 		if = {
-			limit = {
-				exists = var:decentralized_rule_perk_value
-				save_temporary_scope_as = affected_friend
-				var:decentralized_rule_perk_value < decentralized_rule_max
-				any_in_list = {
-					list = decentralized_rule_friends
-					count > scope:affected_friend.var:decentralized_rule_perk_value 
-				}
-			}
+				limit = { var:decentralized_rule_perk_value < decentralized_rule_max }
 			add_character_modifier = {
 				modifier = decentralized_rule_perk_modifier
 			}
@@ -903,6 +894,7 @@ decentralized_rule_friends_modifier_effect = {
 			}
 		}	
 	}
+}
 }
 
 decentralized_rule_removal_effect = {
@@ -914,41 +906,30 @@ decentralized_rule_removal_effect = {
 			}
 		}
 
-		every_relation = {
-			type = friend
-			add_to_temporary_list = decentralized_rule_friends
-		}
-		every_relation = {
-			type = best_friend
-			add_to_temporary_list = decentralized_rule_friends
-		}
-
 		if = {
-			limit = {
-				exists = var:decentralized_rule_perk_value
-				save_temporary_scope_as = affected_friend
-				var:decentralized_rule_perk_value <= decentralized_rule_max
-				var:decentralized_rule_perk_value > 0
-				any_in_list = {
-					list = decentralized_rule_friends
-					count < var:decentralized_rule_perk_value
-					NOT = { has_character_flag = about_to_die_but_not_dead_yet_flag  }
+			limit = { NOT = { has_variable = decentralized_rule_perk_value } }
+			initial_decentralized_rule_friends_modifier_effect = yes
 				}
-			}
-			
+		else = {
 			if = {
 				limit = {
 					has_character_modifier = decentralized_rule_perk_modifier
+					NOT = { unop_total_friends > var:decentralized_rule_perk_value }
 				}
 				remove_character_modifier = decentralized_rule_perk_modifier
 			}
-		
+			if = {
+				limit = {
+					var:decentralized_rule_perk_value > 0
+					NOT = { unop_total_friends > var:decentralized_rule_perk_value }
+				}
 			change_variable = {
 				name = decentralized_rule_perk_value
 				subtract = 1
 			}
 		}
 	}
+}
 }
 
 ##################################################

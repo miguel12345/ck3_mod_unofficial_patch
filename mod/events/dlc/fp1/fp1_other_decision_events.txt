@@ -2598,6 +2598,11 @@ fp1_other_decisions.0022 = {
 			name = humsacd_hofs_notified
 			target = scope:sacrificed_hof.faith
 		}
+		#Fixpack: To fix the text without having to modify the *.yml files
+		scope:sacrificed_hof = {
+			save_scope_as = unlucky_guest
+		}
+		#/fixpack
 	}
 
 	# Oops and/or meh.
@@ -3523,6 +3528,7 @@ fp1_other_decisions.0112 = {
 	immediate = {
 		if = {
 			limit = {
+				exists = var:stele_scope_type
 				exists = var:stele_container
 				exists = var:stele_commissioner
 				exists = var:stele_carver
@@ -3551,6 +3557,7 @@ fp1_other_decisions.0113 = {
 	immediate = {
 		# Blanket remove all types.
 		scope:title = {
+			remove_variable = stele_scope_type
 			remove_variable = stele_container
 			remove_variable = stele_carver
 			remove_variable = stele_commissioner

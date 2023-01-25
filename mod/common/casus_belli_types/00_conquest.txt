@@ -88,16 +88,6 @@
 					desc = CB_SAME_FAITH_COST
 				}
 			}
-			if = { # Exceptional so it stays outside of the scripted value
-				limit = {
-					scope:attacker = { has_government = tribal_government }
-				}
-				multiply = {
-					value = 0.5
-					desc = CB_TRIBAL_COST
-				}
-			}
-
 			multiply = common_cb_piety_cost_multiplier
 		}
 		prestige = {
@@ -393,15 +383,6 @@ duchy_conquest_cb = {
 				add = {
 					value = massive_piety_value
 					desc = CB_SAME_FAITH_COST
-				}
-			}
-			if = {
-				limit = {
-					scope:attacker = { has_government = tribal_government }
-				}
-				multiply = {
-					value = 0.5
-					desc = CB_TRIBAL_COST
 				}
 			}
 			multiply = common_cb_piety_cost_multiplier
@@ -1109,16 +1090,6 @@ ireland_laudabiliter_conquest_cb = {
 					desc = CB_SAME_FAITH_COST
 				}
 			}
-			if = {
-				limit = {
-					scope:attacker = { has_government = tribal_government }
-				}
-				multiply = {
-					value = 0.5
-					desc = CB_TRIBAL_COST
-				}
-			}
-
 			multiply = common_cb_piety_cost_multiplier
 		}
 		prestige = {

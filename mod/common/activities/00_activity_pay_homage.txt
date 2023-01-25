@@ -80,6 +80,11 @@
 							}
 							NOT = { has_trait = chaste }
 							is_attracted_to_gender_of = scope:homage_vassal
+							#Fixpack: Make sure to select someone that is attracted by this char gender
+							scope:homage_vassal = { is_attracted_to_gender_of = prev }
+							#Fixpack: Check if the char is likely to cheat spouses
+							might_cheat_on_every_partner_trigger = yes
+							#/Fixpack
 						}
 					}
 					random_in_list = {
@@ -87,6 +92,11 @@
 						limit = {
 							is_available_ai_adult = yes
 							is_attracted_to_gender_of = scope:homage_vassal
+							#Fixpack: Make sure to select someone that is attracted by this char gender
+							scope:homage_vassal = { is_attracted_to_gender_of = prev }
+							#Fixpack: Check if the char is likely to cheat spouses
+							might_cheat_on_every_partner_trigger = yes
+							#/Fixpack
 						}
 						weight = {
 							modifier = {

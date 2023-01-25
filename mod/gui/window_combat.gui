@@ -2367,7 +2367,7 @@ types CombatWindow
 				{
 					tooltip = "COMBAT_REGIMENT_PURSUIT_TT"
 					# fade out if 0
-					alpha = "[Select_float(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'pursuit' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4'))]"
+					alpha = "[Select_float(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'pursuit' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4')]"
 				}
 				blockoverride "screen_stat"
 				{
@@ -2377,7 +2377,7 @@ types CombatWindow
 				{
 					tooltip = "COMBAT_REGIMENT_SCREEN_TT"
 					# fade out if 0
-					alpha = "[Select_float(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'screen' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4'))]"
+					alpha = "[Select_float(GreaterThan_CFixedPoint(CombatMaaItem.GetStat( 'screen' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4')]"
 				}
 			}
 

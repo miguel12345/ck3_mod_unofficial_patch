@@ -36,11 +36,17 @@
 			every_known_secret = {
 				limit = {
 					secret_type = secret_witch
-					secret_owner = {
-						can_join_witch_ritual = yes
 					}
+				add_to_temporary_list = known_secret_witch
+			}
+			every_in_list = {
+				list = known_secret_witch
+				limit = {
+					secret_owner = { can_join_witch_ritual = yes }
 				}
+				secret_owner = {
 				add_to_temporary_list = potential_guests
+			}
 			}
 
 			#Public witches in realm, spouse, family, relations

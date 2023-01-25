@@ -1,0 +1,9 @@
+texticon = {
+	icon = house_guard_icon
+	iconsize = {
+		texture = "gfx/interface/icons/regimenttypes/_default.dds"
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}

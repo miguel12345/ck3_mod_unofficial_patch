@@ -536,9 +536,13 @@ spouse_learning_tier_1_trigger = {
 
 spouse_learning_tier_2_trigger = {
 	scope:councillor = {
+		trigger_if = {
+			# Fixpack: Seen error logs where the liege was undefined
+			limit = { exists = liege }
 		opinion = {
 			target = liege
 			value > 30
+		}
 		}
 		OR = {
 			has_character_modifier = councillor_spouse_learning_2_modifier
@@ -559,9 +563,13 @@ spouse_learning_tier_2_trigger = {
 
 spouse_learning_tier_3_trigger = {
 	scope:councillor = {
+		trigger_if = {
+			# Fixpack: Seen error logs where the liege was undefined
+			limit = { exists = liege }
 		opinion = {
 			target = liege
 			value > 50
+		}
 		}
 		OR = {
 			has_trait = scholar

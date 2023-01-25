@@ -210,9 +210,7 @@ temple_01 = {
 	}
 	
 	can_construct = {
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+		building_requirement_innovation_city_planning = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -572,9 +570,7 @@ temple_02 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	cost_gold = main_building_tier_2_cost
 	next_building = temple_03
@@ -840,9 +836,7 @@ temple_03 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	cost_gold = main_building_tier_3_cost
 	next_building = temple_04
@@ -1107,9 +1101,7 @@ temple_04 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	cost_gold = main_building_tier_4_cost
 	
@@ -1232,9 +1224,10 @@ monastic_schools_02 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_01
-		culture = {
-			has_innovation = innovation_city_planning
 		}
+
+	can_construct = {
+		building_requirement_innovation_city_planning = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1262,11 +1255,12 @@ monastic_schools_02 = {
 monastic_schools_03 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
+	can_construct_potential = {
 		has_building_or_higher = temple_02
-		culture = {
-			has_innovation = innovation_manorialism
 		}
+
+	can_construct = {
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1294,11 +1288,12 @@ monastic_schools_03 = {
 monastic_schools_04 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
+	can_construct_potential = {
 		has_building_or_higher = temple_02
-		culture = {
-			has_innovation = innovation_manorialism
 		}
+
+	can_construct = {
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1326,11 +1321,12 @@ monastic_schools_04 = {
 monastic_schools_05 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
+	can_construct_potential = {
 		has_building_or_higher = temple_03
-		culture = {
-			has_innovation = innovation_windmills
 		}
+
+	can_construct = {
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1358,11 +1354,12 @@ monastic_schools_05 = {
 monastic_schools_06 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
+	can_construct_potential = {
 		has_building_or_higher = temple_03
-		culture = {
-			has_innovation = innovation_windmills
 		}
+
+	can_construct = {
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1390,11 +1387,12 @@ monastic_schools_06 = {
 monastic_schools_07 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
+	can_construct_potential = {
 		has_building_or_higher = temple_04
-		culture = {
-			has_innovation = innovation_cranes
 		}
+
+	can_construct = {
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1422,11 +1420,12 @@ monastic_schools_07 = {
 monastic_schools_08 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
+	can_construct_potential = {
 		has_building_or_higher = temple_04
-		culture = {
-			has_innovation = innovation_cranes
 		}
+
+	can_construct = {
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1457,9 +1456,11 @@ megalith_01 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_01
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
+
+	can_construct = {
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1515,9 +1516,11 @@ megalith_02 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_01
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
+
+	can_construct = {
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1554,12 +1557,12 @@ megalith_03 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_01
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+
+	can_construct = {
+		building_requirement_innovation_city_planning = yes
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1596,12 +1599,12 @@ megalith_04 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_02
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+
+	can_construct = {
+		building_requirement_innovation_city_planning = yes
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1639,12 +1642,12 @@ megalith_05 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_02
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+
+	can_construct = {
+		building_requirement_innovation_city_planning = yes
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1683,12 +1686,12 @@ megalith_06 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_02
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+
+	can_construct = {
+		building_requirement_innovation_city_planning = yes
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1727,12 +1730,12 @@ megalith_07 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_02
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+
+	can_construct = {
+		building_requirement_innovation_city_planning = yes
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1771,12 +1774,12 @@ megalith_08 = {
 
 	can_construct_potential = {
 		has_building_or_higher = temple_02
-		scope:holder.faith = {
-			has_doctrine_parameter = can_build_megaliths
+		building_faith_can_build_megaliths_holder = yes
 		}
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+
+	can_construct = {
+		building_requirement_innovation_city_planning = yes
+		building_faith_can_build_megaliths_holder = yes
 	}
 
 	can_construct_showing_failures_only = {

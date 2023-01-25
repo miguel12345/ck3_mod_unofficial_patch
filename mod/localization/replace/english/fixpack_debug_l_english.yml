@@ -1,0 +1,9 @@
+﻿ l_english:
+ give_weak_hook_interaction:2 "Give Weak Hook"
+ give_strong_hook_interaction:2 "Give Strong Hook"
+
+ check_sexual_attraction_interaction:2 "Check might cheat"
+ check_inbred_interaction:2 "Check inbred"
+
+ interaction_fixpack_title:0 "#D Fixpack Interactions#!"
+ FIXPACK_DEBUG_DESC:0 "#D Fixpack Debug#!"

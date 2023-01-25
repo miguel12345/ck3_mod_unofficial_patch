@@ -153,12 +153,12 @@
 			if = {
 				limit = {
 					scope:recipient.count_obligation_improvements_for_vassal > 0
+					scope:actor = {
 					is_diff_faith_or_culture_trigger = {
 						CHAR = scope:recipient
 						STATUS = involved
 						STRUGGLE_TYPE = iberian_struggle
 					}
-					scope:actor = {
 						any_character_struggle = {
 							involvement = involved
 							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
@@ -405,12 +405,12 @@ vassal_modify_vassal_contract_interaction = {
 			if = {
 				limit = {
 					scope:recipient.count_obligation_improvements_for_vassal > 0
+					scope:actor = {
 					is_diff_faith_or_culture_trigger = {
 						CHAR = scope:recipient
 						STATUS = involved
 						STRUGGLE_TYPE = iberian_struggle
 					}
-					scope:actor = {
 						any_character_struggle = {
 							involvement = involved
 							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {

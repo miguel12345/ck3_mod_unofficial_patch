@@ -126,6 +126,10 @@
 			
 			every_in_list = {
 				list = potential_guests
+				#FixPack: had to add this limit, everyone should be available, but I've seen trace that this is not the case??
+				limit = {
+					is_available_for_activity_trigger = yes
+				}
 				scope:activity = {
 					invite_character_to_activity = prev
 				}

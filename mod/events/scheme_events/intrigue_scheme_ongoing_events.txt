@@ -3198,6 +3198,12 @@ intrigue_scheme_ongoing.5005 = {
 			NOT = { has_variable = had_poisonous_gold_event }
 		}
 		exists = cp:councillor_spymaster
+		cp:councillor_spymaster = {
+			save_temporary_scope_as = court_spymaster
+		}
+		#Fixpack: Spymaster won't help killing himself
+		NOT = { scope:court_spymaster = scope:target }
+		#/Fixpack
 		scope:target = {
 			is_physically_able_adult = yes
 		}
@@ -3304,7 +3310,8 @@ intrigue_scheme_ongoing.5006 = {
 
 	immediate = {
 		show_as_tooltip = {
-			scope:actor = {
+			#Fixpack: Wrong scoped was used => scope:actor should be scope:owner
+			scope:owner = {
 				pay_short_term_gold = {
 					target = scope:target
 					gold = root.minor_gold_value

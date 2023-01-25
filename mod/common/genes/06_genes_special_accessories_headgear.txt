@@ -594,6 +594,10 @@ accessory_genes = {
                 1 = female_headgear_secular_dde_abbasid_high_nobility_01
                 # 1 = female_headgear_secular_dde_abbasid_high_nobility_02
             }
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
         }	
 
 		dde_abbasid_common = {
@@ -679,6 +683,10 @@ accessory_genes = {
 				2 = female_headgear_secular_northern_common_01
 				
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 
@@ -1203,6 +1211,10 @@ accessory_genes = {
 				1 = female_headgear_secular_fp1_common_02
 				
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		fp1_low_nobility = {
@@ -1218,6 +1230,10 @@ accessory_genes = {
 				1 = female_headgear_secular_fp1_common_02
 				
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		fp1_nobility = {
@@ -1232,6 +1248,10 @@ accessory_genes = {
 				1 = female_headgear_secular_fp1_nobility_03		
 
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		fp1_war = {
@@ -1246,6 +1266,10 @@ accessory_genes = {
 				1 = female_headgear_secular_fp1_war_nobility_02		
 						
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		fp1_war_common = { # For commoners to use, non-gilded version only
@@ -1258,6 +1282,10 @@ accessory_genes = {
 				1 = female_headgear_secular_fp1_war_nobility_02	
 						
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		fp1_royalty = {
@@ -1270,6 +1298,10 @@ accessory_genes = {
 				1 = female_headgear_secular_fp1_royalty_01		
 						
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		fp1_imperial = {
@@ -1282,6 +1314,10 @@ accessory_genes = {
 				1 = female_headgear_secular_fp1_imperial_01		
 						
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		monarchs_journey_unleashed = {
@@ -1307,6 +1343,10 @@ accessory_genes = {
 			female = {
 				1 = female_headgear_secular_ep1_western_royalty_01
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		ep1_steppe_royalty = {
@@ -1317,6 +1357,10 @@ accessory_genes = {
 			female = {
 				1 = female_headgear_secular_ep1_mena_royalty_01
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		ep1_indian_royalty = {
@@ -1327,6 +1371,10 @@ accessory_genes = {
 			female = {
 				1 = female_headgear_secular_ep1_indian_royalty_01
 			}
+			#Fixpack: Add this
+			boy = male
+			girl = female
+			#/Fixpack
 		}
 
 		ep1_jester = {

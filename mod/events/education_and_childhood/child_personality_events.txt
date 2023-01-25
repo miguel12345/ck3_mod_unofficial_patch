@@ -3074,7 +3074,7 @@ child_personality.0009 = {
 			}
 		}
 		show_as_tooltip = {
-			set_relation_friend = { reason = friend_saved_as_children target = scope:child }
+			set_relation_friend = { reason = friend_saved_as_children target = scope:child_preacher }
 		}
 	}
 
@@ -8641,7 +8641,9 @@ child_personality.2003 = {
 			limit = {
 				has_relation_bully = scope:child
 			}
-			set_relation_bully = scope:child
+			#Fixpack: The code is trying to set a relation we already have
+			#set_relation_bully = scope:child
+			remove_relation_bully = scope:child
 		}
 		if = {
 			limit = {

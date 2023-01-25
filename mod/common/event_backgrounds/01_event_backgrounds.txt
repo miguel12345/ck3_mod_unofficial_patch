@@ -196,7 +196,7 @@ temple_scope = {
 	}
 	background = { # FP1
 		trigger = { 
-			scope:background_temple_scope = { faith = faith:norse_pagan }
+			scope:background_temple_scope = { religion = religion:germanic_religion }
 		}
 		reference = "gfx/interface/illustrations/event_scenes/fp1_tribal_temple.dds"
 		environment = "environment_event_fp1_tribal_temple"
@@ -1810,4 +1810,3 @@ bp1_crossroads_inn = {
 		ambience = "event:/SFX/Events/Backgrounds/fields_farms_day"
 	}
 }
-

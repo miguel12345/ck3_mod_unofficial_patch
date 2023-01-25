@@ -1,0 +1,30 @@
+﻿######################################################################
+# Faith
+######################################################################
+
+building_faith_can_build_megaliths = {
+	trigger_if = {
+		limit = { faith = scope:holder.faith }
+		scope:holder.faith = { has_doctrine_parameter = can_build_megaliths }
+	}
+	trigger_else = {
+		OR = {
+			scope:holder.faith = { has_doctrine_parameter = can_build_megaliths }
+			county.faith = { has_doctrine_parameter = can_build_megaliths }
+		}
+	}
+}
+
+building_faith_can_build_megaliths_county = {
+	custom_tooltip = {
+		text = province_is_of_a_megalith_faith_tt
+		county.faith = { has_doctrine_parameter = can_build_megaliths }
+	}
+}
+
+building_faith_can_build_megaliths_holder = {
+	custom_tooltip = {
+		text = province_holder_is_of_a_megalith_faith_tt
+		scope:holder.faith = { has_doctrine_parameter = can_build_megaliths }
+	}
+}

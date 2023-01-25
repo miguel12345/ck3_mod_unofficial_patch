@@ -78,10 +78,10 @@ struggle_iberia_ending_hostility_decision = {
 				primary_title = global_var:unite_the_spanish_thrones_decision_title
 			}
 			custom_tooltip = {
-				text = struggle_iberia_ending_hostility_decision_county_tt
+				text = struggle_iberia_ending_hostility_decision_county_light_tt
 				capital_county.de_jure_liege.de_jure_liege = {
 					any_de_jure_county = {
-						percent = 0.75
+						percent >= 0.75
 						culture = root.culture
 						faith = root.faith
 					}
@@ -230,7 +230,8 @@ struggle_iberia_ending_compromise_decision = {
 			# Hold and completely control a de jure kingdom of Hispania
 			custom_tooltip = {
 				text = struggle_iberia_ending_compromise_decision_kingdom_tt
-				fp2_struggle_ending_hold_de_jure_kingdom_trigger = yes
+				#fp2_struggle_ending_hold_de_jure_kingdom_trigger = yes
+				fixpack_fp2_struggle_ending_hold_de_jure_kingdom_trigger = yes
 			}
 		}
 
@@ -417,7 +418,10 @@ struggle_iberia_ending_conciliation_decision = {
 		# Hold and completely control a de jure kingdom of Hispania
 		custom_tooltip = {
 			text = struggle_iberia_ending_compromise_decision_kingdom_tt
-			fp2_struggle_ending_hold_de_jure_kingdom_trigger = yes
+			# Fixpack: This trigger doesn't seems to work properly
+			# Tried to iterate with an any_in_de_jure_hierarchy on the title:e_spain but didn't get where I wanted
+			#fp2_struggle_ending_hold_de_jure_kingdom_trigger = yes
+			fixpack_fp2_struggle_ending_hold_de_jure_kingdom_trigger = yes
 		}
 
 		# Every other independent involved ruler in Iberia is allied to you
@@ -1411,7 +1415,7 @@ improve_city_province_decision = {
 						send_interface_toast = {
 							type = event_generic_good
 							title = city_gained_building_slots
-							left_icon = scope:current_province
+							left_icon = scope:current_province.barony
 
 							scope:current_province = { add_building_slot = 1 }
 						}

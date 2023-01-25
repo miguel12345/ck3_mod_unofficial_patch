@@ -5,62 +5,241 @@
 	desc = revoke_leased_title_interaction_desc
 
 	target_type = title
-	target_filter = actor_domain_titles_including_leases
+	target_filter = secondary_actor_domain_titles_including_leases
 	
 	auto_accept = yes
 
+	redirect = {
+		if = {
+			limit = { scope:actor = { exists = var:revoke_barrony_title } }
+			scope:actor = { var:revoke_barrony_title = { save_scope_as = hold_to_revoke } }
+		}
+
+		scope:actor = {
+			if = {
+				limit = { exists = scope:hold_to_revoke }
+				if = {
+					limit = {
+						any_held_title = {
+							has_revokable_lease = yes
+							lessee = scope:recipient
+							this = scope:hold_to_revoke
+						}
+					}
+					save_scope_as = secondary_actor
+				}
+				else_if = {
+					limit = {
+						any_vassal_or_below = {
+							any_held_title = {
+								tier = tier_barony
+								is_under_holy_order_lease = yes
+								has_revokable_lease = yes
+								lessee = scope:recipient
+								this = scope:hold_to_revoke
+							}
+						}
+					}
+					random_vassal_or_below = {
+						limit = {
+							any_held_title = {
+								tier = tier_barony
+								is_under_holy_order_lease = yes
+								has_revokable_lease = yes
+								lessee = scope:recipient
+								this = scope:hold_to_revoke
+							}
+						}
+						save_scope_as = secondary_actor
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						any_held_title = {
+							has_revokable_lease = yes
+							lessee = scope:recipient
+						}
+					}
+					save_scope_as = secondary_actor
+				}
+				else_if = {
+					limit = {
+						any_vassal = {
+							any_held_title = {
+								tier = tier_barony
+								is_under_holy_order_lease = yes
+								has_revokable_lease = yes
+								lessee = scope:recipient
+							}
+						}
+					}
+					random_vassal = {
+						limit = {
+							any_held_title = {
+								tier = tier_barony
+								is_under_holy_order_lease = yes
+								has_revokable_lease = yes
+								lessee = scope:recipient
+							}
+						}
+						save_scope_as = secondary_actor
+					}
+				}
+			}
+		}
+	}
+
 	is_shown = {
 		scope:actor = {
+			OR = {
+				any_held_title = {
+					has_revokable_lease = yes
+					lessee = scope:recipient
+				}
+				any_vassal_or_below ={
 			any_held_title = {
 				has_revokable_lease = yes
 				lessee = scope:recipient
 			}
 		}
 	}
+		}
+	}
 
-	#is_valid = {
+	is_valid = {
 	#	scope:actor = {
 	#		piety >= holy_order_revoke_lease_piety_cost
 	#	}
-	#}
+		trigger_if = {
+			limit = { exists = scope:target }
+			scope:target = {
+				trigger_if = {
+					limit = { this.holder = { is_independent_ruler = no } }
+					OR = {
+						this.holder = scope:actor
+						this.holder.liege = scope:actor
+						custom_description = {
+							text = "top_liege_equal"
+							subject = scope:actor
+							object = this.holder
+							this.holder.top_liege = scope:actor
+						}
+					}
+				}
+				trigger_else = {
+					OR = {
+						this.holder = scope:actor
+						this.holder.liege = scope:actor
+					}
+				}
+			}
+		}
+	}
+
+	# Fixpack: We could use the cost block here, but because there is a conflict with the revoke HolyOrder decision with cost,
+	# Fixpack: It would be required to duplicate the code just to remove the cost in the effect (so it's not substracted twice)
+	# Fixpack: Latest Version => Add the "reimbursement" of the duplicate cost in the hidden effect part
+	cost = {
+		piety = {
+			value = 0
+			if = {
+				limit = {
+					 exists = scope:recipient
+					 exists = scope:recipient.faith
+				}
+				if = {
+					limit = { scope:actor.faith = scope:recipient.faith }
+					add = cancel_holy_order_piety_cost
+				}
+				else_if = {
+					limit = {
+						scope:actor.faith = {
+							faith_hostility_level = {
+								target = scope:recipient.faith
+								value <= faith_astray_level
+							}
+						}
+					}
+					add = 100
+				}
+				else = {
+					add = 0
+				}
+			}
+		}
+	}
 	
 	has_valid_target_showing_failures_only = {
+
 		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
-		#scope:target = {
-		#	NOT = {
-		#		recent_history = {
-		#			type = leased_out
-		#			years = 1
-		#		}
-		#	}
-		#}
+
 		scope:target = {
 			has_revokable_lease = yes
 			lessee = scope:recipient
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
-		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+
+		scope:recipient = {
+			is_busy_in_events_localised = yes
+			NOT = { has_strong_hook = scope:actor }
+		}
 	}
 
 	on_accept = {
-
-		revoke_holy_order_lease_effect = {
+		fixpack_revoke_holy_order_lease_effect = {
 			CHARACTER = scope:actor
 			TARGET = scope:recipient
 			BARONY = scope:target
 		}
-
+		scope:actor = { remove_variable = revoke_barrony_title }
+		hidden_effect = {
+			scope:actor = {
+				add_piety = {
+					value = 0
+					if = {
+						limit = {
+							exists = scope:recipient
+							exists = scope:recipient.faith
+						}
+						if = {
+							limit = { scope:actor.faith = scope:recipient.faith }
+							add = cancel_holy_order_piety_cost
+						}
+						else_if = {
+							limit = {
+								scope:actor.faith = {
+									faith_hostility_level = {
+										target = scope:recipient.faith
+										value <= faith_astray_level
+									}
+								}
+							}
+							add = 100
+						}
+						else = {
+							add = 0
+						}
+					}
+				}
+			}
+		}
 	}
 
 	# AI
 	ai_targets = {
 		ai_recipients = vassals
 	}
+
 	ai_frequency = 12
 
 	ai_potential = {
 		is_landed = yes
 		highest_held_title_tier > tier_barony
+		any_held_title = {
+			tier = tier_barony
+			is_leased_out = yes
+		}
 	}
 
 	ai_will_do = {

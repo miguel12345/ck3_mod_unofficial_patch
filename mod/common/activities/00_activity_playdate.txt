@@ -251,7 +251,6 @@
 				}
 			}
 			
-
 			ordered_in_list = {
 				list = potential_guests
 				max = 99
@@ -365,6 +364,13 @@
 			}
 		}
 		else = {
+			every_participant = {
+				set_variable = { name = unop_current_court value = this.court_owner }
+				if = { limit = { is_foreign_court_guest = yes }
+					set_variable = { name = unop_is_guest value = yes }
+				}
+			}
+
 		# If there are guests present
 			activity_owner = { # The host gets their events
 				# The key event is chosen for the host, and fires other events from there to every participant:
@@ -387,19 +393,86 @@
 		activity_owner = {
 			save_scope_as = host
 		}
+		if = {
+			limit = { exists = host.liege_or_court_owner }
+			scope:host.liege_or_court_owner = {
+				save_scope_as = host_liege
+			}
+		}
+		else = {
+			scope:host = { save_scope_as = host_liege }
+		}
+
 		every_participant = {
 			limit = {
 				is_ai = yes
 				is_landed = no
-				save_temporary_scope_as = child_scope_check
-				any_parent = {
-					is_ai = no
-					any_courtier = {
-						this = scope:child_scope_check
-					}
-				}
+				#save_temporary_scope_as = child_scope_check
+				# Fixpack: Remove this so our hack to make children return to the correct court works
+				# Because the children are not always at our own court...
+				# And we don't want AI children to suffer the same fate
+				# any_parent = {
+				#	is_ai = no
+				#	any_courtier = {
+				#		this = scope:child_scope_check
+				#	}
+				# }
+				NOT = { this = scope:host }
 			}
 			save_scope_as = child_scope
+
+			if = {
+				limit = { exists = scope:child_scope.var:unop_current_court }
+				if = {
+					limit = { scope:child_scope.var:unop_current_court = { is_alive = yes } }
+					scope:child_scope = {
+						if = {
+							limit = { var:unop_current_court = court_owner }
+							if = {
+								limit = {
+									exists = var:unop_is_guest
+									var:unop_is_guest = yes
+					}
+								court_owner = {
+									remove_courtier_or_guest = scope:child_scope
+									save_scope_as = second_court_owner
+				}
+								visit_court_of = scope:second_court_owner
+			}
+							else = {
+								court_owner = {
+									remove_courtier_or_guest = scope:child_scope
+									add_courtier = scope:child_scope
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = { NOT = { exists = court_owner } }
+								#Wandering children are already taken care correctly by the game
+							}
+							else = {
+								# If player actually set a guardian to the child while the child is already at the peer meeting
+								if = {
+									limit = {
+										NOT = { court_owner = var:unop_current_court }
+										is_foreign_court_guest_of = court_owner
+									}
+									court_owner = {
+										remove_courtier_or_guest = scope:child_scope
+										save_scope_as = second_court_owner
+									}
+									visit_court_of = scope:second_court_owner
+								}
+							}
+						}
+					}
+				}
+				else = {
+					# Let the game handle this case
+				}
+			}
+
 			random_parent = {
 				limit = {
 					is_ai = no
@@ -416,6 +489,9 @@
 					right_icon = scope:host
 				}
 			}
+
+			remove_variable = unop_current_court
+			remove_variable = unop_is_guest
 		}
 	}
 	

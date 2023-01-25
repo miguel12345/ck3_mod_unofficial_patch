@@ -1150,16 +1150,19 @@ bp1_yearly.2010 = {
 		if = {
 			limit = {
 				any_consort = {
+					is_available_ai_adult = yes
+					NOT = { has_relation_lover = root }
 					any_relation = {
 						type = lover
 						count >= 1
 					}
+					save_temporary_scope_as = bp1_yearly_2010_find_lover
 				}
 			}
-			save_temporary_scope_as = bp1_yearly_2010_find_lover
 			random_consort = {
 				limit = {
 					has_relation_lover = scope:bp1_yearly_2010_find_lover
+					is_available_ai_adult = yes
 				}
 				save_scope_as = bp1_yearly_2010_second_partner
 			}
@@ -1759,6 +1762,10 @@ bp1_yearly.5302 = {
 	}
 
 	override_background = { event_background = wilderness_scope }
+
+	immediate = {
+		capital_province = { save_scope_as = background_wilderness_scope }
+	}
 
 	# Chop down trees
 	option = {
@@ -2604,16 +2611,33 @@ bp1_yearly.5601 = {
 	}
 
 	immediate = {
+		scope:dead_nemesis = { save_scope_as = bp1_yearly_5601_dead_nemesis }
+		if = {
+			limit = { NOT = { exists = scope:dead_nemesis_spouse } }
+			scope:bp1_yearly_5601_dead_nemesis = { # Assuming this is optional, not adding a redundancy check
 		random_memory = {
-			limit = { has_memory_type = nemesis_died }
+					limit = { has_memory_type = married }
 			save_scope_as = dead_nemesis_memory
-			memory_participant:dead_relation = { save_scope_as = bp1_yearly_5601_dead_nemesis }
+					memory_participant:spouse = {
+						if = {
+							limit = { is_alive = yes }
+							save_scope_as = dead_nemesis_spouse
 		}
-
-		scope:bp1_yearly_5601_dead_nemesis = { # Assuming this is optional, not adding a redundancy check
-			random_spouse = {
-				limit = { is_ai = yes }
+					}
+				}
+				if = {
+					limit = { NOT = { exists = scope:dead_nemesis_spouse } }
+					random_memory = {
+						limit = { has_memory_type = became_soulmates }
+						save_scope_as = dead_nemesis_memory
+						memory_participant:new_soulmate = {
+							if = {
+								limit = { is_alive = yes }
 				save_scope_as = dead_nemesis_spouse
+			}
+		}
+	}
+				}
 			}
 		}
 	}
@@ -4846,7 +4870,14 @@ bp1_yearly.5714 = {
 		has_bp1_dlc_trigger = yes
 		
 		# Standard check
-		is_valid_for_narrow_yearly_events = yes
+		# Fixpack: Disable this, as this event is for best-friend dying
+		# I guess this was here just from copy/paste the other events and did not get reviewed ?
+		# Only thing that could be valid IMHO is the NOT = { has_trait = incapable } wich we will keep here
+		#is_valid_for_narrow_yearly_events = yes
+
+		NOT = { has_trait = incapable }
+
+		#/Fixpack
 
 	}
 
@@ -5231,6 +5262,8 @@ bp1_yearly.5716 = {
 	cooldown = { years = 10 }
 	
 	trigger = {
+		exists = root.location
+		exists = root.location.barony # In case the character is at sea
 
 		# You are an available adult
 		is_available_at_peace_adult = yes
@@ -5774,6 +5807,9 @@ bp1_yearly.5719 = {
 		# You have a disloyal vassal
 		any_vassal = {
 			has_trait = disloyal
+			#Fixpack this was missing so could lead to a non working event.
+			is_powerful_vassal_of = root
+			#/Fixpack
 			trigger_if = {
 				limit = {
 					exists = root.cp:councillor_chancellor
@@ -5786,12 +5822,17 @@ bp1_yearly.5719 = {
 	}
 
 	immediate = {
+
+		cp:councillor_chancellor = {
+			save_scope_as = chancellor
+		}
+
 		random_vassal = {
 			limit = {
 				is_powerful_vassal_of = root
 				has_trait = disloyal
 				NOT = {
-					cp:councillor_chancellor = this
+					this = scope:chancellor
 				}
 			}
 			save_scope_as = disloyal_vassal
@@ -5805,10 +5846,6 @@ bp1_yearly.5719 = {
 		pay_short_term_gold = {
 			target = scope:disloyal_vassal
 			gold = major_gold_value
-		}
-
-		cp:councillor_chancellor = {
-			save_scope_as = chancellor
 		}
 	}
 

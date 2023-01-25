@@ -4692,9 +4692,15 @@ pregnant = {
 }
 
 depressed_1 = {
-	health_trait = yes
-	group_equivalence = depressed
+	group = depressed
 	level = 1
+	opposites = {
+		depressed_genetic
+	}
+
+	health_trait = yes
+	#group_equivalence = depressed
+	#level = 1
 	
 	diplomacy = -1
 	stewardship = -1
@@ -4723,12 +4729,18 @@ depressed_1 = {
 }
 
 depressed_genetic = {
+	group = depressed
+	level = 2
+	opposites = {
+		depressed_1
+	}
+
 	birth = 0.5
 	random_creation = 0.5
 	genetic = yes
 	health_trait = yes
-	group_equivalence = depressed
-	level = 2
+	#group_equivalence = depressed
+	#level = 2
 	
 	diplomacy = -1
 	stewardship = -1
@@ -4759,9 +4771,14 @@ depressed_genetic = {
 }
 
 lunatic_1 = { # Highly event driven, Schizophrenia
-
-	group_equivalence = lunatic
+	group = lunatic
 	level = 1
+	opposites = {
+		lunatic_genetic
+	}
+
+	#group_equivalence = lunatic
+	#level = 1
 	
 	vassal_opinion = -10
 	attraction_opinion = -10
@@ -4790,13 +4807,19 @@ lunatic_1 = { # Highly event driven, Schizophrenia
 }
 
 lunatic_genetic = { # Highly event driven, Schizophrenia
+	group = lunatic
+	level = 2
+	opposites = {
+		lunatic_1
+	}
+
 	birth = 0.5
 	random_creation = 0.5
 	genetic = yes
 	health_trait = yes
 
-	group_equivalence = lunatic
-	level = 2
+	#group_equivalence = lunatic
+	#level = 2
 	health = -0.25
 	
 	vassal_opinion = -10
@@ -4826,9 +4849,13 @@ lunatic_genetic = { # Highly event driven, Schizophrenia
 }
 
 possessed_1 = { # Highly event driven, Temporal lobe epilepsy
-
-	group_equivalence = possessed
+	group = possessed
 	level = 1
+	opposites = {
+		possessed_genetic
+	}
+	#group_equivalence = possessed
+	#level = 1
 
 	health_trait = yes
 
@@ -4858,13 +4885,18 @@ possessed_1 = { # Highly event driven, Temporal lobe epilepsy
 }
 
 possessed_genetic = { # Highly event driven, Temporal lobe epilepsy
+	group = possessed
+	level = 2
+	opposites = {
+		possessed_1
+	}
 	birth = 0.5
 	random_creation = 0.5
 	genetic = yes
 	health_trait = yes
 
-	group_equivalence = possessed
-	level = 2
+	#group_equivalence = possessed
+	#level = 2
 	
 	monthly_learning_lifestyle_xp_gain_mult = 0.1
 	health = -0.5

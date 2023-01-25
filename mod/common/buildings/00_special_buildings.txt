@@ -24,11 +24,7 @@ holy_site_cathedral_01 = {
 				is_holy_site_of = scope:holder.faith
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -87,11 +83,7 @@ holy_site_mosque_01 = {
 				is_holy_site_of = scope:holder.faith
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -156,11 +148,7 @@ holy_site_pagan_grand_temple_01 = {
 				is_holy_site_of = scope:holder.faith
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -227,11 +215,7 @@ holy_site_indian_grand_temple_01 = {
 				is_holy_site_of = scope:holder.faith
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -295,11 +279,7 @@ holy_site_other_grand_temple_01 = {
 				is_holy_site_of = scope:holder.faith
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -753,11 +733,7 @@ holy_site_cologne_cathedral_01 = {
 				}
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -835,11 +811,7 @@ holy_site_canterbury_cathedral_01 = {
 				}
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -1064,9 +1036,7 @@ visby_ringmur_01 = {
 	}
 
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 	
 	cost_gold = 500
@@ -1626,9 +1596,7 @@ alhambra_02 = {
 	}
 	
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	cost_gold = 2000
@@ -1704,9 +1672,7 @@ citadel_of_aleppo_02 = {
 	}
 	
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	cost_gold = 2000
@@ -1792,9 +1758,7 @@ the_tower_of_london_01 = {
 	}
 
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 	
 	cost_gold = 1000
@@ -1855,10 +1819,8 @@ notre_dame_01 = {
 	can_construct = {
 		scope:holder = {
 			religion = religion:christianity_religion
-			culture = {
-				has_innovation = innovation_windmills
-			}
 		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	is_enabled = {
@@ -1918,11 +1880,7 @@ brihadeeswarar_temple_01 = {
 	}
 	
 	can_construct = {
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_manorialism
-			}
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	is_enabled = {
@@ -2498,9 +2456,7 @@ rammelsberg_mines_01 = {
 	can_construct_potential = {
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -2538,9 +2494,7 @@ rammelsberg_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -2579,9 +2533,7 @@ rammelsberg_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -2620,9 +2572,7 @@ rammelsberg_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -2661,9 +2611,7 @@ kutna_hora_mines_01 = {
 		
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -2702,9 +2650,7 @@ kutna_hora_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -2743,9 +2689,7 @@ kutna_hora_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -2784,9 +2728,7 @@ kutna_hora_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -2824,9 +2766,7 @@ kremnica_mines_01 = {
 	can_construct_potential = {
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -2863,9 +2803,7 @@ kremnica_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -2902,9 +2840,7 @@ kremnica_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -2941,9 +2877,7 @@ kremnica_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -2981,9 +2915,7 @@ falun_mines_01 = {
 		
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -3023,9 +2955,7 @@ falun_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -3065,9 +2995,7 @@ falun_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -3107,9 +3035,7 @@ falun_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -3149,9 +3075,7 @@ schwaz_mines_01 = {
 		
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -3189,9 +3113,7 @@ schwaz_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -3229,9 +3151,7 @@ schwaz_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -3269,9 +3189,7 @@ schwaz_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -3308,9 +3226,7 @@ argentiera_mines_01 = {
 	can_construct_potential = {
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -3347,9 +3263,7 @@ argentiera_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -3386,9 +3300,7 @@ argentiera_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -3425,9 +3337,7 @@ argentiera_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -3464,9 +3374,7 @@ kollur_mines_01 = {
 	can_construct_potential = {
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -3504,9 +3412,7 @@ kollur_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -3544,9 +3450,7 @@ kollur_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -3584,9 +3488,7 @@ kollur_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -3624,9 +3526,7 @@ siderokausia_mines_01 = {
 	can_construct_potential = {
 		building_requirement_tribal = no
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -3663,9 +3563,7 @@ siderokausia_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -3702,9 +3600,7 @@ siderokausia_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -3741,9 +3637,7 @@ siderokausia_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -3778,9 +3672,7 @@ mali_mines_01 = {
 	type_icon = "icon_structure_mines.dds"
 
 	can_construct_potential = {
-		culture = {
-			has_innovation = innovation_crop_rotation
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	cost_gold = expensive_building_tier_3_cost
@@ -3817,9 +3709,7 @@ mali_mines_02 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	cost_gold = expensive_building_tier_4_cost
@@ -3856,9 +3746,7 @@ mali_mines_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	cost_gold = expensive_building_tier_5_cost
@@ -3895,9 +3783,7 @@ mali_mines_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	cost_gold = expensive_building_tier_6_cost
@@ -4084,12 +3970,19 @@ generic_university = {
 	
 	cost_gold = 1000
 
-	county_holder_character_modifier = {
+	character_modifier = {
 		learning_per_prestige_level = 1
 		monthly_lifestyle_xp_gain_mult = 0.05
 		monthly_dynasty_prestige = 0.25
 	}
 	
+	# Disabled because this modifier DOES NOT WORK
+	#county_holder_character_modifier = { # TODO: implement when TIT-32285 is merged
+	#	learning_per_prestige_level = 1
+	#	monthly_lifestyle_xp_gain_mult = 0.05
+	#	monthly_dynasty_prestige = 0.25
+	#}
+
 	county_modifier = {
 		development_growth_factor = 0.1
 	}
@@ -4393,9 +4286,7 @@ hotin_fort_02 = {
 	}
 	
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	cost_gold = 800
@@ -4436,9 +4327,7 @@ golden_gate_of_kiev_01 = {
 	}
 	
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 	
 	cost_gold = 1000
@@ -4483,9 +4372,7 @@ heddal_stave_church_01 = {
 	}
 	
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_city_planning
-		}
+		building_requirement_innovation_city_planning = yes
 	}
 	
 	cost_gold = 1000
@@ -4540,11 +4427,7 @@ temple_of_uppsala_01 = {
 				}
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_city_planning
-			}
-		}
+		building_requirement_innovation_city_planning = yes
 	}
 	
 	is_enabled = {
@@ -4614,11 +4497,7 @@ temple_of_uppsala_02 = {
 				}
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_manorialism
-			}
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	is_enabled = {
@@ -4688,11 +4567,7 @@ lund_cathedral_01 = {
 				}
 			}
 		}
-		scope:holder = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	is_enabled = {
@@ -4799,10 +4674,11 @@ roman_wall_of_lugo_01 = {
 		fort_level = 1
 	}
 
-	county_holder_character_modifier = { # TODO: implement when TIT-32285 is merged
-		learning = 1
-		monthly_dynasty_prestige_mult = 0.05
-	}
+	# Disabled because this modifier DOES NOT WORK
+	#county_holder_character_modifier = { # TODO: implement when TIT-32285 is merged
+	#	learning = 1
+	#	monthly_dynasty_prestige_mult = 0.05
+	#}
 	
 	ai_value = {
 		base = 100
@@ -4877,9 +4753,7 @@ aljaferia_palace_01 = {
 	type_icon = "aljaferia.dds" 
 	
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings 
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	cost_gold = 1000
@@ -5011,9 +4885,7 @@ alcazar_of_segovia_01 = {
 	type_icon = "alcazar_segovia.dds" 
 	
 	can_construct = {
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings 
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	cost_gold = 1000

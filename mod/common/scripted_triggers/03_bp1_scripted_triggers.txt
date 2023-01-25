@@ -11,9 +11,11 @@ house_feud_story_flag_trigger = {
 house_feud_target_house_trigger = {
 	any_owned_story = {
 		story_type = story_cycle_house_feud
-		exists = var:house_feud_house
+		trigger_if = {
+			limit = { exists = var:house_feud_house }
 		var:house_feud_house = $HOUSE$
 	}
+}
 }
 
 # Valid to start a family feud story

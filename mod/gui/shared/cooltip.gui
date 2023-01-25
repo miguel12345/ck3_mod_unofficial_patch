@@ -4370,7 +4370,7 @@ template culture_pillar_tooltip {
 
 					cooltip_paragraph = {
 						text = "CULTURE_PILLAR_TOOLTIP_COURT_LANGUAGE"
-						visible = "[ObjectsEqual( GetPlayer.GetCourtLanguage, CulturePillar.Self ))]"
+						visible = "[ObjectsEqual( GetPlayer.GetCourtLanguage, CulturePillar.Self )]"
 					}
 
 					cooltip_paragraph = {
@@ -4903,7 +4903,7 @@ types CourtPositionTooltips {
 				vbox = {
 					layoutpolicy_vertical = expanding
 					layoutpolicy_horizontal = expanding
-					visible = "[CourtPositionType.HasLiegeModifiers)]"
+					visible = "[CourtPositionType.HasLiegeModifiers]"
 					spacing = 2
 
 					### Liege Modifiers

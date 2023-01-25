@@ -6040,6 +6040,7 @@ fund_inspiration.1021 = {
 		triggered_desc = {
 			trigger = {
 				NOT	= {
+					#Error: Failed to fetch variable for 'artifact_armor_type' due to not being set
 					scope:inspiration_owner.var:artifact_armor_type = flag:armor_type_shield
 				}
 			}
@@ -6047,6 +6048,7 @@ fund_inspiration.1021 = {
 		}
 		triggered_desc = {
 			trigger = {
+				#Error: Failed to fetch variable for 'artifact_armor_type' due to not being set
 				scope:inspiration_owner.var:artifact_armor_type = flag:armor_type_shield
 			}
 			desc = artifact_wall_shield_description
@@ -11661,7 +11663,7 @@ fund_inspiration.2080 = {
 		}
 		random_list = {
 			5 = {
-				modifier = { factor = scope:antiquarian.aptitude:antiquarian_court_position }
+				modifier = { factor = scope:rival.aptitude:antiquarian_court_position }
 				send_interface_toast = {
 					title = fund_inspiration.2080.success
 					left_icon = scope:rival
@@ -12564,11 +12566,13 @@ fund_inspiration.2120 = {
 				has_relation_soulmate = root
 				is_close_family_of = root
 				has_any_bad_relationship_with_character_trigger = { CHARACTER = root }
+				has_trait = celibate #Fixpack: added this
 			}
 			opinion = {
 				target = root
 				value > 0
 			}
+			might_cheat_on_every_partner_trigger = yes #Fixpack: added this
 		}
 	}
 
@@ -12593,8 +12597,13 @@ fund_inspiration.2120 = {
 			random_list = {
 				2 = {
 					trigger = {
-						NOT = { has_trait = chaste }
+						NOR = {
+							has_trait = chaste
+							has_trait = celibate #Fixpack: added this
+						}
 						is_attracted_to_gender_of = scope:inspiration_owner
+						might_cheat_on_every_partner_trigger = yes #Fixpack: added this
+						accepts_incest_with_trigger = { CHARACTER = scope:inspiration_owner } #Fixpack: added this
 					}
 					modifier = {
 						factor = 2
@@ -12741,6 +12750,17 @@ fund_inspiration.2120 = {
 		trigger = {
 			NOT = { has_character_flag = fund_inspiration_2070_instigator } # Did not initiate seduction
 			is_attracted_to_gender_of = scope:inspiration_owner
+
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					accepts_incest_with_trigger = { CHARACTER = scope:inspiration_owner }
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+			#/Fixpack
 		}
 		had_sex_with_effect = { CHARACTER = scope:inspiration_owner PREGNANCY_CHANCE = seduce_pregnancy_chance }
 		if = {
@@ -12819,6 +12839,17 @@ fund_inspiration.2120 = {
 			NOT = { has_character_flag = fund_inspiration_2070_instigator } # Did not initiate seduction
 			has_trait = lustful
 			is_attracted_to_gender_of = scope:inspiration_owner
+
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					accepts_incest_with_trigger = { CHARACTER = scope:inspiration_owner }
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+			#/Fixpack
 		}
 		exclusive = yes
 		had_sex_with_effect = { CHARACTER = scope:inspiration_owner PREGNANCY_CHANCE = seduce_pregnancy_chance }
@@ -17455,6 +17486,7 @@ fund_inspiration.6300 = {
 						always = yes
 					}
 					has_sexuality = asexual
+					has_trait = celibate #Fixpack: added this
 				}
 			}
 		}
@@ -17525,8 +17557,19 @@ fund_inspiration.6300 = {
 				homosexual_poet_trigger = no
 				unloved_poet_trigger = yes
 				is_attracted_to_gender_of = root
+				might_cheat_on_every_partner_trigger = yes #Fixpack: added this
 			}
 			is_attracted_to_gender_of = scope:inspiration_owner
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					accepts_incest_with_trigger = { CHARACTER = scope:inspiration_owner }
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+			#/Fixpack
 		}
 		had_sex_with_effect = {
 			CHARACTER = scope:inspiration_owner
@@ -18624,7 +18667,9 @@ fund_inspiration.6504 = {
 			NOR = { 
 				has_trait = chaste
 				has_trait = infertile
+				has_trait = celibate #Fixpack: added this
 			}
+			might_cheat_on_every_partner_trigger = yes #Fixpack: added this
 		}
 	}
 
@@ -21137,7 +21182,7 @@ fund_inspiration.8014 = {
 
 	option = { #Fire them
 		name = fund_inspiration.8014.c
-		name = fund_inspiration.8014.c.tt
+		custom_tooltip = fund_inspiration.8014.c.tt
 		add_gold = medium_gold_value
 		end_inspiration_sponsorship = scope:inspiration
 		#To clean out flags and stuff

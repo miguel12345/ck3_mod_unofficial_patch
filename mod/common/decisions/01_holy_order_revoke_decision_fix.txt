@@ -1,0 +1,163 @@
+﻿cancel_holy_order_lease_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					faith = {
+						faith_hostility_level = {
+							target = scope:barony.lessee_title.holder.faith
+							value >= faith_hostile_level
+						}
+					}
+				}
+				desc = cancel_holy_order_lease_hostile_decision_desc
+			}
+			desc = cancel_holy_order_lease_decision_desc
+		}
+	}
+
+	# FixPack, As per documentation:
+	# How many months to go between each check of this decision. Has to be set, except if ai_goal = yes is set.
+	# An interval of 0 means the AI will never check this decision
+	# Was 360, harmonized with the interaction that said 12 months. Why it was 360 months => 30 years !?
+	ai_check_interval = 12
+
+	is_shown = {
+		is_landed = yes
+		OR = {
+			any_held_title = {
+				tier = tier_barony
+				is_under_holy_order_lease = yes
+				has_revokable_lease = yes
+			}
+			# Fixpack: any_vassal_or_below is not use here on purpose
+			# Fixpack: The filter seems to be hardcoded to use any_vassal held titles :(
+			any_vassal = {
+				any_held_title = {
+					tier = tier_barony
+					is_under_holy_order_lease = yes
+					has_revokable_lease = yes
+				}
+			}
+		}
+	}
+
+	widget = {
+		controller = revoke_holy_order_lease
+		barony_valid = {
+			trigger_if = {
+				limit = { exists = this }
+				fixpack_barony_is_valid_for_holy_order_lease_cancellation_trigger = yes
+			}
+			trigger_else = {
+				custom_description = {
+					text = "has_holy_order_barony_selected"
+					always = no
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	# Fixpack: We can't use the cost block because the cost depends on the selected tier_county
+	# Fixpack: It display as cannot be selected if piety is < cancel_holy_order_piety_cost (1000) even if it cost only 500 for an hostile faith
+	#cost = {
+	#	piety = {
+	#		value = cancel_holy_order_piety_cost
+	#		if = {
+	#			limit = {
+	#				 exists = scope:barony
+	#				 exists = scope:barony.lessee
+	#				 exists = scope:barony.lessee.faith
+	#			}
+	#			if = {
+	#				limit = {
+	#					root.faith = {
+	#						faith_hostility_level = {
+	#							target = scope:barony.lessee.faith
+	#							value < faith_hostile_level
+	#						}
+	#					}
+	#				}
+	#				# Fixpack: It is the double for non-hostile faith
+	#				add = cancel_holy_order_piety_cost
+	#			}
+	#			else = {
+	#				subtract = 0
+	#			}
+	#		}
+	#	}
+	#}
+
+	effect = {
+		if = {
+			limit = {
+				exists = root
+				exists = scope:barony.lessee
+				exists = scope:barony
+			}
+			# Fixpack: Unfortunatly, we can't use that is describe in the cost block comment
+			# Fixpack: Workaround to reimburse the double ammount of piety
+			# Fixpack: Disabled because cost block have been commented out.
+			#hidden_effect = {
+			#	root = {
+			#		add_piety = {
+			#			value = cancel_holy_order_piety_cost
+			#			if = {
+			#				limit = {
+			#					exists = scope:barony.lessee
+			#					exists = scope:barony.lessee.faith
+			#				}
+			#				if = {
+			#					limit = {
+			#						root.faith = {
+			#							faith_hostility_level = {
+			#								target = scope:barony.lessee.faith
+			#								value < faith_hostile_level
+			#							}
+			#						}
+			#					}
+			#					add = cancel_holy_order_piety_cost
+			#				}
+			#				else = {
+			#					subtract = 0
+			#				}
+			#			}
+			#		}
+			#	}
+			#}
+			fixpack_revoke_holy_order_lease_effect = {
+				CHARACTER = root
+				TARGET = scope:barony.lessee
+				BARONY = scope:barony
+			}
+		}
+	}
+
+	ai_potential = {
+		is_landed = yes
+		highest_held_title_tier >= tier_county
+		any_held_title = {
+			tier = tier_barony
+			is_leased_out = yes
+		}
+	}
+
+	ai_will_do = {
+		base = 0
+		# revoke titles leased to holy orders of the wrong faith
+		modifier = {
+			add = 100
+			exists = scope:barony.lessee
+			NOT = {
+				scope:barony.lessee.faith = root.faith
+			}
+		}
+	}
+}

@@ -66,7 +66,7 @@ learn_language_outcome.1000 = {
 				}
 			}
 			scope:owner = {
-				add_piety = medium_prestige_gain
+				add_prestige = medium_prestige_gain
 			}
 		}
 

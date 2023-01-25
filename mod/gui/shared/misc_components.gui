@@ -47,7 +47,7 @@ types Miscelaneous
 		}
 
 		text_single = {
-			visible = "[GetPlayer.HasClaimOnTitle(County.GetTitle))]"
+			visible = "[GetPlayer.HasClaimOnTitle(County.GetTitle)]"
 			text = "COA_HIGHLIGHT_CLAIM"
 			default_format = "#D"
 		}

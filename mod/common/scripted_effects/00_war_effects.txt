@@ -585,9 +585,12 @@ on_white_peace_faction_revolt_war = {
 				}
 			}
 
+			#Fixpack: As it's a white-peace, why should they have faction discontent ???
+			#Fixpack: I'll just check if the scope still exists for now...
 			if = {
 				limit = {
-					exists = this
+					#exists = this #Fixpack: Old check that can be destroyed (comment few line above)
+					exists = scope:current_faction
 				}
 				add_faction_discontent = -200
 			}

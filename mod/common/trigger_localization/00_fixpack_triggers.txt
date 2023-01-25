@@ -1,0 +1,24 @@
+﻿NOT_ALREADY_PLANNING_ACTIVITY = {
+	first = NOT_ALREADY_PLANNING_ACTIVITY
+	first_not = NOT_ALREADY_PLANNING_ACTIVITY
+	global = NOT_ALREADY_PLANNING_ACTIVITY
+	global_not = NOT_ALREADY_PLANNING_ACTIVITY
+}
+
+top_liege_equal = {
+	first = TOP_LIEGE_EQUAL_FIRST
+	first_not = TOP_LIEGE_EQUAL_FIRST_NOT
+	third = TOP_LIEGE_EQUAL_THIRD
+	third_not = TOP_LIEGE_EQUAL_THIRD_NOT
+}
+
+#is_attracted_to_gender_of = {
+#	first = fixpack_attracted_by_me_first
+#	first_not = fixpack_attracted_by_me_first_not
+#	third = fixpack_attracted_by_me_third
+#	third_not = fixpack_attracted_by_me_third_not
+#}
+
+cannot_demand_holy_order_master_conversion = {
+	third_not = CANNOT_DEMAND_CONVERSION_FROM_HOLY_ORDER_MASTER
+}

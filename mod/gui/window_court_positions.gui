@@ -600,12 +600,12 @@ types CourtPositionTypes
 					margin_top = 4
 
 					button_change = {
-						onclick = "[EmployedPositionItem.Replace)]"
+						onclick = "[EmployedPositionItem.Replace]"
 						tooltip = "COURT_POSITION_REPLACE"
 					}
 
 					button_cancel = {
-						onclick = "[EmployedPositionItem.Revoke)]"
+						onclick = "[EmployedPositionItem.Revoke]"
 						tooltip = "COURT_POSITION_REVOKE"
 					}
 

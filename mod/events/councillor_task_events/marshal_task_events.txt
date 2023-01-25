@@ -9,6 +9,7 @@ namespace = marshal_task
 ####
 # 0301 - New Commander
 # 0302 - Commander learns Marshal's Commander Trait
+# 0303 - Knight becomes Blademaster or gain more Prowess
 
 ####
 #1000-1999: Side effects from Organize the Levies
@@ -30,6 +31,7 @@ namespace = marshal_task
 # 2003 - Commander Killed
 
 # 2101 - Commander Teaches Other Commander a Trait
+# 2102 - Knight Improved
 
 ####
 #3000-3999: Side effects from Increase Control
@@ -47,10 +49,10 @@ namespace = marshal_task
 # by Claudia Baldassi
 ####
 # 4001 - Knight is Wounded
-# 4002 - 
+# 4002 - Disorganized Royal Guards
 
 # 4101 - Knight Improved
-# 4102 - Scheme Disrupted
+# 4102 - Hostile Scheme Disrupted
 
 
 
@@ -159,9 +161,6 @@ marshal_task.0301 = {
 # by Petter Vilberg
 scripted_trigger marshal_task_0302_commander_trigger = {
 	number_of_commander_traits < commander_trait_limit
-	can_be_commander_now_trigger = { ARMY_OWNER = root }
-	number_of_commander_traits < 3
-	is_available_ai_adult = yes
 	NOT = { this = root.cp:councillor_marshal }
 	NOT = { has_variable = commander_trait_being_taught }
 }
@@ -176,14 +175,10 @@ marshal_task.0302 = {
 			councillor_positive_event_opinion_trigger = yes
 			martial > mediocre_skill_rating
 		}
-		OR = {
-			any_courtier = {
+		any_knight = {
+			fixpack_can_be_trained_as_knight_now_light_trigger = yes
 				marshal_task_0302_commander_trigger = yes
 			}
-			any_vassal = {
-				marshal_task_0302_commander_trigger = yes
-			}
-		}
 	}
 
 	weight_multiplier = {
@@ -200,19 +195,18 @@ marshal_task.0302 = {
 		cp:councillor_marshal = {
 			save_scope_as = active_councillor
 		}
-		set_variable = {
-			name = had_marshal_task_side_effect
-			value = yes
-			days = marshal_task_side_effect_cooldown
+		cp:councillor_marshal = {
+			save_scope_as = teacher
 		}
-		every_courtier = {
+		# Commented out as this is not a side effect but a main one !
+		#set_variable = {
+		#	name = had_marshal_task_side_effect
+		#	value = yes
+		#	days = marshal_task_side_effect_cooldown
+		#}
+		every_knight = {
 			limit = {
-				marshal_task_0302_commander_trigger = yes
-			}
-			add_to_temporary_list = possible_commander
-		}
-		every_vassal = {
-			limit = {
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 				marshal_task_0302_commander_trigger = yes
 			}
 			add_to_temporary_list = possible_commander
@@ -220,7 +214,7 @@ marshal_task.0302 = {
 		random_in_list = {
 			list = possible_commander
 			limit = {
-				character_has_commander_trait_scope_does_not = root.cp:councillor_marshal
+				character_has_commander_trait_scope_does_not = scope:teacher
 				has_education_martial_trigger = yes
 			}
 			alternative_limit = {
@@ -252,26 +246,24 @@ marshal_task.0302 = {
 			}
 			save_scope_as = commander
 		}
-		cp:councillor_marshal = {
-			save_scope_as = teacher
-		}
 
 		random_list = {
 			75 = {
 				trigger = {
-					always = no
-					scope:commander = {
-						character_has_commander_trait_scope_does_not = scope:teacher
+					fixpack_teacher_has_trait_that_student_does_not_trigger = { 
+						TEACHER = scope:teacher
+						STUDENT = scope:commander
 					}
 				}
 				select_ct_for_teacher_to_teach_student_effect = {
 					TEACHER = scope:teacher
 					STUDENT = scope:commander
 				}
-				save_scope_value_as = {
-					name = marshal_knows_selected_trait
-					value = yes
-				}
+				# this scope is nowhere to be found in the game
+				#save_scope_value_as = {
+				#	name = marshal_knows_selected_trait
+				#	value = yes
+				#}
 			}
 			25 = {
 				scope:commander = {
@@ -310,7 +302,7 @@ marshal_task.0302 = {
 					tooltip = task_train_commanders_notification_tooltip
 
 					left_icon = scope:commander
-					right_icon = scope:active_councillor
+					right_icon = scope:teacher
 
 					scope:commander = {
 						learn_commander_trait_success_effect = yes
@@ -342,14 +334,33 @@ marshal_task.0302 = {
 					right_icon = scope:active_councillor
 
 					scope:commander = {
+						# Did not succeed to learn the skill
 						add_martial_skill = 1
 					}
 				}
 			}
 		}
 	}
+
+	after = {
+		scope:commander = {
+			if = {
+				limit = {
+					exists = var:commander_trait_being_taught
+				}
+				remove_variable = commander_trait_being_taught
+			}
+			if = {
+				limit = {
+					has_character_flag = being_taught_commander_trait
+				}
+				remove_character_flag = being_taught_commander_trait
+			}
+		}
+	}
 }
 
+# Knight becomes Blademaster or gain more Prowess
 marshal_task.0303 = {
 	hidden = yes
 	
@@ -361,8 +372,7 @@ marshal_task.0303 = {
 			martial > mediocre_skill_rating
 		}
 		any_knight = {
-			can_be_commander_now_trigger = { ARMY_OWNER = root }
-			is_available_ai_adult = yes
+			fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			NOT = { this = root.cp:councillor_marshal }
 		}
 	}
@@ -381,15 +391,15 @@ marshal_task.0303 = {
 		cp:councillor_marshal = {
 			save_scope_as = active_councillor
 		}
-		set_variable = {
-			name = had_marshal_task_side_effect
-			value = yes
-			days = marshal_task_side_effect_cooldown
-		}
+		#Commented out as this is not a side effect but a main one !
+		#set_variable = {
+		#	name = had_marshal_task_side_effect
+		#	value = yes
+		#	days = marshal_task_side_effect_cooldown
+		#}
 		every_knight = {
 			limit = {
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-				is_available_ai_adult = yes
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 				NOT = { this = root.cp:councillor_marshal }
 			}
 			add_to_temporary_list = possible_knight
@@ -851,7 +861,7 @@ marshal_task.1101 = {
 			tooltip = task_organize_levies_notification_tooltip
 			
 			goto = scope:county
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 			right_icon = scope:county
 
 			scope:county = {
@@ -927,7 +937,7 @@ marshal_task.1102 = {
 			tooltip = task_organize_levies_notification_tooltip
 			goto = scope:county
 
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 			right_icon = scope:county
 
 			scope:county = {
@@ -954,7 +964,6 @@ marshal_task.1102 = {
 #Commander is Wounded
 # by Petter Vilberg
 scripted_trigger marshal_task_2001_commander_trigger = {
-	is_available_ai_adult = yes
 	NOT = { this = root.cp:councillor_marshal }
 	NOT = { has_trait = wounded }
 }
@@ -968,15 +977,9 @@ marshal_task.2001 = {
 		cp:councillor_marshal = {
 			martial < high_skill_rating
 		}
-		OR = {
-			any_courtier = {
+		any_knight = {
 				marshal_task_2001_commander_trigger = yes
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-			}
-			any_vassal = {
-				marshal_task_2001_commander_trigger = yes
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-			}
+			fixpack_can_be_trained_as_knight_now_light_trigger = yes
 		}
 	}
 
@@ -999,9 +1002,11 @@ marshal_task.2001 = {
 			value = yes
 			days = marshal_task_side_effect_cooldown
 		}
-		get_valid_commander_list_effect = {
-			LIST = valid_commander_list
-			ARMY_OWNER = root
+		every_knight = {
+			limit = {
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
+			}
+			add_to_list = valid_commander_list
 		}
 		random_in_list = {
 			list = valid_commander_list
@@ -1038,7 +1043,7 @@ marshal_task.2001 = {
 			tooltip = task_train_commanders_notification_tooltip
 
 			left_icon = scope:commander
-			right_icon = scope:councillor
+			right_icon = scope:active_councillor
 
 			scope:commander = {
 				increase_wounds_effect = {
@@ -1052,7 +1057,6 @@ marshal_task.2001 = {
 #Commander is Severely Harmed
 # by Petter Vilberg
 scripted_trigger marshal_task_2002_commander_trigger = {
-	is_available_ai_adult = yes
 	OR = {
 		is_landed = no
 		highest_held_title_tier = tier_barony
@@ -1074,13 +1078,9 @@ marshal_task.2002 = {
 			martial < high_skill_rating
 		}
 		OR = {
-			any_courtier = {
+			any_knight = {
 				marshal_task_2002_commander_trigger = yes
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-			}
-			any_vassal = {
-				marshal_task_2002_commander_trigger = yes
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			}
 		}
 	}
@@ -1104,9 +1104,11 @@ marshal_task.2002 = {
 			value = yes
 			days = marshal_task_side_effect_cooldown
 		}
-		get_valid_commander_list_effect = {
-			LIST = valid_commander_list
-			ARMY_OWNER = root
+		every_knight = {
+			limit = {
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
+			}
+			add_to_list = valid_commander_list
 		}
 		random_in_list = {
 			list = valid_commander_list
@@ -1236,7 +1238,6 @@ marshal_task.2002 = {
 #Commander is Killed
 # by Petter Vilberg
 scripted_trigger marshal_task_2003_commander_trigger = {
-	is_available_ai_adult = yes
 	OR = {
 		is_landed = no
 		highest_held_title_tier = tier_barony
@@ -1269,13 +1270,9 @@ marshal_task.2003 = {
 			martial < high_skill_rating
 		}
 		OR = {
-			any_courtier = {
+			any_knight = {
 				marshal_task_2003_commander_trigger = yes
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-			}
-			any_vassal = {
-				marshal_task_2003_commander_trigger = yes
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			}
 		}
 	}
@@ -1299,9 +1296,11 @@ marshal_task.2003 = {
 			value = yes
 			days = marshal_task_side_effect_cooldown
 		}
-		get_valid_commander_list_effect = {
-			LIST = valid_commander_list
-			ARMY_OWNER = root
+		every_knight = {
+			limit = {
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
+			}
+			add_to_list = valid_commander_list
 		}
 		random_in_list = {
 			list = valid_commander_list
@@ -1339,21 +1338,16 @@ marshal_task.2003 = {
 
 scripted_trigger marshal_task_2101_teacher_trigger = {
 	number_of_commander_traits > 0
-	can_be_commander_now_trigger = { ARMY_OWNER = root }
-	is_available_ai_adult = yes
 	NOT = { this = root.cp:councillor_marshal }
 	NOT = { has_variable = commander_trait_being_taught }
 }
 
 scripted_trigger marshal_task_2101_commander_trigger = {
 	number_of_commander_traits < commander_trait_limit
-	can_be_commander_now_trigger = { ARMY_OWNER = root }
-	character_has_commander_trait_scope_does_not = scope:teacher
-	is_available_ai_adult = yes
 	NOT = { this = root.cp:councillor_marshal }
 	NOT = { has_variable = commander_trait_being_taught }
+	character_has_commander_trait_scope_does_not = scope:teacher
 }
-
 
 marshal_task.2101 = {
 	hidden = yes
@@ -1367,21 +1361,16 @@ marshal_task.2101 = {
 		}
 
 		#First, add every potential commander to a trigger list
-		any_courtier = {
-			can_be_commander_now_trigger = { ARMY_OWNER = root }
-			count = all
-			add_to_temporary_list = possible_commanders
-		}
-		any_vassal = {
-			can_be_commander_now_trigger = { ARMY_OWNER = root }
-			count = all
+		any_knight = {
+			fixpack_can_be_trained_as_knight_now_light_trigger = yes
+			marshal_task_2101_teacher_trigger = yes
+			count >= 2
 			add_to_temporary_list = possible_commanders
 		}
 
 		#Find two candidates
 		any_in_list = {
 			list = possible_commanders
-			marshal_task_2101_teacher_trigger = yes
 			save_temporary_scope_as = teacher
 		}
 		any_in_list = {
@@ -1411,15 +1400,9 @@ marshal_task.2101 = {
 		}
 
 		#Build a list of possible characters involved
-		every_courtier = {
+		every_knight = {
 			limit = {
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-			}
-			add_to_list = possible_commanders
-		}
-		every_vassal = {
-			limit = {
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			}
 			add_to_list = possible_commanders
 		}
@@ -1433,6 +1416,7 @@ marshal_task.2101 = {
 				save_temporary_scope_as = teacher
 				any_in_list = {
 					list = possible_commanders
+					NOT = { this = scope:teacher }
 					marshal_task_2101_commander_trigger = yes
 				}
 			}
@@ -1473,16 +1457,33 @@ marshal_task.2101 = {
 			tooltip = task_train_commanders_notification_tooltip
 
 			left_icon = scope:commander
-			right_icon = scope:active_councillor
+			right_icon = scope:teacher
 
 			scope:commander = {
 				learn_commander_trait_success_effect = yes
 			}
 		}
 	}
+
+	after = {
+		scope:commander = {
+			if = {
+				limit = {
+					exists = var:commander_trait_being_taught
+				}
+				remove_variable = commander_trait_being_taught
+			}
+			if = {
+				limit = {
+					has_character_flag = being_taught_commander_trait
+				}
+				remove_character_flag = being_taught_commander_trait
+			}
+		}
+	}
 }
 
-
+# 2101 - Knight Improved
 marshal_task.2102 = {
 	hidden = yes
 	
@@ -1495,16 +1496,12 @@ marshal_task.2102 = {
 		}
 
 		any_knight = {
-			can_be_commander_now_trigger = { ARMY_OWNER = root }
-			is_available_ai_adult = yes
-			count = all
+			fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			add_to_temporary_list = possible_commanders
 		}
 		
 		any_in_list = {
 			list = possible_commanders
-			can_be_commander_now_trigger = { ARMY_OWNER = root }
-			is_available_ai_adult = yes
 			NOT = { this = root.cp:councillor_marshal }
 		}
 	}
@@ -1532,8 +1529,7 @@ marshal_task.2102 = {
 		#Build a list of possible characters involved
 		every_knight = {
 			limit = {
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-				is_available_ai_adult = yes
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			}
 			add_to_list = possible_knights
 		}
@@ -1542,8 +1538,6 @@ marshal_task.2102 = {
 		random_in_list = {
 			list = possible_knights
 			limit = {		
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-				is_available_ai_adult = yes
 				NOT = { this = root.cp:councillor_marshal }
 			}
 			save_scope_as = commander
@@ -1647,7 +1641,7 @@ marshal_task.3001 = {
 			tooltip = task_increase_control_notification_tooltip
 			goto = scope:county
 
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 			right_icon = scope:county
 			
 			scope:county = {
@@ -1718,7 +1712,7 @@ marshal_task.3002 = {
 			tooltip = task_increase_control_notification_tooltip
 			goto = scope:county
 
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 			right_icon = scope:county
 
 			scope:county = {
@@ -1827,7 +1821,7 @@ marshal_task.3003 = {
 			}
 			tooltip = task_increase_control_notification_tooltip
 
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 			right_icon = scope:baron
 
 			add_prestige = minor_prestige_loss
@@ -1907,7 +1901,7 @@ marshal_task.3101 = {
 			}
 			tooltip = task_increase_control_notification_tooltip
 
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 			right_icon = scope:county
 
 			scope:county = {
@@ -1994,7 +1988,7 @@ marshal_task.3102 = {
 			}
 			tooltip = task_increase_control_notification_tooltip
 
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 			right_icon = scope:baron
 
 			scope:baron = {
@@ -2022,8 +2016,6 @@ marshal_task.3102 = {
 #Knight is Wounded
 # by Claudia Baldassi
 scripted_trigger marshal_task_4001_knight_trigger = {
-	is_knight = yes
-	is_available_ai_adult = yes
 	NOT = { this = root.cp:councillor_marshal }
 	NOT = { has_trait = wounded }
 }
@@ -2037,8 +2029,10 @@ marshal_task.4001 = {
 		cp:councillor_marshal = {
 			martial < high_skill_rating
 		}
-		any_courtier = {
+		any_knight = {
+			fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			marshal_task_4001_knight_trigger = yes
+			NOT = { is_vassal_of = root }
 		}
 	}
 
@@ -2061,9 +2055,11 @@ marshal_task.4001 = {
 			value = yes
 			days = marshal_task_side_effect_cooldown
 		}
-		random_courtier = {
+		random_knight = {
 			limit = {
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 				marshal_task_4001_knight_trigger = yes
+				NOT = { is_vassal_of = root }
 			}
 			weight = {
 				base = 2
@@ -2095,7 +2091,7 @@ marshal_task.4001 = {
 			tooltip = task_manage_guards_notification_tooltip
 
 			left_icon = scope:knight
-			right_icon = scope:councillor
+			right_icon = scope:active_councillor
 
 			scope:knight = {
 				increase_wounds_effect = {
@@ -2159,7 +2155,7 @@ marshal_task.4002 = {
 			}
 			tooltip = task_manage_guards_notification_tooltip
 
-			left_icon = scope:councillor
+			left_icon = scope:active_councillor
 
 			scope:councillor_liege = {
 				add_character_modifier = {
@@ -2189,16 +2185,12 @@ marshal_task.4101 = {
 		}
 
 		any_knight = {
-			can_be_commander_now_trigger = { ARMY_OWNER = root }
-			is_available_ai_adult = yes
-			count = all
+			fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			add_to_temporary_list = possible_commanders
 		}
 		
 		any_in_list = {
 			list = possible_commanders
-			can_be_commander_now_trigger = { ARMY_OWNER = root }
-			is_available_ai_adult = yes
 			NOT = { this = root.cp:councillor_marshal }
 		}
 	}
@@ -2226,8 +2218,7 @@ marshal_task.4101 = {
 		#Build a list of possible characters involved
 		every_knight = {
 			limit = {
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-				is_available_ai_adult = yes
+				fixpack_can_be_trained_as_knight_now_light_trigger = yes
 			}
 			add_to_list = possible_knights
 		}
@@ -2236,8 +2227,6 @@ marshal_task.4101 = {
 		random_in_list = {
 			list = possible_knights
 			limit = {		
-				can_be_commander_now_trigger = { ARMY_OWNER = root }
-				is_available_ai_adult = yes
 				NOT = { this = root.cp:councillor_marshal }
 			}
 			save_scope_as = commander
@@ -2272,12 +2261,12 @@ marshal_task.4101 = {
 	}
 }
 
-# Scheme Disrupted
+# Hostile Scheme Disrupted
 #by Claudia Baldassi
-scripted_trigger marshal_task_4101_scheme_trigger = {
+scripted_trigger marshal_task_4102_scheme_trigger = {
 	hostile_scheme_trigger = yes
 	scheme_owner = { is_ai = yes }
-	scheme_progress >= 20
+	scheme_progress >= 2
 	scheme_power_resistance_difference > 0
 }
 
@@ -2307,7 +2296,7 @@ marshal_task.4102 = {
 		exists = cp:councillor_marshal
 		scope:councillor = cp:councillor_marshal
 		any_targeting_scheme = {
-			marshal_task_4101_scheme_trigger = yes
+			marshal_task_4102_scheme_trigger = yes
 		}
 		scope:councillor = {
 			councillor_positive_event_opinion_trigger = yes
@@ -2328,7 +2317,7 @@ marshal_task.4102 = {
 	immediate = {
 		random_targeting_scheme = {
 			limit = {
-				marshal_task_4101_scheme_trigger = yes
+				marshal_task_4102_scheme_trigger = yes
 			}
 			save_scope_as = scheme
 			scheme_owner = {

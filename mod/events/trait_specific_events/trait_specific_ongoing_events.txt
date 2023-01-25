@@ -3176,6 +3176,18 @@ trait_specific_ongoing.5003 = {
 
 	option = { #Let's have sex
 		name = trait_specific_ongoing.5003.b
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:servant
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
 		had_sex_with_effect = {
 			CHARACTER = scope:servant
 			PREGNANCY_CHANCE = pregnancy_chance

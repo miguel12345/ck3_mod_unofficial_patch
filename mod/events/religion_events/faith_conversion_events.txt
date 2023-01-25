@@ -32,7 +32,12 @@ faith_conversion.0002 = {
 			}
 			remove_trait = pilgrim
 		}
+		#Fixpack: To mitigate heresiarch being removed instantly after being set...
+		if = {
+			limit = { NOT = { has_character_flag = recently_became_heresiarch } }		
 		remove_trait = heresiarch
+		}
+		#/Fixpack
 		remove_trait = excommunicated
 		remove_character_modifier = recent_excommunication
 		remove_character_modifier = excommunication_recently_lifted

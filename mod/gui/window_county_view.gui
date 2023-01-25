@@ -1001,7 +1001,8 @@ window = {
 
 									button_round  = {
 										datacontext = "[Title.GetLessee]"
-										visible = "[And( Title.GetHolder.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('revoke_leased_title_interaction', Title.Self) )]"
+										datacontext = "[GetScriptedGui('fixpack_revoke_lease_button')]"
+										visible = "[Character.IsPlayerInteractionShownAndCanPickTitle('revoke_leased_title_interaction', Title.Self)]"
 										enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('revoke_leased_title_interaction', Title.Self)]"
 										tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('revoke_leased_title_interaction', Title.Self)]"
 										oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
@@ -1009,6 +1010,7 @@ window = {
 
 										button_revoke_lease = {
 											parentanchor = center
+											onmousehierarchyenter = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('barrony_title', Title.MakeScope).End)]"
 											onclick = "[Character.OpenPlayerInteractionWithTargetTitle('revoke_leased_title_interaction', Title.Self)]"
 										}
 									}

@@ -16,7 +16,7 @@ special = {
 			base = 0
 			modifier = {
 				add = 200
-				age < 10
+				scope:age < 10
 			}
 		}
 	}

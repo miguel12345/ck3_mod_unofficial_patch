@@ -64,6 +64,8 @@ scripted_trigger councillor_spouse_learning_1001_vassal_trigger = {
 			modifier = spouse_mediation_opinion
 			target = root
 		}
+		#Fixpack: To prevent vassal spouse to target him/herself
+		this = scope:councillor
 	}
 }
 
@@ -981,8 +983,7 @@ councillor_spouse_learning.1304 = {
 			right_icon = scope:councillor
 		
 			if = {
-				limit = { spouse_learning_tier_3_trigger = yes
-				}
+				limit = { spouse_learning_tier_3_trigger = yes }
 				reverse_add_opinion = {
 					modifier = spouse_mediation_opinion
 					target = scope:religious_vassal
@@ -990,8 +991,7 @@ councillor_spouse_learning.1304 = {
 				}
 			}
 			else_if = {
-				limit = { spouse_learning_tier_2_trigger = yes
-				}
+				limit = { spouse_learning_tier_2_trigger = yes }
 				reverse_add_opinion = {
 					modifier = spouse_mediation_opinion
 					target = scope:religious_vassal
@@ -1042,11 +1042,16 @@ councillor_spouse_learning.1305 = {
 		faith = scope:councillor.faith
 		exists = faith.religious_head
 		faith.religious_head = {
-			NOT = {
+			NOR = {
 				has_opinion_modifier = {
 					modifier = spouse_mediation_opinion
 					target = root
 				}
+				#Fixpack: Taken from councillor_spouse_learning.1305, we do not want this to trigger if we (or our spouse) are the HoF
+				has_relation_friend = root
+				this = root
+				this = scope:councillor
+				#/Fixpack
 			}
 		}
 	}

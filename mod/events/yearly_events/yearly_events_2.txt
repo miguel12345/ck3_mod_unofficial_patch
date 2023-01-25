@@ -240,6 +240,20 @@ yearly.1001 = { #by Mathilda Bjarnehed
 		name = yearly.1001.a
 		custom_tooltip = yearly.1001.a.tt
 
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					accepts_incest_with_trigger = { CHARACTER = scope:seducer_spouse }
+					is_attracted_to_gender_of = scope:seducer_spouse
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
+
 		hidden_effect = {
 			random_list = {
 				1 = {
@@ -1238,7 +1252,13 @@ yearly.1010 = { #by Mathilda Bjarnehed
 				random_list = {
 					1 = { #Willingly
 						trigger = {
-							NOT = { has_trait = honest }
+							#Fixpack: Rework this, leave original commented out for reference
+							NOT = { has_trait = celibate }
+							accepts_incest_with_trigger = { CHARACTER = scope:abductor }
+							might_cheat_on_every_partner_trigger = yes
+							#/Fixpack
+
+							#NOT = { has_trait = honest }
 							opinion = {
 								target = scope:abductor
 								value >= -30
@@ -5185,6 +5205,20 @@ yearly.1060 = {
 		}
 		flavor = yearly.1060.a.tt
 
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					accepts_incest_with_trigger = { CHARACTER = scope:joker }
+					is_attracted_to_gender_of = scope:joker
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
+
 		#Create/reveal homosexual secret
 		if = {
 			limit = {
@@ -6218,9 +6252,9 @@ yearly.1080 = { #by Mathilda Bjarnehed
 				}
 			}
 		}
-		trait = paranoid # These traits are not needed but makes this event more common
-		trait = lunatic_1
-		trait = lunatic_genetic
+		#trait = paranoid # These traits are not needed but makes this event more common
+		#trait = lunatic_1
+		#trait = lunatic_genetic
 		
 		scope:investigator = {
 			duel = {
@@ -6291,9 +6325,9 @@ yearly.1080 = { #by Mathilda Bjarnehed
 		}
 		name = yearly.1080.b
 
-		trait = paranoid # These traits are not needed but makes this event more common
-		trait = lunatic_1
-		trait = lunatic_genetic
+		#trait = paranoid # These traits are not needed but makes this event more common
+		#trait = lunatic_1
+		#trait = lunatic_genetic
 
 		duel = {
 			desc = outcome_in_a_few_days
@@ -6355,9 +6389,9 @@ yearly.1080 = { #by Mathilda Bjarnehed
 	option = {
 		name = yearly.1080.c
 
-		trait = paranoid # These traits are not needed but makes this event more common
-		trait = lunatic_1
-		trait = lunatic_genetic
+		#trait = paranoid # These traits are not needed but makes this event more common
+		#trait = lunatic_1
+		#trait = lunatic_genetic
 
 		random_list = {
 			45 = { # Confession

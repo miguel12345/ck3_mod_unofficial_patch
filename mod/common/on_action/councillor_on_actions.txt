@@ -406,7 +406,7 @@ task_disrupt_schemes_side_effects = {
 task_find_secrets_outcome = {
 	random_events = {
 		100 = spymaster_task.0301 #Find minor secret
-		50 = spymaster_task.0302 #Find major secret)
+		50 = spymaster_task.0302 #Find major secret
 		10 = spymaster_task.0381 # Fabricate a Hook (if you have Truth is Relative) - Fired both here and if no secrets exist
 	}
 }

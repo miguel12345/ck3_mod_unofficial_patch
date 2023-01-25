@@ -1,0 +1,11 @@
+﻿fixpack_revoke_lease_button = {
+	scope = character
+	saved_scopes = { barrony_title }
+
+	is_shown = { always = no }
+	is_valid = { always = yes }
+	ai_is_valid = { always = no }
+	effect = {
+		set_variable = { name = revoke_barrony_title value = scope:barrony_title }
+	  }
+}

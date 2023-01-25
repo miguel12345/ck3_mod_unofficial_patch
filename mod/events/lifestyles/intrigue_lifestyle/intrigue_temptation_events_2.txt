@@ -23,6 +23,9 @@
 scripted_trigger intrigue_temptation_3100_potential_image_giver = {	#Pick a person who might actually think sending a lewd image is a good idea.
 	is_available_ai_adult = yes
 	is_attracted_to_gender_of = root
+	#Fixpack: Check if the char is likely to cheat spouses
+	might_cheat_on_every_partner_trigger = yes
+	#/Fixpack
 	OR = {
 		has_trait = lustful
 		has_trait = ambitious
@@ -259,6 +262,15 @@ intrigue_temptation.3100 = {
 		name = intrigue_temptation.3100.b
 		trigger = {
 			NOT = { has_relation_potential_lover = scope:propositioning_courtier }
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:propositioning_courtier
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+			#/Fixpack
 		}
 		if = {
 			limit = {
@@ -417,6 +429,19 @@ intrigue_temptation.3100 = {
 			trigger = { scope:letter_type = flag:vellum }
 			text = intrigue_temptation.3100.vellum_c
 		}
+
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:propositioning_courtier
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
+
 		if = {
 			limit = {
 				root.faith = { trait_is_sin = lustful }
@@ -853,6 +878,9 @@ scripted_trigger intrigue_temptation_3120_temptable_guests = {	#Nab guests who a
 	save_temporary_scope_as = guest
 	root = { is_attracted_to_gender_of = scope:guest }
 	accepts_incest_with_trigger = { CHARACTER = root } #No incest or 100% ok with incest
+	#Fixpack: Check if the char is likely to cheat spouses
+	might_cheat_on_every_partner_trigger = yes
+	#/Fixpack
 	NOR = {
 		has_relation_rival = root
 		has_relation_lover = root
@@ -1007,6 +1035,17 @@ intrigue_temptation.3120 = {
 
 	option = {	#Attempt to seduce the guest into staying.
 		name = intrigue_temptation.3120.a
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:tempted_guest
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
 		duel = {
 			skill = intrigue
 			target = scope:tempted_guest
@@ -1151,6 +1190,9 @@ scripted_trigger intrigue_temptation_3130_potential_rival_spouses = {
 	is_available_ai_adult = yes
 	is_attracted_to_gender_of = root
 	accepts_incest_with_trigger = { CHARACTER = root } #No incest or 100% ok with incest
+	#Fixpack: Check if the char is likely to cheat spouses
+	might_cheat_on_every_partner_trigger = yes
+	#/Fixpack
 	NOR = {
 		has_relation_lover = root
 		is_spouse_of = root
@@ -1382,6 +1424,17 @@ intrigue_temptation.3130 = {
 
 	option = {	#Attempt to sleep with your potential-foe's wife.
 		name = intrigue_temptation.3130.a
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:rival_spouse
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
 		duel = {
 			skill = intrigue
 			target = scope:rival_spouse
@@ -2230,6 +2283,9 @@ intrigue_temptation.3150 = {
 ##################################################
 
 scripted_trigger intrigue_temptation_3160_sometime_rivals = {	#Filter available characters.
+	#Fixpack: Check if the char is likely to cheat spouses
+	might_cheat_on_every_partner_trigger = yes
+	#/Fixpack
 	is_available_ai_adult = yes
 	is_attracted_to_gender_of = root
 	accepts_incest_with_trigger = { CHARACTER = root } #No incest or 100% ok with incest
@@ -2360,6 +2416,17 @@ intrigue_temptation.3160 = {
 
 	option = {
 		name = intrigue_temptation.3160.a
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:sometime_rival
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
 		duel = {
 			skill = intrigue
 			target = scope:sometime_rival

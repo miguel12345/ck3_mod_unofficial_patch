@@ -33,6 +33,8 @@ rivalry.0001 = {
 				value >= 10
 			}
 			is_ai = yes #The response event is not something a player should get
+			#Fixpack: Prevent this event to trigger if we are nemesis
+			NOT = { has_relation_nemesis = root }
 		}
 	}
 

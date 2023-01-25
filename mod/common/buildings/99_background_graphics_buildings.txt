@@ -98,7 +98,7 @@ walls_01 = {
 		type = pdxmesh
 		requires_dlc_flag = the_fate_of_iberia
 		graphical_cultures = { iberian_building_gfx }
-		#graphical_regions = { graphical_mena graphical_india graphical_mediterranean graphical_western graphical_steppe }
+		graphical_regions = { graphical_mediterranean }
 		names = {
 			"fp2_building_iberian_wall_01_mesh"
 		}
@@ -150,6 +150,25 @@ walls_02 = {
 		}
 	}
 
+	# Unfortunately there is only the .mesh and the .asset is nowhere to be found, can't re-enable it
+	#asset = {
+	#	type = pdxmesh
+	#	graphical_regions = { graphical_mediterranean }
+	#	names = {
+	#		"mediterranean_walls_02_a_mesh"
+	#		"mediterranean_walls_02_a_mesh"
+	#	}
+	#}
+
+	# Unfortunately there is only the .mesh and the .asset is nowhere to be found, can't re-enable it
+	#asset = {
+	#	type = pdxmesh
+	#	graphical_regions = { graphical_india }
+	#	names = {
+	#		"india_walls_02_a_mesh"
+	#		"india_walls_02_a_mesh"
+	#	}
+	#}
 
 	asset = {
 		type = pdxmesh
@@ -174,7 +193,7 @@ walls_02 = {
 		type = pdxmesh
 		requires_dlc_flag = the_fate_of_iberia
 		graphical_cultures = { iberian_building_gfx }
-		#graphical_regions = { graphical_mena graphical_india graphical_mediterranean graphical_western graphical_steppe }
+		graphical_regions = { graphical_mediterranean }
 		names = {
 			"fp2_building_iberian_wall_02_mesh"
 		}
@@ -217,7 +236,6 @@ walls_03 = {
 		}
 	}
 	
-	
 	asset = {
 		type = pdxmesh
 		graphical_regions = { graphical_mediterranean }
@@ -245,12 +263,11 @@ walls_03 = {
 		}
 	}
 
-
 	asset = {
 		type = pdxmesh
 		requires_dlc_flag = the_fate_of_iberia
 		graphical_cultures = { iberian_building_gfx }
-		graphical_regions = { graphical_mena graphical_india graphical_mediterranean graphical_western graphical_steppe }
+		graphical_regions = { graphical_mediterranean }
 		names = {
 			"fp2_building_iberian_wall_03_mesh"
 		}
@@ -322,12 +339,11 @@ walls_04 = {
 		}
 	}
 
-
 	asset = {
 		type = pdxmesh
 		requires_dlc_flag = the_fate_of_iberia
 		graphical_cultures = { iberian_building_gfx }
-		graphical_regions = { graphical_mena graphical_india graphical_mediterranean graphical_western graphical_steppe }
+		graphical_regions = { graphical_mediterranean }
 		names = {
 			"fp2_building_iberian_wall_04_mesh"
 		}

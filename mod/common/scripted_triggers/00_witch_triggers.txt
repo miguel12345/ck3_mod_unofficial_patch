@@ -35,7 +35,7 @@ can_join_witch_ritual = {
 	NOT = {
 		any_in_list = {
 			list = potential_guests
-			this = prev
+			this = scope:invited_witch
 		}
 	}
 }

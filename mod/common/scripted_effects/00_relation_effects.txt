@@ -476,15 +476,8 @@ remove_lover_or_downgrade_relationship_effect = {
 
 # Immediately upgrade the relationship
 upgrade_to_friend_effect = {
-	#If rival, end rivalry.
-	if = {
-		limit = {
-			has_relation_rival = $CHARACTER$
-		}
-		remove_relation_rival = $CHARACTER$
-	}
 	#If nemesis, change to rival
-	else_if = {
+	if = {
 		limit = {
 			has_relation_nemesis = $CHARACTER$
 		}
@@ -505,6 +498,13 @@ upgrade_to_friend_effect = {
 				reason = $REASON$
 			}
 		}
+	}
+	#If rival, end rivalry.
+	else_if = {
+		limit = {
+			has_relation_rival = $CHARACTER$
+		}
+		remove_relation_rival = $CHARACTER$
 	}
 	# If not, look at upgrading from friend to best friend
 	else_if = {
@@ -557,20 +557,20 @@ upgrade_to_friend_effect = {
 # Immediately downgrade the relationship
 # DO NOT USE AFTER BP1 - hard to implement with relationship reasons
 downgrade_to_rival_effect = {
-	#If friend, end friendship.
-	if = {
-		limit = {
-			has_relation_friend = $CHARACTER$
-		}
-		remove_relation_friend = $CHARACTER$
-	}
 	#If best friend, change to friend
-	else_if = {
+	if = {
 		limit = {
 			has_relation_best_friend = $CHARACTER$
 		}
 		remove_relation_best_friend = $CHARACTER$
 		set_relation_friend = { reason = friend_downgrade_best_friends target = $CHARACTER$ }
+	}
+	#If friend, end friendship.
+	else_if = {
+		limit = {
+			has_relation_friend = $CHARACTER$
+		}
+		remove_relation_friend = $CHARACTER$
 	}
 	# If not, look at upgrading from rival to nemesis
 	else_if = {

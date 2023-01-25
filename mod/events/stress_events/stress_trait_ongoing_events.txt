@@ -1058,6 +1058,7 @@ stress_trait_ongoing.1501 = {
 	option = {
 		trigger = {
 			scope:obsession = { is_attracted_to_gender_of = root }
+			NOT = { has_trait = celibate } #Fixpack: added this
 		}
 		name = stress_trait_ongoing.1501.a
 		flavor = stress_trait_ongoing.1501.a.flavor
@@ -1073,7 +1074,14 @@ stress_trait_ongoing.1501 = {
 					MAX_PHYSICAL = 150 # Will be -25 by default (due to Rakish) but can vary from between -150 and +150 due to other Attraction modifiers.
 				}
 				modifier = {
-					scope:obsession = { NOT = { is_attracted_to_gender_of = root } }
+					scope:obsession = {
+						NOR = {
+							is_attracted_to_gender_of = root
+							might_cheat_on_every_partner_trigger = yes #Fixpack: added this
+							has_trait = celibate #Fixpack: added this
+							accepts_incest_with_trigger = { CHARACTER = root } #Fixpack: added this
+						}
+					}
 					factor = 0
 				}
 

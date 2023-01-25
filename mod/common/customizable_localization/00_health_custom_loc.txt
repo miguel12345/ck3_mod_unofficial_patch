@@ -24,6 +24,18 @@ EventTitleDisease = {
 	type = character
 
 	text = {
+		trigger = { scope:sick_character = { has_trait = wounded_3 } }
+		localization_key = trait_wounded_3
+	}
+	text = {
+		trigger = { scope:sick_character = { has_trait = wounded_2 } }
+		localization_key = trait_wounded_2
+	}
+	text = {
+		trigger = { scope:sick_character = { has_trait = wounded_1 } }
+		localization_key = trait_wounded
+	}
+	text = {
 		trigger = { scope:disease_type = flag:ill }
 		localization_key = trait_ill
 	}
@@ -70,10 +82,6 @@ EventTitleDisease = {
 	text = {
 		trigger = { scope:disease_type = flag:bubonic_plague }
 		localization_key = trait_bubonic_plague
-	}
-	text = {
-		trigger = { has_trait = wounded }
-		localization_key = trait_wounded
 	}
 }
 

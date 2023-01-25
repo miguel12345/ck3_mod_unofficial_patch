@@ -520,9 +520,11 @@ peasant_affair.2001 = {
 			if = {
 				limit = {
 					exists = var:peasant_child
-					var:peasant_child = {
-						is_in_the_same_court_as = root
-					}
+					# Fixpack: Comment this out, in the event it's just to remember the child we have with the peasant
+					# This caused problem where the scopped was not registered
+					#var:peasant_child = {
+					#	is_in_the_same_court_as = root
+					#}
 				}
 				var:peasant_child = {
 					save_scope_as = peasant_child
@@ -1477,6 +1479,9 @@ peasant_affair.3001 = {
 			var:peasant_child = {
 				save_scope_as = peasant_child
 				save_scope_as = recipient
+				#Fixpack: For french loc wich use a scope for the gender of the child (and we need this scope to be nammed child because of the other events)
+				save_scope_as = child
+				#/Fixpack
 			}
 			var:peasant_character = {
 				save_scope_as = peasant_character

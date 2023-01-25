@@ -532,6 +532,7 @@ learn_commander_trait.1000 = {
 		#Check for a suitable teacher
 		OR = {
 			any_vassal = {
+				is_available_adult = yes
 				opinion = {
 					target = root
 					value > 10
@@ -542,6 +543,7 @@ learn_commander_trait.1000 = {
 				}
 			}
 			any_courtier = {
+				is_available_adult = yes
 				opinion = {
 					target = root
 					value > 10
@@ -574,6 +576,7 @@ learn_commander_trait.1000 = {
 		#Find an AI Vassal or Commander who has a CT you don't
 		random_vassal = {
 			limit = {
+				is_available_adult = yes
 				opinion = {
 					target = root
 					value > 10
@@ -597,6 +600,7 @@ learn_commander_trait.1000 = {
 			}
 			random_courtier = {
 				limit = {
+					is_available_adult = yes
 					opinion = {
 						target = root
 						value > 10
@@ -652,6 +656,7 @@ learn_commander_trait.1101 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:logistician
 		is_imprisoned = no
 	}
@@ -713,14 +718,24 @@ learn_commander_trait.1301 = {
 		var:commander_trait_being_taught = flag:logistician
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -777,6 +792,7 @@ learn_commander_trait.1102 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:military_engineer
 	}
 
@@ -838,14 +854,24 @@ learn_commander_trait.1302 = {
 		var:commander_trait_being_taught = flag:military_engineer
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -903,6 +929,7 @@ learn_commander_trait.1103 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:aggressive_attacker
 	}
 
@@ -964,14 +991,24 @@ learn_commander_trait.1303 = {
 		var:commander_trait_being_taught = flag:aggressive_attacker
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1027,6 +1064,7 @@ learn_commander_trait.1104 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:unyielding_defender
 	}
 
@@ -1088,14 +1126,24 @@ learn_commander_trait.1304 = {
 		var:commander_trait_being_taught = flag:unyielding_defender
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1155,6 +1203,7 @@ learn_commander_trait.1105 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:forder
 	}
 
@@ -1216,14 +1265,24 @@ learn_commander_trait.1305 = {
 		var:commander_trait_being_taught = flag:forder
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1284,6 +1343,7 @@ learn_commander_trait.1106 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:flexible_leader
 	}
 
@@ -1345,14 +1405,24 @@ learn_commander_trait.1306 = {
 		var:commander_trait_being_taught = flag:flexible_leader
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1411,6 +1481,7 @@ learn_commander_trait.1107 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:desert_warrior
 	}
 
@@ -1472,14 +1543,24 @@ learn_commander_trait.1307 = {
 		var:commander_trait_being_taught = flag:desert_warrior
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1537,6 +1618,7 @@ learn_commander_trait.1108 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:jungle_stalker
 	}
 
@@ -1598,14 +1680,24 @@ learn_commander_trait.1308 = {
 		var:commander_trait_being_taught = flag:jungle_stalker
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1658,6 +1750,7 @@ learn_commander_trait.1109 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:winter_soldier
 	}
 
@@ -1719,14 +1812,24 @@ learn_commander_trait.1309 = {
 		var:commander_trait_being_taught = flag:winter_soldier
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1778,6 +1881,7 @@ learn_commander_trait.1110 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:reaver
 	}
 
@@ -1839,14 +1943,24 @@ learn_commander_trait.1310 = {
 		var:commander_trait_being_taught = flag:reaver
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -1963,14 +2077,24 @@ learn_commander_trait.1312 = {
 		var:commander_trait_being_taught = flag:reckless
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -2026,6 +2150,7 @@ learn_commander_trait.1113 = {
 	left_portrait = scope:teacher
 	
 	trigger = {
+		has_variable = commander_trait_being_taught
 		var:commander_trait_being_taught = flag:holy_warrior
 	}
 
@@ -2087,14 +2212,24 @@ learn_commander_trait.1313 = {
 		var:commander_trait_being_taught = flag:holy_warrior
 	}
 	
-	immediate = {
+	option = {
+		name = learn_commander_trait.13.a
 		learn_commander_trait_success_effect = yes
 	}
 
-	option = {
-		name = learn_commander_trait.13.a	
-		remove_character_flag = being_taught_commander_trait
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
 		remove_variable = commander_trait_being_taught
+	}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 
@@ -2197,6 +2332,21 @@ learn_commander_trait.1391 = {
 	option = {
 		name = learn_commander_trait.1391.a
 		learn_commander_trait_success_effect = yes
+	}
+
+	after = {
+		if = {
+			limit = {
+				exists = var:commander_trait_being_taught
+			}
+			remove_variable = commander_trait_being_taught
+		}
+		if = {
+			limit = {
+				has_character_flag = being_taught_commander_trait
+			}
+			remove_character_flag = being_taught_commander_trait
+		}
 	}
 }
 

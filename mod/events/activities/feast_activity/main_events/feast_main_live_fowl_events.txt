@@ -27,14 +27,9 @@ feast_main_live_fowl.0001 = {
 	hidden = yes
 
 	trigger = {
-		OR = {
-			scope:activity.activity_owner = {
-				NOT = { has_variable = last_feast_was }
-			}
-			AND = {
-				scope:activity.activity_owner = { has_variable = last_feast_was }
-				scope:activity.activity_owner.var:last_feast_was = flag:live_fowl
-			}
+		trigger_if = {
+			limit = { scope:activity.activity_owner = { has_variable = last_feast_was } }
+			NOT = { scope:activity.activity_owner.var:last_feast_was = flag:live_fowl }
 		}
 	}
 
@@ -623,6 +618,7 @@ feast_main_live_fowl.9002 = {
 ########################
 feast_main_live_fowl.9003 = {
 	type = character_event
+	title = feast_main_live_fowl.9001.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -662,6 +658,7 @@ feast_main_live_fowl.9003 = {
 ##################
 feast_main_live_fowl.9004 = {
 	type = character_event
+	title = feast_main_live_fowl.9001.t
 	desc = feast_main_live_fowl.9004.desc
 	theme = feast_activity
 	left_portrait = {
@@ -686,6 +683,7 @@ feast_main_live_fowl.9004 = {
 ##################
 feast_main_live_fowl.9005 = {
 	type = character_event
+	title = feast_main_live_fowl.9001.t
 	desc = feast_main_live_fowl.9005.desc
 	theme = feast_activity
 	left_portrait = {

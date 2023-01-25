@@ -32,6 +32,7 @@ house_feud_start_or_reciprocate_tooltip_effect = {
 			has_relation_rival = $FEUD_TARGET$.house.house_head
 			NOT = { has_relation_nemesis = $FEUD_TARGET$.house.house_head }
 			can_set_relation_nemesis_trigger = { CHARACTER = $FEUD_TARGET$.house.house_head }
+			#can_set_relation_nemesis_even_if_teen_trigger = { CHARACTER = $FEUD_TARGET$.house.house_head }
 		}
 		set_relation_nemesis = {
 			reason = nemesis_house_feud
@@ -42,6 +43,8 @@ house_feud_start_or_reciprocate_tooltip_effect = {
 	else_if = {
 		limit = {
 			NOT = { has_relation_rival = $FEUD_TARGET$.house.house_head }
+			can_set_relation_rival_trigger = { CHARACTER = $FEUD_TARGET$.house.house_head }
+			#can_set_relation_rival_even_if_teen_trigger = { CHARACTER = $FEUD_TARGET$.house.house_head }
 		}
 		set_relation_rival = {
 			target = $FEUD_TARGET$.house.house_head
@@ -208,7 +211,10 @@ house_feud_end_modifier_effect = {
 				}
 				# If winning, decent modifier
 				else_if = {
-					limit = { house_feud_balance_value > 0.5 }
+					limit = {
+						house_feud_balance_value > 0.5
+						house_feud_balance_value < 3
+					}
 					story_owner.house = {
 						add_house_modifier = {
 							modifier = house_feud_good_modifier
@@ -314,6 +320,12 @@ transfer_house_feud_story_cycle_to_effect = {
 		if = {
 			limit = { age < 9 }
 			add_character_flag = house_feud_too_young_inheritor
+			#Fixpack: Keep the old head in this case, if not will be lost and will cause many events/checks to break
+			set_variable = {
+				name = house_feud_old_house_head
+				value = scope:old_house_head
+				days = 4015
+			}
 		}
 		# Fire immediately if at least 9 and no pre-existing rivalry exists
 		else_if = {
@@ -322,7 +334,10 @@ transfer_house_feud_story_cycle_to_effect = {
 				NOT = {
 					has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:house_feud_rival }
 				}
-				can_set_relation_rival_trigger = { CHARACTER = scope:house_feud_rival }
+				# Fixpack: This line was added in 1.8.0 and it doesn't make sense as this trigger check if we are adult and they want us to be at least 9
+				# => And also if we already are rival, it'll prevent the event from firing :/ so commenting this out
+				#can_set_relation_rival_trigger = { CHARACTER = scope:house_feud_rival }
+				#/Fixpack
 			}
 			trigger_event = {
 				id = bp1_house_feud.0810
@@ -726,7 +741,7 @@ house_feud_torture_event_effect = {
 				}
 			}
 		}
-		# Chance fort tortured House to start a Feud if eligible
+		# Chance for tortured House to start a Feud if eligible
 		if = {
 			limit = {
 				exists = scope:recipient.house
@@ -746,7 +761,7 @@ house_feud_torture_event_effect = {
 						house.house_head = { has_trait = forgiving }
 					}
 					scope:actor = { house_feud_save_head_and_attacker_effect = yes }
-					save_scope_as = house_feud_victim
+					scope:recipient = { save_scope_as = house_feud_victim }
 					scope:recipient.house.house_head = {
 						if = {
 							limit = { this = scope:recipient }

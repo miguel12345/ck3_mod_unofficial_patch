@@ -2496,7 +2496,6 @@ scripted_effect stress_threshold_fallback_event_select_options_effect = {
 		}
 	}
 
-
 	#To add possible extra options based on existent traits
 	if = {
 		limit = {
@@ -2776,6 +2775,9 @@ scripted_effect stress_threshold_fallback_event_select_options_effect = {
 	if = {
 		limit = {
 			has_two_stress_threshold_options = no
+			#Fixpack: seen in logs: [ Could not find list from read name flag extra_stress_threshold_event_option ]
+			#Fixpack continue to test before enabling this...
+			#exists = extra_stress_threshold_event_option
 			any_in_list = {
 				variable = extra_stress_threshold_event_option
 				exists = this
@@ -3100,6 +3102,8 @@ stress_threshold.1601 = {
 	immediate = {
 		save_scope_as = stress_character #For stress widget
 
+		#Fixpack: Tried to debug that, no success...
+		#Error: variable_list_size trigger [ Could not find list from read name flag extra_stress_threshold_event_option ]
 		stress_threshold_fallback_event_select_options_effect = yes
 
 		stress_threshold_event_post_immediate = yes
@@ -3883,6 +3887,7 @@ stress_threshold.1602 = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
 			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -4802,6 +4807,8 @@ stress_threshold.1701 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -6547,6 +6554,8 @@ stress_threshold.1721 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -6562,49 +6571,11 @@ stress_threshold.1721 = {
 
 		#Account for stress.
 		add_stress = medium_stress_impact_loss
-		if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					NOT = {
-						has_relation_flag = {
-							target = root
-							relation = friend
-							flag = has_been_confided_in
-						}
-					}
-				}
-			}
-			random_relation = {
-				type = friend
-				limit = {
-					this = scope:friend
-				}
-				add_relation_flag = {
-					target = root
-					relation = friend
-					flag = has_been_confided_in
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					has_relation_flag = {
-						target = root
-						relation = friend
-						flag = has_been_confided_in
-					}
-				}
-			}
-			reverse_add_opinion = {
-				target = scope:friend
-				modifier = friendliness_opinion
-				opinion = 20
-			}
+		#Fixpack: Fix friend/best-friend relation flag
+		fixpack_friend_confider_event = {
+			CURRENT = root
+			FRIEND = scope:friend
+			OPINION_MODIFIER = 20
 		}
 
 		ai_chance = {
@@ -7413,6 +7384,8 @@ stress_threshold.1731 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -9559,6 +9532,8 @@ stress_threshold.2311 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -9574,49 +9549,12 @@ stress_threshold.2311 = {
 
 		#Account for stress.
 		add_stress = medium_stress_impact_loss
-		if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					NOT = {
-						has_relation_flag = {
-							target = root
-							relation = friend
-							flag = has_been_confided_in
-						}
-					}
-				}
-			}
-			random_relation = {
-				type = friend
-				limit = {
-					this = scope:friend
-				}
-				add_relation_flag = {
-					target = root
-					relation = friend
-					flag = has_been_confided_in
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					has_relation_flag = {
-						target = root
-						relation = friend
-						flag = has_been_confided_in
-					}
-				}
-			}
-			reverse_add_opinion = {
-				target = scope:friend
-				modifier = friendliness_opinion
-				opinion = 20
-			}
+
+		#Fixpack: Fix friend/best-friend relation flag
+		fixpack_friend_confider_event = {
+			CURRENT = root
+			FRIEND = scope:friend
+			OPINION_MODIFIER = 20
 		}
 		
 		#Add regret coping modifier.
@@ -10027,16 +9965,12 @@ stress_threshold.2321 = {
 	immediate = {
 		root = { save_scope_as = stress_character } #For stress widget.
 
-		every_courtier = { add_to_list = affected_by_outburst }
-		every_vassal = { add_to_list = affected_by_outburst }
-
 		#Event option set-up to determine which event options we want to offer to the player.
 		#Check for existing coping mechanisms first.
 		if = { #Irritable (tends to lash out at random)
 			limit = {
 			is_alive = yes
 				has_two_stress_threshold_options = no
-				is_alive = yes
 				has_trait = irritable	
 			}
 			# Set the flag for enabling this event option.
@@ -10087,6 +10021,11 @@ stress_threshold.2321 = {
 			limit = {
 				has_two_stress_threshold_options = no
 				has_trait = confider	
+				#Fixpack: Add this to ensure we have at least a friend (or best friend)
+				any_relation = {
+					type = friend
+					is_available_ai_adult = yes
+				}
 			}
 			# Set the flag for enabling this event option.
 			add_character_flag = stress_threshold_option_confider
@@ -10242,30 +10181,14 @@ stress_threshold.2321 = {
 		add_stress = medium_stress_impact_loss
 		
 		#Court reacts to your little upset.
-		if = {
-			limit = {
- 				any_in_list = {
- 					list = affected_by_outburst
-   					count >= 1
-  				}
-  			}
-			every_in_list = {
-				list = affected_by_outburst
-				limit = {
-					is_alive = yes
-					NOR = {
-						has_trait = wrathful
-						has_trait = callous
-						has_trait = sadistic
-					}
-				}
-				custom = stress_threshold.2321.a.irritable.list
-				add_opinion = {
-					modifier = cruelty_opinion
-					opinion = -20
-					target = root
-				}
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = wrathful
+			TRAIT2 = callous
+			TRAIT3 = sadistic
+			TEXT = stress_threshold.2321.a.irritable.list
+			OPINION_TEXT = cruelty_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -10303,36 +10226,14 @@ stress_threshold.2321 = {
 		remove_short_term_gold = massive_gold_value
 		
 		#Court reacts to your little upset.
-		if = {
-			limit = {
- 				any_in_list = {
- 					list = affected_by_outburst
-   					count >= 1
-   					NOR = {
-						has_trait = fickle
-						has_trait = forgiving
-						has_trait = trusting
-					}
-					is_alive = yes
-  				}
-  			}
-			every_in_list = {
-				list = affected_by_outburst
-				limit = {
-					NOR = {
-						has_trait = fickle
-						has_trait = forgiving
-						has_trait = trusting
-					}
-					is_alive = yes
-				}
-				custom = stress_threshold.2321.b.profligate.list
-				add_opinion = {
-					modifier = respect_opinion
-					opinion = -20
-					target = root
-				}
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = fickle
+			TRAIT2 = forgiving
+			TRAIT3 = trusting
+			TEXT = stress_threshold.2321.b.profligate.list
+			OPINION_TEXT = respect_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -10370,36 +10271,14 @@ stress_threshold.2321 = {
 		remove_short_term_gold = massive_gold_value
 		
 		#Court reacts to your little upset.
-		if = {
-			limit = {
- 				any_in_list = {
- 					list = affected_by_outburst
-   					count >= 1
-   					NOR = {
-						has_trait = generous
-						has_trait = compassionate
-						has_trait = humble
-					}
-					is_alive = yes
-				}
-			}
-			every_in_list = {
-				list = affected_by_outburst
-				limit = {
-					NOR = {
-						has_trait = generous
-						has_trait = compassionate
-						has_trait = humble
-					}
-					is_alive = yes
-				}
-				custom = stress_threshold.2321.c.improvident.list
-				add_opinion = {
-					modifier = weak_opinion
-					opinion = -20
-					target = root
-				}
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = generous
+			TRAIT2 = compassionate
+			TRAIT3 = humble
+			TEXT = stress_threshold.2321.c.improvident.list
+			OPINION_TEXT = weak_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -10435,36 +10314,14 @@ stress_threshold.2321 = {
 		contrite_reveal_secrets_effect = yes # Includes stress loss based on what secrets were revealed
 		
 		#Court reacts to your little upset.
-		if = {
-			limit = {
- 				any_in_list = {
- 					list = affected_by_outburst
-   					count >= 1
-   					NOR = {
-						has_trait = honest
-						has_trait = just
-						has_trait = compassionate
-					}
-					is_alive = yes
-   				}
-   			}
-			every_in_list = {
-				list = affected_by_outburst
-				limit = {
-					NOR = {
-						has_trait = honest
-						has_trait = just
-						has_trait = compassionate
-					}
-					is_alive = yes
-				}
-				custom = stress_threshold.2321.d.contrite.list
-				add_opinion = {
-					modifier = disgusted_opinion
-					opinion = -20
-					target = root
-				}
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = honest
+			TRAIT2 = just
+			TRAIT3 = compassionate
+			TEXT = stress_threshold.2321.d.contrite.list
+			OPINION_TEXT = disgusted_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -10501,22 +10358,14 @@ stress_threshold.2321 = {
 		add_stress = medium_stress_impact_loss
 		
 		#Court reacts to your little upset.
-		every_in_list = {
-			list = affected_by_outburst
-			limit = {
-				NOR = {
-					has_trait = gluttonous
-					has_trait = arbitrary
-					has_trait = calm
-				}
-				is_alive = yes
-			}
-			custom = stress_threshold.2321.e.comfort_eater.list
-			add_opinion = {
-				modifier = pity_opinion
-				opinion = -20
-				target = root
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = gluttonous
+			TRAIT2 = arbitrary
+			TRAIT3 = calm
+			TEXT = stress_threshold.2321.e.comfort_eater.list
+			OPINION_TEXT = pity_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -10553,22 +10402,14 @@ stress_threshold.2321 = {
 		add_stress = medium_stress_impact_loss
 		
 		#Court reacts to your little upset.
-		every_in_list = {
-			list = affected_by_outburst
-			limit = {
-				NOR = {
-					has_trait = patient
-					has_trait = scholar
-					has_trait = theologian
-				}
-				is_alive = yes
-			}
-			custom = stress_threshold.2321.f.journaller.list
-			add_opinion = {
-				modifier = suspicion_opinion
-				opinion = -10
-				target = root
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = patient
+			TRAIT2 = scholar
+			TRAIT3 = theologian
+			TEXT = stress_threshold.2321.f.journaller.list
+			OPINION_TEXT = suspicion_opinion
+			OPINION_MODIFIER = -10
 		}
 
 		ai_chance = {
@@ -10588,6 +10429,8 @@ stress_threshold.2321 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -10603,68 +10446,23 @@ stress_threshold.2321 = {
 
 		#Account for stress.
 		add_stress = medium_stress_impact_loss
-		if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					NOT = {
-						has_relation_flag = {
-							target = root
-							relation = friend
-							flag = has_been_confided_in
-						}
-					}
-				}
-			}
-			random_relation = {
-				type = friend
-				limit = {
-					this = scope:friend
-				}
-				add_relation_flag = {
-					target = root
-					relation = friend
-					flag = has_been_confided_in
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					has_relation_flag = {
-						target = root
-						relation = friend
-						flag = has_been_confided_in
-					}
-				}
-			}
-			reverse_add_opinion = {
-				target = scope:friend
-				modifier = friendliness_opinion
-				opinion = 20
-			}
+
+		#Fixpack: Fix friend/best-friend relation flag
+		fixpack_friend_confider_event = {
+			CURRENT = root
+			FRIEND = scope:friend
+			OPINION_MODIFIER = 20
 		}
 		
 		#Court reacts to your little upset.
-		every_in_list = {
-			list = affected_by_outburst
-			limit = {
-				NOR = {
-					has_trait = gregarious
-					has_trait = shy
-					has_trait = trusting
-				}
-				is_alive = yes
-			}
-			custom = stress_threshold.2321.g.confider.list
-			add_opinion = {
-				modifier = suspicion_opinion
-				opinion = -20
-				target = root
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = gregarious
+			TRAIT2 = shy
+			TRAIT3 = trusting
+			TEXT = stress_threshold.2321.g.confider.list
+			OPINION_TEXT = suspicion_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -10710,22 +10508,14 @@ stress_threshold.2321 = {
 		else = { add_trait = drunkard }
 		
 		#Court reacts to your little upset.
-		every_in_list = {
-			list = affected_by_outburst
-			limit = {
-				NOR = {
-					has_trait = gluttonous
-					has_trait = forgiving
-					has_trait = compassionate
-				}
-				is_alive = yes
-			}
-			custom = stress_threshold.2321.h.drunkard.list
-			add_opinion = {
-				modifier = disgusted_opinion
-				opinion = -20
-				target = root
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = gluttonous
+			TRAIT2 = forgiving
+			TRAIT3 = compassionate
+			TEXT = stress_threshold.2321.h.drunkard.list
+			OPINION_TEXT = disgusted_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -10771,22 +10561,14 @@ stress_threshold.2321 = {
 		else = { add_trait = hashishiyah }
 		
 		#Court reacts to your little upset.
-		every_in_list = {
-			list = affected_by_outburst
-			limit = {
-				NOR = {
-					has_trait = gluttonous
-					has_trait = forgiving
-					has_trait = compassionate
-				}
-				is_alive = yes
-			}
-			custom = stress_threshold.2321.i.hashishiyah.list
-			add_opinion = {
-				modifier = disgusted_opinion
-				opinion = -20
-				target = root
-			}
+		fixpack_stress_threshold_2321 = {
+			CURRENT = root
+			TRAIT1 = gluttonous
+			TRAIT2 = forgiving
+			TRAIT3 = compassionate
+			TEXT = stress_threshold.2321.i.hashishiyah.list
+			OPINION_TEXT = disgusted_opinion
+			OPINION_MODIFIER = -20
 		}
 
 		ai_chance = {
@@ -11424,6 +11206,8 @@ stress_threshold.2331 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -11439,49 +11223,12 @@ stress_threshold.2331 = {
 
 		#Account for stress.
 		add_stress = medium_stress_impact_loss
-		if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					NOT = {
-						has_relation_flag = {
-							target = root
-							relation = friend
-							flag = has_been_confided_in
-						}
-					}
-				}
-			}
-			random_relation = {
-				type = friend
-				limit = {
-					this = scope:friend
-				}
-				add_relation_flag = {
-					target = root
-					relation = friend
-					flag = has_been_confided_in
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					has_relation_flag = {
-						target = root
-						relation = friend
-						flag = has_been_confided_in
-					}
-				}
-			}
-			reverse_add_opinion = {
-				target = scope:friend
-				modifier = friendliness_opinion
-				opinion = 20
-			}
+
+		#Fixpack: Fix friend/best-friend relation flag
+		fixpack_friend_confider_event = {
+			CURRENT = root
+			FRIEND = scope:friend
+			OPINION_MODIFIER = 20
 		}
 		
 		if = {
@@ -11889,6 +11636,10 @@ stress_threshold.2341 = {
 			limit = {
 				has_two_stress_threshold_options = no
 				has_trait = confider	
+				any_relation = {
+					type = friend
+					is_available_ai_adult = yes
+				}
 			}
 			# Set the flag for enabling this event option.
 			add_character_flag = stress_threshold_option_confider
@@ -12208,93 +11959,11 @@ stress_threshold.2341 = {
 
 		#Account for stress.
 		add_stress = medium_stress_impact_loss
-		if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					NOT = {
-						has_relation_flag = {
-							target = root
-							relation = friend
-							flag = has_been_confided_in
-						}
-					}
-				}
-			}
-			random_relation = {
-				type = friend
-				limit = {
-					this = scope:friend
-				}
-				add_relation_flag = {
-					target = root
-					relation = friend
-					flag = has_been_confided_in
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = best_friend
-					this = scope:friend
-					NOT = {
-						has_relation_flag = {
-							target = root
-							relation = friend
-							flag = has_been_confided_in
-						}
-					}
-				}
-			}
-			random_relation = {
-				type = best_friend
-				limit = {
-					this = scope:friend
-				}
-				add_relation_flag = {
-					target = root
-					relation = best_friend
-					flag = has_been_confided_in
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					has_relation_flag = {
-						target = root
-						relation = friend
-						flag = has_been_confided_in
-					}
-				}
-			}
-			reverse_add_opinion = {
-				target = scope:friend
-				modifier = friendliness_opinion
-				opinion = 20
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = best_friend
-					this = scope:friend
-					has_relation_flag = {
-						target = root
-						relation = best_friend
-						flag = has_been_confided_in
-					}
-				}
-			}
-			reverse_add_opinion = {
-				target = scope:friend
-				modifier = friendliness_opinion
-				opinion = 20
-			}
+
+		fixpack_friend_confider_event = {
+			CURRENT = root
+			FRIEND = scope:friend
+			OPINION_MODIFIER = 20
 		}
 		
 		if = {
@@ -14216,6 +13885,8 @@ stress_threshold.3401 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }
@@ -14231,51 +13902,11 @@ stress_threshold.3401 = {
 
 		#Account for stress.
 		add_stress = major_stress_impact_loss
-		if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					is_available_ai_adult = yes
-					NOT = {
-						has_relation_flag = {
-							target = root
-							relation = friend
-							flag = has_been_confided_in
-						}
-					}
-				}
-			}
-			random_relation = {
-				type = friend
-				limit = {
-					this = scope:friend
-					is_available_ai_adult = yes
-				}
-				add_relation_flag = {
-					target = root
-					relation = friend
-					flag = has_been_confided_in
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				any_relation = {
-					type = friend
-					this = scope:friend
-					has_relation_flag = {
-						target = root
-						relation = friend
-						flag = has_been_confided_in
-					}
-				}
-			}
-			reverse_add_opinion = {
-				target = scope:friend
-				modifier = friendliness_opinion
-				opinion = 20
-			}
+
+		fixpack_friend_confider_event = {
+			CURRENT = root
+			FRIEND = scope:friend
+			OPINION_MODIFIER = 20
 		}
 		
 		#Your confidant is blamed for the death.
@@ -15228,6 +14859,8 @@ stress_threshold.3411 = {
 	option = {
 		trigger = {
 			has_character_flag = stress_threshold_option_confider
+			exists = scope:friend
+			scope:friend = { is_alive = yes }
 		}
 		name = {
 			trigger = { can_be_confider = yes }

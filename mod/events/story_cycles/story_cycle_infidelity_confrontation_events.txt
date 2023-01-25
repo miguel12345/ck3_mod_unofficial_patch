@@ -8,20 +8,27 @@ namespace = infidelity_confrontation
 scripted_effect infidelity_confrontation_break_up_effect = {
 	scope:confronting_partner = {
 		if = {
-			limit = { has_relation_lover = scope:infidelity_partner }
-			remove_relation_lover = scope:infidelity_partner
-		}
-		else_if = {
 			limit = { has_relation_soulmate = scope:infidelity_partner }
 			remove_relation_soulmate = scope:infidelity_partner
+		}
+		else_if = {
+			limit = { has_relation_lover = scope:infidelity_partner }
+			remove_relation_lover = scope:infidelity_partner
 		}
 	}
 }
 
 scripted_effect infidelity_confrontation_demand_break_up_success_effect = {
 	scope:infidelity_partner = {
+		if = {
+			limit = { has_relation_soulmate = scope:infidelity_partners_lover }
+			remove_relation_soulmate = scope:infidelity_partners_lover
+		}
+		else_if = {
+			limit = { has_relation_lover = scope:infidelity_partners_lover }
 		remove_relation_lover = scope:infidelity_partners_lover
 	}
+}
 }
 
 scripted_trigger infidelity_confrontation_demand_consequence_break_up_trigger = {
@@ -43,7 +50,14 @@ scripted_effect infidelity_confrontation_demand_break_up_failure_effect = {
 	scope:confronting_partner = {
 		if = {
 			limit = { infidelity_confrontation_demand_consequence_break_up_trigger = yes }
+			if = {
+				limit = { has_relation_soulmate = scope:infidelity_partner }
+				remove_relation_soulmate = scope:infidelity_partner
+			}
+			else_if = {
+				limit = { has_relation_lover = scope:infidelity_partner }
 			remove_relation_lover = scope:infidelity_partner
+		}
 		}
 		else_if = {
 			limit = { infidelity_confrontation_demand_consequence_celibacy_trigger = yes }
@@ -115,8 +129,15 @@ scripted_effect infidelity_confrontation_plead_break_up_success_effect = {
 		}
 	}
 	scope:infidelity_partner = {
+		if = {
+			limit = { has_relation_soulmate = scope:infidelity_partners_lover }
+			remove_relation_soulmate = scope:infidelity_partners_lover
+		}
+		else_if = {
+			limit = { has_relation_lover = scope:infidelity_partners_lover }
 		remove_relation_lover = scope:infidelity_partners_lover
 	}
+}
 }
 
 scripted_effect infidelity_confrontation_plead_break_up_failure_effect = {
@@ -371,8 +392,15 @@ infidelity_confrontation.1000 = { #by Mathilda Bjarnehed
 				scope:infidelity_partner = { has_relation_lover = scope:infidelity_partners_lover }
 			}
 			scope:infidelity_partner = {
+				if = {
+					limit = { has_relation_soulmate = scope:infidelity_partners_lover }
+					remove_relation_soulmate = scope:infidelity_partners_lover
+				}
+				else_if = {
+					limit = { has_relation_lover = scope:infidelity_partners_lover }
 				remove_relation_lover = scope:infidelity_partners_lover
 			}
+		}
 		}
 
 		stress_impact = {
@@ -1056,9 +1084,16 @@ infidelity_confrontation.1013 = { #by Mathilda Bjarnehed
 		name = infidelity_confrontation.1013.a
 		
 		show_as_tooltip = {
+			if = {
+				limit = { has_relation_soulmate = scope:infidelity_partner }
+				remove_relation_soulmate = scope:infidelity_partner
+			}
+			else_if = {
+				limit = { has_relation_lover = scope:infidelity_partner }
 			remove_relation_lover = scope:infidelity_partner
 		}
 	}
+}
 }
 
 # Plead for break up branch: infidelity partner is presented with request
@@ -1169,7 +1204,6 @@ infidelity_confrontation.1020 = { #by Mathilda Bjarnehed
 		}
 	}
 
-	
 		#Disagree
 	option = {
 		name = infidelity_confrontation.1020.b

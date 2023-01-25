@@ -1051,11 +1051,7 @@ RelationToMe = {
 		trigger = {
 			scope:second = {
 				is_female = yes
-				any_sibling = {
-					any_spouse = {
-						this = root
-					}
-				}
+				is_sibling_in_law_of_root_trigger = yes
 			}
 		}
 	}
@@ -1065,11 +1061,7 @@ RelationToMe = {
 		trigger = {
 			scope:second = {
 				is_female = no
-				any_sibling = {
-					any_spouse = {
-						this = root
-					}
-				}
+				is_sibling_in_law_of_root_trigger = yes
 			}
 		}
 	}

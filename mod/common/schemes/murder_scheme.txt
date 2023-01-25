@@ -139,23 +139,25 @@
 			}
 			desc = HAS_ATTEMPTED_TO_MURDER_TARGET_BEFORE
 		}
-		# Spiritual Head of Faith
-		modifier = {
-			add = -25
-			desc = "SCHEME_VS_SPIRITUAL_HOF"
-			scope:target = {
-				faith = scope:owner.faith
-				faith = {
-					has_doctrine = doctrine_spiritual_head
-				}
-				faith = {
-					exists = religious_head
-					religious_head = {
-			 			this = scope:target
-			 		}
-				}
-			}
-		}
+
+		# Fixpack: Was this for TEMPORAL HoF ? but if so there is no trace of this in abduct & fabricate_hook :/
+		## Spiritual Head of Faith
+		#modifier = {
+		#	add = -25
+		#	desc = "SCHEME_VS_SPIRITUAL_HOF"
+		#	scope:target = {
+		#		faith = scope:owner.faith
+		#		faith = {
+		#			has_doctrine = doctrine_spiritual_head
+		#		}
+		#		faith = {
+		#			exists = religious_head
+		#			religious_head = {
+		#	 			this = scope:target
+		#	 		}
+		#		}
+		#	}
+		#}
 		
 		# Spiritual Head of Faith
 		modifier = {

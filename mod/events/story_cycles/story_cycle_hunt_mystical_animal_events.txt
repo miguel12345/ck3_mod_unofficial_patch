@@ -22,6 +22,15 @@ scripted_effect hunt_mystical_animal_immediate_effect = {
 		limit = {
 			scope:encounter = flag:yes
 		}
+		if = {
+			limit = {
+				NOT = { has_variable = encounters }
+			}
+			set_variable = {
+				name = encounters
+				value = 0
+			}
+		}
 		change_variable = { #You had yet another encounter with the animal itself
 			name = encounters
 			add = 1

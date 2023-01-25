@@ -74,7 +74,7 @@ male_legwear_secular_ep1_jester_01 = {
 ### Western ##
 
 female_legwear_secular_western_common_01 = {
-	set_tags = "shrink_legs"
+	#set_tags = "shrink_legs"
 	entity = { required_tags = ""		shared_pose_entity = torso		entity = female_legwear_secular_western_common_01_entity }
 }
 

@@ -150,10 +150,14 @@ board_games.0001 = {
 				trigger = {
 					OR = {
 						AND = {
+							exists = scope:bg_defender
+							exists = scope:bg_attacker_move
 							this = scope:bg_defender
 							scope:bg_attacker_move = flag:diplomacy
 						}
 						AND = {
+							exists = scope:bg_attacker
+							exists = scope:bg_defender_move
 							this = scope:bg_attacker
 							scope:bg_defender_move = flag:diplomacy
 						}
@@ -233,10 +237,14 @@ board_games.0001 = {
 				trigger = {
 					OR = {
 						AND = {
+							exists = scope:bg_defender
+							exists = scope:bg_attacker_move
 							this = scope:bg_defender
 							scope:bg_attacker_move = flag:martial
 						}
 						AND = {
+							exists = scope:bg_attacker
+							exists = scope:bg_defender_move
 							this = scope:bg_attacker
 							scope:bg_defender_move = flag:martial
 						}
@@ -316,10 +324,14 @@ board_games.0001 = {
 				trigger = {
 					OR = {
 						AND = {
+							exists = scope:bg_defender
+							exists = scope:bg_attacker_move
 							this = scope:bg_defender
 							scope:bg_attacker_move = flag:stewardship
 						}
 						AND = {
+							exists = scope:bg_attacker
+							exists = scope:bg_defender_move
 							this = scope:bg_attacker
 							scope:bg_defender_move = flag:stewardship
 						}
@@ -399,10 +411,14 @@ board_games.0001 = {
 				trigger = {
 					OR = {
 						AND = {
+							exists = scope:bg_defender
+							exists = scope:bg_attacker_move
 							this = scope:bg_defender
 							scope:bg_attacker_move = flag:intrigue
 						}
 						AND = {
+							exists = scope:bg_attacker
+							exists = scope:bg_defender_move
 							this = scope:bg_attacker
 							scope:bg_defender_move = flag:intrigue
 						}
@@ -482,10 +498,14 @@ board_games.0001 = {
 				trigger = {
 					OR = {
 						AND = {
+							exists = scope:bg_defender
+							exists = scope:bg_attacker_move
 							this = scope:bg_defender
 							scope:bg_attacker_move = flag:learning
 						}
 						AND = {
+							exists = scope:bg_attacker
+							exists = scope:bg_defender_move
 							this = scope:bg_attacker
 							scope:bg_defender_move = flag:learning
 						}
@@ -565,10 +585,14 @@ board_games.0001 = {
 				trigger = {
 					OR = {
 						AND = {
+							exists = scope:bg_defender
+							exists = scope:bg_attacker_move
 							this = scope:bg_defender
 							scope:bg_attacker_move = flag:prowess
 						}
 						AND = {
+							exists = scope:bg_attacker
+							exists = scope:bg_defender_move
 							this = scope:bg_attacker
 							scope:bg_defender_move = flag:prowess
 						}

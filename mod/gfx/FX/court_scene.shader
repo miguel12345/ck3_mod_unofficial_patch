@@ -789,30 +789,9 @@ PixelShader =
 				float3 NormalSample;
 
 			#ifdef ENABLE_TEXTURE_OVERRIDE
-				if ( HasDiffuseMapOverride > 0.5f )
-				{
 					Diffuse = PdxTex2D( DiffuseMapOverride, UV0 );
-				}
-				else
-				{
-					Diffuse = PdxTex2D( DiffuseMap, UV0 );
-				}
-				if ( HasPropertiesMapOverride > 0.5f )
-				{
 					Properties = PdxTex2D( PropertiesMapOverride, UV0 );
-				}
-				else
-				{
-					Properties = PdxTex2D( PropertiesMap, UV0 );
-				}
-				if ( HasNormalMapOverride > 0.5f )
-				{
 					NormalSample = UnpackRRxGNormal( PdxTex2D( NormalMapOverride, UV0 ) );
-				}
-				else
-				{
-					NormalSample = UnpackRRxGNormal( PdxTex2D( NormalMap, UV0 ) );
-				}
 			#else
 				Diffuse = PdxTex2D( DiffuseMap, UV0 );
 				Properties = PdxTex2D( PropertiesMap, UV0 );

@@ -1,0 +1,153 @@
+﻿# Unused ATM, don't know if I should split bad/good effets (but feels bad that a bad event prevent anything good for 1 whole year)
+# Should be sync with values from common\script_values\00_council_values.txt
+
+marshal_task_good_side_effect_cooldown = 365
+marshal_task_bad_side_effect_cooldown = 365
+
+chancellor_task_good_side_effect_cooldown = 365
+chancellor_task_bad_side_effect_cooldown = 365
+
+steward_task_good_side_effect_cooldown = 365
+steward_task_bad_side_effect_cooldown = 365
+
+spymaster_task_good_side_effect_cooldown = 365
+spymaster_task_bad_side_effect_cooldown = 365
+
+court_chaplain_good_task_side_effect_cooldown = 365
+court_chaplain_bad__taskside_effect_cooldown = 365
+
+fixpack_petitioner_debt_minimum_value = {
+	value = -100
+}
+
+####
+# Duplicated values because in 03_fp2_interactions it's not ROOT who does the event, and so the scope is correct
+####
+# FixPack: duplicated feast_activity_cost but with a scope to an actor, to fix scopping issue when YOU are invited !
+fixpack_actor_feast_activity_cost = {
+	value = 0
+	scope:actor = {
+		add = fixpack_actor_standard_activity_cost
+		if = {
+			limit = {
+				culture = {
+					has_cultural_parameter = more_expensive_feasts
+				}
+			}
+			multiply = 2
+		}
+		if = {
+			limit = {
+				exists = var:protected_alcohol_stores
+				var:protected_alcohol_stores > 0
+			}
+			multiply = 0.5
+		}
+	}
+}
+
+# FixPack: duplicated hunt_activity_cost but with a scope to an actor, to fix scopping issue when YOU are invited !
+fixpack_actor_hunt_activity_cost = {
+	value = 0
+	scope:actor = {
+		add = fixpack_actor_standard_activity_cost
+		divide = 1.5
+		if = {
+			limit = {
+				has_character_flag = free_hunt
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				has_character_modifier = peregrine_falcon
+			}
+			multiply = 0.9
+		}
+		# Done like this so that it stacks
+		if = {
+			limit = {
+				has_character_modifier = master_of_hunt_activity_bonus
+			}
+			multiply = 0.9
+		}
+	}
+}
+
+#Fixpack: duplicated standard_activity_cost but with a scope to an actor, to fix scopping issue when YOU are invited !
+fixpack_actor_standard_activity_cost = {
+	value = 50
+	scope:actor = {
+		multiply = {
+			value = primary_title.tier
+			subtract = 1
+			min = 1
+		}
+		if = {
+			limit = {
+				primary_title.tier > tier_duchy
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				exists = dynasty
+				dynasty = {
+					has_dynasty_perk = law_legacy_1
+				}
+			}
+			multiply = law_legacy_cost_reduction_mult
+		}
+		if = {
+			limit = {
+				has_government = tribal_government
+			}
+			multiply = 0.5
+		}
+	}
+}
+
+unop_total_friends = {
+	value = 0
+	every_relation = {
+		type = friend
+		limit = { NOT = { has_character_flag = about_to_die_but_not_dead_yet_flag  } }
+		add = 1
+	}
+}
+
+#@horse_archers_counter_skirmishers_value = {
+#	value = 1
+#
+#	if = {
+#		limit = { has_perk = envelopment_perk }
+#		add = 0.25
+#	}
+#
+#	if = {
+#		limit = { culture = { has_cultural_tradition = tradition_formation_fighting } }
+#		add = 0.15
+#	}
+#
+#	if = {
+#		limit = { has_dynasty_perk = warfare_legacy_4 }
+#		add = 0.15
+#	}
+#
+#	if = {
+#		limit = {
+#			has_royal_court = yes
+#			has_court_type = court_warlike
+#			court_grandeur_current_level >= 7
+#		}
+#		add = 0.1
+#	}
+#
+#	# TODO: hill farms
+#}
+
+##horse_archers_counter_skirmishers_value_gold = @[horse_archers_counter_skirmishers_value * 10]
+##
+##@horse_archers_counter_heavy_infantry_value = {
+##	value = 1
+##}

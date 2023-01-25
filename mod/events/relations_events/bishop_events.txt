@@ -45,8 +45,10 @@ bishop.1001 = {
 			NOT = { is_spouse_of = root }
 		}
 		faith = {
+			NOT = { 
 			faith_allows_marriage_consanguinity_trigger = { CHARACTER_1 = root CHARACTER_2 = scope:spouse_check }
 		}
+	}
 	}
 
 	weight_multiplier = { #More likely the more they dislike you

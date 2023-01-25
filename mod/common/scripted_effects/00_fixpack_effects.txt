@@ -1,0 +1,362 @@
+﻿# To counter the fact that has_relation_lover return true for soulmate and many event use this to remove lover
+# So the event is trying to remove a relation that you do not have...
+fixpack_remove_lover_or_soulmate_effect = {
+	if = {
+		limit = { has_relation_soulmate = $TARGET$ }
+		remove_relation_soulmate = $TARGET$
+	}
+	else_if = {
+		limit = { has_relation_lover = $TARGET$ }
+		remove_relation_lover = $TARGET$
+	}
+	else = {
+		# Vincent vega here, should I trace this for further debug?
+	}
+}
+
+fixpack_remove_variables_childhood_trait_effect = {
+	if = {
+		limit = {
+			has_variable = childhood_trait_type
+		}
+		remove_variable = childhood_trait_type
+	}
+}
+
+fixpack_revoke_holy_order_lease_effect = {
+
+	$CHARACTER$ = { save_scope_as = revoker }
+	$TARGET$ = { save_scope_as = holy_order_master }
+	$BARONY$ = { save_scope_as = holy_order_location }
+
+	if = {
+		limit = {
+			scope:revoker.faith = {
+				any_faith_holy_order = {
+					num_leased_titles = 1
+					title = scope:holy_order_location.lessee_title
+				}
+			}
+		}
+		custom_tooltip = destroy_holy_order_warning
+	}
+
+	scope:revoker = {
+		send_interface_message = {
+			type = holy_order_cancled_message
+			title = revoke_leased_title_interaction_notification
+			right_icon = scope:holy_order_master
+
+			# Zealous costs stress if same-faith.
+			if = {
+				limit = { faith = scope:holy_order_master.faith }
+				stress_impact = {
+					zealous = massive_stress_impact_gain
+					generous = medium_stress_impact_gain
+					order_member = minor_stress_impact_gain
+				}
+
+				add_piety = {
+					value = 0
+					subtract = cancel_holy_order_piety_cost
+				}
+			}
+			else_if = {
+				# Bit less but still some if you view the other faith as astray.
+				limit = {
+					scope:revoker.faith = {
+						faith_hostility_level = {
+							target = scope:holy_order_master.faith
+							value <= faith_astray_level
+						}
+					}
+				}
+				stress_impact = {
+					zealous = major_stress_impact_gain
+					generous = medium_stress_impact_gain
+				}
+
+				add_piety = {
+					value = -100
+				}
+			}
+			else = {
+
+				if = {
+					limit = { exists =  scope:revoker.faith.religious_head  }
+					scope:revoker.faith.religious_head = {
+						add_opinion = {
+							modifier = pleased_opinion
+							target = scope:revoker
+							opinion = 20
+						}
+					}
+				}
+
+				add_piety = {
+					value = 250
+				}
+
+				scope:holy_order_master.faith = {
+					# Fervor impact: big as it's rare
+					change_fervor = {
+						value = 10
+						desc = fervor_gain_holy_order_expelled_by_force
+					}
+				}
+
+				#Fixpack: This stress modifier was lost in 1.18
+				# Otherwise, only generous is stressed.
+				stress_impact = {
+					generous = medium_stress_impact_gain
+				}
+				#/Fixpack
+			}
+
+			# If the county has the same faith than the HO, locals are unhappy
+			scope:holy_order_location = {
+				if = {
+					limit = { title_province.county.faith = scope:holy_order_master.faith }
+					title_province.county = {
+						add_county_modifier = {
+							modifier = lost_holy_order_modifier
+							years = 10
+						}
+					}
+				}
+
+				revoke_lease = yes
+			}
+		}
+	}
+
+	scope:holy_order_master = {
+		hidden_effect = { #Nudge towards rivalry
+			if = {
+				limit = {
+					NOR = {
+						has_relation_rival = scope:revoker
+						has_relation_potential_rival = scope:revoker
+					}
+				}
+				set_relation_potential_rival = scope:revoker
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { this = scope:revoker }
+			}
+			add_opinion = {
+				target = scope:revoker
+				modifier = angry_opinion
+				opinion = -40
+			}
+		}
+
+		faith = {
+			if = {
+				limit = {
+					exists = religious_head
+					NOT = { religious_head = scope:revoker }
+				}
+				religious_head = {
+					add_opinion = {
+						modifier = angry_opinion
+						target = scope:revoker
+						opinion = -20
+					}
+					if = {
+						limit = {
+							has_opinion_modifier = {
+								target = scope:revoker
+								modifier = founded_holy_order_opinion
+							}
+						}
+						remove_opinion = {
+							target = scope:revoker
+							modifier = founded_holy_order_opinion
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+fixpack_set_up_dynamic_spiritual_hof_title_effect = {
+
+	$RELIGIOUS_HEAD$ = { save_scope_as = new_religious_head }
+
+	# Sort scopes & starting processes.
+	faith = { save_scope_as = my_faith }
+	create_dynamic_title = {
+		tier = duchy
+		name = REL_HEAD_TITLE_NAME
+	}
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+
+	# Nab a suitable character.
+	# The decision already chose one.
+
+	# Try to land the new title.
+	scope:my_faith = {
+		random_holy_site = {
+			limit = { county.holder = $CREATOR$ }
+			alternative_limit = {
+				county.holder = { target_is_liege_or_above = $CREATOR$ }
+			}
+			alternative_limit = {
+				county.holder = {
+					faith = $CREATOR$.faith
+					is_ai = yes
+				}
+			}
+			save_scope_as = holy_site
+		}
+	}
+	if = {
+		limit = { exists = scope:holy_site }
+		scope:new_title = { set_capital_county = scope:holy_site.county }
+	}
+	# Configure final effects.
+	hidden_effect = {
+		scope:new_title = {
+			set_landless_title = yes
+			set_destroy_if_invalid_heir = yes
+			set_no_automatic_claims = yes
+			set_definitive_form = yes
+			set_always_follows_primary_heir = yes
+			change_title_holder = {
+				holder = scope:new_religious_head
+				change = scope:change
+			}
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	faith = { set_religious_head_title = scope:new_title }
+	scope:new_title = { generate_coa = religious_title }
+	# We enclose the law safeguard in an if statement to prevent errors when this is only _about_ to be fired.
+	hidden_effect = {
+		if = {
+			limit = { exists = scope:new_religious_head }
+			scope:new_religious_head = {
+				if = {
+					limit = {
+						NOT = { has_realm_law = same_faith_theocratic_succession_law }
+					}
+					add_realm_law_skip_effects = same_faith_theocratic_succession_law
+				}
+			}
+		}
+	}
+}
+
+fixpack_friend_confider_event = {
+	$CURRENT$ = {
+		if = {
+			limit = { has_relation_friend = $FRIEND$ }
+			$FRIEND$ = {
+				if = {
+					limit = { has_relation_best_friend = $CURRENT$ }
+					if = {
+						limit = {
+							NOT = {
+								has_relation_flag = {
+									target = $CURRENT$
+									relation = best_friend
+									flag = has_been_confided_in
+								}
+							}
+						}
+						add_relation_flag = {
+							target = $CURRENT$
+							relation = best_friend
+							flag = has_been_confided_in
+						}
+					}
+					else = {
+						$CURRENT$ = {
+							reverse_add_opinion = {
+								target = $FRIEND$
+								modifier = friendliness_opinion
+								opinion = $OPINION_MODIFIER$
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							NOT = {
+								has_relation_flag = {
+									target = $CURRENT$
+									relation = friend
+									flag = has_been_confided_in
+								}
+							}
+						}
+						add_relation_flag = {
+							target = $CURRENT$
+							relation = friend
+							flag = has_been_confided_in
+						}
+					}
+					else = {
+						$CURRENT$ = {
+							reverse_add_opinion = {
+								target = $FRIEND$
+								modifier = friendliness_opinion
+								opinion = $OPINION_MODIFIER$
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+fixpack_stress_threshold_2321 = {
+	$CURRENT$ = {
+		every_vassal = {
+			limit = {
+				is_alive = yes
+				NOR = {
+					has_trait = $TRAIT1$
+					has_trait = $TRAIT2$
+					has_trait = $TRAIT3$
+				}
+			}
+			custom = $TEXT$
+			add_opinion = {
+				modifier = $OPINION_TEXT$
+				opinion = $OPINION_MODIFIER$
+				target = $CURRENT$
+			}
+		}
+
+		#Fixpack putting it in an hidden effect since the previous custom = already display the text
+		hidden_effect = {
+			every_courtier = {
+				limit = {
+					is_alive = yes
+					NOR = {
+						has_trait = $TRAIT1$
+						has_trait = $TRAIT2$
+						has_trait = $TRAIT3$
+					}
+				}
+				add_opinion = {
+					modifier = $OPINION_TEXT$
+					opinion = $OPINION_MODIFIER$
+					target = $CURRENT$
+				}
+			}
+		}
+	}
+}

@@ -846,19 +846,58 @@ fp2_yearly.2020 = {
 	trigger = {
 		has_fp2_dlc_trigger = yes
 		is_ai = no # The AI has no use for narrative-focused events
+		NOT = {
 		any_sub_realm_county = { 
-			this = title:c_valencia # No need for geo check in this case
-
-			NOR = {
+				#Fixpack: Disable the force check on valencia, as we will restrict option depending on the terrain
+				#this = title:c_valencia # No need for geo check in this case
+				OR = {
 				has_county_modifier = fp2_horchata_colonialism_modifier
 				has_county_modifier = governance_1054_satisfied_peasants_modifier
 				has_county_modifier = fp2_funded_agriculture_modifier
 			}
 		}
 	}
+	}
 
 	immediate = {
-		title:c_valencia.title_province = { save_scope_as = fp2_2020_valencia }
+		#Fixpack: First case, we only want farmlands IF we are not gluttonous/comfort_eater because the option will be disabled
+		if = {
+			limit = {
+				NOT = {
+					has_trait = gluttonous
+					has_trait = comfort_eater
+				}
+			}
+			every_sub_realm_county = {
+				title_province = {
+					if = {
+						limit = { terrain = farmlands }
+						save_scope_as = fp2_2020_valencia
+					}
+				}
+			}
+		}
+		#Fixpack: Fallback, if we have valencia, take it just like original event
+		if = {
+			limit = { NOT = { exists = scope:fp2_2020_valencia } }
+			every_sub_realm_county = {
+				title_province = {
+					if = {
+						limit = { this = title:c_valencia.title_province }
+						save_scope_as = fp2_2020_valencia
+					}
+				}
+			}
+		}
+		#Fixpack: Fallback, if we have do not have valencia take a random county
+		if = {
+			limit = { NOT = { exists = scope:fp2_2020_valencia } }
+			every_sub_realm_county = {
+				title_province = {
+					save_scope_as = fp2_2020_valencia
+				}
+			}
+		}
 
 		create_character = {
 			age = { 19 36 }
@@ -907,6 +946,9 @@ fp2_yearly.2020 = {
 		name = fp2_struggle.2020.d
 
 		trigger = {
+			scope:fp2_2020_valencia = {
+				terrain = farmlands
+			}
 			NOT = {
 				has_trait = gluttonous
 				has_trait = comfort_eater
@@ -926,6 +968,7 @@ fp2_yearly.2020 = {
 		name = fp2_struggle.2020.b
 
 		every_close_family_member = {
+			custom = all_close_family_members
 			add_opinion = {
 				target = root
 				modifier = delicious_morsel_opinion
@@ -6165,9 +6208,13 @@ fp2_yearly.9001 = {
 		name = fp2_james.0002.b
 		duel = {
 			skill = intrigue
-			value = medium_skill_rating
+			target = scope:fp2_james_0002_conversos_character
 
 			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+				}
 				desc = fp2_james.0002.b.succesful_interrogation
 
 				if = {
@@ -6201,6 +6248,11 @@ fp2_yearly.9001 = {
 				}
 			}
 			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+
 				desc = fp2_james.0002.b.failed_interrogation
 				send_interface_message = {
 					type = event_intrigue_bad
@@ -6477,9 +6529,9 @@ fp2_yearly.9002 = {
 		}
 
 		stress_impact = {
-			callous = minor_stress_impact_loss
+			callous = minor_stress_impact_gain #Fixpack: This was stress loss
 			greedy = minor_stress_impact_gain
-			compassionate = medium_stress_impact_gain
+			compassionate = medium_stress_impact_loss #Fixpack: This was stress gain
 			zealous = medium_stress_impact_gain
 			paranoid = medium_stress_impact_gain
 		}

@@ -3356,6 +3356,23 @@ release_from_prison_interaction = {
 					}
 				}
 			}
+
+			#Fixpack: Prevent the demand-conversion of a Holy Order Master
+			#To Fix this error in the logs:
+			#Error: set_character_faith effect [ Character '...' cannot change faith: Is the leader of a holy order ]
+
+			# Cannot ask Holy Order Master to convert
+			custom_description = {
+				text = cannot_demand_holy_order_master_conversion
+				NAND = {
+					exists = scope:recipient.faith
+					scope:recipient.faith = {
+						any_faith_holy_order = { leader = scope:recipient }
+					}
+				}
+			}
+
+			#/Fixpack
 		}
 	}
 	

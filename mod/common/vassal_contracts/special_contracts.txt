@@ -199,6 +199,8 @@ special_contract = {
 				value = 0
 				if = {
 					limit = {
+						# Fixpack: palatinate is only available to feudal government
+						scope:liege = { has_government = feudal_government }
 						scope:vassal = {
 							vassal_contract_obligation_level:feudal_government_taxes < feudal_tax_low_level
 							vassal_contract_obligation_level:feudal_government_levies < feudal_levies_low_level
@@ -211,13 +213,30 @@ special_contract = {
 	}
 }
 
+
+# Fixpack: If the faith has tenet_tax_nonbelievers, but the current vassal is under religious protection, we'll still show this (so it can be revoked)
+# Once he is not protected anymore, will disapear to replicate the unmodded behaviour.
 religious_rights = {
 	display_mode = checkbox
 	is_shown = {
+		OR = {
 		NOT = {
 			scope:vassal.faith = scope:liege.faith
 			scope:liege.faith = {
 				has_doctrine = tenet_tax_nonbelievers
+			}
+		}
+			AND = {
+				scope:liege.faith = {
+					has_doctrine = tenet_tax_nonbelievers
+				}
+				scope:vassal = {
+					NOT = {
+						faith = scope:liege.faith
+						vassal_contract_has_flag = vassal_contract_cannot_revoke_titles
+					}
+					vassal_contract_has_flag = religiously_protected
+				}
 			}
 		}
 	}
@@ -470,7 +489,20 @@ jizya_special_rights = {
 		scope:liege.faith = {
 			has_doctrine = tenet_tax_nonbelievers
 		}
-		NOT = {	scope:vassal.faith = scope:liege.faith }
+		scope:vassal = {
+			OR = {
+				NOT = {
+					faith = scope:liege.faith
+					vassal_contract_has_flag = religiously_protected
+				}
+				AND = {
+					NOT = { faith = scope:liege.faith }
+					vassal_contract_has_flag = religiously_protected
+					vassal_contract_has_flag = vassal_contract_cannot_revoke_titles
+				}
+			}
+		}
+
 	}
 
 	obligation_levels = {

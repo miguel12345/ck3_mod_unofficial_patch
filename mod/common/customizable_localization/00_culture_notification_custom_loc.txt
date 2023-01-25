@@ -34,6 +34,11 @@
 		localization_key = tradition_african_tolerance_name
 	}
 
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_memories_of_bactria }
+	#	localization_key = tradition_memories_of_bactria_name
+	#}
+
 	text = {
 		trigger = { scope:tradition = flag:tradition_equal_inheritance }
 		localization_key = tradition_equal_inheritance_name
@@ -114,6 +119,11 @@
 		localization_key = tradition_hereditary_hierarchy_name
 	}
 
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_theocratic_autonomy }
+	#	localization_key = tradition_theocratic_autonomy_name
+	#}
+
 	text = {
 		trigger = { scope:tradition = flag:tradition_saharan_nomads }
 		localization_key = tradition_saharan_nomads_name
@@ -148,6 +158,11 @@
 		trigger = { scope:tradition = flag:tradition_pacifism }
 		localization_key = tradition_pacifism_name
 	}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_scientific_curiosity }
+	#	localization_key = tradition_scientific_curiosity_name
+	#}
 
 	text = {
 		trigger = { scope:tradition = flag:tradition_spartan }
@@ -194,30 +209,50 @@
 		localization_key = tradition_festivities_name
 	}
 
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_tea_ceremony }
+	#	localization_key = tradition_tea_ceremony_name
+	#}
+
 	text = {
 		trigger = { scope:tradition = flag:tradition_vegetarianism }
 		localization_key = tradition_vegetarianism_name
 	}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_alpine_supremacy }
+	#	localization_key = tradition_alpine_supremacy_name
+	#}
 
 	text = {
 		trigger = { scope:tradition = flag:tradition_seafaring }
 		localization_key = tradition_seafaring_name
 	}
 
-	text = {
-		trigger = { scope:tradition = flag:tradition_martial_admiration }
-		localization_key = tradition_martial_admiration_name
-	}
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_strength_display }
+	#	localization_key = tradition_strength_display_name
+	#}
 
 	text = {
 		trigger = { scope:tradition = flag:tradition_mystical_ancestors }
 		localization_key = tradition_mystical_ancestors_name
 	}
 
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_priestly_caste }
+	#	localization_key = tradition_priestly_caste_name
+	#}
+
 	text = {
 		trigger = { scope:tradition = flag:tradition_religion_blending }
 		localization_key = tradition_religion_blending_name
 	}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_religious_festivities }
+	#	localization_key = tradition_religious_festivities_name
+	#}
 
 	text = {
 		trigger = { scope:tradition = flag:tradition_religious_patronage }
@@ -450,6 +485,16 @@
 	}
 
 	text = {
+		trigger = { scope:tradition = flag:tradition_by_the_sword }
+		localization_key = tradition_by_the_sword_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_language_scholars }
+		localization_key = tradition_language_scholars_name
+	}
+
+	text = {
 		trigger = { scope:tradition = flag:tradition_pastoralists }
 		localization_key = tradition_pastoralists_name
 	}
@@ -490,6 +535,16 @@
 	}
 
 	text = {
+		trigger = { scope:tradition = flag:tradition_martial_admiration }
+		localization_key = tradition_martial_admiration_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_chanson_de_geste }
+		localization_key = tradition_chanson_de_geste_name
+	}
+
+	text = {
 		trigger = { scope:tradition = flag:tradition_ruling_caste }
 		localization_key = tradition_ruling_caste_name
 	}
@@ -504,89 +559,159 @@
 		localization_key = tradition_sacred_groves_name
 	}
 
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_hold_the_line }
+	#	localization_key = tradition_hold_the_line_name
+	#}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_legendary_noble_families }
+	#	localization_key = tradition_legendary_noble_families_name
+	#}
+
 	text = {
-		trigger = { scope:tradition = flag:tradition_futuwaa }
-		localization_key = tradition_futuwaa_name
+		trigger = { scope:tradition = flag:tradition_castle_keepers }
+		localization_key = tradition_castle_keepers_name
 	}
 
 	text = {
-		trigger = { scope:tradition = flag:tradition_mubarizuns }
-		localization_key = tradition_mubarizuns_name
+		trigger = { scope:tradition = flag:tradition_city_keepers }
+		localization_key = tradition_city_keepers_name
 	}
 
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_fractious }
+	#	localization_key = tradition_fractious_name
+	#}
+
 	text = {
-		trigger = { scope:tradition = flag:tradition_desert_ribat }
-		localization_key = tradition_desert_ribat_name
+		trigger = { scope:tradition = flag:tradition_runestones }
+		localization_key = tradition_runestones_name
+	}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_insular_spirit }
+	#	localization_key = tradition_insular_spirit_name
+	#}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_monastic_communities }
+		localization_key = tradition_monastic_communities_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_land_of_the_bow }
-		localization_key = tradition_land_of_the_bow_name
+		trigger = { scope:tradition = flag:tradition_roman_legacy }
+		localization_key = tradition_roman_legacy_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_druzhina }
-		localization_key = tradition_druzhina_name
+		trigger = { scope:tradition = flag:tradition_longbow_competitions }
+		localization_key = tradition_longbow_competitions_name
+	}
+	
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_illyrian_grit }
+	#	localization_key = tradition_illyrian_grit_name
+	#}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_maritime_mercantilism }
+		localization_key = tradition_maritime_mercantilism_name
+	}
+	
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_sacral_kingship }
+	#	localization_key = tradition_sacral_kingship_name
+	#}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_reavers }
+	#	localization_key = tradition_reavers_name
+	#}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_practiced_pirates }
+		localization_key = tradition_practiced_pirates_name
+	}
+	
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_determined_independence }
+	#	localization_key = tradition_determined_independence_name
+	#}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_merciful_blindings }
+		localization_key = tradition_merciful_blindings_name
+	}
+	
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_reindeer_hunters }
+	#	localization_key = tradition_reindeer_hunters_name
+	#}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_mountaineer_ruralism }
+		localization_key = tradition_mountaineer_ruralism_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_hussar }
-		localization_key = tradition_hussar_name
+		trigger = { scope:tradition = flag:tradition_life_is_just_a_joke }
+		localization_key = tradition_life_is_just_a_joke_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_horn_mountain_skirmishing }
-		localization_key = tradition_horn_mountain_skirmishing_name
+		trigger = { scope:tradition = flag:tradition_steppe_tolerance }
+		localization_key = tradition_steppe_tolerance_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_bush_hunting }
-		localization_key = tradition_bush_hunting_name
+		trigger = { scope:tradition = flag:tradition_nubian_warrior_queens }
+		localization_key = tradition_nubian_warrior_queens_name
+	}
+	
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_maritime_mangroves }
+	#	localization_key = tradition_maritime_mangroves_name
+	#}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_mixed_governance }
+	#	localization_key = tradition_mixed_governance_name
+	#}
+
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_ritual_scarrification }
+	#	localization_key = tradition_ritual_scarrification_name
+	#}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_hidden_cities }
+		localization_key = tradition_hidden_cities_name
+	}
+	
+	#text = {
+	#	trigger = { scope:tradition = flag:tradition_hereditary_bards }
+	#	localization_key = tradition_hereditary_bards_name
+	#}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_ancient_miners }
+		localization_key = tradition_ancient_miners_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_mobile_guards }
-		localization_key = tradition_mobile_guards_name
+		trigger = { scope:tradition = flag:tradition_wetlanders }
+		localization_key = tradition_wetlanders_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_khadga_puja }
-		localization_key = tradition_khadga_puja_name
+		trigger = { scope:tradition = flag:tradition_diasporic }
+		localization_key = tradition_diasporic_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_garuda_warriors }
-		localization_key = tradition_garuda_warriors_name
-	}
-	
-	text = {
-		trigger = { scope:tradition = flag:tradition_burman_royal_army }
-		localization_key = tradition_burman_royal_army_name
-	}
-	
-	text = {
-		trigger = { scope:tradition = flag:tradition_mountain_herding }
-		localization_key = tradition_mountain_herding_name
-	}
-	
-	text = {
-		trigger = { scope:tradition = flag:tradition_forest_wardens }
-		localization_key = tradition_forest_wardens_name
-	}
-	
-	text = {
-		trigger = { scope:tradition = flag:tradition_upland_skirmishing }
-		localization_key = tradition_upland_skirmishing_name
-	}
-	
-	text = {
-		trigger = { scope:tradition = flag:tradition_hird }
-		localization_key = tradition_hird_name
-	}
-	
-	text = {
-		trigger = { scope:tradition = flag:tradition_caucasian_wolves }
-		localization_key = tradition_caucasian_wolves_name
+		trigger = { scope:tradition = flag:tradition_sorcerous_metallurgy }
+		localization_key = tradition_sorcerous_metallurgy_name
 	}
 	
 	text = {
@@ -595,8 +720,38 @@
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_amharic_highlanders }
-		localization_key = tradition_amharic_highlanders_name
+		trigger = { scope:tradition = flag:tradition_caucasian_wolves }
+		localization_key = tradition_caucasian_wolves_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_artisans }
+		localization_key = tradition_artisans_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_fp1_coastal_warriors }
+		localization_key = tradition_fp1_coastal_warriors_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_fp1_performative_honour }
+		localization_key = tradition_fp1_performative_honour_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_fp1_northern_stories }
+		localization_key = tradition_fp1_northern_stories_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_fp1_trials_by_combat }
+		localization_key = tradition_fp1_trials_by_combat_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_fp1_the_right_to_prove }
+		localization_key = tradition_fp1_the_right_to_prove_name
 	}
 	
 	text = {
@@ -605,17 +760,113 @@
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_by_the_sword }
-		localization_key = tradition_by_the_sword_name
+		trigger = { scope:tradition = flag:tradition_amharic_highlanders }
+		localization_key = tradition_amharic_highlanders_name
+	}
+	
+	# Fixpack: The Fate-Of-Iberia tradition are in: english\dlc\fp2\dlc_fp2_cultural_traditions_l_english.yml
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_fp2_state_ransoming }
+		localization_key = tradition_fp2_state_ransoming_name
 	}
 	
 	text = {
-		trigger = { scope:tradition = flag:tradition_language_scholars }
-		localization_key = tradition_language_scholars_name
+		trigger = { scope:tradition = flag:tradition_fp2_strategy_gamers }
+		localization_key = tradition_fp2_strategy_gamers_name
 	}
-	
+
 	text = {
-		trigger = { scope:tradition = flag:tradition_artisans }
-		localization_key = tradition_artisans_name
+		trigger = { scope:tradition = flag:tradition_fp2_malleable_subjects }
+		localization_key = tradition_fp2_malleable_subjects_name
 	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_fp2_ritualised_friendship }
+		localization_key = tradition_fp2_ritualised_friendship_name
+	}
+
+	#Fixpack: And some others are in english\culture\cultural_maa_innovations_l_english.yml
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_hird }
+		localization_key = tradition_hird_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_forest_wardens }
+		localization_key = tradition_forest_wardens_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_khadga_puja }
+		localization_key = tradition_khadga_puja_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_garuda_warriors }
+		localization_key = tradition_garuda_warriors_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_futuwaa }
+		localization_key = tradition_futuwaa_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_land_of_the_bow }
+		localization_key = tradition_land_of_the_bow_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_desert_ribat }
+		localization_key = tradition_desert_ribat_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_mubarizuns }
+		localization_key = tradition_mubarizuns_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_hussar }
+		localization_key = tradition_hussar_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_druzhina }
+		localization_key = tradition_druzhina_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_horn_mountain_skirmishing }
+		localization_key = tradition_horn_mountain_skirmishing_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_bush_hunting }
+		localization_key = tradition_bush_hunting_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_mobile_guards }
+		localization_key = tradition_mobile_guards_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_upland_skirmishing }
+		localization_key = tradition_upland_skirmishing_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_mountain_herding }
+		localization_key = tradition_mountain_herding_name
+	}
+
+	text = {
+		trigger = { scope:tradition = flag:tradition_burman_royal_army }
+		localization_key = tradition_burman_royal_army_name
+	}
+
+
 }

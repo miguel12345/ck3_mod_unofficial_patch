@@ -2710,11 +2710,25 @@ yearly.3031 = {
 		trigger = {
 			scope:liege = {
 				is_attracted_to_gender_of = root
-				NOT = {
+				NOR = {
 					has_trait = chaste
+					has_trait = celibate #Fixpack: added this
 				}
+				might_cheat_on_every_partner_trigger = yes #Fixpack: added this
+				accepts_incest_with_trigger = { CHARACTER = root } #Fixpack: added this
 			}
 			attraction >= 10
+
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			OR = {
+				is_ai = no
+				AND = {
+					accepts_incest_with_trigger = { CHARACTER = scope:liege }
+					is_attracted_to_gender_of = scope:liege
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+			#/Fixpack
 		}
 		custom_tooltip = yearly.3031.c.unlock_tt
 

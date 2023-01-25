@@ -237,6 +237,7 @@
 		zurvanism = { # Actually Behafaridism
 			color = { 0.3 0.6 0.4 }
 			icon = zurvanism
+			religious_head = d_zurvanism
 
 			holy_site = ushi-darena
 			holy_site = nok_kundi

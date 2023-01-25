@@ -9,6 +9,9 @@ pastures_01 = {
 
 	can_construct_potential = {
 		building_pastures_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -71,10 +74,11 @@ pastures_02 = {
 
 	can_construct_potential = {
 		building_pastures_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -127,9 +131,7 @@ pastures_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -179,9 +181,7 @@ pastures_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -234,9 +234,7 @@ pastures_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -290,9 +288,7 @@ pastures_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -347,9 +343,7 @@ pastures_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -408,9 +402,7 @@ pastures_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -465,6 +457,9 @@ hunting_grounds_01 = {
 
 	can_construct_potential = {
 		building_hunting_grounds_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -529,10 +524,11 @@ hunting_grounds_02 = {
 
 	can_construct_potential = {
 		building_hunting_grounds_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -588,9 +584,7 @@ hunting_grounds_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -643,9 +637,7 @@ hunting_grounds_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -698,9 +690,7 @@ hunting_grounds_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -755,9 +745,7 @@ hunting_grounds_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -812,9 +800,7 @@ hunting_grounds_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -873,9 +859,7 @@ hunting_grounds_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -967,10 +951,11 @@ orchards_02 = {
 
 	can_construct_potential = {
 		building_orchards_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1012,9 +997,7 @@ orchards_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1054,9 +1037,7 @@ orchards_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1099,9 +1080,7 @@ orchards_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1145,9 +1124,7 @@ orchards_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1192,9 +1169,7 @@ orchards_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1242,9 +1217,7 @@ orchards_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1288,6 +1261,9 @@ farm_estates_01 = {
 
 	can_construct_potential = {
 		building_farm_estates_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -1324,10 +1300,11 @@ farm_estates_02 = {
 
 	can_construct_potential = {
 		building_farm_estates_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1369,9 +1346,7 @@ farm_estates_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1413,9 +1388,7 @@ farm_estates_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1457,9 +1430,7 @@ farm_estates_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1502,9 +1473,7 @@ farm_estates_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1548,9 +1517,7 @@ farm_estates_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1595,9 +1562,7 @@ farm_estates_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1637,6 +1602,9 @@ military_camps_01 = {
 
 	can_construct_potential = {
 		building_military_camps_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -1709,10 +1677,11 @@ military_camps_02 = {
 
 	can_construct_potential = {
 		building_military_camps_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_barracks
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_barracks = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1756,9 +1725,7 @@ military_camps_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1798,9 +1765,7 @@ military_camps_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1841,9 +1806,7 @@ military_camps_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1885,9 +1848,7 @@ military_camps_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -1933,9 +1894,7 @@ military_camps_07 = {
 	
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -1981,9 +1940,7 @@ military_camps_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2027,6 +1984,9 @@ regimental_grounds_01 = {
 
 	can_construct_potential = {
 		building_regimental_grounds_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -2067,10 +2027,11 @@ regimental_grounds_02 = {
 
 	can_construct_potential = {
 		building_regimental_grounds_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_barracks
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_barracks = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2116,9 +2077,7 @@ regimental_grounds_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2164,9 +2123,7 @@ regimental_grounds_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2213,9 +2170,7 @@ regimental_grounds_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2263,9 +2218,7 @@ regimental_grounds_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2313,9 +2266,7 @@ regimental_grounds_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2364,9 +2315,7 @@ regimental_grounds_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2412,6 +2361,9 @@ ramparts_01 = {
 
 	can_construct_potential = {
 		building_ramparts_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -2457,10 +2409,11 @@ ramparts_02 = {
 
 	can_construct_potential = {
 		building_ramparts_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_motte
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_motte = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2505,9 +2458,7 @@ ramparts_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2549,9 +2500,7 @@ ramparts_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2596,9 +2545,7 @@ ramparts_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2647,9 +2594,7 @@ ramparts_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2699,9 +2644,7 @@ ramparts_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2752,9 +2695,7 @@ ramparts_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2801,6 +2742,9 @@ curtain_walls_01 = {
 
 	can_construct_potential = {
 		building_curtain_walls_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -2854,10 +2798,11 @@ curtain_walls_02 = {
 
 	can_construct_potential = {
 		building_curtain_walls_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_motte
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_motte = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2906,9 +2851,7 @@ curtain_walls_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -2957,9 +2900,7 @@ curtain_walls_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3008,9 +2949,7 @@ curtain_walls_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3060,9 +2999,7 @@ curtain_walls_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3113,9 +3050,7 @@ curtain_walls_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3166,9 +3101,7 @@ curtain_walls_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3215,6 +3148,9 @@ watchtowers_01 = {
 
 	can_construct_potential = {
 		building_watchtowers_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -3267,10 +3203,11 @@ watchtowers_02 = {
 
 	can_construct_potential = {
 		building_watchtowers_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_motte
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_motte = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3318,9 +3255,7 @@ watchtowers_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3368,9 +3303,7 @@ watchtowers_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3419,9 +3352,7 @@ watchtowers_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3470,9 +3401,7 @@ watchtowers_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3523,9 +3452,7 @@ watchtowers_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3576,9 +3503,7 @@ watchtowers_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3625,6 +3550,9 @@ cereal_fields_01 = {
 
 	can_construct_potential = {
 		building_cereal_fields_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -3675,10 +3603,11 @@ cereal_fields_02 = {
 
 	can_construct_potential = {
 		building_cereal_fields_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3722,9 +3651,7 @@ cereal_fields_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3765,9 +3692,7 @@ cereal_fields_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3809,9 +3734,7 @@ cereal_fields_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3854,9 +3777,7 @@ cereal_fields_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -3900,9 +3821,7 @@ cereal_fields_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3947,9 +3866,7 @@ cereal_fields_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -3990,6 +3907,9 @@ outposts_01 = {
 
 	can_construct_potential = {
 		building_outposts_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -4051,10 +3971,11 @@ outposts_02 = {
 
 	can_construct_potential = {
 		building_outposts_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_barracks
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_barracks = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4104,9 +4025,7 @@ outposts_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4155,9 +4074,7 @@ outposts_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4208,9 +4125,7 @@ outposts_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4262,9 +4177,7 @@ outposts_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4317,9 +4230,7 @@ outposts_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4374,9 +4285,7 @@ outposts_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4428,6 +4337,9 @@ barracks_01 = {
 
 	can_construct_potential = {
 		building_barracks_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -4476,10 +4388,11 @@ barracks_02 = {
 
 	can_construct_potential = {
 		building_barracks_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_barracks
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_barracks = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4522,9 +4435,7 @@ barracks_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -4567,9 +4478,7 @@ barracks_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4612,9 +4521,7 @@ barracks_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -4657,9 +4564,7 @@ barracks_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -4702,9 +4607,7 @@ barracks_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -4751,9 +4654,7 @@ barracks_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -4796,6 +4697,9 @@ camel_farms_01 = {
 
 	can_construct_potential = {
 		building_camel_farms_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -4841,10 +4745,11 @@ camel_farms_02 = {
 
 	can_construct_potential = {
 		building_camel_farms_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_barracks
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_barracks = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -4891,9 +4796,7 @@ camel_farms_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -4937,9 +4840,7 @@ camel_farms_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_burhs
-		}
+		building_requirement_innovation_burhs = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -4988,9 +4889,7 @@ camel_farms_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -5039,9 +4938,7 @@ camel_farms_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_castle_baileys
-		}
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -5091,9 +4988,7 @@ camel_farms_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -5144,9 +5039,7 @@ camel_farms_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_royal_armory
-		}
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -5196,6 +5089,9 @@ logging_camps_01 = {
 
 	can_construct_potential = {
 		building_logging_camps_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -5247,10 +5143,11 @@ logging_camps_02 = {
 
 	can_construct_potential = {
 		building_logging_camps_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5299,9 +5196,7 @@ logging_camps_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5351,9 +5246,7 @@ logging_camps_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5404,9 +5297,7 @@ logging_camps_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5458,9 +5349,7 @@ logging_camps_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5512,9 +5401,7 @@ logging_camps_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5566,9 +5453,7 @@ logging_camps_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5617,6 +5502,9 @@ peat_quarries_01 = {
 
 	can_construct_potential = {
 		building_peat_quarries_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -5659,10 +5547,11 @@ peat_quarries_02 = {
 
 	can_construct_potential = {
 		building_peat_quarries_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5712,9 +5601,7 @@ peat_quarries_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5761,9 +5648,7 @@ peat_quarries_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5811,9 +5696,7 @@ peat_quarries_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5862,9 +5745,7 @@ peat_quarries_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5914,9 +5795,7 @@ peat_quarries_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -5966,9 +5845,7 @@ peat_quarries_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6014,6 +5891,9 @@ hill_farms_01 = {
 
 	can_construct_potential = {
 		building_hill_farms_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -6067,10 +5947,11 @@ hill_farms_02 = {
 
 	can_construct_potential = {
 		building_hill_farms_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6123,9 +6004,7 @@ hill_farms_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6178,9 +6057,7 @@ hill_farms_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6233,9 +6110,7 @@ hill_farms_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6289,9 +6164,7 @@ hill_farms_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6346,9 +6219,7 @@ hill_farms_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6403,9 +6274,7 @@ hill_farms_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6456,6 +6325,9 @@ elephant_pens_01 = {
 
 	can_construct_potential = {
 		building_elephant_pens_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -6502,10 +6374,11 @@ elephant_pens_02 = {
 
 	can_construct_potential = {
 		building_elephant_pens_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6555,9 +6428,7 @@ elephant_pens_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6608,9 +6479,7 @@ elephant_pens_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6661,9 +6530,7 @@ elephant_pens_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6714,9 +6581,7 @@ elephant_pens_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6767,9 +6632,7 @@ elephant_pens_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6821,9 +6684,7 @@ elephant_pens_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -6871,6 +6732,9 @@ plantations_01 = {
 
 	can_construct_potential = {
 		building_plantations_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 	
@@ -6941,10 +6805,11 @@ plantations_02 = {
 
 	can_construct_potential = {
 		building_plantations_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -6991,9 +6856,7 @@ plantations_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7039,9 +6902,7 @@ plantations_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7087,9 +6948,7 @@ plantations_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7139,9 +6998,7 @@ plantations_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -7191,9 +7048,7 @@ plantations_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7243,9 +7098,7 @@ plantations_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7291,6 +7144,9 @@ quarries_01 = {
 
 	can_construct_potential = {
 		building_quarries_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -7343,10 +7199,11 @@ quarries_02 = {
 
 	can_construct_potential = {
 		building_quarries_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_crop_rotation
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_crop_rotation = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -7396,9 +7253,7 @@ quarries_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7447,9 +7302,7 @@ quarries_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7499,9 +7352,7 @@ quarries_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7551,9 +7402,7 @@ quarries_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7604,9 +7453,7 @@ quarries_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7659,9 +7506,7 @@ quarries_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7711,6 +7556,9 @@ hill_forts_01 = {
 
 	can_construct_potential = {
 		building_hill_forts_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 	
@@ -7755,10 +7603,11 @@ hill_forts_02 = {
 
 	can_construct_potential = {
 		building_hill_forts_requirement_terrain = yes
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder.culture = {
-			has_innovation = innovation_motte
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_motte = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -7797,9 +7646,7 @@ hill_forts_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 
 	can_construct_showing_failures_only = {
@@ -7837,9 +7684,7 @@ hill_forts_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		scope:holder.culture = {
-			has_innovation = innovation_battlements
-		}
+		building_requirement_innovation_battlements = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7878,9 +7723,7 @@ hill_forts_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7919,9 +7762,7 @@ hill_forts_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		scope:holder.culture = {
-			has_innovation = innovation_hoardings
-		}
+		building_requirement_innovation_hoardings = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -7961,9 +7802,7 @@ hill_forts_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -8003,9 +7842,7 @@ hill_forts_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		scope:holder.culture = {
-			has_innovation = innovation_machicolations
-		}
+		building_requirement_innovation_machicolations = yes
 	}
 	
 	can_construct_showing_failures_only = {

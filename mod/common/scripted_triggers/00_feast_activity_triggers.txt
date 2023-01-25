@@ -12,8 +12,8 @@ has_special_main_event_potential = {
 }
 
 feast_default_participant_trigger = {
-	is_ai = yes
 	NOT = { this = root }
+	NOT = { this = scope:activity.activity_owner }
 	is_alive = yes
 	is_imprisoned = no
 }

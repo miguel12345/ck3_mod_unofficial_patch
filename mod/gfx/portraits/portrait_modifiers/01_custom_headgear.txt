@@ -595,4 +595,13 @@
 			has_reward_item = newsletter_crown
 		}
 	}
+
+	#Fixpack: Add the missing crusader western helm
+
+	add_accessory_modifiers = {
+		gene = headgear
+		template = crusades_western_war
+	}
+
+	#/Fixpack
 }

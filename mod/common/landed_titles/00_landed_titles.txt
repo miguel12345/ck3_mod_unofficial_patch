@@ -52392,7 +52392,7 @@ e_abyssinia = {
 		d_nobatia = {
 			color = { 162 133 85 }
 
-			capital = c_faras
+			capital = c_qasr_ibrim
 
 			c_qasr_ibrim = {
 				color = { 165 135 85 }

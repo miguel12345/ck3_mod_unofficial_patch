@@ -166,6 +166,18 @@ hostile_scheme_discovery.1001 = {
 				modifier = accused_of_scheming_opinion
 			}
 		}
+
+		# Disable for release
+		#if = {
+		#	limit = {
+		#		root = scope:agent
+		#	}
+		#	add_trait = saint
+		#	set_variable = { name = unop_scheme_target value = scope:scheme.scheme_target }
+		#	set_variable = { name = unop_scheme_owner value = scope:scheme.scheme_owner }
+		#	set_variable = { name = unop_scheme_type value = scope:scheme.scheme_type }
+		#}
+
 		rightfully_imprison_character_effect = { #Exposing scheme agent above will add opinion making the imprisonment rightful
 			TARGET = scope:agent
 			IMPRISONER = root
@@ -614,21 +626,9 @@ hostile_scheme_discovery.3003 = {
 
 	option = {
 		name = hostile_scheme_discovery.3003.a
-		scope:scheme = {
-			end_scheme = yes
-		}
 		scope:owner = {
 			add_dread = minor_dread_gain
 		}
-		if = {
-			limit = {
-				scope:scheme = {
-					scheme_type = steal_back_artifact
-				}
-			}
-			steal_back_artifact_failure_effect = yes
-		}
-
 		if = {
 			limit = {
 				scope:scheme = {
@@ -639,6 +639,17 @@ hostile_scheme_discovery.3003 = {
 				VICTIM = scope:target
 				MURDERER = scope:owner
 			}
+		}
+		if = {
+			limit = {
+				scope:scheme = {
+					scheme_type = steal_back_artifact
+				}
+			}
+			steal_back_artifact_failure_effect = yes
+			}
+		scope:scheme = {
+			end_scheme = yes
 		}
 	}
 }

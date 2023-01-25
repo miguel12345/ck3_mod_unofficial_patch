@@ -1,6 +1,6 @@
-﻿####################
-# MARRIAGE EFFECT EVENTS
-####################
+﻿##########################
+# MARRIAGE EFFECT EVENTS #
+##########################
 
 namespace = marriage_effect
 
@@ -68,40 +68,10 @@ marriage_effect.0001 = {
 		}
 	}
 
-	on_trigger_fail = { #If the mother isn't the "major" party in the marriage we need to trigger this for her
-		if = {
-			limit = {
-				scope:spouse = {
-					is_female = yes
-					OR = {
-						AND = {
-							OR = {
-								has_character_flag = unmarried_bastard_pregnancy
-								has_character_flag = bastard_pregnancy
-							}
-							pregnancy_real_father = { this = root }
-						}
-						any_secret = {
-							secret_type = secret_unmarried_illegitimate_child
-							secret_target = {
-								exists = real_father
-								real_father = {
-									this = root  #To make sure it is the new spouse
-								}
-							}
-						}
-					}
-				}
-			}
-			save_scope_as = spouse_scope
-			scope:spouse = {
-				scope:spouse_scope = {
-					save_scope_as = spouse
-				}
-				trigger_event = marriage_effect.0001
-			}
-		}
-	}
+	#on_trigger_fail = { #If the mother isn't the "major" party in the marriage we need to trigger this for her
+	#	debug_log = Fixpack: marriage_effect.0001 failed to trigger
+	#	debug_log_scopes = yes
+	# }
 
 	immediate = {
 		play_music_cue_once = { TRACK = mx_cue_marriage }
@@ -139,7 +109,6 @@ marriage_effect.0001 = {
 			pregnancy_real_father = { save_scope_as = new_spouse }
 			remove_variable = dead_spouse #To make sure the new spouse is set as father
 		}
-		
 	
 		if = {
 			limit = {
@@ -282,10 +251,6 @@ marriage_effect.0001 = {
 		}
 	}
 }
-
-
-
-
 
 #FATHER - notification event if you marry the mother and knows the secret
 marriage_effect.0002 = {
@@ -899,19 +864,45 @@ marriage_effect.1001 = {
 	}
 	
 	trigger = {
+		# Fixpack: In on_marriage, the root/spouses can be swapped if there is a bastard (or will be)
+		# So we have to check if we have the originals scopes
+		trigger_if = {
+			limit = { exists = scope:minor_spouse } # Original scope for spouse in on_marriage
+			any_relation = {
+				type = lover
+				this = scope:minor_spouse
+			}
+		}
+		trigger_else_if = {
+			limit = { exists = scope:spouse }
 		any_relation = {
 			type = lover
 			this = scope:spouse
 		}
 	}
+		# Fixpack: I wouldn't have add this trigger but just below:
+		# If the marriage was set via event, configure scopes for the description correctly.
+		# So we need to make sure we can trigger this event EVEN IF the scope:spouse is not defined
+		trigger_else = {
+			any_relation = {
+				type = lover
+				is_spouse_of = root
+			}
+		}
+	}
 
 	immediate = {
 		play_music_cue_once = { TRACK = mx_cue_marriage }
+		#Fixpack: Check if we have the backup scope from on_marriage and then re-save it in spouse scope
+		if = {
+			limit = { exists = scope:minor_spouse }
+			scope:minor_spouse = {
+				save_scope_as = spouse
+			}
+			}
 		#If the marriage was set via event, configure scopes for the description correctly.
 		if = {
-			limit = {
-				NOT = { exists = scope:spouse }
-			}
+			limit = { NOT = { exists = scope:spouse } }
 			random_relation = {
 				type = lover
 				limit = { is_spouse_of = root }
@@ -945,7 +936,6 @@ marriage_effect.1002 = {
 
 	option = {
 		name = marriage_effect.1002.a
-		
 	}
 }
 
@@ -1011,21 +1001,30 @@ marriage_effect.2001 = {
 		is_ruler = yes
 
 		# Only monogamous faiths care enough about a single marriage for the event.
-		faith = {
-			has_doctrine_parameter = marriage_event
-		}
+		faith = { has_doctrine_parameter = marriage_event }
 
-		# Only a character's first spouse counts.
+		# Fixpack: In on_marriage, the root/spouses can be swapped if there is a bastard (or will be)
+		# So we have to check if we have the originals scopes
+		trigger_if = {
+			limit = { exists = scope:minor_spouse } # Original scope for spouse in on_marriage
+			NOT = {
+				any_spouse = {
+					even_if_dead = yes
+					NOT = { this = scope:minor_spouse }
+				}
+			}
+			# Spouse also needs to be alive
+			scope:minor_spouse = { is_alive = yes }
+		}
+		trigger_else = {
 		NOT ={
 			any_spouse = {
 				even_if_dead = yes
 				NOT = { this = scope:spouse }
 			}
 		}
-
 		# Spouse also needs to be alive
-		scope:spouse = {
-			is_alive = yes
+			scope:spouse = { is_alive = yes }
 		}
 
 		# If a family was previously generated for us, don't fire the marriage event (we were presumably married before the game started).
@@ -1035,8 +1034,12 @@ marriage_effect.2001 = {
 
 	immediate = {
 		play_music_cue_once = { TRACK = mx_cue_marriage }
-		scope:spouse = {
-			save_scope_as = new_spouse
+		if = {
+			limit = { exists = scope:minor_spouse }
+			scope:minor_spouse = { save_scope_as = new_spouse }
+		}
+		else = {
+			scope:spouse = { save_scope_as = new_spouse }
 		}
 	}
 
@@ -1062,14 +1065,6 @@ marriage_effect.2001 = {
 			}
 			add_piety = massive_piety_value
 		}
-		save_scope_as = spouse_scope
-		scope:spouse = {
-			scope:spouse_scope = {
-				save_scope_as = spouse
-			}
-			trigger_event = marriage_effect.0001
-		}
-
 		hidden_effect = {
 			# To disable prestige & gold remarrying exploit
 			add_character_flag = ignore_marriage_event
@@ -1095,7 +1090,7 @@ marriage_effect.3001 = {
 			}
 			opinion = {
 				target = scope:spouse_2
-				value >= 60
+				value >= high_positive_opinion
 			}
 		}
 	}

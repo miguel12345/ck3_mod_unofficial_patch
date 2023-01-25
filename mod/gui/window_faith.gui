@@ -1239,7 +1239,7 @@ window = {
 							}
 
 							divider_light = {
-								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5'))]"
+								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5')]"
 								size = { 100% 3 }
 								parentanchor = bottom
 								position = { 0 1 }
@@ -1247,7 +1247,7 @@ window = {
 
 							hbox = {
 								margin = { 10 5 }
-								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5'))]"
+								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5')]"
 
 								icon = {
 									name = "faith_icon"

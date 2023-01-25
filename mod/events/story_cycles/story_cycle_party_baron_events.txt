@@ -177,7 +177,11 @@ scripted_effect find_party_baron_friends_effect = {
 				opinion = 30
 			}
 		}
+		#Fixpack Add the scope to the party_baron
+		scope:party_baron = {
 		set_relation_friend = { reason = friend_aggressively_befriended target = scope:friend_1 }
+	}
+		#/Fixpack
 	}
 	if = {
 		limit = {
@@ -196,7 +200,11 @@ scripted_effect find_party_baron_friends_effect = {
 				opinion = 30
 			}
 		}
+		#Fixpack Add the scope to the party_baron
+		scope:party_baron = {
 		set_relation_friend = { reason = friend_aggressively_befriended target = scope:friend_2 }
+	}
+		#/Fixpack
 	}
 	if = {
 		limit = {
@@ -215,7 +223,11 @@ scripted_effect find_party_baron_friends_effect = {
 				opinion = 30
 			}
 		}
+		#Fixpack Add the scope to the party_baron
+		scope:party_baron = {
 		set_relation_friend = { reason = friend_aggressively_befriended target = scope:friend_3 }
+	}
+		#/Fixpack
 	}
 }
 

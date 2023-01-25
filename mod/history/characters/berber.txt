@@ -9291,6 +9291,7 @@ khali0009 = {
 	dynasty = 595 # Zirid Dynasty
 	religion = ashari
 	culture = baranis
+	trait = sayyid
 
 	father = 32991 # Sheik Buluggin ibn Badis of Malaga
 	mother = 200235 # Sheikess Rahima ibn Idris
@@ -9315,6 +9316,7 @@ khali0009 = {
 	religion = ashari
 	culture = baranis
 	trait = poet
+	trait = sayyid
 
 	father = 32991 # Sheik Buluggin ibn Badis of Malaga
 	mother = 200235 # Sheikess Rahima bint Idris
@@ -9915,6 +9917,7 @@ khali0009 = {
 	religion = ismaili
 	culture = baranis
 	trait = education_diplomacy_2
+	trait = sayyid
 
 	father = 159499 # Sheik Muhammad ibn Idris of Malaga
 

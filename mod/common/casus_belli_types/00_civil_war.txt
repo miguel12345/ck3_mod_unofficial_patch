@@ -247,6 +247,18 @@ independence_faction_war = {
 				limit = { has_realm_law = crown_authority_3 }
 				add_realm_law = crown_authority_2
 			}
+			if = {
+				limit = { has_realm_law = tribal_authority_1 }
+				add_realm_law = tribal_authority_0
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_2 }
+				add_realm_law = tribal_authority_1
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_3 }
+				add_realm_law = tribal_authority_2
+			}
 		}
 		resolve_title_and_vassal_change = scope:change
 	}
@@ -444,6 +456,19 @@ liberty_faction_war = {
 				limit = { has_realm_law = crown_authority_3 }
 				add_realm_law = crown_authority_2
 			}
+			if = {
+				limit = { has_realm_law = tribal_authority_1 }
+				add_realm_law = tribal_authority_0
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_2 }
+				add_realm_law = tribal_authority_1
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_3 }
+				add_realm_law = tribal_authority_2
+			}
+
 			add_prestige = -500
 
 			every_character_war = {
@@ -1274,6 +1299,18 @@ refused_liege_demand_war = {
 				limit = { has_realm_law = crown_authority_3 }
 				add_realm_law = crown_authority_2
 			}
+			if = {
+				limit = { has_realm_law = tribal_authority_1 }
+				add_realm_law = tribal_authority_0
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_2 }
+				add_realm_law = tribal_authority_1
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_3 }
+				add_realm_law = tribal_authority_2
+			}
 
 			add_character_flag = {
 				flag = recent_liberty_faction_war
@@ -1725,145 +1762,7 @@ nation_fracturing_faction_war = {
 				value = 500
 				desc = CB_BASE_COST
 			}
-			if = {
-				limit = {
-					scope:attacker = {
-						has_government = tribal_government
-					}
-				}
-				multiply = {
-					value = 0.5
-					desc = CB_TRIBAL_COST
-				}
-			}
-
-			#Innovation Prestige Discounts
-			if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							has_innovation = innovation_chronicle_writing
-							has_innovation = innovation_land_grants
-							has_innovation = innovation_rightful_ownership
-						}
-					}
-				}
-				multiply = {
-					value = 0.7
-					desc = CB_ATTACKER_INNOVATIONS
-				}
-			}
-			else_if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							OR = {
-								has_innovation = innovation_chronicle_writing
-								has_innovation = innovation_land_grants
-							}
-							OR = {
-								has_innovation = innovation_land_grants
-								has_innovation = innovation_rightful_ownership
-							}
-							OR = {
-								has_innovation = innovation_chronicle_writing
-								has_innovation = innovation_rightful_ownership
-							}
-						}
-					}
-				}
-				multiply = {
-					value = 0.8
-					desc = CB_ATTACKER_INNOVATIONS
-				}
-			}
-			else_if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							OR = {
-								has_innovation = innovation_chronicle_writing
-								has_innovation = innovation_land_grants
-								has_innovation = innovation_rightful_ownership
-							}
-						}
-					}
-				}
-				multiply = {
-					value = 0.9
-					desc = CB_ATTACKER_INNOVATIONS
-				}
-			}
-
-			# Bellum Justum Perk
-			if = {
-				limit = {
-					scope:attacker = {
-						has_perk = bellum_justum_perk
-					}
-				}
-				multiply = {
-					add = bellum_justum_discount_percentage
-					divide = 100
-					desc = CB_ATTACKER_BELLUM_JUSTUM
-				}
-			}
-
-			# Dynasty Warfare Perk
-			if = {
-				limit = {
-					scope:attacker = {
-						has_dynasty = yes
-						dynasty = {
-							has_dynasty_perk = warfare_legacy_2
-						}
-					}
-				}
-				multiply = {
-					value = warfare_legacy_2_discount
-					desc = CB_ATTACKER_DYNASTY_WARFARE
-				}
-			}
-
-			# Culture
-			if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							has_cultural_parameter = cheaper_cbs
-						}
-					}
-				}
-				multiply = {
-					value = 0.8
-					desc = "CB_ATTACKER_CULTURE"
-				}
-			}
-
-			# Vassal contract in-realm cost reduction
-			if = {
-				limit = {
-					scope:attacker = {
-						is_independent_ruler = no
-						vassal_contract_has_flag = vassal_contract_war_override
-						liege = scope:defender.liege
-					}
-				}
-				multiply = {
-					value = war_declaration_rights_allowed_cost_reduction
-					desc = "CB_ATTACKER_VASSAL_CONTRACT"
-				}
-			}
-			
-			if = {
-				limit = {
-					has_game_rule = no_cost_casus_belli_costs
-				}
-				multiply = {
-					value = 0
-					desc = CB_GAME_RULE_NO_COST
-				}
-			}
+			multiply = common_cb_prestige_cost_multiplier
 		}
 	}
 

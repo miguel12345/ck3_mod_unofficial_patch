@@ -953,7 +953,7 @@ types DivergenceTypes
 
 	type button_tabs_replace_tradition_category = button_standard {
 		layoutpolicy_horizontal = expanding
-		onclick = "[DivergenceWindow.SetTraditionCategory( TraditionGrouping.GetGroupingKey ))]"
+		onclick = "[DivergenceWindow.SetTraditionCategory( TraditionGrouping.GetGroupingKey )]"
 		down = "[DivergenceWindow.HasTraditionCategory( TraditionGrouping.GetGroupingKey )]"
 		text = "TRADITION_CATEGORY_DIVERGE_NAME"
 	}

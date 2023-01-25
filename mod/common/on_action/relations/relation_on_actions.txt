@@ -243,6 +243,9 @@ on_set_relation_friend = {
 				}
 			}
 			friendly_counsel_skill_gain_effect = yes
+			#Fixpack: Make sure to decrement the variables when we lose friendship
+			decentralized_rule_friends_modifier_effect = yes
+			#/Fixpack
 		}
 		friendly_counsel_skill_gain_effect = yes
 		decentralized_rule_friends_modifier_effect = yes
@@ -361,6 +364,10 @@ on_set_relation_friend = {
 # scope:target = target
 on_remove_relation_friend = {
 	effect = {
+		#Fixpack: Make sure to decrement the variables when we lose friendship FOR BOTH ACTORS
+		decentralized_rule_removal_effect = yes
+		#/Fixpack
+
 		remove_character_modifier = confidants_perk_modifier
 		trigger_event = death_management.1003 
 		scope:target = {
@@ -392,6 +399,7 @@ on_death_relation_friend = {
 	effect = {
 		remove_character_modifier = confidants_perk_modifier
 		trigger_event = death_management.1003 
+		decentralized_rule_removal_effect = yes
 		scope:target = {
 			if = {
 				limit = {
@@ -670,6 +678,12 @@ on_death_relation_best_friend = {
 		}
 
 		scope:target = {
+			trigger_event = death_management.1003
+			decentralized_rule_removal_effect = yes
+			if = {
+				limit = { has_perk = confidants_perk }
+				remove_character_modifier = confidants_perk_modifier
+			}
 			if = {
 				limit = {
 					is_alive = yes
@@ -721,6 +735,21 @@ rival_relation_changes = {
 
 on_set_relation_rival = {
 	effect = {
+
+		every_character_struggle = {
+			involvement = involved
+			limit = {
+				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+					CATALYST = catalyst_becomes_rival_with_involved
+					CHAR = scope:target
+				}
+			}
+			activate_struggle_catalyst = {
+				catalyst = catalyst_becomes_rival_with_involved
+				character = root
+			}
+		}
+
 		send_set_relation_toast_effect = { OWNER = root TARGET = scope:target RELATION = rival }
 		if = {
 			limit = {
@@ -768,19 +797,21 @@ on_set_relation_nemesis = {
 			remove_relation_potential_rival = scope:target
 		}
 
-		every_character_struggle = {
-			involvement = involved
-			limit = {
-				activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-					CATALYST = catalyst_becomes_rival_with_involved
-					CHAR = scope:target
+		create_character_memory = {
+			type = became_nemesis
+			participants = {
+				nemesis = scope:target
 				}
 			}
-			activate_struggle_catalyst = {
-				catalyst = catalyst_becomes_rival_with_involved
-				character = root
+		scope:target = {
+			create_character_memory = {
+				type = became_nemesis
+				participants = {
+					nemesis = root
 			}
 		}
+	}
+
 	}
 }
 
@@ -896,6 +927,17 @@ on_death_relation_nemesis = {
 	#Root is the dying character
 	#scope:target is the nemesis
 	effect = {
+		root = {
+			save_scope_as = dead_nemesis
+			scope:dead_nemesis = {
+				random_spouse = {
+					limit = {
+						is_ai = yes
+					}
+					save_scope_as = dead_nemesis_spouse
+				}
+			}
+		}
 		scope:target = {
 			if = {
 				limit = {
@@ -912,7 +954,11 @@ on_death_relation_nemesis = {
 					}
 				}
 			}
-			trigger_event = bp1_yearly.5601 
+			#Fixpack: delay this event by 1 day to prevent error in the next event
+			trigger_event = {
+				id = bp1_yearly.5601
+				days = 1
+			}
 		}
 	}
 }
@@ -1123,6 +1169,8 @@ on_remove_relation_ward = {
 #Fired for the guardian when they die while having a ward
 on_death_relation_ward = {
 	effect = {
+		save_scope_as = guardian
+
 		#Remove guardian opinions when ward is removed from guardian or when the guardian is about to die
 		if = { #Commented out because this shouldn't be needed but if we get errors something weird might be going on
 			limit = { exists = liege }
@@ -1140,7 +1188,54 @@ on_death_relation_ward = {
 				}
 				return_to_court = yes
 			}
+
+			#Fixpack: To get a notification that this child no longer have a guardian
+			scope:target = {
+				save_scope_as = ward
+				if = {
+					limit = {
+						exists = liege
+						liege = {
+							is_ai = no
+							is_close_family_of = scope:ward
+							save_temporary_scope_as = temp_ward_liege
+						}
+						# To avoid multiple notifaction (brother died + guardian died for ex)
+						scope:guardian = {
+							NOT = {
+								is_close_family_of = scope:temp_ward_liege
+							}
+						}
+					}
+					scope:guardian = { save_scope_as = dead_character }
+					scope:ward = { save_scope_as = ward_of_dead_character }
+					liege = {
+						if = {
+							limit = { is_ai = no }
+							send_interface_message = { #Child's educator's death notification
+								type = mentor_has_died
+								title = notif_liege_for_child_guardian_death_title
+								desc = death_management.educator.desc
+								left_icon = scope:ward
+								right_icon = scope:guardian
+							}
+						}
+					}
+				}
+			}
+			#/Fixpack
 		}
 	}
 }
 
+#Fixpack: This is for the STUDENT when the MENTOR dies
+# root is mentor
+# scope:target is the student
+on_death_relation_student = {
+	effect = {
+		save_scope_as = mentor
+		scope:target = { save_scope_as = student }
+
+		# Fixpack: We use to send notification here, but this is done in death_management_events now
+	}
+}

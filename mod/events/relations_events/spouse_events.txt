@@ -2624,11 +2624,11 @@ spouse.3012 = {
 				random_courtier_or_guest = {
 					limit = {
 						NOT = { this = root }
-					}
 				}
 				save_scope_as = agent
 			}
 		}
+	}
 	}
 
 	#"Warn# my spouse!

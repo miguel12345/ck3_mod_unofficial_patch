@@ -303,7 +303,7 @@ types CultureAddTraditionTypes
 
 	type add_tradition_category = button_tab {
 		layoutpolicy_horizontal = expanding
-		onclick = "[AddTraditionWindow.SetTraditionCategory( TraditionGrouping.GetGroupingKey ))]"
+		onclick = "[AddTraditionWindow.SetTraditionCategory( TraditionGrouping.GetGroupingKey )]"
 		down = "[AddTraditionWindow.HasTraditionCategory( TraditionGrouping.GetGroupingKey )]"
 
 		hbox = {

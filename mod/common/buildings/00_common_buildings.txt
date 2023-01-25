@@ -9,6 +9,9 @@ common_tradeport_01 = {
 
 	can_construct_potential = {
 		building_common_tradeport_requirement_terrain = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 	}
 
@@ -66,23 +69,12 @@ common_tradeport_02 = {
 
 	can_construct_potential = {
 		building_common_tradeport_requirement_terrain = yes
+	}
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
 		trigger_if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_parameter = next_level_trade_ports
-					}
-				}
-			}
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-		}
-		trigger_else = {
-			culture = {
-				has_cultural_parameter = next_level_trade_ports
-			}
+			limit = { trade_port_next_era = no }
+			building_requirement_innovation_crop_rotation = yes
 		}
 	}
 
@@ -127,26 +119,14 @@ common_tradeport_03 = {
 		building_common_tradeport_requirement_terrain = yes
 	}
 	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
 		trigger_if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_parameter = next_level_trade_ports
-					}
-				}
-			}
-			culture = {
-				has_innovation = innovation_manorialism
-			}
+			limit = { trade_port_next_era = yes }
+			building_requirement_castle_city_church = { LEVEL = 01 }
+			building_requirement_innovation_crop_rotation = yes
 		}
 		trigger_else = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-			culture = {
-				has_cultural_parameter = next_level_trade_ports
-			}
+			building_requirement_castle_city_church = { LEVEL = 02 }
+			building_requirement_innovation_manorialism = yes
 		}
 	}
 
@@ -187,26 +167,14 @@ common_tradeport_04 = {
 		building_common_tradeport_requirement_terrain = yes
 	}
 	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 02 }
 		trigger_if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_parameter = next_level_trade_ports
-					}
-				}
-			}
-			culture = {
-				has_innovation = innovation_manorialism
-			}
+			limit = { trade_port_next_era = yes }
+			building_requirement_castle_city_church = { LEVEL = 01 }
+			building_requirement_innovation_crop_rotation = yes
 		}
 		trigger_else = {
-			culture = {
-				has_innovation = innovation_crop_rotation
-			}
-			culture = {
-				has_cultural_parameter = next_level_trade_ports
-			}
+			building_requirement_castle_city_church = { LEVEL = 02 }
+			building_requirement_innovation_manorialism = yes
 		}
 	}
 
@@ -247,26 +215,14 @@ common_tradeport_05 = {
 		building_common_tradeport_requirement_terrain = yes
 	}
 	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
 		trigger_if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_parameter = next_level_trade_ports
-					}
-				}
-			}
-			culture = {
-				has_innovation = innovation_windmills
-			}
+			limit = { trade_port_next_era = yes }
+			building_requirement_castle_city_church = { LEVEL = 02 }
+			building_requirement_innovation_manorialism = yes
 		}
 		trigger_else = {
-			culture = {
-				has_innovation = innovation_manorialism
-			}
-			culture = {
-				has_cultural_parameter = next_level_trade_ports
-			}
+			building_requirement_castle_city_church = { LEVEL = 03 }
+			building_requirement_innovation_windmills = yes
 		}
 	}
 
@@ -307,26 +263,14 @@ common_tradeport_06 = {
 		building_common_tradeport_requirement_terrain = yes
 	}
 	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 03 }
 		trigger_if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_parameter = next_level_trade_ports
-					}
-				}
-			}
-			culture = {
-				has_innovation = innovation_windmills
-			}
+			limit = { trade_port_next_era = yes }
+			building_requirement_castle_city_church = { LEVEL = 02 }
+			building_requirement_innovation_manorialism = yes
 		}
 		trigger_else = {
-			culture = {
-				has_innovation = innovation_manorialism
-			}
-			culture = {
-				has_cultural_parameter = next_level_trade_ports
-			}
+			building_requirement_castle_city_church = { LEVEL = 03 }
+			building_requirement_innovation_windmills = yes
 		}
 	}
 
@@ -367,26 +311,14 @@ common_tradeport_07 = {
 		building_common_tradeport_requirement_terrain = yes
 	}
 	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
 		trigger_if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_parameter = next_level_trade_ports
-					}
-				}
-			}
-			culture = {
-				has_innovation = innovation_cranes
-			}
+			limit = { trade_port_next_era = yes }
+			building_requirement_castle_city_church = { LEVEL = 03 }
+			building_requirement_innovation_windmills = yes
 		}
 		trigger_else = {
-			culture = {
-				has_innovation = innovation_windmills
-			}
-			culture = {
-				has_cultural_parameter = next_level_trade_ports
-			}
+			building_requirement_castle_city_church = { LEVEL = 04 }
+			building_requirement_innovation_cranes = yes
 		}
 	}
 
@@ -427,26 +359,14 @@ common_tradeport_08 = {
 		building_common_tradeport_requirement_terrain = yes
 	}
 	can_construct = {
-		building_requirement_castle_city_church = { LEVEL = 04 }
 		trigger_if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_parameter = next_level_trade_ports
-					}
-				}
-			}
-			culture = {
-				has_innovation = innovation_cranes
-			}
+			limit = { trade_port_next_era = yes }
+			building_requirement_castle_city_church = { LEVEL = 03 }
+			building_requirement_innovation_windmills = yes
 		}
 		trigger_else = {
-			culture = {
-				has_innovation = innovation_windmills
-			}
-			culture = {
-				has_cultural_parameter = next_level_trade_ports
-			}
+			building_requirement_castle_city_church = { LEVEL = 04 }
+			building_requirement_innovation_cranes = yes
 		}
 	}
 

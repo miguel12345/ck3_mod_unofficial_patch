@@ -1539,6 +1539,7 @@ befriend_outcome.6002 = {
 				save_scope_as = barony
 			}
 		}
+		#Fixpack: Error: Character with no location in link 'location'
 		root.location = { save_scope_as = relationship_reason_location }
 		successful_befriend_critical_change_effect = { REASON = friend_dance CHARACTER = scope:target }
 	}

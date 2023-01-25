@@ -327,6 +327,9 @@ liberty_faction = {
 					has_realm_law = crown_authority_1
 					has_realm_law = crown_authority_2
 					has_realm_law = crown_authority_3
+					has_realm_law = tribal_authority_1
+					has_realm_law = tribal_authority_2
+					has_realm_law = tribal_authority_3
 				}
 			}
 		}
@@ -345,6 +348,9 @@ liberty_faction = {
 					has_realm_law = crown_authority_1
 					has_realm_law = crown_authority_2
 					has_realm_law = crown_authority_3
+					has_realm_law = tribal_authority_1
+					has_realm_law = tribal_authority_2
+					has_realm_law = tribal_authority_3
 				}
 			}
 		}
@@ -362,6 +368,9 @@ liberty_faction = {
 					has_realm_law = crown_authority_1
 					has_realm_law = crown_authority_2
 					has_realm_law = crown_authority_3
+					has_realm_law = tribal_authority_1
+					has_realm_law = tribal_authority_2
+					has_realm_law = tribal_authority_3
 				}
 			}
 		}

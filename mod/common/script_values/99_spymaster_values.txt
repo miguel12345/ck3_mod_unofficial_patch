@@ -83,6 +83,7 @@ spymaster_learn_on_the_job_scale = {
 	value = 0
 	if = {
 		limit = {
+			exists = liege
 			liege = { has_perk = learn_on_the_job_perk }
 		}
 		add = intrigue
@@ -427,7 +428,7 @@ spymaster_espionage_success_chance_total = {
 #########################################
 
 spymaster_find_secrets_secret_discovery_chance = {
-	add = intrigue
+	add = scope:councillor.intrigue
 	multiply = 5
 	max = 95
 }

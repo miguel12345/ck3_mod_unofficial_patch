@@ -2926,7 +2926,7 @@ tradition_castle_keepers = {
 			NOT = {
 				any_in_list = {
 					list = traits
-					this = flag:tradition_castle_keepers
+					this = flag:tradition_city_keepers
 				}
 			}
 		}

@@ -50,8 +50,10 @@
 
 	cost = {
 		gold = {
+			scope:actor = {
 			value = feudalize_tribal_holding_interaction_cost
 		}
+	}
 	}
 
 	on_accept = {

@@ -299,7 +299,12 @@
 		}
 		else_if = {
 			limit = {
-				scope:target = { is_imprisoned = yes }
+				scope:target = {
+					is_imprisoned = yes
+					#Fixpack: Prevent the popup just like above
+					NOT = { imprisoner = scope:owner }
+					#/Fixpack
+				}
 			}
 			scope:target.imprisoner = {
 				save_scope_as = other_imprisoner

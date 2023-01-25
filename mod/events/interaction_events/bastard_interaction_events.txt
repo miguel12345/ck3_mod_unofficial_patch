@@ -119,6 +119,9 @@ bastard_interaction.0001 = {
 				send_interface_message = {
 					type = event_generic_good
 					title = dynasty_bastard_was_legitimized
+
+					right_icon = scope:legitimized_bastard
+
 					add_hook = {
 						type = favor_hook
 						target = scope:legitimized_bastard

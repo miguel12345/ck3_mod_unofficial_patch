@@ -1757,7 +1757,7 @@ expose_secret_interaction = {
 
 	is_shown = {
 		scope:recipient = {
-			any_known_secret = {
+			any_secret = {
 				is_known_by = scope:actor
 			}
 			NOT = { this = scope:actor }

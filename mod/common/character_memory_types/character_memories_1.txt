@@ -502,6 +502,10 @@ match_made = {
 	}
 
 	participants = { matchmaker lover }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 debug_memory_positive = {
@@ -525,6 +529,10 @@ debug_memory_positive = {
 			desc = debug_memory_positive_desc_third_perspective_1
 			desc = debug_memory_positive_desc_third_perspective_2
 		}
+	}
+
+	duration = {
+		years = memory_default_duration
 	}
 }
 
@@ -915,6 +923,10 @@ debug_memory_negative = {
 			desc = debug_memory_negative_desc_2_third_perspective
 		}
 	}
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 broke_up_lovers = {
@@ -947,7 +959,7 @@ broke_up_lovers = {
 
 stopped_being_friends = {
 	categories = { negative relationships friend }
-	icon = "lover.dds"
+	icon = "friend.dds"
 	description = {
 		first_valid = {
 			desc = stopped_being_friends_desc
@@ -1248,6 +1260,10 @@ stole_lover = {
 	}
 
 	participants = { stealer }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 child_defeated_rival = {
@@ -1687,6 +1703,10 @@ had_sex = {
 	}
 
 	participants = { sex_partner }
+
+	duration = {
+		years = memory_default_duration
+	}
 }
 
 friend_granted_my_claim = {

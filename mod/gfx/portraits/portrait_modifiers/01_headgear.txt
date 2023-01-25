@@ -4029,7 +4029,17 @@ headgear = {
 							}
 							NOT = { AND = { is_ruler = yes has_government = mercenary_government  } } # Blocked for mercenaries
 							NOT = { has_government = republic_government }
+							OR = {
 							portrait_african_clothing_trigger = yes
+								AND = {
+									culture = {
+										has_cultural_pillar = heritage_east_african
+									}
+									NOT = {
+										religion = religion:islam_religion
+									}
+								}
+							}
 						}
 						AND = {
 							exists = primary_spouse
@@ -4044,7 +4054,17 @@ headgear = {
 								}
 								NOT = { AND = { is_ruler = yes has_government = mercenary_government  } } # Blocked for mercenaries
 								NOT = { has_government = republic_government }
+								OR = {
 								portrait_african_clothing_spouse_trigger = yes
+									AND = {
+										culture = {
+											has_cultural_pillar = heritage_east_african
+										}
+										NOT = {
+											religion = religion:islam_religion
+										}
+									}
+								}
 							}
 						}
 					}
@@ -4107,7 +4127,17 @@ headgear = {
 								}
 								NOT = { AND = { is_ruler = yes has_government = mercenary_government  } } # Blocked for mercenaries
 								NOT = { has_government = republic_government }
+								OR = {
 								portrait_african_clothing_spouse_trigger = yes
+									AND = {
+										culture = {
+											has_cultural_pillar = heritage_east_african
+										}
+										NOT = {
+											religion = religion:islam_religion
+										}
+									}
+								}
 							}
 						}
 					}
@@ -4423,6 +4453,7 @@ headgear = {
 					has_character_flag = need_priest_outfit
 					is_theocratic_lessee = yes
 					AND = { is_ruler = yes has_government = theocracy_government }
+					has_council_position = councillor_court_chaplain
 				}
 				NOT = {
 					faith = {

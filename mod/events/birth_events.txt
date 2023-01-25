@@ -1331,6 +1331,7 @@ birth.1003 = {
 				}
 				desc = birth.1001.twins.desc
 			}
+			# Triplets needs a text too :(
 			# Heir
 			triggered_desc = {
 				trigger = {
@@ -1370,6 +1371,10 @@ birth.1003 = {
 	lower_center_portrait = {
 		trigger = { exists = scope:child_2 }
 		character = scope:child_2
+	}
+	lower_right_portrait = {
+		trigger = { exists = scope:child_3 }
+		character = scope:child_3
 	}
 	
 	trigger = {
@@ -1431,6 +1436,7 @@ birth.1003 = {
 						type = court_physician_court_position
 		           		has_court_event_flag = no
 		           		is_ai = yes
+						NOT = { this = scope:mother } # Fixpack: Prevent the mother to be taken twice...
 					}
 				}
 				save_court_physician_as_effect = { SCOPE_NAME = second_adult }
@@ -1591,6 +1597,17 @@ birth.1003 = {
 			controller = name_character
 			setup_scope = { scope:child_2 = { save_scope_as = name_character_target } }
 		}
+		# Fixpack: Can't unable this because the UI was not design to handle a 3rd naming box :(
+		#widget = {
+		#	is_shown = {
+		#		allow_naming_on_birth_of_child_trigger = { CHILD = scope:child_3 }
+		#	}
+		#	gui = "event_window_widget_name_child"
+		#	container = "dynamic_birth_name"
+		#	controller = name_character
+		#	setup_scope = { scope:child_3 = { save_scope_as = name_character_target } }
+		#}
+		#
 	}
 
 	option = {
@@ -2625,7 +2642,7 @@ birth.3011 = {
 #BIRTH: Father: Mother dies, child survives
 birth.3012 = {
 	type = character_event
-	title = birth.3001.t
+	title = birth.3012.t
 	desc = {
 		desc = birth.3012.start.desc
 		first_valid = {
@@ -2673,7 +2690,7 @@ birth.3012 = {
 	}
 
 	immediate = {
-		play_music_cue = death
+		play_music_cue = mx_cue_death
 		show_as_tooltip = {
 			scope:mother = {
 				death = {
@@ -2707,7 +2724,7 @@ birth.3021 = {
 	}
 
 	immediate = {
-		play_music_cue = death
+		play_music_cue = mx_cue_death
 		hidden_effect = {
 			random_dummy_gender_effect = yes
 			end_pregnancy = yes

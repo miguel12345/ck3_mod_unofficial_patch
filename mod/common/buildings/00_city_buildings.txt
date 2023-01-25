@@ -76,7 +76,7 @@ city_01 = {
 		names = {
 			"building_mena_city_01_indian_mesh"
 		}
-		illustration = @holding_illustration_indian
+		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mena_city" soundparameter = { "Tier" = 0 } }
 		graphical_cultures = { mena_building_gfx }		
 		graphical_regions = { graphical_india }
@@ -237,9 +237,7 @@ city_01 = {
 	}
 	
 	can_construct = {
-		culture = {
-			has_innovation = innovation_city_planning
-		}
+		building_requirement_innovation_city_planning = yes
 	}
 	
 	can_construct_showing_failures_only = {
@@ -405,7 +403,7 @@ city_02 = {
 		names = {
 			"building_mena_city_01_indian_mesh"
 		}
-		illustration = @holding_illustration_indian
+		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mena_city" soundparameter = { "Tier" = 1 } }
 		graphical_cultures = { mena_building_gfx }		
 		graphical_regions = { graphical_india }
@@ -559,14 +557,11 @@ city_02 = {
 		graphical_regions = { graphical_mediterranean }
 	}
 
-	
 	can_construct_potential = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+		building_requirement_innovation_manorialism = yes
 	}
 	cost_gold = main_building_tier_2_cost
 	
@@ -858,9 +853,7 @@ city_03 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		culture = {
-			has_innovation = innovation_windmills
-		}
+		building_requirement_innovation_windmills = yes
 	}
 	cost_gold = main_building_tier_3_cost
 	next_building = city_04
@@ -1153,9 +1146,7 @@ city_04 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		culture = {
-			has_innovation = innovation_cranes
-		}
+		building_requirement_innovation_cranes = yes
 	}
 	cost_gold = main_building_tier_4_cost
 	
@@ -1263,10 +1254,13 @@ guild_halls_01 = {
 		modifier = {
 			add = 500
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
+}
 }
 
 guild_halls_02 = {
@@ -1274,11 +1268,11 @@ guild_halls_02 = {
 
 	can_construct_potential = {
 		has_building_or_higher = city_01
-		culture = {
-			OR = {
-				has_innovation = innovation_crop_rotation
-				has_cultural_parameter = next_level_guild_halls
 			}
+	can_construct = {
+		trigger_if = {
+			limit = { guild_halls_next_era = no }
+			building_requirement_innovation_crop_rotation = yes
 		}
 	}
 
@@ -1301,25 +1295,29 @@ guild_halls_02 = {
 		modifier = {
 			add = 9
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
 }
+}
 
 guild_halls_03 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
-		has_building_or_higher = city_02
-		culture = {
-			OR = {
-				has_innovation = innovation_manorialism
-				AND = {
-					has_innovation = innovation_crop_rotation
-					has_cultural_parameter = next_level_guild_halls
+	can_construct_potential = {
+		has_building_or_higher = city_01
 				}
+	can_construct = {
+		trigger_if = {
+			limit = { guild_halls_next_era = yes }
+			building_requirement_innovation_crop_rotation = yes
 			}
+		trigger_else = {
+			has_building_or_higher = city_02
+			building_requirement_innovation_manorialism = yes
 		}
 	}
 
@@ -1342,25 +1340,29 @@ guild_halls_03 = {
 		modifier = {
 			add = 8
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
 }
+}
 
 guild_halls_04 = {
 	construction_time = standard_construction_time
 
-	can_construct = {
-		has_building_or_higher = city_02
-		culture = {
-			OR = {
-				has_innovation = innovation_manorialism
-				AND = {
-					has_innovation = innovation_crop_rotation
-					has_cultural_parameter = next_level_guild_halls
+	can_construct_potential = {
+		has_building_or_higher = city_01
 				}
+	can_construct = {
+		trigger_if = {
+			limit = { guild_halls_next_era = yes }
+			building_requirement_innovation_crop_rotation = yes
 			}
+		trigger_else = {
+			has_building_or_higher = city_02
+			building_requirement_innovation_manorialism = yes
 		}
 	}
 
@@ -1383,25 +1385,27 @@ guild_halls_04 = {
 		modifier = {
 			add = 7
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
+}
 }
 
 guild_halls_05 = {
 	construction_time = standard_construction_time
 
 	can_construct = {
-		has_building_or_higher = city_03
-		culture = {
-			OR = {
-				has_innovation = innovation_windmills
-				AND = {
-					has_innovation = innovation_manorialism
-					has_cultural_parameter = next_level_guild_halls
-				}
+		trigger_if = {
+			limit = { guild_halls_next_era = yes }
+			has_building_or_higher = city_02
+			building_requirement_innovation_manorialism = yes
 			}
+		trigger_else = {
+			has_building_or_higher = city_03
+			building_requirement_innovation_windmills = yes
 		}
 	}
 
@@ -1424,25 +1428,27 @@ guild_halls_05 = {
 		modifier = {
 			add = 6
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
+}
 }
 
 guild_halls_06 = {
 	construction_time = standard_construction_time
 
 	can_construct = {
-		has_building_or_higher = city_03
-		culture = {
-			OR = {
-				has_innovation = innovation_windmills
-				AND = {
-					has_innovation = innovation_manorialism
-					has_cultural_parameter = next_level_guild_halls
-				}
+		trigger_if = {
+			limit = { guild_halls_next_era = yes }
+			has_building_or_higher = city_02
+			building_requirement_innovation_manorialism = yes
 			}
+		trigger_else = {
+			has_building_or_higher = city_03
+			building_requirement_innovation_windmills = yes
 		}
 	}
 
@@ -1465,25 +1471,27 @@ guild_halls_06 = {
 		modifier = {
 			add = 5
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
+}
 }
 
 guild_halls_07 = {
 	construction_time = standard_construction_time
 
 	can_construct = {
-		has_building_or_higher = city_04
-		culture = {
-			OR = {
-				has_innovation = innovation_cranes
-				AND = {
-					has_innovation = innovation_windmills
-					has_cultural_parameter = next_level_guild_halls
-				}
+		trigger_if = {
+			limit = { guild_halls_next_era = yes }
+			has_building_or_higher = city_03
+			building_requirement_innovation_windmills = yes
 			}
+		trigger_else = {
+			has_building_or_higher = city_04
+			building_requirement_innovation_cranes = yes
 		}
 	}
 
@@ -1506,25 +1514,27 @@ guild_halls_07 = {
 		modifier = {
 			add = 4
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
+}
 }
 
 guild_halls_08 = {
 	construction_time = standard_construction_time
 
 	can_construct = {
-		has_building_or_higher = city_04
-		culture = {
-			OR = {
-				has_innovation = innovation_cranes
-				AND = {
-					has_innovation = innovation_windmills
-					has_cultural_parameter = next_level_guild_halls
-				}
+		trigger_if = {
+			limit = { guild_halls_next_era = yes }
+			has_building_or_higher = city_03
+			building_requirement_innovation_windmills = yes
 			}
+		trigger_else = {
+			has_building_or_higher = city_04
+			building_requirement_innovation_cranes = yes
 		}
 	}
 
@@ -1546,8 +1556,11 @@ guild_halls_08 = {
 		modifier = {
 			add = 3
 			scope:holder = {
+				OR = {
+					has_government = holy_order_government
 				has_government = republic_government
 			}
 		}
 	}
+}
 }

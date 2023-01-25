@@ -394,9 +394,16 @@ hold_court.1001 = {
 			scope:rumormonger = {
 				is_attracted_to_gender_of = root
 			}
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			OR = {
+				is_ai = no
+				might_cheat_on_every_partner_trigger = yes
+			}
+			is_attracted_to_gender_of = scope:rumormonger
+			#/Fixpack
 		}
-		trait = seducer
 
+		trait = seducer
 
 		had_sex_with_effect = {
   			CHARACTER = scope:rumormonger
@@ -21274,7 +21281,9 @@ hold_court.7000 = {
 			50 = {
 				compare_modifier = {
 					value = scope:duel_value
-					multiplier = -5.0
+					#Fixpack: Orginial multiplier was -5 Why ?
+					multiplier = 3.5
+					min = -49
 				}
 				desc = hold_court.7000.a.success
 				scope:rival_1 = {
@@ -21301,7 +21310,9 @@ hold_court.7000 = {
 			50 = {
 				compare_modifier = {
 					value = scope:duel_value
-					multiplier = 1
+					#Fixpack: Orginial multiplier was 1 Why ?
+					multiplier = -3.5
+					min = -49
 				}
 				desc = hold_court.7000.a.failure
 				scope:rival_1 = {
@@ -21799,11 +21810,14 @@ hold_court.7010 = {
 				template = frontier_hero_template
 				gender_female_chance = root_soldier_female_chance
 				location = root.capital_province
+
+				after_creation = {
+					give_random_commander_trait_effect = yes
+				}
 				save_scope_as = frontier_hero
 			}
 			scope:frontier_hero = {
 				add_character_flag = frontier_hero
-				give_random_commander_trait_effect = yes
 				random_list = {
 					20 = {
 						set_variable = {
@@ -29107,7 +29121,10 @@ hold_court.8070 = {
 			scope:vassal = { is_vassal_of = root }
 			scope:vassal.short_term_gold >= hold_court_holding_cost_half_value
 		}
-		show_as_unavailable = { scope:vassal.short_term_gold < hold_court_holding_cost_half_value }
+		show_as_unavailable = {
+			NOT = { exists = scope:vassal }
+			scope:vassal.short_term_gold < hold_court_holding_cost_half_value
+		}
 		highlight_portrait = scope:vassal
 		remove_short_term_gold = hold_court_holding_cost_half_value
 		scope:vassal = {
@@ -29157,6 +29174,8 @@ hold_court.8070 = {
 			}
 		}
 		show_as_unavailable = {
+			NOT = { exists = scope:vassal }
+			NOT = { exists = scope:subvassal }
 			scope:subvassal.short_term_gold < hold_court_holding_cost_half_value
 			scope:vassal.short_term_gold < hold_court_holding_cost_half_value
 		}
@@ -32653,7 +32672,7 @@ hold_court.8130 = {
 		hidden_effect = {
 			create_character = {
 				gender_female_chance = root_soldier_female_chance
-				location = scope:target_location
+				location = root.capital_province
 				template = new_warrior_character
 				faith = scope:conversion_target.faith
 				culture = scope:conversion_target.culture
@@ -32725,8 +32744,15 @@ hold_court.8130 = {
 
 	option = { # Execute
 		name = hold_court.8130.d
-		trigger = { has_trait = arrogant }
+		trigger = {
+			OR = {
+				has_trait = arrogant
+				has_trait = torturer # Added because has stress modifier below
+				# Should add sadistic and callous ?
+			}
+		}
 		trait = arrogant
+		trait = torturer
 		add_dread = minor_dread_gain
 		add_character_modifier = {
 			modifier = hold_court_8130_terror_modifier
@@ -32739,11 +32765,12 @@ hold_court.8130 = {
 			}
 		}
 		scope:steward = {
-			add_opinion = {
-				modifier = pleased_opinion
-				target = root
-				opinion = 20
-			}
+			# Fixpack: Comment that out because it will cause double opinion gain (or worse gain and lose at the same time)
+			#add_opinion = {
+			#	modifier = pleased_opinion
+			#	target = root
+			#	opinion = 20
+			# }
 			if = {
 				limit = {
 					NOT = { culture = scope:conversion_target.culture }
@@ -34979,6 +35006,12 @@ scripted_trigger hold_court_8161_valid_seduce_plotter_trigger = {
 		this = scope:hold_court_8161_victim.primary_spouse # victim's spouse
 		has_friendly_relationship_trigger = { CHARACTER = scope:hold_court_8161_victim.primary_spouse } # victim's spouse
 	}
+
+	#Fixpack add a bunch of triggers...
+	NOT = { has_trait = celibate }
+	is_attracted_to_gender_of = scope:hold_court_8161_victim
+	might_cheat_on_every_partner_trigger = yes
+	#/Fixpack
 }
 
 # Is the scheme a valid seduction scheme?
@@ -37805,8 +37838,15 @@ hold_court.8190 = {
 		name = hold_court.8190.b
 		duel = {
 			skill = diplomacy
-			value = average_skill_rating
+			#Fixpack: Will use the diplomacy of the aggressor_vassal and a proper duel compareModifier
+			#value = average_skill_rating
+			target = scope:aggressor_vassal
 			8 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
 				desc = hold_court.8190.b.tt_success
 				send_interface_toast = {
 					title = hold_court.8190.b.tt_success
@@ -37822,6 +37862,11 @@ hold_court.8190 = {
 				}
 			}
 			12 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
 				desc = hold_court.8190.b.tt_failure
 				send_interface_toast = {
 					title = hold_court.8190.b.tt_failure
@@ -41685,7 +41730,14 @@ hold_court.8240 = {
 		name = hold_court.8240.b
 		scope:vassal_victim = { divorce = scope:yearn_target }
 		hidden_effect = {
-			scope:yearn_target = { set_employer = scope:vassal_jealous }
+			scope:yearn_target = {
+				# Fixpack: As the vassal_jealous can select a courtier
+				# We check that the target is landed before using set_employer wich throw an error.
+				if = {
+					limit = { is_landed = yes }
+					set_employer = scope:vassal_jealous
+				}
+			}
 		}
 		scope:vassal_jealous = {
 			if = {
@@ -42599,6 +42651,23 @@ hold_court.8251 = {
 	option = { # Marry
 		name = hold_court.8251.d
 		trigger = {
+
+			# Fixpack: prevent same-sex marriage if not allowed in game rules
+			trigger_if = {
+				limit = { allowed_to_marry_same_sex_trigger = no }
+				OR = {
+					AND = {
+						is_female = yes
+						scope:yearn_target = { is_male = yes }
+					}
+					AND = {
+						is_male = yes
+						scope:yearn_target = { is_female = yes }
+					}
+				}
+			}
+			#/Fixpack
+
 			allowed_more_spouses = yes
 			is_attracted_to_gender_of = scope:yearn_target
 			trigger_if = {

@@ -1,0 +1,172 @@
+﻿l_french:
+# localization\french\event_localization\lifestyle\scholarship\learning_theology_events_l_french.yml
+# Passion Play fanfiction drama, by James Beaumont
+ learning_theology.3054.b:0 "C’est le moment pour m[ROOT.Char.Custom2('FR_RelationToMeShort_OnA', family_actor)] de briller !"
+ learning_theology.3054.c:0 "M[ROOT.Char.Custom2('FR_RelationToMeShort_OnA', random_actor)] est un[random_actor.Custom('FR_E')] charmeu[random_actor.Custom('FR_RSe')] né[random_actor.Custom('FR_E')]."
+
+ learning_theology.3054.b.tt:0 "[family_actor.Custom('FR_le_Char')|U][family_actor.GetName] tentera de surpasser [passion_playwright.Custom('FR_le_Char')][passion_playwright.GetName] dans un duel en utilisant son [diplomacy_skill|El]."
+ learning_theology.3054.c.tt:0 "[random_actor.Custom('FR_le_Char')|U][random_actor.GetName] tentera de surpasser [passion_playwright.Custom('FR_le_Char')][passion_playwright.GetName] dans un duel en utilisant son [diplomacy_skill|El]."
+
+ learning_theology.3055.desc.intro.solo:0 "Je prends une profonde inspiration et me prépare à jouer ma pièce, assuré[ROOT.Char.Custom('FR_E')] qu’elle sera impeccable avec moi ici pour délivrer son message pieux.\n\n"
+ learning_theology.3055.desc.intro.hired_actor:0 "Je prends place dans le public, et je regarde [lead_actor.Custom('FR_le_Char')][lead_actor.GetName] qui commence à interpréter mon chef-d’œuvre.\n\n"
+ learning_theology.3055.desc.victory.solo:0 "Je récite mon texte à la perfection, le public est captif de mes paroles.\n\nJe les illumine avec mon interprétation magistrale [ROOT.Char.GetFaith.ReligiousText3].\n\n"
+ learning_theology.3055.desc.defeat_writing.solo:0 "Bien que je récite mon texte sans faute, les visages pleins d’attente du public commencent rapidement à devenir amers et déconcertés.\n\n"
+ learning_theology.3055.desc.defeat_acting.solo:0 "J’essaie de lire les premières lignes, mais je trébuche immédiatement sur mes mots et suis incapable me souvenir de mes propres écrits.\n\nMon public ne me fait aucun cadeau et commence rapidement à se moquer de moi et à me siffler !\n\n"
+ learning_theology.3055.desc.victory.hired_actor:0 "À ma grande joie, [lead_actor.Custom('FR_IlElle')] livre une performance digne non seulement de mes écrits, mais aussi [ROOT.Char.GetFaith.HighGodNamePossessive] !\n\n"
+ learning_theology.3055.desc.defeat_writing.hired_actor:0 "À ma grande déception, bien qu’[lead_actor.Custom('FR_IlElle')] récite mon texte exactement comme je l’avais imaginé, le public ne tarde pas à siffler et se moquer de son excellente prestation !\n\n"
+ learning_theology.3055.desc.defeat_acting.hired_actor:0 "À ma grande déception, [lead_actor.Custom('FR_IlElle')] trébuche sur ses mots et ne parvient même pas à offrir une performance passable.\n\nMon sang bouillonne tandis que je [lead_actor.Custom('FR_LeLa')] regarde massacrer ma grande œuvre, impuissant[ROOT.Char.Custom('FR_E')] sur mon siège à empêcher les huées du public."
+ learning_theology.3055.desc.victory_outro:0 "Alors que la foule applaudit à tout rompre, je suis assuré[ROOT.Char.Custom('FR_E')] de m’être surpassé[ROOT.Char.Custom('FR_E')] et d’avoir montré [passion_playwright.Custom('FR_au_Char')][passion_playwright.GetName] comment un[ROOT.Char.Custom('FR_E')] vrai[ROOT.Char.Custom('FR_E')] [ROOT.Char.Custom('FR_FaithGenderedAdj')] écrit une pièce !"
+ learning_theology.3055.desc.defeat_outro.solo:0 "Je persévère, espérant que je pourrai à un moment donné retrouver le rythme et sauver cette représentation, mais c’est peine perdue.\n\nAvant même que je n’atteigne la fin, les sièges du théâtre se vident et je suis couvert[ROOT.Char.Custom('FR_E')] de honte."
+ learning_theology.3055.desc.defeat_outro.hired_actor:0 "\n\n[lead_actor.Custom('FR_IlElle')|U] persévère, espérant que cette pièce pourra peut-être encore être sauvée, mais le spectacle est un échec.\n\nAvant même que nous atteignions la fin, les sièges du théâtre se vident et je suis couvert[ROOT.Char.Custom('FR_E')] de honte."
+
+# localization\french\dlc\bp1\dlc_bp1_yearly_events_l_french.yml
+ bp1_yearly.2001.d:0 "Je vous fais confiance pour assurer mes arrières, m[bp1_yearly_2001_partner.Custom('FR_OnA')] ch[bp1_yearly_2001_partner.Custom('FR_ErEre')]."
+ bp1_yearly.9020.desc.hof:0 "à ce que cela serait de coucher avec le puissant [ROOT.Char.GetFaith.ReligiousHeadName] ? Tout ce temps que ses doigts passent à parcourir les textes sacrés ! Imaginez que vous soyez m[ROOT.Char.Custom('FR_OnA')] [ROOT.Char.GetFaith.ReligiousHeadName] et que vous fassiez de moi votre texte sacré ! »"
+
+# localization\french\custom_localization/fr_custom_loc_l_french.yml
+# Untested: $knight_culture_player_no_tooltip_lowercase$ could be used instead of the getplayer function ?
+  relation_knight_FR_OnA:0 "on [GetPlayer.Custom('KnightCultureNoTooltipLowercase')]"
+  relation_knight_FR_Le:0 "le [GetPlayer.Custom('KnightCultureNoTooltipLowercase')]"
+
+#common\Crusader Kings III\game\localization\french\religion\religion_l_french.yml => Se voit dans les foi (belliciste par ex quand on créé le perso)
+ doctrine_parameter_clergy_can_fight:0 "Les membres du [clergy|El] peuvent devenir [commander|El] ou [knight|El]"
+
+# localization\french\dlc\ep1\dlc_ep1_fund_inspiration_events_l_french.yml
+ fund_inspiration.2080.a:0 "« [rival.GetFirstNameNoTooltip] s’assurera de sa qualité, [inspiration_owner.GetFirstNameNoTooltip]. »"
+ fund_inspiration.2080.b:0 "« Contentez-vous de vos propres tâches, [rival.GetFirstNameNoTooltip]. »"
+ fund_inspiration.2080.success:0 "[rival.GetFirstNameNoTooltip] améliore le travail de [inspiration_owner.GetFirstNameNoTooltip]"
+ fund_inspiration.2080.failure:0 "[rival.GetFirstNameNoTooltip] freine [inspiration_owner.GetFirstNameNoTooltip]"
+
+ # game\localization\french\dlc\bp1\dlc_bp1_house_feud_story_l_french.yml
+ house_feud_cooldown_tt:0 "Votre [house|E] ne sera pas en mesure de commencer une autre [house_feud|El] pendant 25 ans"
+ house_reward_modifier_tt:0 "Ce modificateur est basé sur votre score actuel de [house_feud|El]"
+
+# game\localization\french\event_localization\court_events\court_events_joe_l_french.yml
+ court.8080.desc.intro:0 "M[parent.Custom('FR_OnA')] [parent.GetMotherFather], [parent.Custom('FR_le_Char_Pi')][parent.GetTitledFirstName], est de plus en plus irritable.\n\nAlors que je m’assois sur mon trône et que je réfléchis aux causes possibles, [parent.Custom('FR_IlElle')] se précipite vers moi, comme [parent.Custom('FR_IlElle')] le faisait lorsque je me comportais mal dans mon enfance.\n\n« [ROOT.Char.GetFirstNameNoTooltip], m[ROOT.Char.Custom('FR_OnA')] [ROOT.Char.Custom('GetDaughterSon')] ! Vous devez faire quelque chose à propos"
+ court.8080.desc.outro:0 "Ne vous souciez-vous pas de ce que les gens pensent de vous ?! »\n\n« Ce n’est pas une façon de se comporter pour un[ROOT.Char.Custom('FR_E')] [ROOT.Char.GetTitleAsNameNoTooltip|l]. À ce rythme, vous serez la risée de [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip], voire de tous les [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip] ! »"
+
+# game\localization\english\event_localization\decisions\decision_petition_liege_l_english.yml
+ petition_liege_pay_debt_me_tt:1 "#X Vous n’avez pas au moins [SCOPE.ScriptValue('fixpack_petitioner_debt_minimum_value')] de [debt|El] pendant 1 an."
+
+#common\Crusader Kings III\game\localization\french\decisions_l_french.yml
+# Le tribunal => La cour (the court...) => une tendance à la mode => une mode tendance
+ court_already_has_a_fashion_tend_tt:0 "La Cour a déjà une mode tendance."
+
+# Insulte
+ scullion:0 "garçon de cuisine"
+
+# game\localization\french\event_localization\secret_events\secrets_events_l_french.yml
+# Si la target est local player alors devrait afficher "avec moi" à la fin
+# secret_exposed_notification_effect_message_illegitimate_child.i_exposed:0 "J’ai dévoilé que [child.GetMother.Custom('FR_le_Char_Pi')][child.GetMother.GetTitledFirstName] a conçu [child.Custom('FR_le_Char_Pi')][child.GetTitledFirstName] avec [real_father.Custom('FR_le_Char_Pi')][real_father.GetTitledFirstName] !"
+
+# Texte original: pour prendre me retirer (take retire)
+ fp2_struggle.2021.desc.alt.behead:0 "Je ne suis pas ici pour venger [fp2_2009_garduna_young_thief.GetFirstName], mais pour me retirer. C’était une tête de trop et je ne sais que trop bien que la mienne pourrait être la prochaine. Accordez-moi un passage sécurisé pour partir à [fp2_2021_old_napoly.GetNameNoTier] et vous ne me reverrez plus jamais. Il n’est pas nécessaire que cette rencontre se termine par un bain de sang »,"
+
+#game\localization\french\event_localization\bastard_interaction_events_l_french.yml
+every_child_adult_non_bastard_dislike:0 "Tous mes enfants non bâtards adultes qui n’aiment pas [child.Custom('FR_LeLa')] bâtard[child.Custom('FR_E')]"
+
+ SteleCommemoratesAncestors_Intro:1 "Érigée pour [second.MakeScope.Var('stele_container').Char.Custom('FR_le_Char_Pi')][second.MakeScope.Var('stele_container').Char.GetTitledFirstNameNicknamed] par s[second.MakeScope.Var('stele_container').Char.Custom2('FR_RelationToMeShort_OnA',second.MakeScope.Var('stele_commissioner').Char)]"
+
+ bp1_yearly.2022.desc_dead:0 "\n\nVous ne croirez pas ce qui m’est arrivé l’autre jour. Un[bp1_yearly_2020_influencing_partner.Custom('FR_E')] [bp1_yearly_2020_influencing_partner.Custom('InsultNoun')] malveillant[bp1_yearly_2020_influencing_partner.Custom('FR_E')] a attenté à ma vie, mais j’avais [bp1_yearly_2020_target.GetFaith.HighGodName] à mes côtés pour me protéger. Je garde à mon tour sa tête comme décor dans mon bureau personnel.\n\nConsidérez-vous comme prévenu[ROOT.Char.Custom('FR_E')]."
+
+# localization\french\culture\traditions\cultural_traditions_l_french.yml
+ culture_parameter_disloyal_trait_less_spurned:0 "Le [trait|El] [GetTrait('disloyal').GetName( GetNullCharacter )|l] est moins méprisé que dans d’autres cultures."
+ culture_parameter_disloyal_trait_more_common:0 "Le [trait|El] [GetTrait('disloyal').GetName( GetNullCharacter )|l] est plus courant"
+
+#common\Crusader Kings III\game\localization\french\death_reasons_l_french.yml
+death_execution_killer:1 "a été exécuté[CHARACTER.Custom('FR_E')] sur [TARGET_CHARACTER.LocalPlayerString( 'votre ', '' )]ordre[TARGET_CHARACTER.LocalPlayerString( '', 'Loc_FR_du_GetUIName' )]"
+
+#common\scripted_effects\01_exp1_historical_artifacts_creation_effect.txt
+artifact_muhammads_epistles_description:1 "Cette lettre fait partie de la correspondance entre le prophète Mahomet et les dirigeants [this_artifact.Custom('EpistleReciever')]."
+
+#localization\french\dlc\ep1\dlc_ep1_fund_inspiration_events_l_french.yml
+# Loc à surveiller => Pourquoi le epic.GetDesc ne fonctionne pas
+# fund_inspiration.1051.desc.epic:0 "se trouve un artefact différent de tout ce que j’ai vu auparavant.\n\n[inspiration_owner.GetFirstNameNoTooltip] sourit fièrement : « [this_artifact.GetDesc] »"
+# fund_inspiration.1051.desc.epic.ark:0 "est un grand coffre en pierre, à l’intérieur se trouve un certain nombre de tablettes en pierre.\n\n[inspiration_owner.GetFirstNameNoTooltip] s’enorgueillit : « Voici l’Arche d’Alliance ! Elle contient les tablettes de pierre données aux Israélites par Moïse. »\n\n[inspiration_owner.GetFirstNameNoTooltip] régale ensuite la cour avec le récit de ses aventures [inspiration_owner.Custom('FR_InspirationAdventureDestination_En')][inspiration_owner.Custom('InspirationAdventureDestination')]. Une histoire qui implique des adversaires mus par de sombres idéologies et des visites dans de nombreux lieux pittoresques."
+# fund_inspiration.1051.desc.epic.throne:0 "\n\n[inspiration_owner.GetFirstNameNoTooltip] annonce fièrement : « [this_artifact.GetDesc] »"
+# fund_inspiration.1051.desc.epic.cupboard:0 "\n\nAvec un grand sourire, [inspiration_owner.GetFirstNameNoTooltip] proclame : « [this_artifact.GetDesc] »"
+
+ hold_court.8250.desc:1 "Les portes sont ouvertes par [vassal_victim.Custom('FR_le_Char_Pi')][vassal_victim.GetTitledFirstName], suivi[vassal_victim.Custom('FR_E')] de près par [vassal_jealous.Custom('FR_le_Char_Pi')][vassal_jealous.GetTitledFirstName].\n\n[vassal_victim.GetFirstNameNoTooltip] pointe vers l’arrière et accuse : « C[vassal_jealous.Custom('FR_EEtte')] [vassal_jealous.Custom('InsultNoun')] désire m[yearn_target.Custom('FR_OnA')] concubin[yearn_target.Custom('FR_E')] [yearn_target.GetFirstName] et visite [vassal_victim.GetPrimaryHolding.GetNameNoTierNoTooltip] pour saisir la moindre occasion de l’apercevoir ! Je vous prie de [vassal_victim.Custom('FR_LeLa')] mettre au pas ! » \n\n« C’est vrai », admet plaintivement [vassal_jealous.GetFirstNameNoTooltip], « [yearn_target.GetSheHe|U] hante mes rêves depuis des semaines. Je vous en prie, [ROOT.Char.Custom('FR_MonseigneurMadame')|U], je ne sais pas ce que je vais faire sans [yearn_target.Custom('FR_LuiElle')] ! »"
+
+ hold_court.8251.desc:0 "[vassal_1.Custom('FR_le_Char_Pi')|U][vassal_1.GetTitledFirstName] et [vassal_2.Custom('FR_le_Char_Pi')][vassal_2.GetTitledFirstName] marchent vers mon trône, visiblement mécontent[vassal_1.Custom2('FR_E', SCOPE.sC('vassal_2'))]s.\n\n[vassal_1.GetFirstName] s’emporte : « [ROOT.Char.Custom('FR_MonseigneurMadame')|U], je veux faire [yearn_target.Custom('FR_DuDela')] [yearn_target.Custom('ComplimentAdjective')] paysa[yearn_target.Custom('FR_NNne')] [yearn_target.GetFirstName] m[yearn_target.Custom('FR_OnA')] concubin[yearn_target.Custom('FR_E')]. Sa danse fait parler d[yearn_target.Custom('FR_EluiElle')] dans tout le pays ! »\n\n[vassal_2.GetFirstName] l’interrompt : « Je négocie depuis longtemps avec sa famille ! C[vassal_1.Custom('FR_EEtte')] [vassal_1.Custom('InsultNoun')] [vassal_1.Custom('InsultAdjective')] est un[vassal_1.Custom('FR_E')] convoiteu[vassal_1.Custom('FR_RSe')] triste et jalou[vassal_1.Custom('FR_XSe')] ! »"
+ hold_court.8251.b:0 "[yearn_target.GetSheHe|U] sera [yearn_target.Custom('FR_LeLa')] concubin[yearn_target.Custom('FR_E')] de [vassal_2.GetFirstNameNoTooltip]."
+
+# Double '' dans la phrase d'origine
+ bp1_yearly.5301.thinn:0 "mais c’est au moment où je continuais à picorer mon premier plat, alors que les autres s’accumulaient derrière, qu'[concerned_friend.Custom('FR_IlElle')] a frappé du poing sur la table.\n\n« Ça ne peut plus durer ! », me crie-t-[concerned_friend.Custom('FR_IlElle')]. « Je ne supporte plus de vous voir maigrir à vue d’œil, [ROOT.Char.GetFirstName] ! »\n\nJe marmonne quelque chose, mais c’est difficile de protester derrière cette montagne de plats. D’accord, je ne trouve pas toujours le temps de manger, mais ça prend du temps de gouverner !"
+
+ seduce_outcome.3304.desc:0 "[owner.Custom('FR_le_Char_Pi')|U][owner.GetTitledFirstName] et moi nous nous accroupissons. Nous ne sommes pas repéré[ROOT.Char.Custom2('FR_E', SCOPE.sC('owner'))]s par [ROOT.Char.Custom('FR_LocalAnimal_le')][ROOT.Char.Custom('LocalAnimal')] [ROOT.Char.Custom('LocalAnimalDesc')] que nous apercevons. Je n’y fais guère attention, en particulier lorsque le vêtement de [owner.GetFirstName] me frôle. Alors que je m’approche pour l’embrasser, je constate que son attention est également #EMP ailleurs#!.\n\nLorsque la bête disparaît dans [ROOT.Char.Custom('TerrainType')], nous sommes étendu[ROOT.Char.Custom2('FR_E', SCOPE.sC('owner'))]s nu[ROOT.Char.Custom2('FR_E', SCOPE.sC('owner'))]s contre la terre molle, blotti[ROOT.Char.Custom2('FR_E', SCOPE.sC('owner'))]s l’un[ROOT.Char.Custom2('FR_E', SCOPE.sC('owner'))] contre l’autre."
+
+ # Original:
+#bp1_house_feud.0008.b:0 "[battle_death_killer.GetFirstNameNoTooltip] paiera."
+ bp1_house_feud.0008.b:0 "[house_feud_attacker.GetFirstNameNoTooltip] paiera."
+
+ # Original:
+#bp1_yearly.9045.desc.intro:0 "Après que j’eus donné l’ordre d’exécuter [recipient.Custom('FR_le_Char')][recipient.GetName], m[bp1_yearly_9037_guardian.Custom('FR_OnA')] tut[bp1_yearly_9037_guardian.Custom('FR_EurRice')] m’a emmené au gibet en me promettant que ce serait l’occasion d’une leçon mémorable.\n\n"
+ bp1_yearly.9045.desc.intro:0 "Après que j’eus donné l’ordre d’exécuter [recipient.Custom('FR_le_Char')][recipient.GetName], m[bp1_yearly_9045_guardian.Custom('FR_OnA')] tut[bp1_yearly_9045_guardian.Custom('FR_EurRice')] m’a emmené au gibet en me promettant que ce serait l’occasion d’une leçon mémorable.\n\n"
+
+murder_save.1015.blunt_artifact.desc:0 "$murder_save.1015.start_desc$ [this_artifact.GetName] à proximité. Je l’utilise d’abord pour bloquer le coup de couteau qui arrive avant de l’abattre sur le crâne de [attempted_assassin.GetFirstNameNoTooltip] encore et encore.\n\nJe finis par m’écrouler de fatigue, laissant tomber [SCOPE.Custom('FR_ThisArtifactType_Le')] [SCOPE.Custom('ThisArtifactType')] couvert de sang."
+
+#BUG: les modifiers n'ont pas acces a root
+#full_of_jesus_modifier_desc:0 "Ce personnage a mangé un dessert dont la ressemblance avec [ROOT.Char.Custom('FR_E')] est frappante."
+
+#Bug: capital est une province mais il nous faut un LandedTitle
+ learning_medicine.2110.desc:0 "Mon entourage et moi revenons d’une courte escapade à [capital.GetCounty.GetTitle.GetNameNoTierNoTooltip], lorsque nous croisons [hashish_vassal_or_liege.Custom2('MyCharacterIntroduction', ROOT.Char)] et sa suite, qui se trouvent dans ma capitale pour une raison inconnue.\n\n"
+
+ task_foreign_affairs_fallback_effect_desc:0 "\n\nOpinion d’un pair vassal: #P +[SCOPE.ScriptValue('chancellor_foreign_affairs_realm_opinion_scale')|1]#!"
+
+RULER_DESIGNER_AGE:1 "#high [RulerDesignerWindow.GetAge]#! [Select_CString( GreaterThan_int32( RulerDesignerWindow.GetAge, '(int32)1' ), 'ans', 'an' )]"
+
+#Original tutor au lieu de 6130_helper
+ hold_court.6130.b.tt:1 "[6130_proposer.GetFirstNameNoTooltip] et [6130_helper.GetFirstName] commencent à travailler sur le relevé cadastral. Il faudra plusieurs mois pour le terminer."
+
+ #Misc
+ #localization\french\decisions_l_french.yml
+ NOT_ALREADY_PLANNING_ACTIVITY:0 "Vous ne projetez pas déjà une [activity|El]"
+ #localization\french\triggers\landed_title_triggers_l_french.yml
+ NOT_TITLE_TIER_TRIGGER:0 "Le rang n'est pas $COMPARATOR$ $TIER|V$"
+ NOT_TITLE_TIER_TRIGGER_THIRD:0 "Le rang du [TITLE.GetName] n'est pas $COMPARATOR$ $TIER|V$"
+
+ TOP_LIEGE_EQUAL_FIRST:0 "Vous êtes [CHARACTER.Custom('FR_LeLa')] souverain[CHARACTER.Custom('FR_E')] [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName]"
+ TOP_LIEGE_EQUAL_THIRD:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] est [CHARACTER.Custom('FR_LeLa')] souverain[CHARACTER.Custom('FR_E')] [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName]"
+ NOT_TOP_LIEGE_EQUAL_FIRST:0 "Vous n’êtes pas [CHARACTER.Custom('FR_LeLa')] souverain[CHARACTER.Custom('FR_E')] [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName]"
+ NOT_TOP_LIEGE_EQUAL_THIRD:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] n’est pas [CHARACTER.Custom('FR_LeLa')] souverain[CHARACTER.Custom('FR_E')] [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName]"
+
+# IS_ADULT_TRIGGER:0 "Est un[TARGET_CHARACTER.Custom('FR_E')] adulte"
+# NOT_IS_ADULT_TRIGGER:0 "Est un[TARGET_CHARACTER.Custom('FR_E')] enfant"
+# I_AM_ADULT_TRIGGER:1 "Vous êtes un[CHARACTER.Custom('FR_E')] adulte"
+# NOT_I_AM_ADULT_TRIGGER:1 "Vous êtes un[CHARACTER.Custom('FR_E')] enfant"
+ THEY_ARE_ADULT_TRIGGER:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName|V] est un[CHARACTER.Custom('FR_E')] adulte"
+ NOT_THEY_ARE_ADULT_TRIGGER:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName|V] est un[CHARACTER.Custom('FR_E')] enfant"
+
+
+
+
+
+ ## 1.18
+
+ CHANGE_FERVOR_GLOBAL:1 "La [fervor|El] de la foi [FAITH.GetAdjective|V] augmente de $VALUE|+0$"
+ CHANGE_FERVOR_GLOBAL_NEG:1 "La [fervor|El] de la foi [FAITH.GetAdjective|V] diminue de $VALUE|-0$"
+ CHANGE_FERVOR_GLOBAL_PAST:1 "La [fervor|El] de la foi [FAITH.GetAdjective|V] a augmenté de $VALUE|+0$"
+ CHANGE_FERVOR_GLOBAL_PAST_NEG:1 "La [fervor|El] de la foi [FAITH.GetAdjective|V] a diminué de $VALUE|-0$"
+
+ DESTROY_TITLE_GLOBAL:0 "[TARGET_TITLE.GetName] est détruit"
+ DESTROY_TITLE_GLOBAL_PAST:0 "[TARGET_TITLE.GetName] a été détruit"
+
+ COPY_TITLE_HISTORY_EFFECT:0 "[TITLE.GetName] copie l’historique de titre de [TARGET_TITLE.GetName]"
+ COPY_TITLE_HISTORY_PAST_EFFECT:0 "[TITLE.GetName] a copié l’historique de titre de [TARGET_TITLE.GetName]"
+
+  fp2_struggle.2020.desc:0 "En passant par [fp2_2020_valencia.GetName], une paysanne m’offre un verre de lait rafraîchissant au goût plus doux que tout ce que j’ai pu goûter auparavant. « Quelle est cette merveilleuse boisson que vous m’offrez ? », demandé-je, ce à quoi elle répond « le lait d’une amande de terre ».\n\nIl n’y a pas une personne qui puisse résister à l’attrait de ce breuvage par une chaude journée d’été, pas un enfant qui ne puisse éviter de sourire lorsqu’on lui en offre un verre, et pas un Valencien qui n’en raffole. Ce breuvage n’est pas du lait, c’est de l’or !"
+  all_close_family_members:0 "Chacun des membres [THIS.GetCharacter.LocalPlayerString( 'de votre', 'de la' )] [close_family|El][THIS.GetCharacter.LocalPlayerString( '', 'Loc_FR_du_GetShortUIName' )]"
+
+ task_domestic_affairs_family_business_bonus_desc:2 "\n$TAB$$tradition_family_entrepreneurship_name$: #P +[SCOPE.ScriptValue('chancellor_domestic_affairs_opinion_family_business_bonus')|2]#!"
+ task_domestic_affairs_bureaucrats_bonus_desc:0 "\n$TAB$[GetDynastyPerk('erudition_legacy_5').GetName]: #P +[SCOPE.ScriptValue('chancellor_domestic_affairs_opinion_erudition_bonus')|2]#!"
+
+ # bp1_yearly.0100.friend_welcome:0 "Peut-être que [host.GetFirstNameNoTooltip] est loin ? Peut-être que la chance me sourit et s[lover.Custom('FR_OnA')] [befriend.Custom('ComplimentAdjective')] [host.Custom2('RelationToMeShort', SCOPE.sC('befriend'))] [befriend.GetFirstName] sera là pour m’accueillir ?"
+ bp1_yearly.0100.friend_welcome:0 "Peut-être que [host.GetFirstNameNoTooltip] est loin ? Peut-être que la chance me sourit et s[befriend.Custom('FR_OnA')] [befriend.Custom('ComplimentAdjective')] [host.Custom2('RelationToMeShort', SCOPE.sC('befriend'))] [befriend.GetFirstName] sera là pour m’accueillir ?"
+
+# Phrase qui déborde de L'UI
+# bp1_yearly.9023.a:0 "Marmonner quelque chose qui ressemble à la langue [bp1_yearly_9023_friend.GetCulture.GetLanguage.GetNameNoTooltip|l] et espérer pour le mieux."
+ bp1_yearly.9023.a:0 "Marmonner quelque chose en [bp1_yearly_9023_friend.GetCulture.GetLanguage.GetNameNoTooltip|l] et espérer pour le mieux."
+
+# relation_liege_male_rival_FR_OnA:0 "rival et seigneur lige"
+ relation_liege_male_rival_FR_OnA:0 "on rival et seigneur lige"

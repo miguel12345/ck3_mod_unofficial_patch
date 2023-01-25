@@ -37,6 +37,7 @@ bp1_yearly.5001 = {
 			is_sibling_of = root
 			age <= 18
 			age > 12
+			exists = location # Fixpack: Make sure they have a location as it is used just below
 			location = root.capital_province
 			OR = {
 				opinion = {
@@ -1349,8 +1350,16 @@ bp1_yearly.5102 = {
 					type = match_made
 							
 					participants = {
+						# The matchmaker is useless to be saved because it's the owner of the memory
+						# But it is needed as maybe other event will use this memory with a matchmaker that is not root
 						matchmaker = root
+						# Fixpack: The *.yml file are looking for the potential_lover scope in the memory,
+						# instead of changing the scope here, have to replace the yml to not break saved game
 						lover = scope:potential_lover
+						# Instead save the unloved_courtier to make a nice text (and won't have impact on save game)
+						# buuuuut that would mean we'll have problem on all saved game :(
+						# So we can't let this, and there is also the "risk" of leaking lover information as this memory is not private :/
+						#unloved_courtier = scope:unloved_courtier
 					}
 				}
 
@@ -1505,8 +1514,13 @@ bp1_yearly.5102 = {
 		remove_character_flag = courtier_just_flag
 		remove_character_flag = courtier_compassionate_flag
 		remove_character_flag = courtier_peng_flag
+
+		if = {
+			limit = { exists = scope:lover_secret }
 		scope:lover_secret = {
-			expose_secret = root
+				reveal_to = root
+				#Fixpack: Originally, the secret was revealed by us, now we just LEARN the secret
+			}
 		}
 	}
 }

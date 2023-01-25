@@ -11,9 +11,7 @@ royal_garden_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		building_requirement_tribal = no
-		culture = { has_cultural_parameter = enable_garden_duchy_building }
+		building_enable_garden_duchy_building = yes
 		NOR = {
 			terrain = desert_mountains
 			terrain = mountains
@@ -21,10 +19,13 @@ royal_garden_01 = {
 		}
 	}
 	
-	can_construct_showing_failures_only = {
-		culture = {
-			has_innovation = innovation_manorialism
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_manorialism = yes
 		}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
 	}
 	
 	is_enabled = {
@@ -71,15 +72,13 @@ royal_garden_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
+		building_enable_garden_duchy_building = yes
 	}
 	
-	can_construct_showing_failures_only = {
-		culture = {
-			has_innovation = innovation_windmills
-			has_cultural_parameter = enable_garden_duchy_building
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_windmills = yes
 	}
 	
 	is_enabled = {
@@ -120,15 +119,16 @@ royal_garden_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
+		building_enable_garden_duchy_building = yes
+	}
+
+	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 01 }
-		building_requirement_tribal = no
+		building_requirement_innovation_cranes = yes
 	}
 	
 	can_construct_showing_failures_only = {
-		culture = {
-			has_innovation = innovation_cranes
-			has_cultural_parameter = enable_garden_duchy_building
-		}
+		building_requirement_tribal = no
 	}
 	
 	is_enabled = {
@@ -171,15 +171,12 @@ military_academy_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_burhs
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_burhs = yes
 	}
 	
 	is_enabled = {
@@ -218,15 +215,12 @@ military_academy_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_castle_baileys
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	is_enabled = {
@@ -259,15 +253,12 @@ military_academy_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_royal_armory
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	is_enabled = {
@@ -300,15 +291,12 @@ march_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_burhs
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_burhs = yes
 	}
 	
 	is_enabled = {
@@ -351,15 +339,12 @@ march_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_castle_baileys
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	is_enabled = {
@@ -396,15 +381,12 @@ march_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_royal_armory
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	is_enabled = {
@@ -441,15 +423,12 @@ siege_works_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_burhs
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_burhs = yes
 	}
 	
 	is_enabled = {
@@ -491,15 +470,12 @@ siege_works_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_castle_baileys
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	is_enabled = {
@@ -535,15 +511,12 @@ siege_works_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_royal_armory
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	is_enabled = {
@@ -580,15 +553,12 @@ royal_armory_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_burhs
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_burhs = yes
 	}
 	
 	is_enabled = {
@@ -641,15 +611,12 @@ royal_armory_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_castle_baileys
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	character_culture_modifier = {
@@ -696,15 +663,12 @@ royal_armory_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_royal_armory
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_royal_armory = yes
 	}
 
 	character_culture_modifier = {
@@ -751,15 +715,12 @@ jousting_lists_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_burhs
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_burhs = yes
 	}
 	
 	is_enabled = {
@@ -831,15 +792,12 @@ jousting_lists_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_castle_baileys
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	is_enabled = {
@@ -882,15 +840,12 @@ jousting_lists_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_royal_armory
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	is_enabled = {
@@ -933,15 +888,12 @@ blacksmiths_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_burhs
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_burhs = yes
 	}
 	
 	is_enabled = {
@@ -1010,15 +962,12 @@ blacksmiths_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_castle_baileys
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_castle_baileys = yes
 	}
 
 	character_culture_modifier = {
@@ -1065,15 +1014,12 @@ blacksmiths_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_royal_armory
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_royal_armory = yes
 	}
 
 	character_culture_modifier = {
@@ -1120,15 +1066,12 @@ archery_ranges_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_burhs
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_burhs = yes
 	}
 	
 	is_enabled = {
@@ -1194,15 +1137,12 @@ archery_ranges_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_castle_baileys
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_castle_baileys = yes
 	}
 	
 	is_enabled = {
@@ -1243,15 +1183,12 @@ archery_ranges_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_royal_armory
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_royal_armory = yes
 	}
 	
 	is_enabled = {
@@ -1292,15 +1229,12 @@ tax_assessor_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	is_enabled = {
@@ -1336,16 +1270,14 @@ tax_assessor_01 = {
 tax_assessor_02 = {
 	construction_time = slow_construction_time
 
+
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_windmills
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_windmills = yes
 	}
 	
 	is_enabled = {
@@ -1376,15 +1308,12 @@ tax_assessor_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_cranes
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_cranes = yes
 	}
 	
 	is_enabled = {
@@ -1415,15 +1344,12 @@ leisure_palace_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	is_enabled = {
@@ -1478,16 +1404,14 @@ leisure_palace_01 = {
 leisure_palace_02 = {
 	construction_time = slow_construction_time
 
+
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_windmills
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_windmills = yes
 	}
 	
 	is_enabled = {
@@ -1526,15 +1450,12 @@ leisure_palace_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_cranes
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_cranes = yes
 	}
 	
 	is_enabled = {
@@ -1573,7 +1494,6 @@ royal_forest_01 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 		NOR = {
 			terrain = steppe
@@ -1585,11 +1505,9 @@ royal_forest_01 = {
 		}
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_manorialism
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_manorialism = yes
 	}
 	
 	is_enabled = {
@@ -1630,15 +1548,12 @@ royal_forest_02 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_windmills
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_windmills = yes
 	}
 	
 	is_enabled = {
@@ -1673,15 +1588,12 @@ royal_forest_03 = {
 	construction_time = slow_construction_time
 
 	can_construct_potential = {
-		building_requirement_castle_city_church = { LEVEL = 01 }
 		building_requirement_tribal = no
 	}
 	
-	can_construct_showing_failures_only = {
-		
-		culture = {
-			has_innovation = innovation_cranes
-		}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_requirement_innovation_cranes = yes
 	}
 	
 	is_enabled = {
@@ -1723,12 +1635,12 @@ great_megalith_01 = {
 	
 	can_construct_potential = {
 		building_requirement_tribal = no
-		building_requirement_castle_city_church = { LEVEL = 01 }
-		scope:holder = {
-			faith = {
-				has_doctrine_parameter = can_build_megaliths
-			}
+		building_faith_can_build_megaliths_holder = yes
 		}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		building_faith_can_build_megaliths_holder = yes
 	}
 	
 	is_enabled = {

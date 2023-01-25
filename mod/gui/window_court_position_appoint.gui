@@ -363,7 +363,7 @@ types AppointCourtPositionTypes
 
 		hbox = {
 			datacontext = "[AppointCourtPositionView.GetSelectedCharacter]"
-			visible = "[AppointCourtPositionView.HasSelectedCharacter)]"
+			visible = "[AppointCourtPositionView.HasSelectedCharacter]"
 			layoutpolicy_horizontal = expanding
 			spacing = 10
 			margin_top = 10

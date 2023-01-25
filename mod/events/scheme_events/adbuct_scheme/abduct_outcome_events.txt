@@ -554,7 +554,7 @@ abduct_outcome.4003 = {
 	}
 	
 	trigger = {
-		scope:abduct_method = flag:on_the_way
+		scope:abduct_method = flag:unwelcome_guests
 	}
 
 	immediate = {

@@ -3927,6 +3927,15 @@ vassal.3002 = {
 				is_attracted_to_gender_of = root
 				is_ai = yes
 			}
+			NOT = { has_trait = celibate }
+			#Fixpack: Make sure the reverse attraction is true...
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:spouse
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
 		}
 		trait = lustful
 		show_as_tooltip = {
@@ -3988,6 +3997,15 @@ vassal.3002 = {
 		trigger = {
 			scope:liege_with_trouble = {
 				is_attracted_to_gender_of = root
+			}
+			NOT = { has_trait = celibate }
+			#Fixpack: Make sure the reverse attraction is true...
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:liege_with_trouble
+					might_cheat_on_every_partner_trigger = yes
+				}
 			}
 		}
 		trait = lustful
@@ -4216,6 +4234,16 @@ vassal.3003 = {
 		trigger = {
 			scope:vassal_to_ask = {
 				has_character_flag = is_making_a_move_on_spouse
+				#Fixpack: Add some checks
+				NOT = { has_trait = celibate }
+				OR = {
+					is_ai = no
+					AND = {
+						is_attracted_to_gender_of = scope:spouse
+						might_cheat_on_every_partner_trigger = yes
+					}
+				}
+				#/Fixpack
 			}
 		}
 		hidden_effect = {
@@ -4246,6 +4274,15 @@ vassal.3003 = {
 		trigger = {
 			scope:vassal_to_ask = {
 				has_character_flag = is_making_a_move
+			}
+			NOT = { has_trait = celibate }
+			#Fixpack: Make sure the reverse attraction is true...
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:vassal_to_ask
+					might_cheat_on_every_partner_trigger = yes
+				}
 			}
 		}
 		progress_towards_lover_effect = {

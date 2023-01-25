@@ -769,8 +769,14 @@ designate_shieldmaiden_interaction = {
 			is_physically_able_adult = yes
 			#Has access to the appropriate cultural parameter.
 			culture = { has_cultural_parameter = has_access_to_shieldmaidens }
-			NOT = {
-				faith = { has_doctrine = doctrine_gender_equal }
+			trigger_if = { # Has the Royal Court and thus can modify pillars
+				limit = { has_dlc_feature = diverge_culture }
+				culture = {
+					NOT = { has_cultural_parameter = martial_custom_equal_combatant }
+				}
+			}
+			trigger_else = {
+				faith = { NOT = { has_doctrine_parameter = combatant_can_be_either_gender_if_no_roco } }
 			}
 		}
 		scope:recipient = {
@@ -778,14 +784,29 @@ designate_shieldmaiden_interaction = {
 			is_courtier_of = scope:actor
 			is_close_family_of = scope:actor
 			NOT = { has_trait = shieldmaiden }
+			trigger_if = { # Has the Royal Court and thus can modify pillars
+				limit = { has_dlc_feature = diverge_culture }
 			OR = {
 				AND = {
 					is_female = yes
-					faith = { has_doctrine = doctrine_gender_male_dominated }
+						culture = { has_cultural_parameter = martial_custom_male_only_combatant }
 				}
 				AND = {
 					is_male = yes
-					faith = { has_doctrine = doctrine_gender_female_dominated }
+						culture = { has_cultural_parameter = martial_custom_female_only_combatant }
+					}
+				}
+			}
+			trigger_else = {
+				OR = { # Does not have the Royal Court and thus combatant is governed by faith
+					AND = {
+						is_female = yes
+						faith = { has_doctrine_parameter = combatant_must_be_male_if_no_roco }
+					}
+					AND = {
+						is_male = yes
+						faith = { has_doctrine_parameter = combatant_must_be_female_if_no_roco }
+					}
 				}
 			}
 		}
@@ -816,6 +837,10 @@ designate_shieldmaiden_interaction = {
 				modifier = fp1_accepted_my_sword_opinion
 			}
 		}
+		if = {
+			limit = { always = scope:hook }
+			scope:actor = { use_hook = scope:recipient }
+		}
 		hidden_effect = {
 			scope:actor = {
 				send_interface_toast = {
@@ -823,7 +848,6 @@ designate_shieldmaiden_interaction = {
 
 					left_icon = scope:actor					
 					right_icon = scope:recipient
-
 
 					show_as_tooltip = {
 						scope:recipient = {
@@ -834,6 +858,12 @@ designate_shieldmaiden_interaction = {
 							paranoid = minor_stress_impact_gain
 						}
 					}
+				}
+			}
+			scope:recipient = {
+				if = {
+					limit = { has_character_flag = fp1_dreams_of_shieldpersondom }
+					remove_character_flag = fp1_dreams_of_shieldpersondom
 				}
 			}
 		}

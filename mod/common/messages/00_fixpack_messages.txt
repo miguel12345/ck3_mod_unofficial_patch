@@ -1,0 +1,36 @@
+﻿@toast_soundeffect_good = "event:/SFX/UI/Notifications/Toasts/sfx_ui_notifications_toast_positive"
+@toast_soundeffect_bad = "event:/SFX/UI/Notifications/Toasts/sfx_ui_notifications_toast_negative"
+
+@msg_bad_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_negative"
+
+prisonner_has_died = {
+	icon = "death_murder"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+fixpack_toast_good = {
+	display = toast
+	title = event_message_title
+	desc = event_message_text
+	style = good
+	soundeffect = @toast_soundeffect_good
+}
+
+fixpack_toast_bad = {
+	display = toast
+	title = event_message_title
+	desc = event_message_text
+	style = bad
+	soundeffect = @toast_soundeffect_bad
+}
+
+mentor_has_died = {
+	icon = "death_murder"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}

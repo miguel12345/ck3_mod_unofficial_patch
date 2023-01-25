@@ -1942,7 +1942,7 @@ seduce_outcome.3040 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2004,7 +2004,7 @@ seduce_outcome.3050 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2070,7 +2070,7 @@ seduce_outcome.3301 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2225,7 +2225,7 @@ seduce_outcome.3303 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2275,6 +2275,16 @@ seduce_outcome.3304 = {
 	left_portrait = scope:owner
 
 	immediate = {
+		if = {
+			limit = { exists = var:local_animal }
+			set_variable = {
+				name = local_animal_old
+				value = var:local_animal
+			}
+			remove_variable = local_animal
+		}
+		select_local_harmless_animal_effect = yes
+
 		#Either runs had_sex_with_effect or shows a tooltip of it (effect is always just run once per success):
 		target_seduce_outcome_sex_effect = yes
 
@@ -2288,7 +2298,7 @@ seduce_outcome.3304 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2320,6 +2330,18 @@ seduce_outcome.3304 = {
 			limit = { scope:owner = { has_character_flag = consummation_and_relationship } }
 			scope:owner = { remove_character_flag = consummation_and_relationship }
 		}
+		# Fixpack: remove the variable we defined for the desc text
+		remove_variable = local_animal
+
+		# Fixpack: if the variable local_animal was defined, we rewrite it (in case of a hunt ?).
+		if = {
+			limit = { has_variable = local_animal_old }
+			set_variable = {
+				name = local_animal
+				value = var:local_animal_old
+			}
+			remove_variable = local_animal_old
+		}
 	}
 }
 
@@ -2349,7 +2371,7 @@ seduce_outcome.3305 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2414,7 +2436,7 @@ seduce_outcome.3306 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2555,7 +2577,7 @@ seduce_outcome.3308 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {
@@ -2633,7 +2655,7 @@ seduce_outcome.3309 = {
 			limit = {
 				exists = scope:owner.location
 			}
-			scope:owner.location = { save_scope_as seduction_location }
+			scope:owner.location = { save_scope_as = seduction_location }
 		}
 		else = {
 			random_province = {

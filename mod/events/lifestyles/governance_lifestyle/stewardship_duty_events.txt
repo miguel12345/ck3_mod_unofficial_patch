@@ -685,6 +685,8 @@ scripted_trigger stewardship_duty_1055_minimum_et_requirements = {
 
 	#Must not be chaste (since they allegedly had extramarital relations, and it could feel odd to the player if they are chaste).
 	NOT = { has_trait = chaste }
+
+	NOT = { has_trait = celibate } #Fixpack: added this
 }
 
 #Ideal requirements for us to use a vassal's child as one of the event targets (creates more drama/choices for player).

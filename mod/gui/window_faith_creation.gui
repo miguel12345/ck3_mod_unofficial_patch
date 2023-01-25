@@ -594,7 +594,7 @@ window = {
 							name = "theocracy_info"
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-							visible = "[Not( ObjectsEqual( GetPlayer.GetFaith.HasParameterByKey( 'lay_clergy' ), FaithCreationWindow.HasParameter( 'lay_clergy' ) ) ) )]"
+							visible = "[Not( ObjectsEqual( GetPlayer.GetFaith.HasParameterByKey( 'lay_clergy' ), FaithCreationWindow.HasParameter( 'lay_clergy' ) ) )]"
 
 							text_label_left = {
 								layoutpolicy_horizontal = expanding

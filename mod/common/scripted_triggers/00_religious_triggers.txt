@@ -155,6 +155,20 @@ can_be_combatant_based_on_gender_trigger = {
 				# No need to gender diversify this: if they're a right-gender shieldperson of the culture, then they've already got permission to fight from the previous AND conditions.
 				has_trait = shieldmaiden
 			}
+			AND = {
+				$ARMY_OWNER$ = { culture = { has_cultural_parameter = high_prowess_ignores_knight_restrictions } }
+				NOT = { $ARMY_OWNER$ = { culture = { has_cultural_parameter = minimum_prowess_for_knights } } }
+				prowess >= 10
+			}
+			AND = {
+				$ARMY_OWNER$ = {
+					culture = {
+						has_cultural_parameter = high_prowess_ignores_knight_restrictions
+						has_cultural_parameter = minimum_prowess_for_knights
+					}
+				}
+				prowess >= 12
+			}
 		}
 	}
 }
@@ -737,6 +751,7 @@ is_valid_heresiarch = {
 		highest_held_title_tier = tier_duchy
 		highest_held_title_tier = tier_county
 	}
+	is_adult = yes
 	is_imprisoned = no
 	is_capable_adult_ai = yes
 	is_landed = yes
@@ -1127,6 +1142,11 @@ can_create_spiritual_head_of_faith_title_trigger = {
 		CHARACTER = ROOT
 	}
 	root = { piety_level >= medium_piety_level }
+	#Fixpack: For rite tenet to work properly
+	NAND = {
+		exists = religious_head
+		has_doctrine_parameter = maintains_head_of_faith_on_creation
+	}
 }
 
 # this = Person trying to create the title

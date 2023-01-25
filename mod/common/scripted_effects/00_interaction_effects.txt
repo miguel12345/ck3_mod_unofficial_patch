@@ -2195,12 +2195,22 @@ offer_vassalization_interaction_effect = {
 						limit = { is_independent_ruler = no} # To avoid errors during tooltip generation (prior to the contract being generated)
 						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 2 }
 						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 1 }
+						if = {
+							limit = { scope:actor.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+							vassal_contract_set_obligation_level = { type = jizya_special_rights level = 1 }
+						}
+						else = {
 						vassal_contract_set_obligation_level = { type = religious_rights level = 1 }
 					}		
 				}
+				}
 				custom_tooltip = normal_obligations_taxes
 				custom_tooltip = low_obligations_levies
-				custom_tooltip = religious_protection_tt
+				if = {
+					limit = { scope:actor.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+					custom_tooltip = fixpack_jizya_religious_protection_tt
+				}
+				else = { custom_tooltip = religious_protection_tt }
 			}
 			else = {
 				hidden_effect = {
@@ -2222,10 +2232,20 @@ offer_vassalization_interaction_effect = {
 			hidden_effect = {
 				if = {
 					limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+					if = {
+						limit = { scope:actor.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+						vassal_contract_set_obligation_level = { type = jizya_special_rights level = 1 }
+					}
+					else = {
 					vassal_contract_set_obligation_level = { type = religious_rights level = 1 }
 				}		
 			}
-			custom_tooltip = religious_protection_tt
+			}
+			if = {
+				limit = { scope:actor.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+				custom_tooltip = fixpack_jizya_religious_protection_tt
+			}
+			else = { custom_tooltip = religious_protection_tt }
 		}
 	}
 }
@@ -2285,12 +2305,22 @@ offer_fealty_interaction_effect = {
 						limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
 						vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 3 }
 						vassal_contract_set_obligation_level = { type = feudal_government_levies level = 2 }
+						if = {
+							limit = { scope:recipient.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+							vassal_contract_set_obligation_level = { type = jizya_special_rights level = 1 }
+						}
+						else = {
 						vassal_contract_set_obligation_level = { type = religious_rights level = 1 }
 					}
 				}
+				}
 				custom_tooltip = high_obligations_taxes
 				custom_tooltip = normal_obligations_levies
-				custom_tooltip = religious_protection_tt
+				if = {
+					limit = { scope:recipient.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+					custom_tooltip = fixpack_jizya_religious_protection_tt
+				}
+				else = { custom_tooltip = religious_protection_tt }
 			}
 			else = {
 				hidden_effect = {
@@ -2312,10 +2342,20 @@ offer_fealty_interaction_effect = {
 			hidden_effect = {
 				if = {
 					limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+					if = {
+						limit = { scope:recipient.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+						vassal_contract_set_obligation_level = { type = jizya_special_rights level = 1 }
+					}
+					else = {
 					vassal_contract_set_obligation_level = { type = religious_rights level = 1 }
 				}		
 			}
-			custom_tooltip = religious_protection_tt
+			}
+			if = {
+				limit = { scope:recipient.faith = { has_doctrine_parameter = unlock_jizya_contract } }
+				custom_tooltip = fixpack_jizya_religious_protection_tt
+			}
+			else = { custom_tooltip = religious_protection_tt }
 		}
 	}
 }

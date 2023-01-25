@@ -950,7 +950,10 @@ BG_RandomFacialExpression = {
 	text = {
 		trigger = {
 			OR = {
+				AND = {
+					exists = scope:bg_opponent
 				scope:bg_opponent = { has_trait = arrogant }
+				}
 				bg_cumulative_skill_score_comparison_value <= -20
 			}
 		}

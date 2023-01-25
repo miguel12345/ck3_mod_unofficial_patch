@@ -1,0 +1,5 @@
+﻿l_french:
+
+ fixpack_vos_dieux_aux_dieux:0 "[Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'à vos dieux', Concatenate(Concatenate('aux dieux ', TARGET_CHARACTER.Custom('FR_du_Char_U_P')), TARGET_CHARACTER.GetUIName))]"
+
+ death_sacrificed_to_gods_killer:1 "a été sacrifié[CHARACTER.Custom('FR_E')] $fixpack_vos_dieux_aux_dieux$"

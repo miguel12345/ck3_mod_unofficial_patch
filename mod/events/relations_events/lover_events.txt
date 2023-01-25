@@ -623,7 +623,10 @@ lover.0003 = {
 					scope:lover_1 = { is_male = yes }
 					scope:lover_2 = { is_male = yes }
 					OR = {
+						AND = {
+							exists = scope:lover_3
 						scope:lover_3 = { is_male = yes }
+						}
 						NOT = { exists = scope:lover_3 }
 					}
 				}
@@ -634,7 +637,10 @@ lover.0003 = {
 					scope:lover_1 = { is_female = yes }
 					scope:lover_2 = { is_female = yes }
 					OR = {
+						AND = {
+							exists = scope:lover_3
 						scope:lover_3 = { is_female = yes }
+						}
 						NOT = { exists = scope:lover_3 }
 					}
 				}
@@ -647,7 +653,10 @@ lover.0003 = {
 	theme = lover_relation
 	left_portrait = scope:lover_1
 	right_portrait = scope:lover_2
-	lower_center_portrait = scope:lover_3
+	lower_center_portrait = {
+		trigger = { exists = scope:lover_3 }
+		character = scope:lover_3
+	}
 	
 	trigger = {
 		any_relation = {

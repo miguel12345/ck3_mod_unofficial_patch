@@ -335,7 +335,8 @@ jewish_restore_high_priesthood_decision = {
 			faith = faith:karaism
 			faith = faith:haymanot
 			faith = faith:malabarism
-			#faith = faith:samaritan #Will have active Religious Head from start
+			# Fixpack samaritan was disabled with the comment below, but everyone here start with Religious Head (a holding not a person)
+			faith = faith:samaritan #Will have active Religious Head from start
 			faith = faith:kabarism
 		}
 	}

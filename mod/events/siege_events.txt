@@ -624,8 +624,12 @@ siege.0005 = {
 				scope:important_hostage = scope:primary_siege_defender
 			}
 			send_interface_toast = {
+				#type = event_captured_combatants_good
+
 				title = siege.1005.pow_toast.t
-				left_icon = scope:occupier
+				#desc = siege.1005.pow_toast.desc.primary
+
+				left_icon = scope:occupant
 				right_icon = scope:important_hostage
 
 				custom_tooltip = siege.1005.pow_toast.desc.primary
@@ -633,8 +637,12 @@ siege.0005 = {
 		}
 		else = {
 			send_interface_toast = {
+				#type = event_captured_combatants_good
+
 				title = siege.1005.pow_toast.t
-				left_icon = scope:occupier
+				#desc = siege.1005.pow_toast.desc
+
+				left_icon = scope:occupant
 				right_icon = scope:important_hostage
 
 				custom_tooltip = siege.1005.pow_toast.desc
@@ -649,8 +657,12 @@ siege.0006 = {
 
 	immediate = {
 		send_interface_toast = {
+			#type = event_captured_combatants_bad
+
 			title = siege.1006.pow_toast.t
-			left_icon = scope:occupier
+			#desc = siege.1006.pow_toast.desc
+
+			left_icon = scope:occupant
 			right_icon = scope:important_hostage
 
 			custom_tooltip = siege.1006.pow_toast.desc
@@ -668,8 +680,12 @@ siege.0007 = {
 				scope:important_hostage = scope:primary_siege_defender
 			}
 			send_interface_toast = {
-				title = siege.1005.pow_toast.t
-				left_icon = scope:occupier
+				#type = event_captured_combatants_good
+
+				title = siege.1007.pow_toast.t
+				#desc = siege.1007.pow_toast.desc.primary
+
+				left_icon = scope:occupant
 				right_icon = scope:important_hostage
 
 				custom_tooltip = siege.1007.pow_toast.desc.primary
@@ -677,8 +693,12 @@ siege.0007 = {
 		}
 		else = {
 			send_interface_toast = {
-				title = siege.1005.pow_toast.t
-				left_icon = scope:occupier
+				#type = event_captured_combatants_good
+
+				title = siege.1007.pow_toast.t
+				#desc = siege.1007.pow_toast.desc
+
+				left_icon = scope:occupant
 				right_icon = scope:important_hostage
 
 				custom_tooltip = siege.1007.pow_toast.desc

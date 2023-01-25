@@ -394,7 +394,7 @@ types MenAtArms
 				{
 					tooltip = "REGIMENT_PURSUIT_TT"
 					# fade out if 0
-					alpha = "[Select_float(GreaterThan_CFixedPoint(MenAtArmsType.GetStat( GetPlayer, 'pursuit' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4'))]"
+					alpha = "[Select_float(GreaterThan_CFixedPoint(MenAtArmsType.GetStat( GetPlayer, 'pursuit' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4')]"
 				}
 				using = tooltip_se
 				spacing = 3
@@ -424,7 +424,7 @@ types MenAtArms
 				{
 					tooltip = "REGIMENT_SCREEN_TT"
 					# fade out if 0
-					alpha = "[Select_float(GreaterThan_CFixedPoint(MenAtArmsType.GetStat( GetPlayer, 'screen' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4'))]"
+					alpha = "[Select_float(GreaterThan_CFixedPoint(MenAtArmsType.GetStat( GetPlayer, 'screen' ),'(CFixedPoint)0'), '(float)1.0','(float)0.4')]"
 				}
 				using = tooltip_se
 				spacing = 3
@@ -623,7 +623,7 @@ types MenAtArms
 					visible = "[MenAtArmsType.HasWinterHarshModifier]"
 				}
 				blockoverride "maa_has_winter_effect" {
-					visible = "[Not( MenAtArmsType.GetWinterHarshModifier.IsPositive ) )]"
+					visible = "[Not( MenAtArmsType.GetWinterHarshModifier.IsPositive )]"
 					texture = "gfx/interface/icons/terrain_types/winter_harsh.dds"
 					tooltip = "REGIMENT_WINTER_HARSH_MODIFIER_TOOLTIP"
 				}
@@ -634,7 +634,7 @@ types MenAtArms
 					visible = "[MenAtArmsType.HasWinterNormalModifier]"
 				}
 				blockoverride "maa_has_winter_effect" {
-					visible = "[Not( MenAtArmsType.GetWinterNormalModifier.IsPositive ) )]"
+					visible = "[Not( MenAtArmsType.GetWinterNormalModifier.IsPositive )]"
 					texture = "gfx/interface/icons/terrain_types/winter_normal.dds"
 					tooltip = "REGIMENT_WINTER_NORMAL_MODIFIER_TOOLTIP"
 				}

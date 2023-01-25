@@ -1,0 +1,10 @@
+﻿l_french:
+
+#potential_lover => lover
+match_made_desc_1:0 "j’ai amené [lover.GetFirstName] à la Cour et lui ai trouvé un bon parti"
+match_made_desc_second_perspective_1:0 "vous avez amené [lover.GetFirstName] à la Cour et lui avez trouvé un bon parti"
+match_made_desc_third_perspective_1:0 "[owner.Custom('FR_le_Char_Pi')][owner.GetTitledFirstName] a amené [lover.GetFirstName] à la Cour et lui a trouvé un bon parti"
+
+#Fix
+ became_lovers_desc:0 "je suis tombé[owner.Custom('FR_E')] amoureu[owner.Custom('FR_XSe')] [new_lover.Custom('FR_du_Char_P')][new_lover.GetFullName]"
+ became_lovers_desc_second_perspective:0 "vous êtes tombé[owner.Custom('FR_E')] amoureu[owner.Custom('FR_XSe')] [new_lover.Custom('FR_du_Char_P')][new_lover.GetFullName]"

@@ -3625,6 +3625,17 @@ pilgrimage.4002 = {
 				}
 				is_attracted_to_gender_of = root
 			}
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					#Fixpack: Check if the char is likely to cheat spouses
+					is_attracted_to_gender_of = scope:mystic
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+			#/Fixpack
 		}
 		trait = lustful
 		had_sex_with_effect = {

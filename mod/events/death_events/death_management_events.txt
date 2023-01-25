@@ -104,19 +104,19 @@ death_management.0001 = {
 		#To save imprisoner & prisons status
 		if = {
 			limit = {
+				is_in_prison_type = house_arrest
+			}
+			imprisoner = {
+				save_scope_as = house_arrest_holder
+			}
+		}
+		else_if = {
+			limit = {
 				is_in_prison_type = dungeon
 				exists = imprisoner
 			}
 			imprisoner = {
 				save_scope_as = prison_holder
-			}
-		}
-		else_if = {
-			limit = {
-				is_in_prison_type = house_arrest
-			}
-			imprisoner = {
-				save_scope_as = house_arrest_holder
 			}
 		}
 
@@ -506,6 +506,19 @@ death_management.0001 = {
 				exists = scope:prison_holder
 			}
 			scope:prison_holder = {
+				if = {
+					limit = { death_management_0001_valid_for_death_event_trigger = yes }
+					add_to_list = send_death_management_0002
+				}
+			}
+		}
+
+		#Check for a house arrest owner
+		if = {
+			limit = {
+				exists = scope:house_arrest_holder
+			}
+			scope:house_arrest_holder = {
 				if = {
 					limit = { death_management_0001_valid_for_death_event_trigger = yes }
 					add_to_list = send_death_management_0002
@@ -988,8 +1001,22 @@ death_management.0002 = {
 					this = scope:prison_holder
 				}
 				send_interface_message = { #A prisoner died notification
-					type = character_has_died
+					type = prisonner_has_died
+					title = death_management.prisoner.title
 					desc = death_management.prisoner.desc
+					left_icon = scope:dead_character
+				}
+			}
+
+			else_if = {
+				limit = {
+					exists = scope:house_arrest_holder
+					this = scope:house_arrest_holder
+				}
+				send_interface_message = { #A prisoner died in house arrest notification
+					type = prisonner_has_died
+					title = death_management.prisoner.title
+					desc = death_management.house_arrest.desc
 					left_icon = scope:dead_character
 				}
 			}
@@ -1025,6 +1052,18 @@ death_management.0002 = {
 				send_interface_message = {
 					type = character_has_died
 					desc = death_management.pinned.desc
+					left_icon = scope:dead_character
+				}
+			}
+
+			else_if = {
+				limit = {
+					any_relation = { type = mentor even_if_dead = yes this = scope:dead_character }
+				}
+				send_interface_message = {
+					type = mentor_has_died
+					title = death_management.mentor.title
+					desc = death_management.mentor.desc
 					left_icon = scope:dead_character
 				}
 			}
@@ -1383,18 +1422,21 @@ death_management.1003 = {
 	hidden = yes
 
 	immediate = {
-		every_relation = {
-			type = friend
-			add_to_temporary_list = death_management_1002_friendly_counsel_friends
-		}
-		every_relation = {
-			type = best_friend
-			add_to_temporary_list = death_management_1002_friendly_counsel_friends
-		}
-		every_in_list = {
-			list = death_management_1002_friendly_counsel_friends
 			friendly_counsel_random_removal_effect = yes
-		}
+
+		# Fixpack: This way too much "over-engineered"...
+		#every_relation = {
+		#	type = friend
+		#	add_to_temporary_list = death_management_1002_friendly_counsel_friends
+		# }
+		#every_relation = {
+		#	type = best_friend
+		#	add_to_temporary_list = death_management_1002_friendly_counsel_friends
+		# }
+		#every_in_list = {
+		#	list = death_management_1002_friendly_counsel_friends
+		#	friendly_counsel_random_removal_effect = yes
+		# }
 	}
 }
 
@@ -2996,7 +3038,8 @@ death_management.1206 = {
                     this = scope:battle_death_leader
                 }
             }
-            animation = grief
+			#Fixpack: If our rival is dead in battle we are happy instead of grieving (animation was grief)
+			animation = celebrate_sword
         }
         triggered_animation = {
             trigger = { always = yes }

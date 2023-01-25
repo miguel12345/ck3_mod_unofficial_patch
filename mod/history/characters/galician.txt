@@ -11085,7 +11085,7 @@ santiago.0001 = {
 	female = yes
 	dynasty_house = house_baiao # House of Baião
 	religion = catholic
-	culture = portuguese
+	culture = galician
 	trait = education_diplomacy_2
 
 	father = 143036 # Egas Gundesendes de Baião

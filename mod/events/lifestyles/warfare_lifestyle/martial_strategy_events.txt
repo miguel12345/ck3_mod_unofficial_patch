@@ -2960,12 +2960,18 @@ martial_strategy_special.1399 = {
 		trigger = {
 			var:storm_castle_points <= 3
 		}
+		#Fixpack: Add a check if capital_county exist just like the option above to prevent errors
+		#But that mean this case does nothing if the root char does not have a capital anymore
+		#Cannot happen for a player (because it would be a game-over) but can happen for IA
+		if = {
+			limit = { exists = capital_county }
 		capital_county = {	
 			add_county_modifier = {
 				modifier = minor_increased_castle_defense
 				days = 3650
 			}
 		}
+	}
 	}
 	after = {
 		remove_character_flag = is_in_martial_special_event

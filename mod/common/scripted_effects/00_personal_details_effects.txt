@@ -590,6 +590,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								NOT = {
@@ -643,6 +644,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								OR = {
@@ -696,6 +698,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								NOT = {
@@ -768,6 +771,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								OR = {
@@ -809,6 +813,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								geographical_region = world_europe_west
@@ -846,6 +851,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								NOT = {
@@ -885,6 +891,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								geographical_region = custom_england
@@ -920,6 +927,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								geographical_region = world_europe_west
@@ -958,6 +966,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								OR = {
@@ -999,6 +1008,7 @@ set_favorite_treat_effect = {
 						trigger_else_if = {
 							limit = {
 								exists = liege
+								exists = liege.capital_province
 							}
 							liege.capital_province = {
 								geographical_region = world_africa

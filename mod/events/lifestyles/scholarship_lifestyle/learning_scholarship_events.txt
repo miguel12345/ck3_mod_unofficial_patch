@@ -4222,8 +4222,7 @@ learning_scholarship.6000 = {
 			if = {
 				limit = {
 					root = { 
-						highest_held_title_tier = tier_duchy 
-						highest_held_title_tier = tier_county 
+						highest_held_title_tier < tier_kingdom
 					}
 				}
 				add_prestige = minor_prestige_gain

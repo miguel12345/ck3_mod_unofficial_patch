@@ -1,0 +1,86 @@
+﻿l_french:
+
+ #Used for both prisoners and house arrest "guests"
+ death_management.prisoner.title:0 "Votre prisonni[dead_character.Custom('FR_ErEre')] #high [dead_character.GetFirstNameNoTooltip]#! a péri"
+ death_management.house_arrest.desc:0 "M[dead_character.Custom('FR_OnA')] prisonni[dead_character.Custom('FR_ErEre')], [dead_character.Custom('FR_le_Char_Pi')][dead_character.GetTitledFirstName], est mort[dead_character.Custom('FR_E')] dans ma résidence surveillée."
+
+ death_management.mentor.title:0 "Décès du mentor"
+ death_management.mentor.desc:0 "Votre [mentor|El] [mentor.GetShortUIName] est décédé[mentor.Custom('FR_E')]"
+
+ NEW_RELIGIOUS_HEAD_TITLE_GLOBAL_DESC:1 "Un [head_of_faith|El] [TARGET_CHARACTER.GetFaith.GetAdjective] est créé"
+ NEW_RELIGIOUS_HEAD_TITLE_GLOBAL_PAST_DESC:1 "Un [head_of_faith|El] [TARGET_CHARACTER.GetFaith.GetAdjective] a été créé"
+ NEW_RELIGIOUS_HEAD_TITLE_FIRST_DESC:0 "Vous devenez le [head_of_faith|El] [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_FIRST_PAST_DESC:0 "Vous êtes devenu le [head_of_faith|El] [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_THIRD_DESC:0 "[TARGET_CHARACTER.GetShortUIName|U] devient le [head_of_faith|El] [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_THIRD_PAST_DESC:0 "[TARGET_CHARACTER.GetShortUIName|U] est devenu[TARGET_CHARACTER.Custom('FR_E')] le [head_of_faith|El] [TARGET_CHARACTER.GetFaith.GetAdjective]"
+
+ I_HAVE_NUM_VIRTUOUS_TRAITS:0 "Vous avez $NUM|V0$ traits [Concept( 'virtue', 'vertueux' )|E]"
+ HAS_NUM_VIRTUOUS_TRAITS:0 "A $NUM|V0$ traits [Concept( 'virtue', 'vertueux' )|E]"
+ CHARACTER_HAS_NUM_VIRTUOUS_TRAITS:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] a $NUM|V0$ traits [Concept( 'virtue', 'vertueux' )|E]"
+
+ I_HAVE_NUM_SINFUL_TRAITS:0 "Vous avez $NUM|V0$ traits [Concept( 'sin', $fixpack_sinful$ )|E]"
+ HAS_NUM_SINFUL_TRAITS:0 "A $NUM|V0$ traits [Concept( 'sin', $fixpack_sinful$ )|E]"
+ CHARACTER_HAS_NUM_SINFUL_TRAITS:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] a $NUM|V0$ traits [Concept( 'sin', $fixpack_sinful$ )|E]"
+
+ fixpack_compatible_personality_me:0 "Ma personnalité est compatible avec [target_char.Custom('FR_LuiElle')]"
+ fixpack_compatible_personality_he_she:0 "Sa personnalité est compatible avec moi"
+
+ fixpack_attracted_by_me_first:0 "Vous êtes attiré[CHARACTER.Custom('FR_E')] par [TARGET_CHARACTER.Custom('FR_LuiElle')]"
+ fixpack_attracted_by_me_first_not:0 "Vous n’êtes pas attiré[CHARACTER.Custom('FR_E')] par [TARGET_CHARACTER.Custom('FR_LuiElle')]"
+ fixpack_attracted_by_me_third:0 "[CHARACTER.Custom('FR_IlElle')|U] est attiré[CHARACTER.Custom('FR_E')] par vous"
+ fixpack_attracted_by_me_third_not:0 "[CHARACTER.Custom('FR_IlElle')|U] n'est pas attiré[CHARACTER.Custom('FR_E')] par vous"
+
+ fixpack_faith_hostile_or_evil_first:0 "Sa [faith|El] est $hostility_hostile_tooltippable$ ou $hostility_evil_tooltippable$ pour nous"
+ fixpack_faith_hostile_or_evil_third:0 "Notre [faith|El] est $hostility_hostile_tooltippable$ ou $hostility_evil_tooltippable$ pour eux"
+ fixpack_faith_hostile_or_evil_first_not:0 "Sa [faith|El] n'est pas $hostility_hostile_tooltippable$ ou $hostility_evil_tooltippable$ pour nous"
+ fixpack_faith_hostile_or_evil_third_not:0 "Notre [faith|El] n'est pas $hostility_hostile_tooltippable$ ou $hostility_evil_tooltippable$ pour eux"
+
+fixpack_has_sinful_trait_for_my_faith:0 "[target_char.Custom('FR_IlElle')|U] a des traits [Concept( 'sin', 'immoraux' )|E] pour notre [faith|El]"
+fixpack_has_sinful_trait_for_my_faith_not:0 "[target_char.Custom('FR_IlElle')|U] n'a pas de trait [Concept( 'sin', 'immoral' )|E] pour notre [faith|El]"
+fixpack_has_sinful_trait_for_their_faith:0 "Vous avez des traits [Concept( 'sin', 'immoraux' )|E] pour sa [faith|El]"
+fixpack_has_sinful_trait_for_their_faith_not:0 "Vous n'avez pas de trait [Concept( 'sin', 'immoral' )|E] pour sa [faith|El]"
+
+fixpack_is_sinner_for_my_faith:0 "[target_char.Custom('FR_IlElle')|U] est un[target_char.Custom('FR_E')] péch[target_char.Custom('FR_EurEresse')] pour notre [faith|El]"
+fixpack_is_sinner_for_my_faith_not:0 "[target_char.Custom('FR_IlElle')|U] n'est pas un[target_char.Custom('FR_E')] péch[target_char.Custom('FR_EurEresse')] pour notre [faith|El]"
+fixpack_is_sinner_for_their_faith:0 "Vous êtes un[target_char.Custom('FR_E')] péch[target_char.Custom('FR_EurEresse')] pour sa [faith|El]"
+fixpack_is_sinner_for_their_faith_not:0 "Vous n'êtes pas un[target_char.Custom('FR_E')] péch[target_char.Custom('FR_EurEresse')] pour sa [faith|El]"
+
+fixpack_is_incestuous_for_my_faith_not:0 "Cette relation ne serait pas incestueuse pour notre [faith|El]"
+fixpack_is_incestuous_for_their_faith_not:0 "Cette relation ne serait pas incestueuse pour sa [faith|El]"
+
+fixpack_is_sodomite_for_my_faith_not:0 "Cette relation ne serait pas sodomite pour notre [faith|El]"
+fixpack_is_sodomite_for_their_faith_not:0 "Cette relation ne serait pas sodomite pour sa [faith|El]"
+
+fixpack_is_accepted_for_my_faith:0 "Cette relation serait acceptée par notre [faith|El]"
+fixpack_is_accepted_for_their_faith:0 "Cette relation serait acceptée par sa [faith|El]"
+fixpack_is_accepted_for_my_faith_not:0 "Cette relation ne serait pas acceptée par notre [faith|El]"
+fixpack_is_accepted_for_their_faith_not:0 "Cette relation ne serait pas acceptée par sa [faith|El]"
+
+fixpack_might_cheat_on_every_partner_first:0 "Vous pourriez tromper vos partenaires"
+fixpack_might_cheat_on_every_partner_third:0 "[current_char.Custom('FR_IlElle')|U] pourrait tromper ses partenaires"
+
+fixpack_faith_hostile_secret_witch:0 "Je connais son secret de sorcellerie"
+fixpack_faith_hostile_secret_deviant:0 "Je connais son secret de deviance"
+fixpack_faith_hostile_secret_incest:0 "Je connais son secret d'inceste"
+fixpack_faith_hostile_secret_cannibal:0 "Je connais son secret de cannibalisme"
+fixpack_faith_hostile_secret_homosexual:0 "Je connais son secret sur son homosexualité"
+fixpack_faith_hostile_secret_lover:0 "Je connais son secret sur ses relations"
+fixpack_faith_hostile_secret_non_believer:0 "Je connais son secret sur son incroyance"
+
+# fixpack_test:0 "[Select_CString( And(CHARACTER.IsFemale, Not(CHARACTER.IsFemale) ), 'ils', 'elles' )|V]"
+# fixpack_text2:0 "[Select_CString( actor.IsLocalPlayer, 'vous gagnez', 'votre adversaire gagne' )]"
+ fixpack_sinful:0 "[Select_CString( GreaterThan_int32( $NUM$, '(int32)1' ), 'immoral', 'immoraux' )]"
+
+CANNOT_DEMAND_CONVERSION_FROM_HOLY_ORDER_MASTER:0 "Vous ne pouvez pas exiger la conversion d’un Grand maître d’un [holy_order|El]"
+
+ notif_liege_for_child_guardian_death_title:0 "Décès [guardian.Custom('FR_DuDela')] tut[guardian.Custom('FR_EurRice')]"
+ notif_liege_for_child_guardian_death_desc:0 "[guardian.Custom('FR_LeLa')|U] tut[guardian.Custom('FR_EurRice')] [guardian.GetShortUIName] de votre [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))] [ward.Custom('FR_le_Char_U_Pi')|U][ward.GetShortUIName] est décédé[guardian.Custom('FR_E')]"
+
+ province_holder_is_of_a_megalith_faith_tt:0 "Le propriétaire ce [county|El] doit suivre une [faith|El] qui croit en l’importance des mégalithes."
+ birth.3012.t:0 "Bercé[child.Custom('FR_E')] par la Faucheuse"
+
+ relation_fatherinlaw:0 "beau-père"
+ relation_fatherinlaw_possessive:0 "du beau-père"
+
+ relation_motherinlaw:0 "mother-in-law"
+ relation_motherinlaw_possessive:0 "de la belle-mère"

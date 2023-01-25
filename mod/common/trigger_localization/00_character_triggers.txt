@@ -211,7 +211,7 @@ is_imprisoned = {
 	global = IS_IMPRISONED_TRIGGER
 	global_not = NOT_IS_IMPRISONED_TRIGGER
 	third = THIRD_IS_IMPRISONED_TRIGGER
-	third_not = THIRD_IS_IMPRISONED_TRIGGER
+	third_not = THIRD_NOT_IS_IMPRISONED_TRIGGER
 }
 
 is_independent_ruler = {
@@ -880,10 +880,18 @@ num_of_bad_genetic_traits_equal = {
 }
 
 num_virtuous_traits = {
-	first = I_HAVE_NUM_GOOD_CONGENITAL_TRAITS
-	global = HAS_NUM_GOOD_CONGENITAL_TRAITS
-	third = CHARACTER_HAS_NUM_GOOD_CONGENITAL_TRAITS
+	first = I_HAVE_NUM_VIRTUOUS_TRAITS
+	global = HAS_NUM_VIRTUOUS_TRAITS
+	third = CHARACTER_HAS_NUM_VIRTUOUS_TRAITS
 }
+
+# Fixpack, I've added this but is present in fact in trigger_localization\00_religion_triggers.txt
+# BUT only with global :/
+#num_sinful_traits = {
+#	first = I_HAVE_NUM_SINFUL_TRAITS
+#	global = HAS_NUM_SINFUL_TRAITS
+#	third = CHARACTER_HAS_NUM_SINFUL_TRAITS
+#}
 
 has_same_sinful_trait = {
 	first = I_SHARE_SINFUL_TRAIT_WITH

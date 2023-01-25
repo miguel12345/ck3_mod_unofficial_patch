@@ -11,7 +11,7 @@
 	}
 #
 	on_owner_death = {
-		scope:bp1_yearly_9007_doppelganger = {
+		var:doppelganger_character = {
 			silent_disappearance_effect = yes
 		}
 	}

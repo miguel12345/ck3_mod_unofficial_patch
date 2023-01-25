@@ -1,0 +1,148 @@
+﻿l_english:
+# localization\english\event_localization\lifestyle\scholarship\learning_theology_events_l_english.yml
+# Passion Play fanfiction drama, by James Beaumont
+ learning_theology.3051.desc.intro:0 "It has been brought to my attention that [passion_playwright.GetName], a renowned [ROOT.Char.GetFaith.GetReligion.GetAdjectiveNoTooltip] playwright, intends to hold a performance of [passion_playwright.GetHerHis] work titled:"
+
+ learning_theology.3054.b:0 "It is [ROOT.Char.Custom2('RelationToMeShort', family_actor)|U]’s time to shine!"
+ learning_theology.3054.c:0 "[ROOT.Char.Custom2('RelationToMeShort', random_actor)|U] is a natural charmer."
+
+ learning_theology.3054.b.tt:0 "[family_actor.GetName] will attempt to outperform [passion_playwright.GetName] in a duel using [family_actor.GetHerHis] [diplomacy_skill]."
+ learning_theology.3054.c.tt:0 "[random_actor.GetName] will attempt to outperform [passion_playwright.GetName] in a duel using [random_actor.GetHerHis] [diplomacy_skill]."
+
+ # localization\english\dlc\ep1\dlc_ep1_fund_inspiration_events_l_english.yml
+ fund_inspiration.2080.a:0 ""[rival.GetFirstNameNoTooltip] #EMP will#! ensure its quality, [inspiration_owner.GetFirstNameNoTooltip].""
+ fund_inspiration.2080.b:0 ""Stick to your own duties, [rival.GetFirstNameNoTooltip].""
+ fund_inspiration.2080.success:0 "[rival.GetFirstNameNoTooltip] improves [inspiration_owner.GetFirstNamePossessiveNoTooltip] work"
+ fund_inspiration.2080.failure:0 "[rival.GetFirstNameNoTooltip] stifles [inspiration_owner.GetFirstNameNoTooltip]"
+
+ # localization\english\event_localization\activities\playdate_events_l_english.yml
+ playdate.3013.desc:0 "We are playing in the forest when I suddenly find myself all alone; I could have sworn the others were just behind me!\n\nJust as I'm about to start screaming – so that they can find me, not because I'm #EMP scared#! – I stumble across [witch.Custom2('MyCharacterIntroduction', ROOT.Char)] dressed in a black cloak. [witch.GetSheHe|U] is crouched on the ground inspecting some weird looking plant, comparing it to one depicted in a big black tome open on the ground beside [witch.GetHerHim].\n\n"Hello my young [ROOT.Char.GetLadyLord]. Has the calling of knowledge led you out here to me?""
+
+ # game\localization\english\dlc\bp1\dlc_bp1_house_feud_story_l_english.yml
+ house_feud_cooldown_tt:0 "Your [house|E] will not be able to start another [house_feud|E] for 25 years"
+ house_reward_modifier_tt:0 "This modifier is based on your current [house_feud|E] score"
+
+# game\localization\english\event_localization\decisions\decision_petition_liege_l_english.yml
+ petition_liege_pay_debt_me_tt:1 "#X You are not at least [SCOPE.ScriptValue('fixpack_petitioner_debt_minimum_value')] gold in [debt|E] for at least 1 year."
+
+#
+ bp1_yearly.9020.desc.hof:0 "what it would be like to lay with the [ROOT.Char.GetFaith.ReligiousHeadName]? All that time, the [ROOT.Char.GetFaith.ReligiousHeadName]'s fingers spend sifting over the holy books, why imagine how it must feel! Be my [ROOT.Char.GetFaith.ReligiousHeadName] and make me your [ROOT.Char.GetFaith.ReligiousText]!""
+
+ task_foreign_affairs_fallback_effect_desc:0 "\n\nFellow Vassal Opinion: #P +[SCOPE.ScriptValue('chancellor_foreign_affairs_realm_opinion_scale')|1]#!"
+
+ RULER_DESIGNER_AGE:1 "#high [RulerDesignerWindow.GetAge]#! [Select_CString( GreaterThan_int32( RulerDesignerWindow.GetAge, '(int32)1' ), 'Years', 'Year' )]"
+
+#Inverted scopes for language ref. https://www.reddit.com/r/CrusaderKings/comments/z6ctzz/is_this_a_paradox_bug_or_an_elder_kings_bug/
+ murder_save.1014.desc:0 "One evening as I am preparing for bed, I hear two of my servants talking in hushed voices. It takes me a moment to realize they are speaking in [owner.GetCulture.GetLanguage.GetNameNoTooltip] rather than [ROOT.Char.GetCulture.GetLanguage.GetNameNoTooltip]. They clearly don't realize I can understand them.\n\n"Wait for [ROOT.Char.GetHerHim] to fall asleep. Then you keep watch while I slit [ROOT.Char.GetHerHis] throat".\n\nI swiftly exit my quarters to inform my guards that there are assassins in my room. Thank [ROOT.Char.GetFaith.HighGodName] I speak [owner.GetCulture.GetLanguage.GetNameNoTooltip]!"
+
+
+# new keys
+
+ NEW_RELIGIOUS_HEAD_TITLE_GLOBAL_DESC:1 "A [head_of_faith|E] is created for [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_GLOBAL_PAST_DESC:1 "A [head_of_faith|E] was created for [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_FIRST_DESC:0 "You become the [head_of_faith|E] of [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_FIRST_PAST_DESC:0 "You became the [head_of_faith|E] of [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_THIRD_DESC:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes the [head_of_faith|E] of [TARGET_CHARACTER.GetFaith.GetAdjective]"
+ NEW_RELIGIOUS_HEAD_TITLE_THIRD_PAST_DESC:0 "[TARGET_CHARACTER.GetShortUIName|U] became the [head_of_faith|E] of [TARGET_CHARACTER.GetFaith.GetAdjective]"
+
+#Used for holy order revocation (could be use for something else later)
+
+ TOP_LIEGE_EQUAL_FIRST:1 "You are a Top Liege of [TARGET_CHARACTER.GetShortUIName]"
+ NOT_TOP_LIEGE_EQUAL_FIRST:1 "You are #bold not#! a Top Liege of [TARGET_CHARACTER.GetShortUIName]"
+ TOP_LIEGE_EQUAL_THIRD:0 "[CHARACTER.GetShortUIName|U] is [TARGET_CHARACTER.GetShortUINamePossessive] Top Liege"
+ NOT_TOP_LIEGE_EQUAL_THIRD:0 "[CHARACTER.GetShortUIName|U] is #bold not#! [TARGET_CHARACTER.GetShortUINamePossessive] Top Liege"
+
+ #Used for both prisoners and house arrest "guests"
+ death_management.prisoner.title:0 "Your prisoner #high [dead_character.GetFirstNameNoTooltip]#! Died"
+ death_management.house_arrest.desc:0 "My prisoner, [dead_character.GetTitledFirstName], died in my house arrest."
+
+ death_management.mentor.title:0 "Mentor died"
+ death_management.mentor.desc:0 "Your [mentor|El] [mentor.GetShortUIName] died"
+
+ became_nemesis:0 "became nemesis"
+ became_nemesis_desc:0 "[nemesis.GetFullName] and I became nemesis"
+ became_nemesis_desc_second_perspective:0 "you and [nemesis.GetFullName] became nemesis"
+ became_nemesis_desc_third_perspective:0 "[nemesis.GetName] and [owner.GetFullName] became nemesis"
+
+ divorced:0 "$game_concept_divorce$"
+ divorced_desc:0 "I divorced [spouse.GetTitledFirstName]"
+ divorced_desc_second_perspective:0 "You divorced [spouse.GetTitledFirstName]"
+ divorced_desc_third_perspective:0 "[owner.GetFirstName] divorced [spouse.GetTitledFirstName]"
+
+ fixpack_compatible_personality_me:0 "My personality is matching with [target_char.GetHerHim]"
+ fixpack_compatible_personality_he_she:0 "Personality match with mine"
+
+ fixpack_attracted_by_me_first:0 "You are attracted by [TARGET_CHARACTER.GetHerHis] gender"
+ fixpack_attracted_by_me_first_not:0 "You are not attracted by [TARGET_CHARACTER.GetHerHis] gender"
+ fixpack_attracted_by_me_third:0 "[CHARACTER.GetSheHe|U] is attracted by your gender"
+ fixpack_attracted_by_me_third_not:0 "[CHARACTER.GetSheHe|U] is not attracted by your gender"
+
+ fixpack_faith_hostile_or_evil_first:0 "[target_char.GetHerHis|U] [faith|El] is $hostility_hostile_tooltippable$ or $hostility_evil_tooltippable$"
+ fixpack_faith_hostile_or_evil_third:0 "Our [faith|El] is $hostility_hostile_tooltippable$ or $hostility_evil_tooltippable$"
+ fixpack_faith_hostile_or_evil_first_not:0 "[target_char.GetHerHis|U] [faith|El] is not $hostility_hostile_tooltippable$ or $hostility_evil_tooltippable$"
+ fixpack_faith_hostile_or_evil_third_not:0 "Our [faith|El] is not $hostility_hostile_tooltippable$ or $hostility_evil_tooltippable$"
+
+fixpack_has_sinful_trait_for_my_faith:0 "[target_char.GetSheHe|U] has [sinful|E] for our [faith|El]"
+fixpack_has_sinful_trait_for_my_faith_not:0 "[target_char.GetSheHe|U] don't have [sinful|E] for our [faith|El]"
+fixpack_has_sinful_trait_for_their_faith:0 "You have [sinful|E] traits for [target_char.GetHerHis] [faith|El]"
+fixpack_has_sinful_trait_for_their_faith_not:0 "You don't have [sinful|E] traits for [target_char.GetHerHis] [faith|El]"
+
+fixpack_is_sinner_for_my_faith:0 "[target_char.GetSheHe|U] is a sinner for our [faith|El]"
+fixpack_is_sinner_for_my_faith_not:0 "[target_char.GetSheHe|U] is not a sinner for our [faith|El]"
+fixpack_is_sinner_for_their_faith:0 "You are a sinner for [target_char.GetHerHis] [faith|El]"
+fixpack_is_sinner_for_their_faith_not:0 "You are not a sinner for [target_char.GetHerHis] [faith|El]"
+
+fixpack_is_incestuous_for_my_faith_not:0 "This relation wouldn't be incestuous for our [faith|El]"
+fixpack_is_incestuous_for_their_faith_not:0 "This relation wouldn't be incestuous for [target_char.GetHerHis] [faith|El]"
+
+fixpack_is_sodomite_for_my_faith_not:0 "This relation wouldn't be viewed as sodomite by our [faith|El]"
+fixpack_is_sodomite_for_their_faith_not:0 "This relation wouldn't be viewed as sodomite by [target_char.GetHerHis] [faith|El]"
+
+fixpack_is_accepted_for_my_faith:0 "This relation would be accepted by our [faith|El]"
+fixpack_is_accepted_for_their_faith:0 "This relation would be accepted by [target_char.GetHerHis] [faith|El]"
+fixpack_is_accepted_for_my_faith_not:0 "This relation wouldn't be accepted by our [faith|El]"
+fixpack_is_accepted_for_their_faith_not:0 "This relation wouldn't be accepted by [target_char.GetHerHis] [faith|El]"
+
+fixpack_might_cheat_on_every_partner_first:0 "You might cheat your partners"
+fixpack_might_cheat_on_every_partner_third:0 "[current_char.GetSheHe|U] might cheat [current_char.GetHerHis] partners"
+
+fixpack_faith_hostile_secret_witch:0 "Secretly a witch"
+fixpack_faith_hostile_secret_deviant:0 "Secretly a deviant"
+fixpack_faith_hostile_secret_incest:0 "Secretly have incestous relation"
+fixpack_faith_hostile_secret_cannibal:0 "Secretly a cannibal"
+fixpack_faith_hostile_secret_homosexual:0 "Secretly an homosexual"
+fixpack_faith_hostile_secret_lover:0 "Secretly have a lover"
+fixpack_faith_hostile_secret_non_believer:0 "Secretly a non-believer"
+
+ ## 1.18
+
+ CHANGE_FERVOR_GLOBAL:1 "[FAITH.GetName|V]'s [fervor|E] increases by $VALUE|+0$"
+ CHANGE_FERVOR_GLOBAL_NEG:1 "[FAITH.GetName|V]'s [fervor|E] decreases by $VALUE|-0$"
+ CHANGE_FERVOR_GLOBAL_PAST:1 "[FAITH.GetName|V]'s [fervor|E] increased by $VALUE|+0$"
+ CHANGE_FERVOR_GLOBAL_PAST_NEG:1 "[FAITH.GetName|V]'s [fervor|E] decreased by $VALUE|-0$"
+
+ DESTROY_TITLE_GLOBAL:0 "[TARGET_TITLE.GetName|U] is destroyed"
+ DESTROY_TITLE_GLOBAL_PAST:0 "[TARGET_TITLE.GetName|U] was destroyed"
+
+ COPY_TITLE_HISTORY_EFFECT:0 "[TITLE.GetName] copy title history from [TARGET_TITLE.GetName]"
+ COPY_TITLE_HISTORY_PAST_EFFECT:0 "[TITLE.GetName] copied title history from [TARGET_TITLE.GetName]"
+
+ CANNOT_DEMAND_CONVERSION_FROM_HOLY_ORDER_MASTER:0 "You cannot Demand Conversion for the Grandmaster of a [holy_order|El]"
+
+ task_domestic_affairs_family_business_bonus_desc:2 "\n$TAB$$tradition_family_entrepreneurship_name$: #P +[SCOPE.ScriptValue('chancellor_domestic_affairs_opinion_family_business_bonus')|2]#!"
+ task_domestic_affairs_bureaucrats_bonus_desc:0 "\n$TAB$[GetDynastyPerk('erudition_legacy_5').GetName]: #P +[SCOPE.ScriptValue('chancellor_domestic_affairs_opinion_erudition_bonus')|2]#!"
+
+ notif_liege_for_child_guardian_death_title:0 "Guardian died"
+ notif_liege_for_child_guardian_death_desc:0 "The guardian [guardian.GetShortUIName] of your [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))] [ward.GetShortUIName] died"
+
+ province_holder_is_of_a_megalith_faith_tt:0 "The holder of this [county|E] must follow a [faith|E] that believes in the significance of Megaliths."
+ birth.3012.t:0 "$birth.3012.t$"
+
+ #bp1_yearly.9019.b:0 "Silence, [bp1_yearly_9019_lover.Custom('InsultNoun')]! I shall lay with [bp1_yearly_9019_lover.GetHerHim] alone!"
+ bp1_yearly.9019.b:0 "Silence, [bp1_yearly_9019_spouse.Custom('InsultNoun')]! I shall lay with [bp1_yearly_9019_lover.GetHerHim] alone!"
+
+ relation_fatherinlaw:0 "father-in-law"
+ relation_fatherinlaw_possessive:0 "father-in-law's"
+
+ relation_motherinlaw:0 "mother-in-law"
+ relation_motherinlaw_possessive:0 "mother-in-law's"

@@ -4147,19 +4147,13 @@ bp1_yearly.1081 = {
 		scope:relative = {
 			is_alive = yes
 		}
+		exists = scope:spouse
 		scope:spouse = {
 			is_alive = yes
 		}
 	}
 
 	immediate = {
-		scope:spouse = {
-			remove_courtier_or_guest = {
-				character = scope:relative
-				new_location = root.capital_province
-			}
-		}
-		add_courtier = scope:relative
 		reverse_add_opinion = {
 			target = scope:relative
 			modifier = grateful_opinion
@@ -4271,23 +4265,34 @@ bp1_yearly.1081 = {
 			type = murder
 			target = scope:spouse
 		}
-		random_scheme = {
+		if = {
 			limit = {
+				any_scheme = {
 				scheme_type = murder
 				scheme_target = scope:spouse
 				scheme_owner = root
 			}
-			save_scope_as = 1081_scheme
 		}
-		if = {
+			random_scheme = {
 			limit = {
-				scope:relative = { is_valid_as_agent_in_scheme = scope:1081_scheme }
+					scheme_type = murder
+					scheme_target = scope:spouse
+					scheme_owner = root
 			}
+				save_scope_as = 1081_scheme #FixPack: It's mandatory to save the scope, read next trigger comment.
 			scope:relative = {
+					if = {
+						limit = {
+							# if you use prev as target in this trigger it will throw an error (why???)
+							# that's why it's mandatory to save a scope before...
+							this = { is_valid_as_agent_in_scheme = scope:1081_scheme }
+						}
 				force_add_to_scheme = {
 					scheme = scope:1081_scheme
 					years = 20
 				}
+			}
+		}
 			}
 		}
 		reverse_add_opinion = {
@@ -4335,6 +4340,34 @@ bp1_yearly.1081 = {
 			ai_value_modifier = {
 				ai_energy = -1
 			}
+		}
+	}
+
+	#Fixpack: Had to change this in an after block,
+	# Because if the relative is no longer in the same location as the spouse, they will not join the murder scheme
+	after = {
+		if = {
+			limit = { scope:spouse = { is_landed = yes } }
+			scope:spouse = {
+				remove_courtier_or_guest = {
+					character = scope:relative
+					new_location = root.capital_province
+				}
+			}
+			add_courtier = scope:relative
+		}
+		else_if = {
+			limit = { exists = scope:spouse.court_owner }
+			scope:spouse.court_owner = {
+				remove_courtier_or_guest = {
+					character = scope:relative
+					new_location = root.capital_province
+				}
+			}
+			add_courtier = scope:relative
+		}
+		else = { # In case they are wandering in the wild
+			add_courtier = scope:relative
 		}
 	}
 }

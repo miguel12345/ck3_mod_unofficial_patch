@@ -515,6 +515,7 @@ family_business_court_poistion_aptitude_bonus = 20
 court_position_aptitude_family_business_value = {
 	if = {
 		limit = {
+			exists = liege
 			culture = liege.culture 
 			culture = { has_cultural_parameter = close_family_better_court_positions }
 			is_close_family_of = liege
@@ -761,6 +762,8 @@ court_language_ai_score = {
 	else_if = {
 		limit = {
 			scope:checking_native_language = no
+			#Fixpack: Check that target has a royal court, if not will flood the error.log
+			scope:target = { has_royal_court = yes }
 			has_same_court_language = scope:target
 		}
 		multiply = 1.5

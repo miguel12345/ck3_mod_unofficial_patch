@@ -4585,7 +4585,9 @@ invite_foreign_ruler_to = {
 					value = scope:recipient
 				}
 				show_as_tooltip = {
-					remove_short_term_gold = hunt_activity_cost
+					#remove_short_term_gold = hunt_activity_cost
+					#Fixpack: Was set to feast payment AND has scope issue cause it's not ROOT to do the event
+					remove_short_term_gold = fixpack_actor_hunt_activity_cost
 				}
 				send_interface_toast = {
 					title = invited_to_hunt.accept.actor.tt
@@ -4614,7 +4616,9 @@ invite_foreign_ruler_to = {
 					value = scope:recipient
 				}
 				show_as_tooltip = {
-					remove_short_term_gold = feast_activity_cost
+					#remove_short_term_gold = feast_activity_cost
+					#Fixpack: Was fixed to hunt payment in 1.18 BUT they didn't see that there is a scope issue because we are not at root
+					remove_short_term_gold = fixpack_actor_feast_activity_cost
 				}
 				send_interface_toast = {
 					title = invited_to_feast.accept.actor.tt
@@ -4831,7 +4835,9 @@ invite_foreign_ruler_to = {
 		OR = {
 			any_character_struggle = { involvement = involved }
 		}
-		short_term_gold > standard_activity_cost
+		# Fixpack: Because Feast are ALWAYS more expensive thant hunting, we check for this
+		# Original cost was only looking to the std_cost, but that mean that AI will try to set a feast without having the gold...
+		short_term_gold > feast_activity_cost
 	}
 
 	ai_target_quick_trigger = { adult = yes }

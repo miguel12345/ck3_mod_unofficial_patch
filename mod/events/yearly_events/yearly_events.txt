@@ -684,6 +684,11 @@ scripted_trigger yearly_0003_valid_relative = {
 		CHARACTER_2 = scope:valid_relative_check
 	}
 	relation_with_character_is_incestuous_in_my_faith_trigger = { CHARACTER = scope:child }
+
+	#Fixpack: Just make sure selected char is likely to cheat
+	might_cheat_on_every_partner_trigger = yes
+	#accepts_incest_with_trigger = { CHARACTER = scope:child } <= Can't add this because it will always return false...
+	#/Fixpack
 }
 
 scripted_trigger yearly_0003_can_approve_of_incest_trigger = {

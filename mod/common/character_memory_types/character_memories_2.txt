@@ -1,0 +1,55 @@
+﻿became_nemesis = {
+	categories = { negative relationships nemesis }
+	icon = "nemesis.dds"
+	description = {
+		random_valid = {
+			desc = became_nemesis_desc
+		}
+	}
+
+	second_perspective_description = {
+		random_valid = {
+			desc = became_nemesis_desc_second_perspective
+		}
+	}
+
+	third_perspective_description = {
+		random_valid = {
+			desc = became_nemesis_desc_third_perspective
+		}
+	}
+
+	participants = { nemesis }
+
+	duration = {
+		years = memory_default_duration
+	}
+}
+
+divorced = {
+	categories = { negative marriage }
+	icon = "marriage.dds"
+	description = {
+		random_valid = {
+			desc = divorced_desc
+		}
+	}
+
+	second_perspective_description = {
+		random_valid = {
+			desc = divorced_desc_second_perspective
+		}
+	}
+
+	third_perspective_description = {
+		random_valid = {
+			desc = divorced_desc_third_perspective
+		}
+	}
+
+	participants = { spouse }
+
+	duration = {
+		years = memory_default_duration
+	}
+}

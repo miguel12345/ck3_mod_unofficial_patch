@@ -138,7 +138,7 @@ fabricate_hook_assign_appropriate_type_effect = {
 				}
 			}
 			send_interface_toast = {
-				title = fabricate_hook_gained_indebted_title
+				title = fabricate_hook_gained_threat_title
 				left_icon = scope:target
 				add_hook = {
 					type = life_threat_hook

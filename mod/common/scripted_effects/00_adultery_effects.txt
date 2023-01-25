@@ -319,6 +319,9 @@ extramarital_sex_discovery_consequences_with_target_effect = {
 				limit = {
 					has_relation_soulmate = scope:sex_character
 					soulmate_relation_is_exclusive_trigger = yes
+					# Fixpack: Make sure the target of the secret is not the discoverer
+					NOT = { $TARGET$ = $DISCOVERER$ }
+					# /Fixpack
 				}
 				add_opinion = {
 					target = scope:sex_character

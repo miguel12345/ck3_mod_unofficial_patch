@@ -1059,7 +1059,7 @@ witch.3001 = {
 
 	immediate = {
 		scope:activity.activity_owner = { save_scope_as = host }
-		debug_log = invitation_received
+		#debug_log = invitation_received
 	}
 
   	#Yes!
@@ -1115,7 +1115,7 @@ witch.3002 = { #by Mathilda Bjarnehed
 	desc = witch.3002.desc
 	theme = witchcraft
 	left_portrait = {
-		character = scope:target
+		character = scope:activity.activity_owner
 		animation = sadness
 	}
 
@@ -1469,7 +1469,6 @@ witch.3010 = { #by Mathilda Bjarnehed
 		}
 		name = witch.3010.e
 		custom_tooltip = witch.3010.e.tt
-
 	}
 
 	after = {
@@ -1614,9 +1613,10 @@ witch.3014 = { #by Mathilda Bjarnehed
 	lower_center_portrait = scope:lower_center_portrait
 	lower_right_portrait = scope:lower_right_portrait
 
-
-
 	immediate = {
+		scope:activity.activity_owner = {
+			capital_province = { save_scope_as = background_wilderness_scope }
+		}
 		#Tell everyone secret about everyone else
 		hidden_effect = {
 			scope:activity = {
@@ -1643,6 +1643,8 @@ witch.3014 = { #by Mathilda Bjarnehed
 
 			if = {
 				limit = {
+					#FixPack: Add an exists check, the option witch.3010.e does not set the scope
+					exists = scope:grand_rite_ceremony_outcome
 					OR = {
 						scope:grand_rite_ceremony_outcome = flag:great_translation
 						scope:grand_rite_ceremony_outcome = flag:great_tricks
@@ -1652,8 +1654,19 @@ witch.3014 = { #by Mathilda Bjarnehed
 				}
 				grand_rite_good_outcome = yes
 			}
-			else = {
+			else_if = {
+				limit = {
+					exists = scope:grand_rite_ceremony_outcome
+					OR = {
+						scope:grand_rite_ceremony_outcome = flag:poor_translation
+						scope:grand_rite_ceremony_outcome = flag:poor_tricks
+						scope:grand_rite_ceremony_outcome = flag:poor_improvisation
+					}
+				}
 				grand_rite_poor_outcome = yes
+			}
+			else = {
+				#FixPack The event witch.3010.e state that nothing happen so nothing good/bad...
 			}
 		}
 
@@ -1999,6 +2012,13 @@ witch.3014 = { #by Mathilda Bjarnehed
 		trigger = {
 			exists = scope:sex_partner
 			NOT = { has_relation_soulmate = scope:sex_partner }
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			OR = {
+				is_ai = no
+				might_cheat_on_every_partner_trigger = yes
+			}
+			is_attracted_to_gender_of = scope:sex_partner
+			#/Fixpack
 		}
 		name = witch.3014.c
 		custom_tooltip = witch.3014.c.tt
@@ -2144,7 +2164,10 @@ witch.3015 = { #by Mathilda Bjarnehed
 		desc = witch.3015.start.desc
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:sex_partner = scope:new_guest }
+				trigger = {
+					exists = scope:new_guest
+					scope:sex_partner = scope:new_guest
+				}
 				desc = witch.3015.new_guest.desc
 			}
 			desc = witch.3015.regular.desc
@@ -2158,6 +2181,12 @@ witch.3015 = { #by Mathilda Bjarnehed
 	left_portrait = {
 		character = scope:sex_partner
 		animation = flirtation
+	}
+
+	immediate = {
+		scope:activity.activity_owner = {
+			capital_province = { save_scope_as = background_wilderness_scope }
+		}
 	}
 
 	#Yes
@@ -2202,6 +2231,12 @@ witch.3016 = { #by Mathilda Bjarnehed
 		animation = love
 	}
 	
+	immediate = {
+		scope:activity.activity_owner = {
+			capital_province = { save_scope_as = background_wilderness_scope }
+		}
+	}
+
 	#Yes
 	option = {
 		name = witch.3016.a
@@ -2241,6 +2276,12 @@ witch.3017 = { #by Mathilda Bjarnehed
 		animation = love
 	}
 	
+	immediate = {
+		scope:activity.activity_owner = {
+			capital_province = { save_scope_as = background_wilderness_scope }
+		}
+	}
+
 	#Yes
 	option = {
 		name = witch.3017.a
@@ -2280,7 +2321,9 @@ witch.3098 = { #by Mathilda Bjarnehed
 	trigger = { exists = scope:activity }
 
 	immediate = {
+		scope:activity.activity_owner = {
 		capital_province = { save_scope_as = background_wilderness_scope }
+	}
 	}
 	
 	option = {
@@ -2310,6 +2353,12 @@ witch.3099 = { #by Mathilda Bjarnehed
 	}
 	left_portrait = root
 	
+	immediate = {
+		scope:activity.activity_owner = {
+			capital_province = { save_scope_as = background_wilderness_scope }
+		}
+	}
+
 	option = {
 		name = witch.3098.a
 		custom_tooltip = witch.3099.tt
@@ -3262,7 +3311,7 @@ witch.4010 = { #by Mathilda Bjarnehed
 	desc = witch.4010.desc
 	theme = witchcraft
 	override_background = {
-		event_background = wilderness
+		event_background = wilderness_scope
 	}
 	left_portrait = root
 	
@@ -3276,6 +3325,8 @@ witch.4010 = { #by Mathilda Bjarnehed
 	}
 
 	immediate = {
+		capital_province = { save_scope_as = background_wilderness_scope }
+
 		add_character_flag = {
 			flag = event_cooldown_witch_4010
 			days = 1825
@@ -3413,7 +3464,7 @@ witch.4020 = { #by Mathilda Bjarnehed
 	}
 	theme = witchcraft
 	override_background = {
-		event_background = wilderness
+		event_background = wilderness_scope
 	}
 	left_portrait = scope:prayer_witch_1
 	right_portrait = scope:prayer_witch_2
@@ -3443,6 +3494,8 @@ witch.4020 = { #by Mathilda Bjarnehed
 
 
 	immediate = {
+		capital_province = { save_scope_as = background_wilderness_scope }
+
 		add_character_flag = {
 			flag = event_cooldown_witch_4020
 			years = 15
@@ -4157,7 +4210,3 @@ witch.4032 = { #by Mathilda Bjarnehed
 			scope:convince_target = { witch_4030_convince_failure_effect = yes }
 	}
 }
-
-
-
-

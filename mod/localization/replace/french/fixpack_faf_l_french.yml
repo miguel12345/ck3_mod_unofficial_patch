@@ -1,0 +1,104 @@
+﻿ l_french:
+
+# Friend & foes DLC
+# This file should only contains phrases about Friend & foes DLC
+
+# Minor fix
+ house_feud_tipped_scales_pos_small:0 "L’équilibre penche légèrement en notre faveur"
+
+ THEY_GET_FRIEND:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName|U] et [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] [TARGET_CHARACTER.LocalPlayerString( 'devenez', 'deviennent' )] [friend|El][Select_CString( And(CHARACTER.IsFemale, TARGET_CHARACTER.IsFemale), 'es', 's' )]"
+
+ nemesis_skinned_cat:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] a juré[TARGET_CHARACTER.Custom('FR_E')] de n’avoir de cesse de se venger [CHARACTER.Custom('FR_du_Char_U_Pi')][CHARACTER.GetShortUINameNoTooltip], qui a tué et écorché [TARGET_CHARACTER.GetShortUINamePossessiveNoTooltip] chat."
+ nemesis_skinned_cat_corresponding:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] a juré[CHARACTER.Custom('FR_E')] de n’avoir de cesse de se venger [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUINameNoTooltip], qui a tué et écorché [CHARACTER.GetShortUINamePossessiveNoTooltip] chat."
+
+ friend_drinking_buddies:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName|U] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont rapproché[Select_CString( And(CHARACTER.IsFemale, TARGET_CHARACTER.IsFemale), 'es', 's' )] en dégustant bières, vins, liqueurs et autres spiritueux."
+ friend_shared_lewd_humor:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont rapproché[Select_CString( And(CHARACTER.IsFemale, TARGET_CHARACTER.IsFemale), 'es', 's' )], suite à une grivoiserie."
+ friend_dinner:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont rapproché[Select_CString( And(CHARACTER.IsFemale, TARGET_CHARACTER.IsFemale), 'es', 's' )] au cours d’une agréable conversation, devant un bon dîner."
+ friend_common_ground:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] ont noué une amitié au cours de moult conversations, durant lesquelles $fixpack_ils_elles_s$ se sont trouvé de nombreux points communs."
+ friend_hit_it_off:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] sont devenu$fixpack_es_s$ inséparables lors d’une rencontre organisée à la Cour [TARGET_CHARACTER_2.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName]."
+
+ test_rival_desc:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] a juré[TARGET_CHARACTER.Custom('FR_E')] de n’avoir de cesse de se venger [CHARACTER.Custom('FR_du_Char_U_Pi')][CHARACTER.GetShortUINameNoTooltip], qui a tué son chien."
+ test_rival_desc_corresponding:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] $fixpack_avez_a$ juré[CHARACTER.Custom('FR_E')] de n’avoir de cesse de se venger [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUINameNoTooltip], qui a tué [CHARACTER.GetShortUINamePossessiveNoTooltip] chien."
+ test_nemesis_desc:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] a juré[TARGET_CHARACTER.Custom('FR_E')] de n’avoir de cesse de se venger [CHARACTER.Custom('FR_du_Char_U_Pi')][CHARACTER.GetShortUINameNoTooltip], qui a tué, cuit et mangé son chien préféré."
+ test_nemesis_desc_corresponding:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName|U] $fixpack_avez_a$ juré[CHARACTER.Custom('FR_E')] de n’avoir de cesse de se venger [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUINameNoTooltip], qui a tué, cuit et mangé [CHARACTER.GetShortUINamePossessiveNoTooltip] chien préféré."
+
+# vous était => vous étiez
+ rival_no_longer_nemesis:0 "Autrefois, [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] [Select_CString( CHARACTER.IsLocalPlayer, 'étiez', 'était' )] l’ennemi[CHARACTER.Custom('FR_E')] juré[CHARACTER.Custom('FR_E')] [TARGET_CHARACTER.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName]."
+
+ rival_lost_duel:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName|U] a vaincu [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] en duel."
+ rival_lost_duel_corresponding:1 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName|U] $fixpack_avez_a$ vaincu [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] en duel."
+
+ rival_betrayed_friendship:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName|U] a été trahi[TARGET_CHARACTER.Custom('FR_E')] par [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName]."
+ rival_betrayed_friendship_corresponding:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName|U] $fixpack_avez_a$ été trahi[TARGET_CHARACTER.Custom('FR_E')] par [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName]."
+
+ best_friend_switch_places:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] sont les meilleur$fixpack_es_s$ ami$fixpack_es_s$ du monde, depuis qu’$fixpack_ils_elles_s$ ont échangé leurs places pour un jour."
+
+ friend_vassal_childhood:0 "Durant leur enfance, [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont rapproché$fixpack_es_s$, car on les encourageait à jouer ensemble."
+ friend_feast_talking_and_laughing:0 "À l’occasion d’un banquet, [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont rapproché$fixpack_es_s$ en passant un bon moment."
+
+ friend_shared_rivals:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] ont été rapproché$fixpack_es_s$ par leur haine commune [TARGET_CHARACTER_2.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName]."
+
+ friend_fishing_trip:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] sont parti$fixpack_es_s$ ensemble pour une agréable partie de pêche."
+ friend_fishing_trip_corresponding:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] et [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] sont parti$fixpack_es_s$ ensemble pour une agréable partie de pêche."
+
+ friend_random_9:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont rapproché$fixpack_es_s$ lors d’une promenade dans la capitale de [PROVINCE.GetName], qui appartient [TARGET_CHARACTER_2.Custom('FR_au_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName]."
+
+ friend_saved_life_together:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont rapproché$fixpack_es_s$ en sauvant ensemble la vie d’un soldat blessé."
+
+ rival_random_5:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont bagarré$fixpack_es_s$, alors qu’$fixpack_ils_elles_s$ logeaient sous le même toit en [PROVINCE.GetName]."
+ rival_random_6:0 "Tandis qu’$fixpack_ils_elles_s$ servaient à la Cour [TARGET_CHARACTER_2.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName], [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] en sont venu$fixpack_es_s$ aux mains, tant leurs avis en matière de politique divergeaient."
+ rival_random_7:0 "Tandis qu’$fixpack_ils_elles_s$ servaient à la Cour [TARGET_CHARACTER_2.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName], [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont fait une rude concurrence."
+ rival_random_8:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont adonné$fixpack_es_s$ à une bagarre de nourriture puérile, dans le réfectoire [TARGET_CHARACTER_2.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName]"
+ rival_random_9:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont brouillé$fixpack_es_s$ lors d’une promenade dans la capitale de [PROVINCE.GetName], qui appartient [TARGET_CHARACTER_2.Custom('FR_au_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName]."
+
+#common\Crusader Kings III\game\localization\french\effects_l_french.yml
+ THEY_GET_LOVER:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] et [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] [TARGET_CHARACTER.LocalPlayerString( 'devenez', 'deviennent' )] amant$fixpack_es_s$"
+#localization\french\relationship_reasons_l_french.yml
+ lover_woods:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] a séduit [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] pendant une chasse dans les [PROVINCE.Custom('FR_TerrainTypeProvince_Plural')] de [PROVINCE.GetName]."
+ lover_woods_corresponding:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] a séduit [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] pendant une chasse dans les [PROVINCE.Custom('FR_TerrainTypeProvince_Plural')] de [PROVINCE.GetName]."
+
+ best_friend_encouraged_bonding_at_court:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] et [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] sont devenu$fixpack_es_s$ meilleur$fixpack_es_s$ ami$fixpack_es_s$, après des encouragements à s’épauler mutuellement à la Cour [TARGET_CHARACTER_2.Custom('FR_du_Char_U_Pi')][TARGET_CHARACTER_2.GetShortUIName]."
+
+ nemesis_house_feud:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] sont impliqué$fixpack_es_s$ dans une violente querelle entre leurs Maisons."
+
+ nemesis_died_desc:3 "mon ennemi[dead_relation.Custom('FR_E')] juré[dead_relation.Custom('FR_E')], [dead_relation.Custom('FR_le_Char_P')][dead_relation.GetFullName], [dead_relation.GetDeathReasonHideKiller]"
+ nemesis_died_desc_second_perspective:3 "votre ennemi[dead_relation.Custom('FR_E')] juré[dead_relation.Custom('FR_E')], [dead_relation.Custom('FR_le_Char_P')][dead_relation.GetFullName], [dead_relation.GetDeathReasonHideKiller]"
+ nemesis_died_desc_third_perspective:3 "l’ennemi[dead_relation.Custom('FR_E')] juré[dead_relation.Custom('FR_E')] de [owner.GetFirstName], [dead_relation.Custom('FR_le_Char_P')][dead_relation.GetFullName], [dead_relation.GetDeathReasonHideKiller]"
+
+#localization\french\relationship_reasons_l_french.yml
+ best_friend_language_help:0 "[TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')|U][TARGET_CHARACTER.GetShortUIName] a fait preuve d’une grande patience en aidant [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] à apprendre la langue [TARGET_CHARACTER_2.GetCulture.GetLanguage.GetName|l]. Depuis, ce sont les meilleur$fixpack_es_s$ ami$fixpack_es_s$ du monde."
+ best_friend_language_help_corresponding:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] a fait preuve d’une grande patience en aidant [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] à apprendre la langue [TARGET_CHARACTER_2.GetCulture.GetLanguage.GetName|l]. Depuis, ce sont les meilleur$fixpack_es_s$ ami$fixpack_es_s$ du monde."
+
+ # Helpers
+
+ fixpack_es_s:0 "[Select_CString( And(CHARACTER.IsFemale, TARGET_CHARACTER.IsFemale), 'es', 's' )]"
+ fixpack_ils_elles_s:0 "[Select_CString( And(CHARACTER.IsFemale, TARGET_CHARACTER.IsFemale), 'elles', 'ils' )]"
+ fixpack_avez_a:0 "[Select_CString(CHARACTER.IsLocalPlayer, 'avez', 'a')]"
+
+
+ fixpack_nemesis_es_s:0 "[Select_CString( And(owner.IsFemale, nemesis.IsFemale), 'es', 's' )]"
+ became_nemesis:0 "sont devenus ennemi$fixpack_nemesis_es_s$ juré$fixpack_nemesis_es_s$"
+ became_nemesis_desc:0 "[nemesis.Custom('FR_le_Char_P')][nemesis.GetFullName] et moi sommes devenus ennemi$fixpack_nemesis_es_s$ juré$fixpack_nemesis_es_s$"
+ became_nemesis_desc_second_perspective:0 "[nemesis.Custom('FR_le_Char_P')][nemesis.GetFullName] et vous êtes devenus ennemi$fixpack_nemesis_es_s$ juré$fixpack_nemesis_es_s$"
+ became_nemesis_desc_third_perspective:0 "[nemesis.Custom('FR_le_Char_Pi')][nemesis.GetTitledFirstName] et [owner.Custom('FR_le_Char_P')][owner.GetFullName] sont devenus ennemi$fixpack_nemesis_es_s$ juré$fixpack_nemesis_es_s$"
+
+ divorced:0 "$game_concept_divorce$"
+ divorced_desc:0 "J'ai divorcé[owner.Custom('FR_E')] [spouse.Custom('FR_du_Char_Pi')][spouse.GetTitledFirstName]"
+ divorced_desc_second_perspective:0 "Vous avez divorcé[owner.Custom('FR_E')] [spouse.Custom('FR_du_Char_Pi')][spouse.GetTitledFirstName]"
+ divorced_desc_third_perspective:0 "[owner.GetFirstName] a divorcé[owner.Custom('FR_E')] [spouse.Custom('FR_du_Char_Pi')][spouse.GetTitledFirstName]"
+
+ #1.18
+
+ # rival_bickering:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont disputé[CHARACTER.Custom2('FR_SEs', SCOPE.sC('TARGET_CHARACTER'))] l’attention de leur seigneur lige."
+ rival_bickering:0 "[CHARACTER.Custom('FR_le_Char_U_Pi')|U][CHARACTER.GetShortUIName] et [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] se sont disputé$fixpack_es_s$ l’attention de leur seigneur lige."
+
+# bp1_yearly.9019.b:0 "Silence, [bp1_yearly_9019_lover.Custom('InsultNoun')] ! Laissez-moi seul[ROOT.Char.Custom('FR_E')] avec [bp1_yearly_9019_lover.Custom('FR_LuiElle')] !"
+ bp1_yearly.9019.b:0 "Silence, [bp1_yearly_9019_spouse.Custom('InsultNoun')] ! Laissez-moi seul[ROOT.Char.Custom('FR_E')] avec [bp1_yearly_9019_lover.Custom('FR_LuiElle')] !"
+
+# intrigue_temptation.3000.b:1 "Alors, m[guest_lover.Custom('FR_OnA')] chéri[guest_lover.Custom('FR_E')], qu’en est-il de cette rumeur sur m[juicy_secret_owner.Custom('FR_OnA')] vassal[juicy_secret_owner.Custom('FR_E')] ?"
+ intrigue_temptation.3000.b:1 "Alors, m[guest_lover.Custom('FR_OnA')] chéri[guest_lover.Custom('FR_E')], qu’en est-il de cette rumeur sur l’un de mes vassaux ?"
+# intrigue_temptation.3000.b.tt:0 "J’essaie de lui faire révéler le secret de m[juicy_secret_owner.Custom('FR_OnA')] vassal[juicy_secret_owner.Custom('FR_E')]"
+ intrigue_temptation.3000.b.tt:0 "J’essaie de lui faire révéler le secret d’un de mes vassaux"
+
+ rival_repelled_during_visit:0 "À l’occasion d’une visite, [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName] a insulté [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName], alors qu’$fixpack_ils_elles_s$ se disputaient sans cesse."
+ rival_repelled_during_visit_corresponding:0 "À l’occasion d’une visite, [TARGET_CHARACTER.Custom('FR_le_Char_U_Pi')][TARGET_CHARACTER.GetShortUIName] a insulté [CHARACTER.Custom('FR_le_Char_U_Pi')][CHARACTER.GetShortUIName], alors qu’$fixpack_ils_elles_s$ se disputaient sans cesse."

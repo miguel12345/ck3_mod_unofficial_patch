@@ -600,7 +600,7 @@ bp1_yearly.7003 = {
 			NOT = { this = scope:tapestry_maker }
 		}
 		any_courtier = {
-			is_available_ai_adult = yes
+			is_available_healthy_ai_adult = yes
 			NOT = { this = scope:tapestry_maker }
 			count > 4
 		}
@@ -623,10 +623,7 @@ bp1_yearly.7003 = {
 			}
 			hidden_effect = {
 				random_courtier = {
-					limit = {
-						is_available_healthy_ai_adult = yes
-
-					}
+					limit = { is_available_healthy_ai_adult = yes }
 
 					weight = {
 						base = 1
@@ -641,10 +638,7 @@ bp1_yearly.7003 = {
 						}
 					}
 						
-
-					add_secret = {
-						type = secret_deviant
-					}
+					add_secret = { type = secret_deviant }
 					save_scope_as = orgy_tapestry_maker
 				}
 			}
@@ -699,12 +693,10 @@ bp1_yearly.7003 = {
 			trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = deviant GENDER_CHARACTER = root }
 		}
 
-
 		scope:tapestry_maker_secret = {
 			expose_secret = root
 		}
 
-		
 		stress_impact = {   
 			compassionate = medium_stress_impact_gain
 			deviant = medium_stress_impact_gain
@@ -716,8 +708,6 @@ bp1_yearly.7003 = {
 				ai_boldness = 1  
 			}
 		}
-
-
 	}
 
 	option = { #Get Artifact
@@ -3530,7 +3520,12 @@ bp1_yearly.7058 = {
 		}
 		
 		scope:greedy_courtier = {
+			#Fixpack: Check if the relation can be set before setting it
+			if = {
+				limit = { can_set_relation_friend_trigger = { CHARACTER = root } }
 			set_relation_friend = { reason = friend_bonded_over_food target = root }
+			}
+			#/Fixpack
 			hidden_effect = {
 				change_current_weight = 20
 			}

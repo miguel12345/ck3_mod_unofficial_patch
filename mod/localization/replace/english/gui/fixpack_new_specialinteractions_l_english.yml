@@ -1,0 +1,2 @@
+﻿l_english:
+ fixpack_jizya_religious_protection_tt: "[feudal_contract|E] starts with [GetVassalContractType( 'jizya_special_rights' ).GetObligationName( 'jizya_special_rights_granted' )]"

@@ -580,7 +580,7 @@ window = {
 									}
 
 									button_standard = {
-										visible = "[GuiCultureTradition.IsNextAvailable)]"
+										visible = "[GuiCultureTradition.IsNextAvailable]"
 										onclick = "[Culture.OpenAddTraditionWindow]"
 										size = { 276 138 }
 

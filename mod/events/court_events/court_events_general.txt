@@ -3053,7 +3053,14 @@ scripted_effect court_3000_blossoming_friendship_effect = {
 				title = court.3000.c.tt.success
 				left_icon = scope:family_member
 				right_icon = scope:foreign_guest
-				scope:foreign_guest = { set_relation_best_friend = { reason = best_friend_encouraged_bonding_at_court copy_reason = friend target = scope:family_member involved_character = root } }
+				scope:foreign_guest = {
+					set_relation_best_friend = {
+						reason = best_friend_encouraged_bonding_at_court
+						copy_reason = friend
+						target = scope:family_member
+						involved_character = root
+					}
+				}
 			}
 		}
 	}
@@ -9832,6 +9839,14 @@ scripted_effect court_4751_flag_removal_effect = {
 court.4751 = {
 	type = character_event
 	title = court.4750.t
+	left_portrait = {
+		character = scope:owner
+		animation = idle
+	}
+	right_portrait = {
+		character = scope:poet
+		animation = chancellor
+	}
 	desc = {
 		desc = court.4751.intro
 		first_valid = {
@@ -10977,6 +10992,7 @@ court.4804 = {
 			has_court_event_flag = no
 			NOT = {
 				is_close_family_of = root
+				is_consort_of = root # Fixpack: Missing this in the trigger that is in the immediate!
 			}
 			save_temporary_scope_as = roomate_check
 		}
@@ -10986,6 +11002,7 @@ court.4804 = {
 			has_court_event_flag = no
 			NOR = {
 				is_close_family_of = root
+				is_consort_of = root # Fixpack: Missing this in the trigger that is in the immediate!
 				this = scope:roomate_check
 				has_relation_rival = scope:roomate_check
 			}
@@ -11027,6 +11044,7 @@ court.4804 = {
 					is_close_family_of = root
 					is_consort_of = root
 					this = scope:roomate_1
+					has_relation_rival = scope:roomate_1 # Fixpack: Missing this, is in the trigger!
 				}
 				is_available_ai_adult = yes
 			}
@@ -15961,6 +15979,15 @@ court.6050 = {
 				has_focus = intrigue_temptation_focus
 			}
 			is_attracted_to_gender_of = scope:courtier
+			#Fixpack: Make sure the courtier is attracted by our gender
+			scope:courtier = { is_attracted_to_gender_of = root }
+			#/Fixpack
+			#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+			OR = {
+				is_ai = no
+				might_cheat_on_every_partner_trigger = yes
+			}
+			#/Fixpack
 		}
 		custom_tooltip = court.6050.e.tt
 		if = {
@@ -23634,6 +23661,7 @@ court.8080 = {
     option = { # Increase the amenity
 		name = court.8080.a
 		change_current_court_grandeur = medium_court_grandeur_gain
+		trigger = { exists = var:court_8080_amenity }
 		switch = {
 			trigger = var:court_8080_amenity
 			0 = {
@@ -23736,7 +23764,7 @@ court.8080 = {
 		}
 		name = {
 			trigger = {
-				scope:parent = { is_female = yes }
+				scope:parent = { is_female = no }
 				amenity_level = { type = court_servants value < high_amenity_level }
 			}
 			text = court.8080.c.monk
@@ -23795,7 +23823,10 @@ court.8080 = {
 			trigger = { var:court_8080_amenity = 3 }
 			text = court.8080.d.food
 		}
-		trigger = { var:court_8080_amenity <= 2 }
+		trigger = {
+			exists = var:court_8080_amenity
+			var:court_8080_amenity <= 2
+		}
 		add_dread = miniscule_dread_gain
 		scope:parent = {
 			add_character_modifier = {
@@ -24447,7 +24478,7 @@ court.8110 = {
     	random_prisoner = {
     		limit = {
     			court_8110_prisoner_trigger = yes
-    			NOT = { is_close_or_extended_family_of = scope:executioner }
+				NOT = { is_close_or_extended_family_of = scope:my_executioner }
     		}
     		weight = {
     			base = 1
@@ -24463,14 +24494,14 @@ court.8110 = {
     		limit = {
     			any_prisoner = {
     				court_8110_prisoner_trigger = yes
-    				NOT = { is_close_or_extended_family_of = scope:executioner }
+					NOT = { is_close_or_extended_family_of = scope:my_executioner }
     				NOT = { THIS = scope:prisoner_1 }
     			}
     		}
     		random_prisoner = {
     			limit = {
     				court_8110_prisoner_trigger = yes
-    				NOT = { is_close_or_extended_family_of = scope:executioner }
+					NOT = { is_close_or_extended_family_of = scope:my_executioner }
     				NOT = { THIS = scope:prisoner_1 }
     			}
 	    		weight = {

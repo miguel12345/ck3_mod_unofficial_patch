@@ -127,7 +127,7 @@ widget = {
 			size = { 1920 1400 }
 			alwaystransparent = yes
 
-			portrait_texture = "[FrontEndMainView.GetSecondaryCharacterTexture('camera_main_menu_secondary', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes'))]"
+			portrait_texture = "[FrontEndMainView.GetSecondaryCharacterTexture('camera_main_menu_secondary', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes')]"
 			mask = "gfx/portraits/portrait_mask_solid.dds"
 
 			blockoverride "grayscale" {}
@@ -148,7 +148,7 @@ widget = {
 			size = { 1920 1400 }
 			alwaystransparent = yes
 
-			portrait_texture = "[FrontEndMainView.GetSecondaryCharacterTexture('camera_main_menu_secondary_sitting_child', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes'))]"
+			portrait_texture = "[FrontEndMainView.GetSecondaryCharacterTexture('camera_main_menu_secondary_sitting_child', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes')]"
 			mask = "gfx/portraits/portrait_mask_solid.dds"
 
 			blockoverride "grayscale" {}
@@ -190,7 +190,7 @@ widget = {
 			size = { 1920 1400 }
 			alwaystransparent = yes
 
-			portrait_texture = "[FrontEndMainView.GetMainCharacterTexture('camera_main_menu_main', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes'))]"
+			portrait_texture = "[FrontEndMainView.GetMainCharacterTexture('camera_main_menu_main', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes')]"
 			mask = "gfx/portraits/portrait_mask_solid.dds"
 
 			blockoverride "grayscale" {}
@@ -211,7 +211,7 @@ widget = {
 			size = { 1920 1400 }
 			alwaystransparent = yes
 
-			portrait_texture = "[FrontEndMainView.GetMainCharacterTexture('camera_main_menu_main_sitting_child', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes'))]"
+			portrait_texture = "[FrontEndMainView.GetMainCharacterTexture('camera_main_menu_main_sitting_child', PdxGetWidgetScreenSize(PdxGuiWidget.Self), '(bool)yes')]"
 			mask = "gfx/portraits/portrait_mask_solid.dds"
 
 			blockoverride "grayscale" {}

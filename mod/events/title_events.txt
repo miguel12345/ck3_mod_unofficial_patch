@@ -316,7 +316,7 @@ title_event.0015 = {
 
 		progress_towards_rival_effect = {
 			REASON = rival_leon_formed
-			CHARACTER = scope:castille_char
+			CHARACTER = scope:leon_char
 			OPINION = default_rival_opinion
 		}
 
@@ -335,7 +335,7 @@ title_event.0015 = {
 
 		progress_towards_friend_effect = {
 			REASON = friend_castille_leon
-			CHARACTER = scope:castille_char
+			CHARACTER = scope:leon_char
 			OPINION = default_friend_opinion
 		}
 

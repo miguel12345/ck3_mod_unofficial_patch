@@ -332,6 +332,10 @@ scripted_trigger appropriate_guest_to_become_lover_trigger = {
 		has_relation_rival = root
 		is_married = yes
 	}
+
+	is_attracted_to_gender_of = root
+	might_cheat_on_every_partner_trigger = yes
+	accepts_incest_with_trigger = { CHARACTER = root }
 }
 
 intrigue_temptation.3000 = {
@@ -426,6 +430,20 @@ intrigue_temptation.3000 = {
 	option = { # Take them as a lover, then they leave (perfect agent in the future!)
 		name = intrigue_temptation.3000.a
 		
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:guest_lover
+					might_cheat_on_every_partner_trigger = yes
+					accepts_incest_with_trigger = { CHARACTER = scope:guest_lover }
+				}
+			}
+		}
+		#/Fixpack
+
 		had_sex_with_effect = {
 			CHARACTER = scope:guest_lover
 			PREGNANCY_CHANCE = pregnancy_chance
@@ -458,8 +476,8 @@ intrigue_temptation.3000 = {
 		trigger = {
 			any_vassal = { # There must be a Vassal which we don't know a secret of
 				is_available_ai_adult = yes
-				NOT = {
 					any_secret = {
+					NOT = {
 						is_known_by = root
 					}
 				}
@@ -470,39 +488,37 @@ intrigue_temptation.3000 = {
 			random_vassal = { # Save a known secret, or make a relevant one up!
 				limit = {
 					is_available_ai_adult = yes
-					any_secret = {
-						NOT = { is_known_by = root }
-					}
+					any_secret = { NOT = { is_known_by = root } }
 				}
-				alternative_limit = {
-					is_available_ai_adult = yes
-					NOT = {
-						any_secret = {
-							always = yes
+				random_secret = {
+					if = {
+						limit = { NOT = { is_known_by = scope:guest_lover } }
+						reveal_to = scope:guest_lover
+						save_scope_as = juicy_secret
 						}
 					}
+				save_scope_as = juicy_secret_owner
 				}
 				if = {
 					limit = {
 						NOT = {
-							any_secret = {
-								always = yes
-							}
+						exists = scope:juicy_secret
+						exists = scope:juicy_secret_owner
 						}
 					}
+				random_vassal = { # Save a known secret, or make a relevant one up!
+					limit = { is_available_ai_adult = yes }
 					give_random_likely_secret_effect = yes
-				}
 				random_secret = {
 					if = {
-						limit = {
-							NOT = { is_known_by = scope:guest_lover }
-						}
+							limit = { NOT = { is_known_by = scope:guest_lover } }
 						reveal_to = scope:guest_lover
 						save_scope_as = juicy_secret
 					}
 				}
 				save_scope_as = juicy_secret_owner
 			}
+		}
 		}
 		
 		had_sex_with_effect = {
@@ -1108,6 +1124,18 @@ intrigue_temptation.3011 = { #by Mathilda Bjarnehed
 	# Become lover
 	option = {
 		name = intrigue_temptation.3011.a
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:bar_servant
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
 
 		set_relation_lover = { reason = lover_wingman_introduction target = scope:bar_servant involved_character = scope:wingman province = root.capital_province }
 		had_sex_with_effect = {
@@ -1119,6 +1147,18 @@ intrigue_temptation.3011 = { #by Mathilda Bjarnehed
 	# One night stand
 	option = {
 		name = intrigue_temptation.3011.b
+		#Fixpack: Let the player chose if they want to cheat, but restrict IA to do so
+		trigger = {
+			NOT = { has_trait = celibate }
+			OR = {
+				is_ai = no
+				AND = {
+					is_attracted_to_gender_of = scope:bar_servant
+					might_cheat_on_every_partner_trigger = yes
+				}
+			}
+		}
+		#/Fixpack
 		
 			had_sex_with_effect = {
 				CHARACTER = scope:bar_servant

@@ -387,7 +387,7 @@ varangian.1002 = {
 					limit = {
 						is_ruler = yes
 					}
-					add_courtier = dynasty.dynast
+					add_courtier = scope:returning_varangian
 				}
 			}
 			else = {
@@ -934,6 +934,18 @@ varangian.2011 = {
 					employer = root.host
 					faith = root.host.faith
 					culture = root.host.culture
+
+					after_creation = {
+						#Sometimes adjust sexuality to create compatibility with root
+						if = {
+							limit = {
+								root = { is_attracted_to_gender_of = prev }
+								NOT = { is_attracted_to_gender_of = root }
+							}
+							set_sexuality = bisexual
+						}
+					}
+
 					save_scope_as = lover
 				}
 			}
@@ -946,6 +958,18 @@ varangian.2011 = {
 					faith = root.host.faith
 					culture = root.host.culture
 					dynasty = generate
+
+					after_creation = {
+						#Sometimes adjust sexuality to create compatibility with root
+						if = {
+							limit = {
+								root = { is_attracted_to_gender_of = prev }
+								NOT = { is_attracted_to_gender_of = root }
+							}
+							set_sexuality = bisexual
+						}
+					}
+
 					save_scope_as = lover
 				}
 			}
@@ -957,6 +981,18 @@ varangian.2011 = {
 					employer = root.host
 					faith = root.host.faith
 					culture = root.host.culture
+
+					after_creation = {
+						#Sometimes adjust sexuality to create compatibility with root
+						if = {
+							limit = {
+								root = { is_attracted_to_gender_of = prev }
+								NOT = { is_attracted_to_gender_of = root }
+							}
+							set_sexuality = bisexual
+						}
+					}
+
 					save_scope_as = lover
 				}
 			}
@@ -969,6 +1005,18 @@ varangian.2011 = {
 					faith = root.host.faith
 					culture = root.host.culture
 					dynasty = generate
+
+					after_creation = {
+						#Sometimes adjust sexuality to create compatibility with root
+						if = {
+							limit = {
+								root = { is_attracted_to_gender_of = prev }
+								NOT = { is_attracted_to_gender_of = root }
+							}
+							set_sexuality = bisexual
+						}
+					}
+
 					save_scope_as = lover
 				}
 			}

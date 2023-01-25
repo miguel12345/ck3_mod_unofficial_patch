@@ -1,0 +1,6 @@
+﻿l_english:
+
+#potential_lover => lover
+match_made_desc_1:0 "I brought [lover.GetFirstName] to court and matched them up with a suitor"
+match_made_desc_second_perspective_1:0 "you brought [lover.GetFirstName] to court and matched them up with a suitor"
+match_made_desc_third_perspective_1:0 "[owner.GetName] brought [lover.GetFirstName] to court and matched them up with a suitor"

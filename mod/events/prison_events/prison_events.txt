@@ -338,6 +338,9 @@ prison.1002 = { #by Mathilda Bjarnehed
 				remove_character_flag = is_being_tortured
 			}
 		}
+		#Fixpack: Add this missing effect for house feud
+		house_feud_torture_event_effect = yes
+		#/Fixpack
 	}
 }
 
@@ -412,6 +415,12 @@ prison.1003 = { #by Mathilda Bjarnehed
 		}
 			
 		torturer_interaction_recipient_effect = yes
+	}
+
+	after = {
+		#Fixpack: Add this missing effect for house feud
+		house_feud_torture_event_effect = yes
+		#/Fixpack
 	}
 }
 

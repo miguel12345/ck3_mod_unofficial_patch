@@ -44,3 +44,7 @@ interaction_debug_main = {
 	index = 7
 	desc =  "DEBUG_MAIN"
 }
+interaction_fixpack_title = {
+	index = 8
+	desc =  "FIXPACK_DEBUG_DESC"
+}

@@ -79,21 +79,22 @@ fp1_adventure_legacy_5 = { # Decentralized Rule
 		}
 		root = {
 			hidden_effect = {
-				every_relation = {
-					type = friend
-					add_to_temporary_list = decentralized_rule_friends
-				}
-				every_relation = {
-					type = best_friend
-					limit = { NOT = { is_in_list = decentralized_rule_friends } }
-					add_to_temporary_list = decentralized_rule_friends
-				}
-				every_in_list = {
-					list = decentralized_rule_friends
-					root = {
-						initial_decentralized_rule_friends_modifier_effect = yes
-					}
-				}
+				#initial_decentralized_rule_friends_modifier_effect = yes
+				#every_relation = {
+				#	type = friend
+				#	add_to_temporary_list = decentralized_rule_friends
+				#}
+				#every_relation = {
+				#	type = best_friend
+				#	limit = { NOT = { is_in_list = decentralized_rule_friends } }
+				#	add_to_temporary_list = decentralized_rule_friends
+				#}
+				#every_in_list = {
+				#	list = decentralized_rule_friends
+				#	root = {
+				#		initial_decentralized_rule_friends_modifier_effect = yes
+				#	}
+				#}
 				dynasty = {
 					every_dynasty_member = {
 						initial_decentralized_rule_friends_modifier_effect = yes

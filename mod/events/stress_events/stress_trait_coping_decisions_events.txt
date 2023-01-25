@@ -63,6 +63,7 @@ stress_trait_coping_decisions.1002 = {
 	}
 
 	trigger = {
+		is_adult = yes
 		OR = {
 			any_vassal = {
 				NOT = { has_relation_rival = root }
@@ -77,7 +78,6 @@ stress_trait_coping_decisions.1002 = {
 				is_available_ai_adult = yes
 			}
 		}
-		is_adult = yes
 	}
 
 	weight_multiplier = {
@@ -1211,6 +1211,14 @@ stress_trait_coping_decisions.7002 = {
 				}
 			}
 		}
+		#Fixpack: Check that we can have at least someone
+		any_courtier = {
+			is_adult = yes
+			NOR = {
+				has_relation_rival = root
+				has_relation_potential_rival = root
+			}
+		}
 	}
 
 	immediate = {
@@ -1255,12 +1263,19 @@ stress_trait_coping_decisions.7002 = {
 	option = {
 		name = stress_trait_coping_decisions.7001.a
 		trait = confider
+
+		if = {
+			limit = { has_relation_friend = scope:confidant }
 		scope:confidant = {
 			if = {
-				limit = { has_relation_friend = root }
-				random_relation = {
-					type = friend
-					limit = { this = root }
+					limit = { has_relation_best_friend = root }
+					add_relation_flag = {
+						target = root
+						relation = best_friend
+						flag = has_been_confided_in
+					}
+				}
+				else = {
 					add_relation_flag = {
 						target = root
 						relation = friend
@@ -1268,20 +1283,19 @@ stress_trait_coping_decisions.7002 = {
 					}
 				}
 			}
+		}
 			else = {
+			scope:confidant = {
 				set_relation_friend = {
 					reason = friend_confide
 					target = root
 				}
-				if = {
-					limit = { has_relation_friend = root }
 					add_relation_flag = {
 						target = root
 						relation = friend
 						flag = has_been_confided_in
 					}
 				}
-			}
 		}
 		every_courtier = {
 			custom = all_courtiers_except_confidant

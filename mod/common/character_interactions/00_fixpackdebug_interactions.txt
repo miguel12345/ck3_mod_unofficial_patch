@@ -1,0 +1,112 @@
+﻿give_weak_hook_interaction = {
+	category = interaction_fixpack_title
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	interface_priority = -1
+	icon = hook_icon
+
+	is_shown = {
+		debug_only = yes
+		NOT = { scope:recipient = scope:actor }
+	}
+	auto_accept = yes
+	on_accept = {
+		scope:recipient = {
+			add_hook = {
+				target = scope:actor
+				type = favor_hook
+			}
+		}
+	}
+}
+
+give_strong_hook_interaction = {
+	category = interaction_fixpack_title
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	interface_priority = -1
+	icon = hook_strong
+
+	is_shown = {
+		debug_only = yes
+		NOT = { scope:recipient = scope:actor }
+	}
+	auto_accept = yes
+	on_accept = {
+		scope:recipient = {
+			add_hook = {
+				target = scope:actor
+				type = strong_test_hook
+			}
+		}
+	}
+}
+
+check_sexual_attraction_interaction = {
+	category = interaction_fixpack_title
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	interface_priority = -1
+	icon = hook_strong
+
+	is_shown = {
+		debug_only = yes
+		NOT = { scope:recipient = scope:actor }
+	}
+
+	is_valid = {
+		fixpack_could_cheat_basics = {
+			SEDUCER = scope:actor
+			TARGET = scope:recipient
+		}
+	}
+
+	auto_accept = yes
+	on_accept = {
+		scope:recipient = {
+			add_hook = {
+				target = scope:actor
+				type = strong_test_hook
+			}
+		}
+	}
+}
+
+check_inbred_interaction = {
+	category = interaction_fixpack_title
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	interface_priority = -1
+	icon = hook_strong
+
+	is_shown = {
+		debug_only = yes
+		NOT = { scope:recipient = scope:actor }
+	}
+
+	is_valid = {
+		NOT = {
+			fixpack_is_inbred_check = {
+				CURRENT = scope:actor
+				TARGET = scope:recipient
+			}
+		}
+	}
+
+	auto_accept = yes
+	on_accept = {
+		scope:recipient = {
+			#remove_relation_best_friend = scope:actor
+			#set_relation_soldier_friend = scope:actor
+			progress_towards_rival_effect = {
+				REASON = rival_stole_from_peasants_corresponding
+				CHARACTER = scope:actor
+				OPINION = 0
+			}
+		}
+	}
+}

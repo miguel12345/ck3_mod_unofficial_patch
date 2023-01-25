@@ -1,0 +1,16 @@
+﻿######################################################################
+# Culture
+######################################################################
+
+building_enable_garden_duchy_building = {
+	trigger_if = {
+		limit = { culture = scope:holder.culture }
+		culture = { has_cultural_parameter = enable_garden_duchy_building }
+	}
+	trigger_else = {
+		OR = {
+			#scope:holder.culture = { has_cultural_parameter = enable_garden_duchy_building }
+			culture = { has_cultural_parameter = enable_garden_duchy_building }
+		}
+	}
+}

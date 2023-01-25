@@ -1313,6 +1313,9 @@ councillor_spouse_diplomacy.2002 = {
 				save_scope_as = vassal_heir_3
 			}
 		}
+
+		debug_log = "Fixpack: councillor_spouse_diplomacy.2002, vassal_heir_2 undef"
+		debug_log_scopes = yes
 	}
 
 	option = { #vassal_heir_1
@@ -1386,6 +1389,10 @@ councillor_spouse_diplomacy.2002 = {
 
 	option = { #vassal_heir_2
 		name = councillor_spouse_diplomacy.2002.b
+		#Fixpack: vassal_heir_2 can be non-existing, I don't understand why as the trigger should at least select 2 children.
+		#trigger = {
+		#	exists = scope:vassal_heir_2
+		#}
 		scope:child_heir = {
 			set_relation_friend = { reason = friend_vassal_childhood target = scope:vassal_heir_2 }
 			hidden_effect = {

@@ -9293,8 +9293,19 @@ fp1_yearly.0571 = {
 ##################################################
 
 scripted_trigger fp1_0581_wrong_gender_child_wishes_to_fight_trigger = {
+	NOT = { has_character_flag = fp1_dreams_of_shieldpersondom }
+	trigger_if = { # Has the Royal Court and thus can modify pillars
+		limit = { has_dlc_feature = diverge_culture }
+		# For ease, they must share your faith or your culture.
+		OR = {
+			culture = root.culture
+			faith = root.faith
+		}
+	}
+	trigger_else = {
 	# For ease, they must share your faith.
 	faith = root.faith
+	}
 	# Have an appropriate matching personality.
 	OR = {
 		childhood_loud_child_trigger = yes
@@ -9350,9 +9361,13 @@ fp1_yearly.0581 = {
 		is_landed = yes
 		# Filter to shieldmaiden-having culture.
 		culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+		trigger_if = { # Has the Royal Court and thus can modify pillars
+			limit = { has_dlc_feature = diverge_culture }
+			culture = { NOT = { has_cultural_parameter = martial_custom_equal_combatant } }
+		}
+		trigger_else = {
 		# Can't be following an equal faith.
-		NOT = {
-			faith = { has_doctrine = doctrine_gender_equal }
+			faith = { NOT = { has_doctrine_parameter = combatant_can_be_either_gender_if_no_roco } }
 		}
 		# Any child of yours might want to be a shieldperson when they grow up.
 		any_child = { fp1_0581_wrong_gender_child_wishes_to_fight_trigger = yes }
@@ -9366,6 +9381,26 @@ fp1_yearly.0581 = {
 			add = 1
 			has_trait = shieldmaiden
 		}
+
+		#Fixpack:Wish: Those modifiers were not included, but are also "inspiring" for the young
+		#modifier = {
+		#	add = 1
+		#	has_trait = adventurer
+		#}
+		#modifier = {
+		#	add = 1
+		#	has_trait = berserker
+		#}
+		#modifier = {
+		#	add = 1
+		#	has_trait = viking
+		#}
+		#modifier = {
+		#	add = 1
+		#	has_trait = brave
+		#}
+		# /Fixpack
+
 		# If you're of low prowess, then there's less to aspire to.
 		modifier = {
 			add = -0.5
@@ -9437,8 +9472,18 @@ fp1_yearly.0581 = {
 		}
 
 		stress_impact = {
+
+			#Fixpack:Wish: I wish it was those values instead ! It would make more sense !
+			#shieldmaiden = major_stress_impact_loss
+			#brave = major_stress_impact_loss
+			#ambitious = major_stress_impact_loss
+			#/Fixpack
+
+			#Fixpack, what are they doing here in an event like that ? Wish:disable those 2
 			sadistic = major_stress_impact_loss
 			arrogant = major_stress_impact_loss
+			#/Fixpack
+
 			compassionate = major_stress_impact_gain
 			humble = major_stress_impact_gain
 		}
@@ -9449,6 +9494,7 @@ fp1_yearly.0581 = {
 				ai_zeal = 0.5
 				ai_energy = 0.25
 			}
+			#Fixpack, what are they doing here in an event like that ? Wish:disable those 2
 			modifier = {	# Weight up for stress.
 				add = 30
 				has_trait = sadistic
@@ -9457,6 +9503,7 @@ fp1_yearly.0581 = {
 				add = 30
 				has_trait = arrogant
 			}
+			#/Fixpack
 			modifier = {	# Weight down for stress.
 				add = -30
 				has_trait = compassionate
@@ -9474,6 +9521,20 @@ fp1_yearly.0581 = {
 				add = 20
 				has_trait = adventurer
 			}
+			#Fixpack:Wish: But also Brave & Shieldmaidens & Ambitious...
+			#modifier = {
+			#	add = 20
+			#	has_trait = brave
+			#}
+			#modifier = {
+			#	add = 20
+			#	has_trait = shieldmaiden
+			#}
+			#modifier = {
+			#	add = 20
+			#	has_trait = ambitious
+			#}
+			#/Fixpack
 		}
 	}
 	
@@ -9510,8 +9571,8 @@ fp1_yearly.0581 = {
 				add = 10
 				has_trait = compassionate
 			}
-			modifier = {	# Weight down for stress.
-				add = -10
+			modifier = {	# Weight up for stress.
+				add = 10 # Fixpack: Was -10 instead
 				has_trait = gregarious
 			}
 			# Raiders & adventurers want their prodigy to follow in their footsteps.
@@ -9523,6 +9584,20 @@ fp1_yearly.0581 = {
 				add = 20
 				has_trait = adventurer
 			}
+			#Fixpack:Wish: But also Brave & Shieldmaidens & Ambitious...
+			#modifier = {
+			#	add = 20
+			#	has_trait = brave
+			#}
+			#modifier = {
+			#	add = 20
+			#	has_trait = shieldmaiden
+			#}
+			#modifier = {
+			#	add = 20
+			#	has_trait = ambitious
+			#}
+			#/Fixpack
 		}
 	}
 	
@@ -9609,6 +9684,8 @@ fp1_yearly.0581 = {
 			impatient = minor_stress_impact_loss
 			compassionate = minor_stress_impact_gain
 			patient = minor_stress_impact_gain
+			#Fixpack:Wish: A shieldmaiden should not chose this !
+			#shieldmaiden = major_stress_impact_gain
 		}
 		ai_chance = {
 			base = 100
@@ -9636,6 +9713,11 @@ fp1_yearly.0581 = {
 				add = -10
 				has_trait = patient
 			}
+			#Fixpack:Wish: A shieldmaiden should not chose this !
+			#modifier = {	# Weight down for stress.
+			#	add = -50
+			#	has_trait = shieldmaiden
+			#}
 		}
 	}
 
@@ -10703,12 +10785,12 @@ fp1_yearly.0621 = {
 				ai_compassion = 0.5
 				ai_greed = -0.5
 			}
-			modifier = {	# Weight up for stress.
-				add = 20
-				has_trait = greedy
-			}
 			modifier = {	# Weight down for stress.
 				add = -20
+				has_trait = greedy
+			}
+			modifier = {	# Weight up for stress.
+				add = 20
 				has_trait = generous
 			}
 		}
@@ -14884,7 +14966,13 @@ scripted_trigger fp1_funeral_longship_likes_hunting = {
 scripted_trigger fp1_funeral_longship_likes_magic = {
 	has_trait = mystic_3
 	# Faith must consider this an actively good thing (since Norse paganism's complicated relationship with witchcraft _tended_ towards the negative).
-	faith = { has_doctrine = doctrine_witchcraft_accepted }
+	faith = {
+		OR = {
+			has_doctrine_parameter = witchcraft_accepted
+			trait_is_virtue = mystic_3
+		}
+		NOT = { has_doctrine_parameter = witchcraft_illegal }
+	}
 }
 
 

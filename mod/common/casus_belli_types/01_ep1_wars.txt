@@ -447,15 +447,6 @@ reclaim_relic_artifact_war = {
 				value = medium_prestige_value
 				desc = CB_BASE_COST
 			}
-			if = {
-				limit = {
-					scope:attacker = { has_government = tribal_government }
-				}
-				multiply = {
-					value = 0.5
-					desc = CB_TRIBAL_COST
-				}
-			}
 
 			multiply = common_cb_prestige_cost_multiplier
 		}

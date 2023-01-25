@@ -27,14 +27,9 @@ feast_main_stew_flood.0001 = {
 	hidden = yes
 
 	trigger = {
-		OR = {
-			scope:activity.activity_owner = {
-				NOT = { has_variable = last_feast_was }
-			}
-			AND = {
-				scope:activity.activity_owner = { has_variable = last_feast_was }
-				scope:activity.activity_owner.var:last_feast_was = flag:stew_flood
-			}
+		trigger_if = {
+			limit = { scope:activity.activity_owner = { has_variable = last_feast_was } }
+			NOT = { scope:activity.activity_owner.var:last_feast_was = flag:stew_flood }
 		}
 	}
 
