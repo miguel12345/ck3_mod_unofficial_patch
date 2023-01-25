@@ -1,0 +1,26 @@
+{
+  "folders": [
+    {
+      "path": "C:/projects/pessoal/ck3_mod_unofficial_patch"
+    },
+    {
+	  "name":"other_mods",
+      "path": "C:/Program Files (x86)/Steam/steamapps/workshop/content/1158310"
+    },
+    {
+      "name":"vanilla_game",
+      "path": "C:/Program Files (x86)/Steam/steamapps/common/Crusader Kings III"
+    },
+    {
+	"name":"game_logs",
+      "path": "C:/Users/Utilizador/Documents/Paradox Interactive/Crusader Kings III/logs"
+    },
+    {
+	"name":"game_api",
+      "path": "C:/projects/pessoal/crusader-kings-3-triggers-modifiers-effects-event-scopes-targets-on-actions-code-revisions-list"
+    }
+  ],
+  "settings": {
+	"window.title": "Unofficial patch"
+  }
+}
