@@ -1,0 +1,7 @@
+﻿To stage changes that are not just whitespace changes, you can do:
+
+git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -
+
+Afterwards, to remove all unstaged changes (those changes that differ only in whitespace), you can do:
+
+git checkout .
